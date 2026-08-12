@@ -1,0 +1,166 @@
+<!--Chat-bot-->
+<div id="chatbot-toggle">💬</div>
+
+<div id="chatbot">
+  <div id="chatbot-header">AgriBot 🌿</div>
+  <div id="chatbot-messages"></div>
+  <div id="chatbot-input-area">
+    <input type="text" id="chatbot-input" placeholder="Ask me anything..." />
+    <button id="chatbot-send">Send</button>
+  </div>
+</div>
+
+<!-- Chatbot Styles -->
+<style>
+  /* Chatbot toggle button */
+  #chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  /* Chatbot box */
+  #chatbot {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: #e8f5e9;
+    border: 2px solid #4CAF50;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(0, 128, 0, 0.3);
+  }
+
+  /* Chatbot header */
+  #chatbot-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  /* Chatbot messages area */
+  #chatbot-messages {
+    padding: 10px;
+    height: 250px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+
+  /* Chatbot input area */
+  #chatbot-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #c8e6c9;
+  }
+
+  #chatbot-input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  #chatbot-send {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #chatbot-send:hover {
+    background-color: #388E3C;
+  }
+</style>
+
+<!-- Chatbot Script -->
+<script>
+  const chatbotToggle = document.getElementById("chatbot-toggle");
+  const chatbot = document.getElementById("chatbot");
+  const chatbotSend = document.getElementById("chatbot-send");
+  const chatbotMessages = document.getElementById("chatbot-messages");
+  const chatbotInput = document.getElementById("chatbot-input");
+
+  // Toggle chatbot visibility
+  chatbotToggle.addEventListener("click", () => {
+    chatbot.style.display = chatbot.style.display === "none" ? "flex" : "none";
+  });
+
+  // Handle sending messages
+  chatbotSend.addEventListener("click", async () => {
+    const userMessage = chatbotInput.value.trim();
+    if (userMessage) {
+      // Display user message
+      const userMessageElement = document.createElement("div");
+      userMessageElement.textContent = `You: ${userMessage}`;
+      userMessageElement.style.textAlign = "right";
+      chatbotMessages.appendChild(userMessageElement);
+
+      // Show "typing..." indicator
+      const typingIndicator = document.createElement("div");
+      typingIndicator.textContent = "Bot is typing...";
+      chatbotMessages.appendChild(typingIndicator);
+
+      // Call AIML API for bot response
+      try {
+        const apiKey = "82b31281122146978c620d635a2e4936"; // Replace with your actual API key
+        const response = await fetch("https://api.aimlapi.com/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({ message: userMessage }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`API Error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        const botMessage = data.reply || "Sorry, I couldn't understand that.";
+
+        // Display bot response
+        const botMessageElement = document.createElement("div");
+        botMessageElement.textContent = `Bot: ${botMessage}`;
+        chatbotMessages.appendChild(botMessageElement);
+      } catch (error) {
+        // Display error message
+        const errorMessageElement = document.createElement("div");
+        errorMessageElement.textContent = `Error: ${error.message}`;
+        chatbotMessages.appendChild(errorMessageElement);
+      } finally {
+        // Remove "typing..." indicator
+        typingIndicator.remove();
+      }
+
+      // Clear input and scroll to the bottom
+      chatbotInput.value = "";
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  });
+</script>
+  </body>
+</html>
