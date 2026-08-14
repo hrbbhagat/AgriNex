@@ -2,10 +2,46 @@ import os
 import streamlit as st
 import pandas as pd
 import joblib
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import RandomForestClassifier
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-model = joblib.load(os.path.join(BASE_DIR, 'fertilizer_model.pkl'))
-preprocessor = joblib.load(os.path.join(BASE_DIR, 'preprocessor.pkl'))
+DATA_PATH = os.path.join(BASE_DIR, 'data_core.csv')
+MODEL_PATH = os.path.join(BASE_DIR, 'fertilizer_model.pkl')
+PREPROCESSOR_PATH = os.path.join(BASE_DIR, 'preprocessor.pkl')
+
+
+@st.cache_resource(show_spinner="Training model on first run…")
+def load_or_train_model():
+    """
+    Load pre-trained model if available and compatible, otherwise train fresh
+    from data_core.csv. Training on the deployment environment avoids
+    scikit-learn version mismatch errors with serialised .pkl files.
+    """
+    df = pd.read_csv(DATA_PATH)
+    df.columns = df.columns.str.strip()
+
+    X = df[['Temparature', 'Humidity', 'Moisture', 'Soil Type', 'Crop Type',
+             'Nitrogen', 'Potassium', 'Phosphorous']]
+    y = df['Fertilizer Name']
+
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ('cat', OneHotEncoder(sparse_output=False, handle_unknown='ignore'),
+             ['Soil Type', 'Crop Type'])
+        ],
+        remainder='passthrough'
+    )
+    X_processed = preprocessor.fit_transform(X)
+
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model.fit(X_processed, y)
+
+    return model, preprocessor
+
+
+model, preprocessor = load_or_train_model()
 
 st.title("🌱 Crop Fertilizer Recommender")
 st.markdown("Enter soil, crop, and environmental conditions to get fertilizer recommendations.")
@@ -26,9 +62,9 @@ with st.form("input_form"):
     with col4:
         soil_type = st.selectbox("Soil Type", ["Sandy", "Loamy", "Black", "Red", "Clayey"])
     with col5:
-        crop_type = st.selectbox("Crop Type", ["Maize", "Sugarcane", "Cotton", "Tobacco", "Paddy", 
-                                              "Barley", "Wheat", "Millets", "Oil seeds", "Pulses", 
-                                              "Ground Nuts"])
+        crop_type = st.selectbox("Crop Type", ["Maize", "Sugarcane", "Cotton", "Tobacco", "Paddy",
+                                               "Barley", "Wheat", "Millets", "Oil seeds", "Pulses",
+                                               "Ground Nuts"])
 
     st.subheader("Nutrient Levels (ppm)")
     col6, col7, col8 = st.columns(3)
@@ -40,8 +76,8 @@ with st.form("input_form"):
         phosphorous = st.number_input("Phosphorous (P)", min_value=0, max_value=100, value=15)
 
     submitted = st.form_submit_button("Recommend Fertilizer")
+
 if submitted:
-    
     input_data = pd.DataFrame({
         'Temparature': [temperature],
         'Humidity': [humidity],
@@ -56,6 +92,5 @@ if submitted:
     processed_data = preprocessor.transform(input_data)
     prediction = model.predict(processed_data)[0]
 
- 
     st.success(f"**Recommended Fertilizer:** {prediction}")
     st.balloons()
