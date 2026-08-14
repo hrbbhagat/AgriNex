@@ -21,3 +21,7 @@ graphify-out/GRAPH_*
 # Keep required assets for the Streamlit plant disease app
 !PLANT-DISEASE-IDENTIFICATION/trained_plant_disease_model.keras
 !PLANT-DISEASE-IDENTIFICATION/Diseases.png
+
+# Keep required assets for the Streamlit fertilizer app
+!fertilizer_prediction/fertilizer_prediction/fertilizer_model.pkl
+!fertilizer_prediction/fertilizer_prediction/preprocessor.pkl
