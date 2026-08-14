@@ -1,1 +1,124 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Crop Prediction | AgriNex</title><meta name="description" content="Get AI-powered crop recommendations based on soil nutrients and local growing conditions."><link rel="stylesheet" href="styles.css"></head><body><nav class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html">Agri<span>Nex</span><sup> AI</sup></a><div class="links"><a href="index.html">Home</a><a href="dashboard.html">My dashboard</a><a class="active" href="crop-prediction.html">Crop prediction</a><a href="fertilizer.html">Fertilizer guide</a><a href="farmer-hub.html">Farmer hub</a></div><div class="apps-menu"><button class="button apps-toggle" id="apps-toggle-btn" aria-expanded="false" aria-haspopup="true">Live AI apps ▾</button><div class="apps-dropdown" id="apps-dropdown" role="menu"><a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener"><span class="apps-icon">🌾</span><span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span></a><a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener"><span class="apps-icon">⚗</span><span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span></a><a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener"><span class="apps-icon">🔬</span><span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span></a></div></div><button class="menu" data-nav-toggle>☰</button></div></nav><main><section class="page-hero"><div class="wrap"><p class="breadcrumb">HOME / CROP PREDICTION</p><h1 class="serif">Choose a crop with your field in mind.</h1><p>Turn soil nutrients and local growing conditions into a clearer crop choice. The full crop recommendation model is already live.</p><div class="hero-actions" style="margin-top:28px"><a class="button" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Open live crop recommender ↗</a><a class="button secondary" href="dashboard.html">Back to dashboard</a></div></div></section><section><div class="wrap grid-2"><article class="card lime"><p class="eyebrow">Available now</p><h3>Smart Crop Recommendations</h3><p>The deployed Streamlit app is ready for farmers to enter nutrient and environment values and receive a crop recommendation.</p><a class="button secondary" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Launch the live app</a></article><div><p class="eyebrow">How to get a better answer</p><h2 class="serif" style="font-size:43px;line-height:1;margin:12px 0">Bring the right field details.</h2><div class="timeline"><div class="timeline-item"><b>Use a recent soil test</b><br><small>Have nitrogen, phosphorus, potassium and pH values ready.</small></div><div class="timeline-item"><b>Check local conditions</b><br><small>Add rainfall, humidity and temperature from your field or nearby station.</small></div><div class="timeline-item"><b>Compare with your season plan</b><br><small>Consider water availability, local demand and agronomist advice before sowing.</small></div></div></div></div></section><section class="band"><div class="wrap"><div class="section-head"><p class="eyebrow">What the model considers</p><h2 class="serif">A crop choice is more than one number.</h2></div><div class="grid-3"><article class="card"><div class="icon">NPK</div><h3>Soil nutrients</h3><p>Nitrogen, phosphorus and potassium give the model a view of your field's nutrient position.</p></article><article class="card"><div class="icon">☂</div><h3>Growing weather</h3><p>Rainfall, humidity and temperature help compare likely crop conditions.</p></article><article class="card"><div class="icon">pH</div><h3>Soil reaction</h3><p>pH is included so the recommendation better reflects what your soil can support.</p></article></div></div></section><section><div class="wrap"><div class="section-head"><p class="eyebrow">All three AI tools — deployed now</p><h2 class="serif">Crop prediction is just the beginning.</h2><p>Use all three live apps together for a connected field plan — crop choice, nutrient balance and plant health in one workflow.</p></div><div class="grid-3"><article class="card lime"><div class="icon">🌾</div><h3>Crop Recommender</h3><p>Already live. Enter soil nutrients and environment values for a data-driven crop suggestion.</p><a class="button secondary" style="margin-top:16px" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Open app ↗</a></article><article class="card"><div class="icon">⚗</div><h3>Fertilizer Prediction</h3><p>Now live. Input NPK levels, soil and crop type to get an AI fertilizer recommendation.</p><a class="button secondary" style="margin-top:16px" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Open app ↗</a></article><article class="card dark"><div class="icon" style="background:#265a3d">🔬</div><h3>Plant Disease ID</h3><p>Now live. Upload a leaf photo and the model identifies which disease is affecting your crop.</p><a class="button secondary" style="margin-top:16px;background:transparent;color:#bde548;border-color:#bde548" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Open app ↗</a></article></div></div></section></main><footer class="footer"><div class="wrap footer-grid"><div><a class="brand" href="index.html" style="color:white">Agri<span>Nex</span></a><p>Practical farm intelligence for crop, nutrition and season planning.</p></div><div><b>Platform</b><a href="dashboard.html">Farm dashboard</a><a href="crop-prediction.html">Crop prediction</a><a href="fertilizer.html">Fertilizer guide</a></div><div><b>Live AI apps</b><a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Crop recommender ↗</a><a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Fertilizer prediction ↗</a><a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Plant disease ID ↗</a></div><div><b>Guidance</b><a href="farmer-hub.html">Farmer hub</a><a href="farmer-hub.html#calendar">Season calendar</a><a href="farmer-hub.html#records">Field records</a></div></div><div class="wrap bottom">© 2026 AgriNex AI · Live model links powered by AgriNex Streamlit apps.</div></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop AI Recommendation | AgriNex AI</title>
+  <meta name="description" content="AI-powered crop recommendation engine based on soil nutrients NPK, pH, and local weather conditions.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi,mr,bn,ta,te,gu,pa,kn,ml,or,as,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="wrap top-bar-inner">
+      <div class="top-bar-notice">
+        <span class="badge">Live AI</span>
+        <span>Smart Crop Recommendation Machine Learning Model Deployed</span>
+      </div>
+      <div class="lang-selector">
+        <span style="color:#a3b899;font-size:12px">🌐 Language:</span>
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Agri<span>Nex</span><sup>AI</sup></a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a class="active" href="crop-prediction.html">Crop AI</a>
+        <a href="fertilizer.html">Fertilizer AI</a>
+        <a href="disease-detection.html">Disease ID</a>
+        <a href="mandi-schemes.html">Mandi & Schemes</a>
+        <a href="farmer-hub.html">Farmer Hub</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-voice" id="btn-voice">🎤 Voice Search</button>
+        <div class="apps-menu">
+          <button class="button apps-toggle" id="apps-toggle-btn">Live AI apps ▾</button>
+          <div class="apps-dropdown" id="apps-dropdown">
+            <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">🌾</span>
+              <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
+            </a>
+            <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">⚗</span>
+              <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
+            </a>
+            <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">🔬</span>
+              <span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <button class="menu" data-nav-toggle>☰</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" style="padding:70px 0 50px">
+      <div class="wrap">
+        <p class="breadcrumb" style="color:var(--lime-accent);font-weight:700;font-size:13px">HOME / CROP AI RECOMMENDATION</p>
+        <h1 class="serif" style="margin-top:10px">Optimize Crop Selection with AI</h1>
+        <p style="max-width:680px">Input your soil Nitrogen, Phosphorus, Potassium, pH, rainfall, and temperature values to discover the best crops for your land.</p>
+        <div class="hero-actions" style="margin-top:24px">
+          <a class="button" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Open Live Streamlit Crop Recommender ↗</a>
+          <a class="button secondary" href="dashboard.html">Return to Dashboard</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid-2">
+        <article class="card lime">
+          <p class="eyebrow" style="color:var(--text-dark)">Live Deployed Application</p>
+          <h3 style="color:var(--text-dark)">Smart Crop Recommender App</h3>
+          <p style="color:var(--text-dark)">The deployed Streamlit model evaluates soil and environmental attributes to recommend optimal crops (Rice, Maize, Cotton, Wheat, Pulses, etc.).</p>
+          <a class="button secondary" style="margin-top:20px;background:var(--text-dark);color:var(--lime-accent);border-color:var(--text-dark)" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Launch Live App ↗</a>
+        </article>
+
+        <div>
+          <p class="eyebrow">Input Parameters Required</p>
+          <h2 class="serif" style="font-size:38px;line-height:1.1;margin:12px 0">What the Model Evaluates</h2>
+          <div class="task">
+            <span class="number">1</span>
+            <span><b>Soil NPK & pH Ratios</b><br><small>Essential macronutrient levels and acidity rating.</small></span>
+          </div>
+          <div class="task">
+            <span class="number">2</span>
+            <span><b>Rainfall & Temperature</b><br><small>Seasonal moisture and climate temperature range.</small></span>
+          </div>
+          <div class="task">
+            <span class="number">3</span>
+            <span><b>Humidity Percentage</b><br><small>Atmospheric moisture level during crop growth.</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap bottom" style="margin-top:0">
+      © 2026 AgriNex AI • Crop Recommendation Machine Learning Engine
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

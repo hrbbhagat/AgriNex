@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mandi Prices & Government Schemes | AgriNex AI</title>
+  <meta name="description" content="Live Mandi commodity prices for Wheat, Paddy, Cotton, Mustard and guidance on government schemes like PM-KISAN, PMFBY, and Soil Health Card.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi,mr,bn,ta,te,gu,pa,kn,ml,or,as,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="wrap top-bar-inner">
+      <div class="top-bar-notice">
+        <span class="badge">Live Intelligence</span>
+        <span>Real-time Mandi Rates updated for major Indian Agricultural Markets</span>
+      </div>
+      <div class="lang-selector">
+        <span style="color:#a3b899;font-size:12px">🌐 Language:</span>
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Agri<span>Nex</span><sup>AI</sup></a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crop-prediction.html">Crop AI</a>
+        <a href="fertilizer.html">Fertilizer AI</a>
+        <a href="disease-detection.html">Disease ID</a>
+        <a class="active" href="mandi-schemes.html">Mandi & Schemes</a>
+        <a href="farmer-hub.html">Farmer Hub</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-voice" id="btn-voice">🎤 Voice Search</button>
+        <div class="apps-menu">
+          <button class="button apps-toggle" id="apps-toggle-btn">Live AI apps ▾</button>
+          <div class="apps-dropdown" id="apps-dropdown">
+            <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">🌾</span>
+              <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
+            </a>
+            <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">⚗</span>
+              <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
+            </a>
+            <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">🔬</span>
+              <span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <button class="menu" data-nav-toggle>☰</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" style="padding:70px 0 50px">
+      <div class="wrap">
+        <p class="breadcrumb" style="color:var(--lime-accent);font-weight:700;font-size:13px">HOME / MANDI PRICES & GOVERNMENT SCHEMES</p>
+        <h1 class="serif" style="margin-top:10px">Market Commodity Prices & Subsidies</h1>
+        <p style="max-width:680px">Check today's Mandi market rates across commodities and explore official government financial assistance schemes for Indian farmers.</p>
+      </div>
+    </section>
+
+    <!-- Mandi Commodity Prices Section -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Daily Commodity Tracker</p>
+          <h2 class="serif">Live APMC Mandi Rates</h2>
+          <div style="margin-top:16px;max-width:400px">
+            <input type="text" id="mandi-search" placeholder="🔍 Search crop or Mandi state..." style="width:100%;padding:14px;background:#06110a;border:1px solid var(--border-dark);border-radius:var(--radius-sm);color:#fff">
+          </div>
+        </div>
+
+        <div class="mandi-grid">
+          <div class="mandi-card">
+            <div class="crop-name">🌾 Wheat (Gehun)</div>
+            <div style="font-size:12px;color:var(--text-muted-light)">Khanna Mandi, Punjab</div>
+            <div class="price">₹2,275 <span style="font-size:14px;color:var(--text-muted-light)">/ Quintal</span></div>
+            <div class="trend-up">▲ +₹25 (MSP Compliant)</div>
+          </div>
+          <div class="mandi-card">
+            <div class="crop-name">🍚 Paddy (Dhan - Common)</div>
+            <div style="font-size:12px;color:var(--text-muted-light)">Karnal Mandi, Haryana</div>
+            <div class="price">₹2,183 <span style="font-size:14px;color:var(--text-muted-light)">/ Quintal</span></div>
+            <div class="trend-up">▲ +₹15 (MSP Grade A)</div>
+          </div>
+          <div class="mandi-card">
+            <div class="crop-name">☁️ Cotton (Kapas)</div>
+            <div style="font-size:12px;color:var(--text-muted-light)">Rajkot Mandi, Gujarat</div>
+            <div class="price">₹7,020 <span style="font-size:14px;color:var(--text-muted-light)">/ Quintal</span></div>
+            <div class="trend-up">▲ +₹110 (Strong Demand)</div>
+          </div>
+          <div class="mandi-card">
+            <div class="crop-name">🟡 Mustard (Sarson)</div>
+            <div style="font-size:12px;color:var(--text-muted-light)">Bharatpur Mandi, Rajasthan</div>
+            <div class="price">₹5,650 <span style="font-size:14px;color:var(--text-muted-light)">/ Quintal</span></div>
+            <div class="trend-up">▲ +₹40 (High Oil Yield)</div>
+          </div>
+          <div class="mandi-card">
+            <div class="crop-name">🌽 Maize (Makka)</div>
+            <div style="font-size:12px;color:var(--text-muted-light)">Davangere Mandi, Karnataka</div>
+            <div class="price">₹2,090 <span style="font-size:14px;color:var(--text-muted-light)">/ Quintal</span></div>
+            <div class="trend-up">▲ +₹20 (Stable Market)</div>
+          </div>
+          <div class="mandi-card">
+            <div class="crop-name">🥜 Groundnut (Moongphali)</div>
+            <div style="font-size:12px;color:var(--text-muted-light)">Junagadh Mandi, Gujarat</div>
+            <div class="price">₹6,375 <span style="font-size:14px;color:var(--text-muted-light)">/ Quintal</span></div>
+            <div class="trend-up">▲ +₹85 (Export Quality)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Government Schemes Section -->
+    <section class="band" id="schemes">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Government Farmer Support</p>
+          <h2 class="serif">National Welfare & Subsidy Schemes</h2>
+          <p>Key government schemes designed to provide financial aid, crop insurance, and soil health testing.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="scheme-card">
+            <span class="scheme-badge">Financial Aid</span>
+            <h4>PM-KISAN Samman Nidhi</h4>
+            <p>Direct income support of ₹6,000 per year transferred into farmer bank accounts in 3 equal installments.</p>
+            <a href="https://pmkisan.gov.in/" target="_blank" rel="noopener" class="text-link">Official PM-KISAN Portal ↗</a>
+          </div>
+
+          <div class="scheme-card">
+            <span class="scheme-badge">Crop Insurance</span>
+            <h4>Pradhan Mantri Fasal Bima Yojana (PMFBY)</h4>
+            <p>Comprehensive crop insurance covering yield loss due to non-preventable natural risks, hail, drought, and flood.</p>
+            <a href="https://pmfby.gov.in/" target="_blank" rel="noopener" class="text-link">Official PMFBY Portal ↗</a>
+          </div>
+
+          <div class="scheme-card">
+            <span class="scheme-badge">Soil Health</span>
+            <h4>Soil Health Card Scheme</h4>
+            <p>Provides farmers with soil nutrient status cards every 2 years along with customized fertilizer dosages.</p>
+            <a href="https://soilhealth.dac.gov.in/" target="_blank" rel="noopener" class="text-link">Soil Health Portal ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap bottom" style="margin-top:0">
+      © 2026 AgriNex AI • Mandi Commodity Rates & Govt Schemes Guide
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fertilizer AI Guide | AgriNex AI</title>
-  <meta name="description" content="AI fertilizer prediction tool. Calculate NPK nutrient deficiencies and optimal fertilizer formulations for your soil.">
+  <title>Plant Disease ID | AgriNex AI</title>
+  <meta name="description" content="Identify crop diseases instantly using AI computer vision models. Upload leaf photos for instant diagnosis and treatment advice.">
   <link rel="stylesheet" href="styles.css">
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
@@ -25,7 +25,7 @@
     <div class="wrap top-bar-inner">
       <div class="top-bar-notice">
         <span class="badge">Live AI</span>
-        <span>Fertilizer Recommendation Random Forest Classifier Deployed</span>
+        <span>Plant Disease CNN Classifier powered by TensorFlow / Keras</span>
       </div>
       <div class="lang-selector">
         <span style="color:#a3b899;font-size:12px">🌐 Language:</span>
@@ -42,8 +42,8 @@
         <a href="index.html">Home</a>
         <a href="dashboard.html">Dashboard</a>
         <a href="crop-prediction.html">Crop AI</a>
-        <a class="active" href="fertilizer.html">Fertilizer AI</a>
-        <a href="disease-detection.html">Disease ID</a>
+        <a href="fertilizer.html">Fertilizer AI</a>
+        <a class="active" href="disease-detection.html">Disease ID</a>
         <a href="mandi-schemes.html">Mandi & Schemes</a>
         <a href="farmer-hub.html">Farmer Hub</a>
       </div>
@@ -74,11 +74,11 @@
   <main>
     <section class="hero" style="padding:70px 0 50px">
       <div class="wrap">
-        <p class="breadcrumb" style="color:var(--lime-accent);font-weight:700;font-size:13px">HOME / FERTILIZER AI GUIDE</p>
-        <h1 class="serif" style="margin-top:10px">Balanced Soil Nutrition Planning</h1>
-        <p style="max-width:680px">Calculate NPK deficiency and receive precise fertilizer recommendations (Urea, DAP, NPK 10-26-26, SSP) for your crops.</p>
+        <p class="breadcrumb" style="color:var(--lime-accent);font-weight:700;font-size:13px">HOME / PLANT DISEASE IDENTIFICATION</p>
+        <h1 class="serif" style="margin-top:10px">Detect Crop Diseases Before Spreading</h1>
+        <p style="max-width:680px">Upload a photo of any affected plant leaf to receive an instant AI diagnosis, confidence score, and recommended treatment options.</p>
         <div class="hero-actions" style="margin-top:24px">
-          <a class="button" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Open Live Fertilizer Streamlit App ↗</a>
+          <a class="button" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Open Deployed Streamlit Disease App ↗</a>
         </div>
       </div>
     </section>
@@ -87,78 +87,44 @@
       <div class="wrap grid-2">
         <div>
           <div class="section-head">
-            <p class="eyebrow">Quick Nutrient Calculator</p>
-            <h2 class="serif">Enter Soil & NPK Parameters</h2>
+            <p class="eyebrow">Leaf Scanner Tool</p>
+            <h2 class="serif">Upload Plant Leaf Image</h2>
+            <p>Select a clear photo of the infected leaf area for AI classification.</p>
           </div>
           
-          <form class="card" data-fert-form>
-            <div class="form-grid">
-              <div class="field">
-                <label>Crop Type</label>
-                <select name="crop">
-                  <option>Rice</option>
-                  <option>Maize</option>
-                  <option>Wheat</option>
-                  <option>Cotton</option>
-                  <option>Groundnut</option>
-                  <option>Sugarcane</option>
-                </select>
-              </div>
-              <div class="field">
-                <label>Soil Type</label>
-                <select name="soil">
-                  <option>Loamy</option>
-                  <option>Black</option>
-                  <option>Red</option>
-                  <option>Sandy</option>
-                  <option>Clayey</option>
-                </select>
-              </div>
-              <div class="field">
-                <label>Soil Moisture %</label>
-                <input name="moisture" type="number" value="38">
-              </div>
-              <div class="field">
-                <label>Nitrogen (N ppm)</label>
-                <input name="n" type="number" value="20">
-              </div>
-              <div class="field">
-                <label>Phosphorus (P ppm)</label>
-                <input name="p" type="number" value="15">
-              </div>
-              <div class="field">
-                <label>Potassium (K ppm)</label>
-                <input name="k" type="number" value="10">
-              </div>
-            </div>
-            <button class="button" style="margin-top:24px;width:100%" type="submit">Calculate Fertilizer Direction</button>
-            <div class="result" data-fert-result></div>
-          </form>
+          <label class="scanner-area">
+            <div style="font-size:48px;margin-bottom:12px">📷</div>
+            <h3 style="margin:0;color:var(--lime-accent);font-size:20px">Click to Select or Drop Leaf Photo</h3>
+            <p style="margin:8px 0 0;font-size:14px;color:var(--text-muted-light)">Supports JPG, PNG images • Max size 10MB</p>
+            <input type="file" id="disease-file" accept="image/*">
+          </label>
+
+          <div class="result" id="disease-result"></div>
         </div>
 
         <aside>
           <article class="card lime">
-            <p class="eyebrow" style="color:var(--text-dark)">Best Fertilizer Practices</p>
-            <h3 style="color:var(--text-dark)">3 Essential Habits</h3>
+            <p class="eyebrow">How AI Diagnostic Works</p>
+            <h3 style="color:var(--text-dark)">3 Steps to Healthy Crops</h3>
             <div class="task">
               <span class="number">1</span>
-              <span><b>Soil Test Verification</b><br><small>Test NPK levels every 2 seasons using Soil Health Card.</small></span>
+              <span><b>Capture clear leaf image</b><br><small>Focus on spotted or discolored leaf surfaces.</small></span>
             </div>
             <div class="task">
               <span class="number">2</span>
-              <span><b>Rainfall Timing</b><br><small>Avoid applying top-dress urea right before heavy rainfall.</small></span>
+              <span><b>Run CNN Model</b><br><small>The model compares features across 38 plant disease classes.</small></span>
             </div>
             <div class="task">
               <span class="number">3</span>
-              <span><b>Split Dosing</b><br><small>Apply Nitrogen in split doses to improve crop uptake.</small></span>
+              <span><b>Apply targeted remedies</b><br><small>Get organic & chemical treatment options.</small></span>
             </div>
           </article>
 
           <article class="card dark" style="margin-top:24px">
-            <p class="eyebrow" style="color:var(--lime-accent)">Live Deployed Predictor</p>
+            <p class="eyebrow" style="color:var(--lime-accent)">Live Deployed Application</p>
             <h3>Full Streamlit Classifier</h3>
-            <p>Our complete Random Forest classifier is deployed live on Streamlit Cloud.</p>
-            <a class="button secondary" style="margin-top:16px;border-color:var(--lime-accent);color:var(--lime-accent)" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Launch Streamlit App ↗</a>
+            <p>The complete deep-learning plant disease application is deployed live on Streamlit Cloud.</p>
+            <a class="button secondary" style="margin-top:16px;border-color:var(--lime-accent);color:var(--lime-accent)" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Launch Streamlit App ↗</a>
           </article>
         </aside>
       </div>
@@ -167,7 +133,7 @@
 
   <footer class="footer">
     <div class="wrap bottom" style="margin-top:0">
-      © 2026 AgriNex AI • Fertilizer Recommendation Engine
+      © 2026 AgriNex AI • Plant Disease Diagnostic Tool
     </div>
   </footer>
 

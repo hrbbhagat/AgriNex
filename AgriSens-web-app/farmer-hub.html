@@ -1,1 +1,151 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Farmer Hub | AgriNex</title><meta name="description" content="Farmer Hub — practical crop-stage routines, field records and seasonal calendar for smarter farm decisions."><link rel="stylesheet" href="styles.css"></head><body><nav class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html">Agri<span>Nex</span><sup> AI</sup></a><div class="links"><a href="index.html">Home</a><a href="dashboard.html">My dashboard</a><a href="crop-prediction.html">Crop prediction</a><a href="fertilizer.html">Fertilizer guide</a><a class="active" href="farmer-hub.html">Farmer hub</a></div><div class="apps-menu"><button class="button apps-toggle" id="apps-toggle-btn" aria-expanded="false" aria-haspopup="true">Live AI apps ▾</button><div class="apps-dropdown" id="apps-dropdown" role="menu"><a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener"><span class="apps-icon">🌾</span><span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span></a><a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener"><span class="apps-icon">⚗</span><span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span></a><a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener"><span class="apps-icon">🔬</span><span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span></a></div></div><button class="menu" data-nav-toggle>☰</button></div></nav><main><section class="page-hero"><div class="wrap"><p class="breadcrumb">HOME / FARMER HUB</p><h1 class="serif">Practical routines for a stronger season.</h1><p>Farmer Hub is a calm place to see what to observe, record and plan next—beyond an AI prediction.</p></div></section><section id="calendar"><div class="wrap"><div class="section-head"><p class="eyebrow">Season calendar</p><h2 class="serif">Keep the important farm moments visible.</h2><p>Use this seasonal framework as a reminder list and adapt it to your crop, location and local extension advice.</p></div><div class="grid-3"><article class="card lime"><p class="eyebrow">Now · Vegetative phase</p><h3>Observe growth</h3><p>Walk the field, watch leaf colour, note rainfall and keep weeds from competing with young crops.</p><a class="text-link" href="dashboard.html">See today's field tasks →</a></article><article class="card"><p class="eyebrow">Next · Flowering phase</p><h3>Protect potential yield</h3><p>Review water availability, scout for pests and avoid avoidable plant stress during sensitive growth.</p></article><article class="card dark"><p class="eyebrow" style="color:#bde548">Later · Harvest phase</p><h3>Prepare your records</h3><p>Track expected harvest date, likely yield, costs and local buyers before the crop is ready.</p></article></div></div></section><section class="band" id="records"><div class="wrap grid-2"><div><p class="eyebrow">Simple field records</p><h2 class="serif" style="font-size:46px;line-height:1;margin:12px 0">Small notes make better decisions.</h2><p>Record these items after each important field visit. They help make future crop and fertilizer recommendations more useful.</p><a class="button" href="dashboard.html">Review my dashboard</a></div><div class="card"><div class="task"><span class="number">✓</span><span><b>Rainfall and irrigation</b><br><small>Date, amount and any water stress noticed.</small></span></div><div class="task"><span class="number">✓</span><span><b>Nutrient applications</b><br><small>Product, quantity, field section and date.</small></span></div><div class="task"><span class="number">✓</span><span><b>Plant observations</b><br><small>Leaf colour, pests, disease signs or unusual patches.</small></span></div><div class="task"><span class="number">✓</span><span><b>Costs and expected yield</b><br><small>Useful for planning the next season.</small></span></div></div></div></section><section><div class="wrap"><div class="section-head"><p class="eyebrow">Farmer-first support</p><h2 class="serif">Use AI as a helpful starting point.</h2></div><div class="grid-3"><article class="card"><div class="icon">🌦</div><h3>Plan with weather</h3><p>Check expected rainfall before fertilizing, irrigating or scheduling a long field day.</p></article><article class="card lime"><div class="icon">🔬</div><h3>Identify plant disease</h3><p>Upload a leaf photo to the plant disease identifier and get an AI diagnosis before damage spreads.</p><a class="button secondary" style="margin-top:16px" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Launch disease ID ↗</a></article><article class="card"><div class="icon">⚗</div><h3>Get fertilizer advice</h3><p>Use the live fertilizer predictor to get an NPK-based recommendation before your next soil application.</p><a class="button secondary" style="margin-top:16px" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Launch fertilizer app ↗</a></article></div></div></section></main><footer class="footer"><div class="wrap footer-grid"><div><a class="brand" href="index.html" style="color:white">Agri<span>Nex</span></a><p>Practical farm intelligence for crop, nutrition and season planning.</p></div><div><b>Platform</b><a href="dashboard.html">Farm dashboard</a><a href="crop-prediction.html">Crop prediction</a><a href="fertilizer.html">Fertilizer guide</a></div><div><b>Live AI apps</b><a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Crop recommender ↗</a><a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Fertilizer prediction ↗</a><a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Plant disease ID ↗</a></div><div><b>Guidance</b><a href="farmer-hub.html">Farmer hub</a><a href="farmer-hub.html#calendar">Season calendar</a><a href="farmer-hub.html#records">Field records</a></div></div><div class="wrap bottom">© 2026 AgriNex AI · Built to support thoughtful, local farming decisions.</div></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Hub & Seasonal Calendar | AgriNex AI</title>
+  <meta name="description" content="Practical crop routines, seasonal farming calendar, field record keeping, and advisory hub for farmers.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi,mr,bn,ta,te,gu,pa,kn,ml,or,as,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="wrap top-bar-inner">
+      <div class="top-bar-notice">
+        <span class="badge">Farmer Hub</span>
+        <span>Seasonal Guidance & Field Routines for Indian Farmers</span>
+      </div>
+      <div class="lang-selector">
+        <span style="color:#a3b899;font-size:12px">🌐 Language:</span>
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Agri<span>Nex</span><sup>AI</sup></a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crop-prediction.html">Crop AI</a>
+        <a href="fertilizer.html">Fertilizer AI</a>
+        <a href="disease-detection.html">Disease ID</a>
+        <a href="mandi-schemes.html">Mandi & Schemes</a>
+        <a class="active" href="farmer-hub.html">Farmer Hub</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-voice" id="btn-voice">🎤 Voice Search</button>
+        <div class="apps-menu">
+          <button class="button apps-toggle" id="apps-toggle-btn">Live AI apps ▾</button>
+          <div class="apps-dropdown" id="apps-dropdown">
+            <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">🌾</span>
+              <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
+            </a>
+            <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">⚗</span>
+              <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
+            </a>
+            <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
+              <span class="apps-icon">🔬</span>
+              <span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <button class="menu" data-nav-toggle>☰</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" style="padding:70px 0 50px">
+      <div class="wrap">
+        <p class="breadcrumb" style="color:var(--lime-accent);font-weight:700;font-size:13px">HOME / FARMER HUB & CALENDAR</p>
+        <h1 class="serif" style="margin-top:10px">Practical Field Routines</h1>
+        <p style="max-width:680px">Structured seasonal checklists, field inspection guidelines, and voice-assisted advice tailored to your field work.</p>
+      </div>
+    </section>
+
+    <!-- Seasonal Calendar -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Season Calendar</p>
+          <h2 class="serif">Vegetative & Flowering Milestones</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="card lime">
+            <p class="eyebrow" style="color:var(--text-dark)">Current Phase • Vegetative</p>
+            <h3 style="color:var(--text-dark)">Growth Observation</h3>
+            <p style="color:var(--text-dark)">Inspect leaf color, record rainfall, and clear competitive weed growth around young crops.</p>
+            <a class="button" style="margin-top:16px;background:var(--text-dark);color:var(--lime-accent);border-color:var(--text-dark)" href="dashboard.html">Review Field Tasks ↗</a>
+          </article>
+
+          <article class="card">
+            <p class="eyebrow">Next Phase • Flowering</p>
+            <h3>Protect Yield Potential</h3>
+            <p>Monitor soil moisture, check for aphid/pest buildup, and avoid unnecessary plant stress.</p>
+            <a class="text-link" href="disease-detection.html">Scan Leaf for Pests →</a>
+          </article>
+
+          <article class="card dark">
+            <p class="eyebrow" style="color:var(--lime-accent)">Upcoming • Harvest</p>
+            <h3>Market & Yield Prep</h3>
+            <p>Estimate expected yield tonnage, review local APMC Mandi commodity rates, and arrange transport.</p>
+            <a class="text-link" href="mandi-schemes.html">Check Mandi Rates →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field Records -->
+    <section class="band">
+      <div class="wrap grid-2">
+        <div>
+          <p class="eyebrow">Essential Record Keeping</p>
+          <h2 class="serif" style="font-size:42px;line-height:1.1;margin:12px 0">Small Field Notes Build Big Yields</h2>
+          <p>Keeping small notes after each field visit makes your future crop AI and fertilizer calculations much more accurate.</p>
+        </div>
+
+        <div class="card">
+          <div class="task">
+            <span class="number">✓</span>
+            <span><b>Rainfall & Irrigation Log</b><br><small>Date, water amount, and soil drainage observations.</small></span>
+          </div>
+          <div class="task">
+            <span class="number">✓</span>
+            <span><b>Nutrient & Fertilizer Log</b><br><small>Product used, quantity applied per acre, and date.</small></span>
+          </div>
+          <div class="task">
+            <span class="number">✓</span>
+            <span><b>Pest & Disease Observations</b><br><small>Leaf discoloration, spotted areas, or pest activity.</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap bottom" style="margin-top:0">
+      © 2026 AgriNex AI • Farmer Advisory & Field Routines
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
