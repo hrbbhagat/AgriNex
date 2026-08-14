@@ -1,42 +1,33 @@
-/* AgriNex AI Biological Precision Theme */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+/* AgriNex Farmer Portal Design System */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
-  --moss: #1E3A2B;
-  --clay: #CC5833;
-  --agri-green: #8EA633;
-  --cream: #F4F2EC;
-  --charcoal: #141714;
+  --agri-dark: #111A13;
+  --agri-green: #2E5A36;
+  --agri-bright: #95C11E;
+  --agri-clay: #D96B27;
+  --agri-bg: #F5F3EC;
 }
 
 body {
-  background-color: var(--cream);
-  color: var(--charcoal);
-  font-family: 'Outfit', sans-serif;
+  background-color: var(--agri-bg);
+  color: #1A1D1A;
+  font-family: 'Outfit', 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Hide Scrollbar but keep functionality */
 ::-webkit-scrollbar { display: none; }
 * { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Typography Mapping */
-.font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
-.font-drama { font-family: 'Cormorant Garamond', serif; }
-.font-data { font-family: 'IBM Plex Mono', monospace; }
+.font-heading { font-family: 'Plus Jakarta Sans', 'Montserrat', sans-serif; }
+.font-data { font-family: 'Montserrat', monospace; }
 
-/* Noise Overlay */
 .noise-layer {
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.035;
   mix-blend-mode: multiply;
 }
-
-/* SVG Animation Utilities */
-@keyframes spin-slow { 100% { transform: rotate(360deg); } }
-.animate-spin-slow { animation: spin-slow 20s linear infinite; }
