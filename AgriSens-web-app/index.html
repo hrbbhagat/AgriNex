@@ -1,537 +1,752 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AGRO SPACE | Next-Gen AI Agricultural Intelligence & Precision Farming Platform</title>
-    <link
-      rel="shortcut icon"
-      href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
-      type="image/x-icon"
-    />
-    <link
-      rel="icon"
-      href="LOGO.jpg"
-      type="image/icon type"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
-    <script>
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'hi,mr,bn,ta,te,gu,pa,kn,ml,or,as,en',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        }, 'google_translate_element');
-      }
-    </script>
-  </head>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriNex AI | Precision Agriculture & Biological Crop Intelligence</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- CDNs -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  
+  <!-- Google Translate -->
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi,mr,bn,ta,te,gu,pa,kn,ml,or,as,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
 
-  <body>
-    <!-- FIXED NAVIGATION -->
-    <div id="nav">
-      <div class="nav-brand-box">
-        <img src="LOGO.jpg" alt="AGRO SPACE Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-        <span class="logo-fallback" style="display:none; font-weight: 900; color: #95c11e; font-size: 24px; letter-spacing: 1px;">AGRO SPACE</span>
-      </div>
-      
-      <div class="nav-links-wrap">
-        <a href="#page1"><h4>HOME</h4></a>
-        <a href="#about-us"><h4>ABOUT</h4></a>
-        <a href="#cards-container"><h4>AI ECOSYSTEM</h4></a>
-        <a href="#interactive-suite"><h4>TOOLS</h4></a>
-        <a href="#page-workflow"><h4>WORKFLOW</h4></a>
-        <a href="#page3"><h4>TESTIMONIALS</h4></a>
-        <a href="#page4"><h4>FACILITIES</h4></a>
-        <a href="#page-faq"><h4>FAQ</h4></a>
-        <a href="#footer"><h4>CONTACT US</h4></a>
-      </div>
+  <style>
+    /* Base Configuration */
+    :root {
+      --moss: #1E3A2B;
+      --clay: #CC5833;
+      --agri-green: #8EA633;
+      --cream: #F4F2EC;
+      --charcoal: #141714;
+    }
+    
+    body {
+      background-color: var(--cream);
+      color: var(--charcoal);
+      font-family: 'Outfit', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    
+    /* Hide Scrollbar but keep functionality */
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Typography Mapping */
+    .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-drama { font-family: 'Cormorant Garamond', serif; }
+    .font-data { font-family: 'IBM Plex Mono', monospace; }
+    
+    /* Noise Overlay */
+    .noise-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.04;
+      mix-blend-mode: multiply;
+    }
+    
+    /* SVG Animation Utilities */
+    @keyframes spin-slow { 100% { transform: rotate(360deg); } }
+    .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 
-      <div class="ai-tools-nav">
-        <a href="crop-prediction.html" class="nav-tool-btn">🌾 Crop AI</a>
-        <a href="fertilizer.html" class="nav-tool-btn">⚗ Fertilizer AI</a>
-        <a href="disease-detection.html" class="nav-tool-btn">🔬 Disease ID</a>
-        <a href="mandi-schemes.html" class="nav-tool-btn">📊 Mandi & Schemes</a>
-        <div id="google_translate_element"></div>
-      </div>
+    /* Custom Translate Styling */
+    .goog-te-gadget-simple {
+      background-color: transparent !important;
+      border: none !important;
+      font-size: 12px !important;
+    }
+    .goog-te-gadget-simple span {
+      color: inherit !important;
+    }
+  </style>
+</head>
+
+<body class="relative selection:bg-[#CC5833] selection:text-[#F4F2EC]">
+
+  <!-- Global Noise Texture -->
+  <svg class="noise-layer">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"></feTurbulence>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)"></rect>
+  </svg>
+
+  <!-- A. NAVBAR -->
+  <nav id="navbar" class="fixed top-6 left-1/2 z-50 flex w-[92%] max-w-6xl -translate-x-1/2 items-center justify-between rounded-full px-6 py-3.5 text-[#F4F2EC] transition-all duration-500 md:gap-8">
+    <a href="index.html" class="font-heading text-xl font-bold tracking-tighter uppercase text-inherit flex items-center gap-1">
+      Agri<span class="text-[#CC5833]">Nex</span><sup class="text-[10px] bg-[#CC5833]/20 text-[#CC5833] px-1.5 py-0.5 rounded font-mono">AI</sup>
+    </a>
+
+    <div class="hidden items-center gap-6 text-sm font-medium tracking-tight md:flex">
+      <a href="#philosophy" class="nav-link hover:text-[#CC5833] transition-colors">Philosophy</a>
+      <a href="#protocol" class="nav-link hover:text-[#CC5833] transition-colors">Methodology</a>
+      <a href="#ai-apps" class="nav-link hover:text-[#CC5833] transition-colors">AI Apps</a>
+      <a href="#calculator" class="nav-link hover:text-[#CC5833] transition-colors">NPK Tool</a>
+      <a href="#membership" class="nav-link hover:text-[#CC5833] transition-colors">Access Tiers</a>
     </div>
 
-    <!-- CUSTOM CURSOR -->
-    <div id="cursor"></div>
-    <div id="cursor-blur"></div>
+    <div class="flex items-center gap-3">
+      <div id="google_translate_element" class="hidden sm:block text-xs"></div>
 
-    <!-- BACKGROUND VIDEO -->
-    <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80">
-      <source src="farm.mp4" type="video/mp4" />
-    </video>
+      <a href="dashboard.html" class="magnetic group relative overflow-hidden rounded-full bg-[#CC5833] px-6 py-2.5 text-xs md:text-sm font-medium text-[#F4F2EC] shadow-lg">
+        <span class="relative z-10 block transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:-translate-y-full">Farmer Portal</span>
+        <span class="absolute inset-0 z-10 flex h-full w-full translate-y-full items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:translate-y-0">Launch Portal</span>
+        <span class="absolute inset-0 z-0 h-full w-full bg-[#141714] transition-transform duration-500"></span>
+      </a>
+    </div>
+  </nav>
 
-    <div id="main">
-      <!-- HERO SECTION (#page1) -->
-      <div id="page1">
-        <div class="hero-live-badge">
-          <span class="pulse-dot"></span> 3 Deployed Machine Learning Models Active Live
-        </div>
-        <h1>PLANT. NOURISH. GROW.</h1>
-        <h2>WELCOME TO AGRO SPACE</h2>
-        <p>
-          "From Soil to Success—Nourishing Crops, Enriching Lives. Empowering smallholder and commercial farmers with real-time AI crop recommendation, NPK fertilizer optimization, leaf pathology diagnostics, and live Mandi market rates."
-        </p>
+  <!-- B. HERO SECTION -->
+  <section id="hero" class="relative flex h-[100dvh] w-full flex-col justify-end bg-cover bg-center bg-no-repeat pb-16 pt-32" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2500&auto=format&fit=crop');">
+    <!-- Gradient Overlays -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#141714] via-[#141714]/70 to-transparent"></div>
+    <div class="absolute inset-0 bg-[#1E3A2B]/30 mix-blend-multiply"></div>
 
-        <div class="hero-actions">
-          <a href="#cards-container" class="cta-primary-btn">Explore AI Suite &rarr;</a>
-          <a href="dashboard.html" class="cta-secondary-btn">Open Farmer Dashboard</a>
-        </div>
+    <div class="relative z-10 w-full px-6 md:px-16 lg:w-3/4">
+      <div class="hero-el mb-4 inline-flex items-center gap-2 rounded-full border border-[#CC5833]/40 bg-[#CC5833]/10 px-3.5 py-1 backdrop-blur-md">
+        <span class="h-2 w-2 animate-pulse rounded-full bg-[#CC5833]"></span>
+        <span class="font-data text-xs uppercase tracking-widest text-[#CC5833]">Precision Biological Agriculture & ML</span>
+      </div>
 
-        <a href="#scroller-sec" id="arrow">
-          <i class="ri-arrow-down-line"></i>
+      <h1 class="hero-el flex flex-col">
+        <span class="font-heading text-4xl text-[#F4F2EC] tracking-tight md:text-6xl lg:text-7xl font-bold">Soil is the</span>
+        <span class="font-drama text-6xl text-[#F4F2EC] italic tracking-tight md:text-8xl lg:text-9xl leading-[0.85] mt-1">Blueprint.</span>
+      </h1>
+
+      <p class="hero-el mt-6 max-w-xl text-base text-[#F4F2EC]/85 font-medium leading-relaxed">
+        We decode NPK soil chemistry, micro-climates, and crop leaf genomics to engineer extreme agricultural yields. Stop guessing. Start optimizing.
+      </p>
+
+      <div class="hero-el mt-8 flex flex-wrap items-center gap-4">
+        <a href="#ai-apps" class="magnetic group relative overflow-hidden rounded-full bg-[#1E3A2B] px-8 py-4 text-sm font-medium text-[#F4F2EC]">
+          <span class="relative z-10 flex items-center gap-2">
+            Explore Deployed AI Suite
+            <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+          </span>
+          <span class="absolute inset-0 z-0 h-full w-full translate-y-full bg-[#CC5833] transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:translate-y-0"></span>
+        </a>
+
+        <a href="crop-prediction.html" class="magnetic rounded-full border border-[#F4F2EC]/30 bg-[#F4F2EC]/10 backdrop-blur-md px-6 py-4 text-sm font-medium text-[#F4F2EC] transition-colors hover:bg-[#F4F2EC]/20">
+          Try Crop Recommender
         </a>
       </div>
+    </div>
+  </section>
 
-      <!-- MARQUEE SCROLLER 1 (#page2 #scroller) -->
-      <div id="page2">
-        <div id="scroller-sec">
-          <div id="scroller">
-            <div id="scroller-in">
-              <h4>Cultivating</h4>
-              <h4>Growth,</h4>
-              <h4>Harvesting</h4>
-              <h4>Success</h4>
-            </div>
-            <div id="scroller-in">
-              <h4>Cultivating</h4>
-              <h4>Growth,</h4>
-              <h4>Harvesting</h4>
-              <h4>Success</h4>
-            </div>
+  <!-- C. FEATURES & DIAGNOSTIC ENGINE -->
+  <section id="engine" class="relative z-20 -mt-8 rounded-t-[3rem] bg-[#F4F2EC] px-6 py-24 md:px-16 lg:px-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <span class="font-data text-xs uppercase tracking-widest text-[#CC5833]">Agronomic Intelligence</span>
+          <h2 class="font-heading text-3xl font-bold tracking-tight text-[#141714] md:text-5xl">The Precision Engine</h2>
+          <p class="mt-3 max-w-md text-sm text-[#141714]/70">Three proprietary diagnostic systems replacing traditional generalized farming practices.</p>
+        </div>
+
+        <div class="flex items-center gap-2 rounded-full border border-[#141714]/10 bg-white px-4 py-2 text-xs font-semibold text-[#141714]">
+          <span class="h-2 w-2 rounded-full bg-green-500"></span> 3 Machine Learning Models Active Live
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        
+        <!-- Card 1: Soil Biomarker Rotation Shuffler -->
+        <div class="group relative flex h-96 flex-col overflow-hidden rounded-[2rem] border border-[#141714]/10 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
+          <div class="mb-auto">
+            <iconify-icon icon="solar:layers-linear" class="text-3xl text-[#1E3A2B]"></iconify-icon>
+            <h3 class="font-heading mt-4 text-xl font-bold tracking-tight text-[#141714]">Soil Biomarker Rotation</h3>
+            <p class="mt-2 text-xs text-[#141714]/60">Continuous real-time assessment of NPK balance and soil chemistry parameters.</p>
+          </div>
+          <div id="shuffler-container" class="relative h-32 w-full">
+            <!-- Populated via JS -->
           </div>
         </div>
 
-        <!-- STATS COUNTER BAR -->
-        <div id="stats-counter-sec">
-          <div class="stat-card">
-            <h3 class="counter-num" data-target="50000">0</h3>
-            <span class="plus">+</span>
-            <p>Active Farmers Empowered</p>
+        <!-- Card 2: Telemetry Typewriter -->
+        <div class="group relative flex h-96 flex-col overflow-hidden rounded-[2rem] border border-[#141714]/10 bg-[#141714] p-8 shadow-sm">
+          <div class="mb-auto">
+            <div class="flex items-center justify-between">
+              <iconify-icon icon="solar:code-scan-linear" class="text-3xl text-[#CC5833]"></iconify-icon>
+              <div class="flex items-center gap-2 rounded-full border border-[#CC5833]/30 bg-[#CC5833]/10 px-3 py-1">
+                <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-[#CC5833]"></span>
+                <span class="font-data text-xs text-[#CC5833]">Live Soil Feed</span>
+              </div>
+            </div>
+            <h3 class="font-heading mt-4 text-xl font-bold tracking-tight text-[#F4F2EC]">Agronomic Telemetry</h3>
+            <p class="mt-2 text-xs text-[#F4F2EC]/60">Real-time interpretation of soil moisture, NPK variance, and climate logs.</p>
           </div>
-          <div class="stat-card">
-            <h3 class="counter-num" data-target="98.4">0</h3>
-            <span class="plus">%</span>
-            <p>Model Diagnostic Accuracy</p>
-          </div>
-          <div class="stat-card">
-            <h3 class="counter-num" data-target="120">0</h3>
-            <span class="plus">+</span>
-            <p>Supported Crop Varieties</p>
-          </div>
-          <div class="stat-card">
-            <h3 class="counter-num" data-target="15">0</h3>
-            <span class="plus">M+</span>
-            <p>Cost Saved by Soil Precision</p>
-          </div>
-        </div>
-
-        <!-- ABOUT US SECTION (#about-us) -->
-        <div id="about-us">
-          <img src="img1.jpg" alt="Agro Space Cultivation" onerror="this.src='https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80';" />
-          <div id="about-us-in">
-            <h3>ABOUT US</h3>
-            <p>
-              At Agro Space, we empower farmers with innovative data-driven tools and agricultural AI resources to revolutionize farming practices. Our platform supports every stage of the agrarian cycle—from soil nutrient testing and precision planting to real-time harvest market intelligence. Join thousands of progressive growers cultivating a resilient, high-yield, and sustainable agricultural future.
+          <div class="mt-8 rounded-xl bg-[#222722]/80 p-4 border border-[#F4F2EC]/10">
+            <p class="font-data text-xs text-[#F4F2EC]/85 leading-relaxed">
+              <span class="text-[#CC5833]">&gt;</span> 
+              <span id="typewriter-text"></span><span class="animate-pulse text-[#CC5833]">_</span>
             </p>
-            <div class="about-highlights">
-              <div class="highlight-item"><i class="ri-checkbox-circle-fill"></i> NPK Soil Nutrient Balance</div>
-              <div class="highlight-item"><i class="ri-checkbox-circle-fill"></i> Real-time APMC Mandi Prices</div>
-              <div class="highlight-item"><i class="ri-checkbox-circle-fill"></i> Instant Leaf Pathology Scan</div>
-            </div>
           </div>
-          <img src="img2.jpg" alt="Modern Smart Farming" onerror="this.src='https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80';" />
         </div>
 
-        <!-- AI CORE ECOSYSTEM & SERVICES (#cards-container) -->
-        <div class="section-title-wrap">
-          <h2>OUR AI ECOSYSTEM & SERVICES</h2>
-          <p>Precision artificial intelligence tools engineered specifically for Indian soil dynamics and crop micro-climates.</p>
-        </div>
-
-        <div id="cards-container">
-          <div class="card" id="card1">
-            <div class="overlay">
-              <h4>Fertilizer</h4>
-              <p>
-                Enhance your soil with customized NPK fertilizer blends. Calculate optimal nitrogen, phosphorus, and potassium ratios tailored specifically for your target crop and soil chemistry.
-              </p>
-              <a href="fertilizer.html" class="card-btn">Launch Fertilizer AI &rarr;</a>
-            </div>
+        <!-- Card 3: Cursor Protocol Scheduler -->
+        <div class="group relative flex h-96 flex-col overflow-hidden rounded-[2rem] border border-[#141714]/10 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
+          <div class="mb-auto">
+            <iconify-icon icon="solar:calendar-linear" class="text-3xl text-[#1E3A2B]"></iconify-icon>
+            <h3 class="font-heading mt-4 text-xl font-bold tracking-tight text-[#141714]">Dynamic Sowing Schedule</h3>
+            <p class="mt-2 text-xs text-[#141714]/60">Algorithmic crop cycles that adapt to your regional weather micro-climate.</p>
           </div>
-
-          <div class="card" id="card2">
-            <div class="overlay">
-              <h4>Crop Recommend</h4>
-              <p>
-                Discover high-yielding crops perfectly suited for your soil's NPK levels, rainfall, temperature, and humidity using machine learning models trained on agricultural datasets.
-              </p>
-              <a href="crop-prediction.html" class="card-btn">Crop Prediction Tool &rarr;</a>
-            </div>
-          </div>
-
-          <div class="card" id="card3">
-            <div class="overlay">
-              <h4>Soil Quality</h4>
-              <p>
-                Assess soil organic matter, moisture holding capacity, and pH balance with comprehensive soil test kits and instant visual diagnostics for maximum fertility.
-              </p>
-              <a href="disease-detection.html" class="card-btn">Soil & Disease Diagnostic &rarr;</a>
-            </div>
-          </div>
-
-          <div class="card" id="card4">
-            <div class="overlay">
-              <h4>Mandi Rates</h4>
-              <p>
-                Track live APMC Mandi prices across regional hubs. Receive smart pricing alerts and government subsidy scheme information directly on your phone.
-              </p>
-              <a href="mandi-schemes.html" class="card-btn">Check Mandi Rates &rarr;</a>
+          <div class="relative mt-4 grid grid-cols-7 gap-1 rounded-xl bg-[#F4F2EC] p-3">
+            <div class="text-center font-data text-xs text-[#141714]/40">S</div>
+            <div class="text-center font-data text-xs text-[#141714]/40">M</div>
+            <div id="day-cell" class="rounded-md text-center font-data text-xs text-[#141714]/40 transition-colors">T</div>
+            <div class="text-center font-data text-xs text-[#141714]/40">W</div>
+            <div class="text-center font-data text-xs text-[#141714]/40">T</div>
+            <div class="text-center font-data text-xs text-[#141714]/40">F</div>
+            <div class="text-center font-data text-xs text-[#141714]/40">S</div>
+            
+            <!-- Animated Cursor -->
+            <div id="scheduler-cursor" class="absolute left-0 top-0 z-10 text-xl text-[#1E3A2B]" style="opacity: 0;">
+              <iconify-icon icon="solar:mouse-circle-linear"></iconify-icon>
             </div>
           </div>
         </div>
 
-        <!-- INTERACTIVE CALCULATOR & LIVE MANDI TICKER SPOTLIGHT -->
-        <div id="interactive-suite">
-          <div class="suite-box calculator-box">
-            <div class="box-header">
-              <i class="ri-calculator-line"></i>
-              <h3>Quick NPK Soil Nutrient Estimator</h3>
-            </div>
-            <p>Input your crop and land size to calculate estimated fertilizer requirements instantly:</p>
+      </div>
+    </div>
+  </section>
 
-            <form class="calc-form" id="quick-npk-form" onsubmit="event.preventDefault(); calculateNPK();">
-              <div class="form-group">
-                <label>Select Target Crop:</label>
-                <select id="calc-crop">
-                  <option value="rice">Rice / Paddy</option>
-                  <option value="wheat">Wheat</option>
-                  <option value="maize">Maize / Corn</option>
-                  <option value="cotton">Cotton</option>
-                  <option value="sugarcane">Sugarcane</option>
-                </select>
-              </div>
+  <!-- D. PHILOSOPHY SECTION -->
+  <section id="philosophy" class="relative flex min-h-[85dvh] items-center justify-center overflow-hidden bg-[#141714] py-32">
+    <div class="absolute inset-0 opacity-25" style="background-image: url('https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2500&auto=format&fit=crop'); background-size: cover; background-position: center;"></div>
+    
+    <div class="relative z-10 mx-auto max-w-5xl px-6 text-center">
+      <p class="reveal-text font-data mb-6 text-xs md:text-sm text-[#F4F2EC]/60 uppercase tracking-widest">
+        Traditional agriculture focuses on: reactive fertilizer overuse & guesswork.
+      </p>
+      <h2 class="reveal-text flex flex-col gap-2">
+        <span class="font-heading text-3xl font-bold text-[#F4F2EC] tracking-tight md:text-5xl lg:text-6xl">AgriNex focuses on:</span>
+        <span class="font-drama text-6xl text-[#F4F2EC] italic tracking-tight md:text-8xl lg:text-9xl mt-4 leading-none">
+          biological <span class="text-[#CC5833]">precision.</span>
+        </span>
+      </h2>
+    </div>
+  </section>
 
-              <div class="form-group">
-                <label>Farm Size (in Acres):</label>
-                <input type="number" id="calc-acres" min="1" max="100" value="2" required />
-              </div>
-
-              <button type="submit" class="calc-submit-btn">Calculate NPK Requirement</button>
-            </form>
-
-            <div id="calc-result" class="calc-result-wrap" style="display:none;">
-              <h4>Prescribed Fertilizer Allocation:</h4>
-              <div class="npk-grid">
-                <div class="npk-item"><span>Nitrogen (N):</span> <strong id="res-n">0 kg</strong></div>
-                <div class="npk-item"><span>Phosphorus (P):</span> <strong id="res-p">0 kg</strong></div>
-                <div class="npk-item"><span>Potassium (K):</span> <strong id="res-k">0 kg</strong></div>
-              </div>
-              <small>* For comprehensive field recommendation, use our full <a href="fertilizer.html" style="color:#ace022">Fertilizer AI Model</a>.</small>
-            </div>
-          </div>
-
-          <div class="suite-box mandi-ticker-box">
-            <div class="box-header">
-              <i class="ri-line-chart-line"></i>
-              <h3>Live Mandi Price Ticker (Uttar Pradesh / National APMC)</h3>
-            </div>
-            <p>Real-time commodity rates updated today:</p>
-
-            <div class="mandi-list">
-              <div class="mandi-row">
-                <span class="crop-name">🌾 Wheat (Gehun)</span>
-                <span class="mandi-loc">Varanasi Mandi</span>
-                <span class="mandi-price">₹2,450 / Qtl</span>
-                <span class="badge-up">+2.4% <i class="ri-arrow-up-line"></i></span>
-              </div>
-              <div class="mandi-row">
-                <span class="crop-name">🌱 Rice (Paddy/Dhan)</span>
-                <span class="mandi-loc">Lalganj APMC</span>
-                <span class="mandi-price">₹2,180 / Qtl</span>
-                <span class="badge-up">+1.8% <i class="ri-arrow-up-line"></i></span>
-              </div>
-              <div class="mandi-row">
-                <span class="crop-name">🧅 Onion (Pyaz)</span>
-                <span class="mandi-loc">Kanpur Mandi</span>
-                <span class="mandi-price">₹3,100 / Qtl</span>
-                <span class="badge-down">-0.6% <i class="ri-arrow-down-line"></i></span>
-              </div>
-              <div class="mandi-row">
-                <span class="crop-name">🍅 Tomato (Tamatar)</span>
-                <span class="mandi-loc">Mirzapur Mandi</span>
-                <span class="mandi-price">₹1,950 / Qtl</span>
-                <span class="badge-up">+4.1% <i class="ri-arrow-up-line"></i></span>
-              </div>
-              <div class="mandi-row">
-                <span class="crop-name">🥔 Potato (Aloo)</span>
-                <span class="mandi-loc">Agra Mandi</span>
-                <span class="mandi-price">₹1,620 / Qtl</span>
-                <span class="badge-up">+0.9% <i class="ri-arrow-up-line"></i></span>
-              </div>
-            </div>
-
-            <div style="margin-top:20px; text-align:right">
-              <a href="mandi-schemes.html" class="mandi-link">View All 150+ Commodity Prices & Schemes &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- GREEN BANNER (#green-div) -->
-        <div id="green-div">
-          <img
-            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
-            alt="Decor dots"
-          />
-          <div class="green-div-content">
-            <h4>
-              Sign Up for Agro Space Updates and Exclusive Offers Delivered
-              Directly to Your Inbox!
-            </h4>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Agro Space updates!');">
-              <input type="email" placeholder="Enter your email address..." required />
-              <button type="submit">Subscribe Now</button>
-            </form>
-          </div>
-          <img
-            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
-            alt="Decor dots"
-          />
-        </div>
+  <!-- E. METHODOLOGY / STACKED PROTOCOL PANELS -->
+  <section id="protocol" class="relative bg-[#F4F2EC]">
+    <div class="mx-auto max-w-7xl px-6 py-24 md:px-16 lg:px-24">
+      <div class="mb-16">
+        <span class="font-data text-xs uppercase tracking-widest text-[#CC5833]">Core Methodology</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight text-[#141714] md:text-5xl">The Agronomic Framework</h2>
       </div>
 
-      <!-- WORKFLOW & PRECISION TIMELINE (#page-workflow) -->
-      <div id="page-workflow">
-        <div class="section-title-wrap">
-          <h2>THE AGRO SPACE PRECISION WORKFLOW</h2>
-          <p>Four streamlined steps to convert raw soil and weather data into maximum harvest yields.</p>
+      <div class="relative">
+        
+        <!-- Panel 1: Mapping -->
+        <div class="protocol-panel sticky top-24 mb-12 flex min-h-[60vh] w-full flex-col overflow-hidden rounded-[3rem] border border-[#141714]/10 bg-white p-8 shadow-xl md:flex-row md:p-16">
+          <div class="flex w-full flex-col justify-center md:w-1/2">
+            <span class="font-data text-sm font-semibold text-[#CC5833]">01 / Mapping</span>
+            <h3 class="font-heading mt-4 text-3xl md:text-4xl font-bold tracking-tight text-[#141714]">Soil Chemistry & NPK Profiling</h3>
+            <p class="mt-4 max-w-md text-sm text-[#141714]/70 leading-relaxed">
+              We establish your land baseline by mapping Nitrogen, Phosphorus, Potassium, and pH parameters, cross-referenced with your regional rainfall history to expose maximum yield opportunities.
+            </p>
+          </div>
+          <div class="relative mt-8 flex w-full items-center justify-center md:mt-0 md:w-1/2">
+            <svg viewBox="0 0 200 200" class="h-64 w-64 animate-spin-slow opacity-80">
+              <circle cx="100" cy="100" r="80" stroke="#1E3A2B" stroke-width="1" fill="none" stroke-dasharray="4 4"></circle>
+              <circle cx="100" cy="100" r="60" stroke="#CC5833" stroke-width="2" fill="none" stroke-dasharray="10 10"></circle>
+              <circle cx="100" cy="100" r="40" stroke="#1E3A2B" stroke-width="1" fill="none"></circle>
+              <circle cx="100" cy="100" r="20" fill="#CC5833" fill-opacity="0.15" stroke="#CC5833" stroke-width="1"></circle>
+            </svg>
+          </div>
         </div>
 
-        <div class="workflow-grid">
-          <div class="workflow-step">
-            <div class="step-num">01</div>
-            <h3>Soil & Field Sensing</h3>
-            <p>Record your soil NPK levels, pH value, local humidity, and seasonal rainfall parameters or run automated soil diagnostics.</p>
+        <!-- Panel 2: Monitoring -->
+        <div class="protocol-panel sticky top-32 mb-12 flex min-h-[60vh] w-full flex-col overflow-hidden rounded-[3rem] border border-[#141714]/10 bg-[#1E3A2B] p-8 shadow-xl md:flex-row md:p-16">
+          <div class="flex w-full flex-col justify-center md:w-1/2">
+            <span class="font-data text-sm font-semibold text-[#CC5833]">02 / Monitoring</span>
+            <h3 class="font-heading mt-4 text-3xl md:text-4xl font-bold tracking-tight text-[#F4F2EC]">Field & Satellite Telemetry</h3>
+            <p class="mt-4 max-w-md text-sm text-[#F4F2EC]/70 leading-relaxed">
+              Continuous field telemetry ingestion via IoT soil sensors, micro-climate weather feeds, and satellite imagery, streaming real-time data into your crop intelligence model.
+            </p>
           </div>
-          <div class="workflow-step">
-            <div class="step-num">02</div>
-            <h3>AI Model Analysis</h3>
-            <p>Our machine learning algorithms process multi-parameter datasets to match optimal crop varieties and precise nutrient balances.</p>
-          </div>
-          <div class="workflow-step">
-            <div class="step-num">03</div>
-            <h3>Prescription & Care</h3>
-            <p>Receive tailored dosage schedules for urea, DAP, and compost along with real-time leaf pathology camera diagnostics.</p>
-          </div>
-          <div class="workflow-step">
-            <div class="step-num">04</div>
-            <h3>Direct Mandi Sale</h3>
-            <p>Monitor regional APMC prices, leverage government agrarian subsidies, and sell your produce at peak market values.</p>
+          <div class="relative mt-8 flex w-full items-center justify-center md:mt-0 md:w-1/2">
+            <svg viewBox="0 0 200 200" class="h-64 w-64 opacity-80">
+              <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#F4F2EC" stroke-opacity="0.2" stroke-width="1"></path>
+              </pattern>
+              <rect width="200" height="200" fill="url(#grid)"></rect>
+              <line id="svg-laser" x1="0" y1="0" x2="200" y2="0" stroke="#CC5833" stroke-width="2">
+                <animate attributeName="y1" values="0;200;0" dur="4s" repeatCount="indefinite"></animate>
+                <animate attributeName="y2" values="0;200;0" dur="4s" repeatCount="indefinite"></animate>
+              </line>
+            </svg>
           </div>
         </div>
+
+        <!-- Panel 3: Intervention -->
+        <div class="protocol-panel sticky top-40 mb-12 flex min-h-[60vh] w-full flex-col overflow-hidden rounded-[3rem] border border-[#141714]/10 bg-white p-8 shadow-xl md:flex-row md:p-16">
+          <div class="flex w-full flex-col justify-center md:w-1/2">
+            <span class="font-data text-sm font-semibold text-[#CC5833]">03 / Intervention</span>
+            <h3 class="font-heading mt-4 text-3xl md:text-4xl font-bold tracking-tight text-[#141714]">Targeted NPK & Disease Interventions</h3>
+            <p class="mt-4 max-w-md text-sm text-[#141714]/70 leading-relaxed">
+              Algorithmic generation of fertilizer dosage schedules, biostimulant recommendations, and computer-vision leaf disease identification delivered straight to your phone.
+            </p>
+          </div>
+          <div class="relative mt-8 flex w-full items-center justify-center md:mt-0 md:w-1/2">
+            <svg viewBox="0 0 200 100" class="h-32 w-full opacity-80">
+              <path id="ekg-path" d="M0,50 L40,50 L50,20 L60,80 L70,50 L200,50" fill="none" stroke="#CC5833" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- F. DEPLOYED AI SUITE SHOWCASE -->
+  <section id="ai-apps" class="relative bg-[#F4F2EC] px-6 py-24 md:px-16 lg:px-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16 text-center">
+        <span class="font-data text-xs uppercase tracking-widest text-[#CC5833]">Deployed AI Ecosystem</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight text-[#141714] md:text-5xl mt-2">Live Machine Learning Applications</h2>
+        <p class="mt-4 text-sm text-[#141714]/70 max-w-xl mx-auto">Access our specialized ML models for crop selection, fertilizer balancing, disease pathology, and Mandi pricing.</p>
       </div>
 
-      <!-- TESTIMONIALS (#page3) -->
-      <div id="page3">
-        <p>
-          "Enjoy a productive season with our top-notch agricultural resources and support. Our team is friendly, knowledgeable, and always ready to assist. Take advantage of our AI tools, soil testing labs, and market intelligence to keep your farming operation thriving. A partnership with Agro Space is truly worthwhile."
-        </p>
-        <img
-          id="colon1"
-          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
-          alt="Quote Left"
-        />
-        <img
-          id="colon2"
-          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
-          alt="Quote Right"
-        />
-      </div>
-
-      <!-- TESTIMONIAL CARDS ROW -->
-      <div id="testimonials-row">
-        <div class="t-card">
-          <div class="t-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Agro Space's Fertilizer AI transformed my paddy yield by 35%. I saved over ₹12,000 on unnecessary DAP usage!"</p>
-          <div class="t-author">
-            <strong>Rameshwar Singh</strong>
-            <small>Paddy & Wheat Farmer, Varanasi</small>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- App 1: Crop Recommender -->
+        <div class="rounded-[2.5rem] border border-[#141714]/10 bg-white p-8 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div>
+            <div class="h-12 w-12 rounded-2xl bg-[#1E3A2B] text-[#F4F2EC] flex items-center justify-center text-2xl mb-6">🌾</div>
+            <h3 class="font-heading text-2xl font-bold text-[#141714]">Crop Recommendation AI</h3>
+            <p class="mt-3 text-sm text-[#141714]/70 leading-relaxed">Predicts the highest-yielding crop variety based on NPK, temperature, humidity, pH, and rainfall input parameters.</p>
+          </div>
+          <div class="mt-8">
+            <a href="crop-prediction.html" class="magnetic inline-flex items-center gap-2 rounded-full bg-[#141714] px-6 py-3 text-xs font-semibold text-[#F4F2EC] hover:bg-[#CC5833] transition-colors">
+              Launch Crop AI <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+            </a>
           </div>
         </div>
-        <div class="t-card">
-          <div class="t-stars">⭐⭐⭐⭐⭐</div>
-          <p>"The disease detection scanner identified early blight in my potato crop within seconds. Highly recommended for every grower!"</p>
-          <div class="t-author">
-            <strong>Sunita Devi</strong>
-            <small>Progressive Farmer, Agra</small>
+
+        <!-- App 2: Fertilizer AI -->
+        <div class="rounded-[2.5rem] border border-[#141714]/10 bg-[#1E3A2B] p-8 shadow-xl text-[#F4F2EC] flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute -top-4 right-8 rounded-full bg-[#CC5833] px-3 py-1 text-xs font-medium text-[#F4F2EC]">Popular</div>
+          <div>
+            <div class="h-12 w-12 rounded-2xl bg-[#CC5833] text-[#F4F2EC] flex items-center justify-center text-2xl mb-6">⚗️</div>
+            <h3 class="font-heading text-2xl font-bold text-[#F4F2EC]">Fertilizer NPK Optimizer</h3>
+            <p class="mt-3 text-sm text-[#F4F2EC]/80 leading-relaxed">Calculates exact NPK nutrient ratios to prevent over-fertilization and maximize soil productivity.</p>
+          </div>
+          <div class="mt-8">
+            <a href="fertilizer.html" class="magnetic inline-flex items-center gap-2 rounded-full bg-[#CC5833] px-6 py-3 text-xs font-semibold text-[#F4F2EC] hover:bg-white hover:text-[#141714] transition-colors">
+              Launch Fertilizer AI <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+            </a>
           </div>
         </div>
-        <div class="t-card">
-          <div class="t-stars">⭐⭐⭐⭐⭐</div>
-          <p>"Checking live APMC mandi prices on Agro Space helped our farmer cooperative negotiate 15% higher wholesale rates."</p>
-          <div class="t-author">
-            <strong>Vikram Verma</strong>
-            <small>FPO Leader, Kanpur</small>
+
+        <!-- App 3: Leaf Pathology ID -->
+        <div class="rounded-[2.5rem] border border-[#141714]/10 bg-white p-8 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div>
+            <div class="h-12 w-12 rounded-2xl bg-[#1E3A2B] text-[#F4F2EC] flex items-center justify-center text-2xl mb-6">🔬</div>
+            <h3 class="font-heading text-2xl font-bold text-[#141714]">Plant Disease Vision ID</h3>
+            <p class="mt-3 text-sm text-[#141714]/70 leading-relaxed">Deep learning computer-vision model for instant identification of leaf diseases and recommended treatments.</p>
           </div>
-        </div>
-      </div>
-
-      <!-- FACILITIES SECTION (#page4) -->
-      <div id="page4">
-        <h1>WHAT ARE YOU WAITING FOR?</h1>
-        <div class="elem">
-          <h2>Weather Forecast</h2>
-          <img src="img6.jpg" alt="Weather Forecast" onerror="this.src='https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=600&q=80';" />
-        </div>
-        <div class="elem">
-          <h2>Cost Analysis Tools</h2>
-          <img src="img7.jpeg" alt="Cost Analysis Tools" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80';" />
-        </div>
-        <div class="elem">
-          <h2>Farmhand Support</h2>
-          <img src="img8.jpg" alt="Farmhand Assistance" onerror="this.src='https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=600&q=80';" />
-        </div>
-        <div class="elem">
-          <h2>Soil Test Lab</h2>
-          <img src="img1.jpg" alt="Soil Diagnostics" onerror="this.src='https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80';" />
-        </div>
-        <div class="elem">
-          <h2>Smart Irrigation</h2>
-          <img src="img2.jpg" alt="Irrigation Systems" onerror="this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80';" />
-        </div>
-        <div class="elem">
-          <h2>Direct Mandi Connect</h2>
-          <img src="img3.jpeg" alt="Mandi Connect" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6ef23a28?auto=format&fit=crop&w=600&q=80';" />
-        </div>
-      </div>
-
-      <!-- FAQ ACCORDION SECTION (#page-faq) -->
-      <div id="page-faq">
-        <div class="section-title-wrap">
-          <h2>FREQUENTLY ASKED QUESTIONS</h2>
-          <p>Got questions about Agro Space AI tools, soil testing, or Mandi rates? We've got answers.</p>
-        </div>
-
-        <div class="faq-container">
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>How accurate are the Agro Space Machine Learning models?</span>
-              <i class="ri-add-line faq-icon"></i>
-            </div>
-            <div class="faq-answer">
-              <p>Our models are trained on extensive agricultural datasets containing thousands of soil samples and crop diagnostic records across diverse agro-climatic zones, achieving over 98% accuracy in crop recommendation and disease identification.</p>
-            </div>
+          <div class="mt-8">
+            <a href="disease-detection.html" class="magnetic inline-flex items-center gap-2 rounded-full bg-[#141714] px-6 py-3 text-xs font-semibold text-[#F4F2EC] hover:bg-[#CC5833] transition-colors">
+              Launch Disease Vision <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+            </a>
           </div>
-
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Is Agro Space available in regional Indian languages?</span>
-              <i class="ri-add-line faq-icon"></i>
-            </div>
-            <div class="faq-answer">
-              <p>Yes! Agro Space includes built-in multi-language translation support for Hindi, Marathi, Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada, Malayalam, Odia, and Assamese via the top navigation bar.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>How do I test my soil NPK levels?</span>
-              <i class="ri-add-line faq-icon"></i>
-            </div>
-            <div class="faq-answer">
-              <p>You can use standard government soil health card readings or rapid digital NPK soil testing kits. Input Nitrogen (N), Phosphorus (P), Potassium (K), pH, and rainfall into our Fertilizer AI tool for immediate dosage recommendations.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Are Mandi commodity prices updated daily?</span>
-              <i class="ri-add-line faq-icon"></i>
-            </div>
-            <div class="faq-answer">
-              <p>Yes, Mandi market rates are synchronized daily from official APMC agricultural market databases across major hubs in Uttar Pradesh and nationwide.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FOOTER (#footer) -->
-      <div id="footer">
-        <img
-          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg"
-          alt="Footer background dots"
-        />
-        <div id="f1">
-          <img src="LOGO.jpg" alt="Agro Space Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-          <span class="logo-fallback" style="display:none; font-weight: 900; color: #fff; font-size: 28px;">AGRO SPACE</span>
-          <p class="footer-desc">Empowering agriculture with data science, soil precision, and digital innovation.</p>
-        </div>
-
-        <div id="f2">
-          <h3>Quick Links</h3>
-          <ul class="footer-menu">
-            <li><a href="#page1">Home</a></li>
-            <li><a href="#about-us">About Us</a></li>
-            <li><a href="#cards-container">AI Ecosystem</a></li>
-            <li><a href="dashboard.html">Farmer Dashboard</a></li>
-            <li><a href="mandi-schemes.html">Mandi & Schemes</a></li>
-          </ul>
-        </div>
-
-        <div id="f3">
-          <h3>AI Tools</h3>
-          <ul class="footer-menu">
-            <li><a href="crop-prediction.html">Crop Recommendation AI</a></li>
-            <li><a href="fertilizer.html">Fertilizer NPK Calculator</a></li>
-            <li><a href="disease-detection.html">Leaf Pathology Diagnostic</a></li>
-            <li><a href="farmer-hub.html">Community Farmer Hub</a></li>
-          </ul>
-        </div>
-
-        <div class="center">
-          Copyright &copy; 2026 www.AGROSPACE.com.<br>All rights reserved!
-        </div>
-
-        <div id="f4">
-          <h4>
-            A-20 VASANT NAGAR <br />
-            LALGANJ VARANASI <br />
-            UTTAR PRADESH <br />
-            INDIA 603203 <br />
-            MOB: +91 6969696969 <br />
-            AAYUSH KUMAR <br />
-          </h4>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- SCRIPTS -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
-      integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
-      integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="script.js"></script>
-  </body>
+  <!-- G. INTERACTIVE NPK CALCULATOR WIDGET -->
+  <section id="calculator" class="relative bg-[#141714] px-6 py-24 text-[#F4F2EC] md:px-16 lg:px-24">
+    <div class="mx-auto max-w-5xl rounded-[3rem] border border-[#F4F2EC]/10 bg-[#1E3A2B]/40 p-8 md:p-16 backdrop-blur-md">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+        <div>
+          <span class="font-data text-xs uppercase tracking-widest text-[#CC5833]">Quick Estimator</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold">NPK Field Calculator</h2>
+          <p class="mt-2 text-sm text-[#F4F2EC]/70">Estimate land NPK allocation for your target crop size instantly:</p>
+        </div>
+        <a href="fertilizer.html" class="text-xs font-mono text-[#CC5833] underline hover:text-white">Full ML Model &rarr;</a>
+      </div>
+
+      <form onsubmit="event.preventDefault(); calcNPK();" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <label class="block font-data text-xs text-[#F4F2EC]/70 mb-2">Target Crop</label>
+          <select id="quick-crop" class="w-full rounded-xl border border-[#F4F2EC]/20 bg-[#141714] px-4 py-3 text-sm text-[#F4F2EC] outline-none focus:border-[#CC5833]">
+            <option value="rice">Rice / Paddy</option>
+            <option value="wheat">Wheat</option>
+            <option value="maize">Maize / Corn</option>
+            <option value="cotton">Cotton</option>
+            <option value="sugarcane">Sugarcane</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-data text-xs text-[#F4F2EC]/70 mb-2">Land Area (Acres)</label>
+          <input type="number" id="quick-acres" value="2" min="1" max="500" class="w-full rounded-xl border border-[#F4F2EC]/20 bg-[#141714] px-4 py-3 text-sm text-[#F4F2EC] outline-none focus:border-[#CC5833]" />
+        </div>
+
+        <div class="flex items-end">
+          <button type="submit" class="w-full rounded-xl bg-[#CC5833] px-6 py-3.5 text-sm font-semibold text-[#F4F2EC] transition-colors hover:bg-white hover:text-[#141714]">
+            Calculate Requirement
+          </button>
+        </div>
+      </form>
+
+      <div id="quick-res" class="mt-8 hidden rounded-2xl border border-[#CC5833]/40 bg-[#CC5833]/10 p-6">
+        <h4 class="font-data text-xs uppercase tracking-widest text-[#CC5833] mb-4">Recommended Field Dosage Allocation:</h4>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div class="bg-[#141714]/60 p-4 rounded-xl">
+            <span class="block font-data text-xs text-[#F4F2EC]/60">Nitrogen (N)</span>
+            <strong id="q-n" class="font-heading text-2xl font-bold text-[#CC5833]">0 kg</strong>
+          </div>
+          <div class="bg-[#141714]/60 p-4 rounded-xl">
+            <span class="block font-data text-xs text-[#F4F2EC]/60">Phosphorus (P)</span>
+            <strong id="q-p" class="font-heading text-2xl font-bold text-[#CC5833]">0 kg</strong>
+          </div>
+          <div class="bg-[#141714]/60 p-4 rounded-xl">
+            <span class="block font-data text-xs text-[#F4F2EC]/60">Potassium (K)</span>
+            <strong id="q-k" class="font-heading text-2xl font-bold text-[#CC5833]">0 kg</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- H. MEMBERSHIP ACCESS TIERS -->
+  <section id="membership" class="relative bg-[#F4F2EC] px-6 py-24 md:px-16 lg:px-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16 text-center">
+        <span class="font-data text-xs uppercase tracking-widest text-[#CC5833]">Agronomic Access</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight text-[#141714] md:text-5xl mt-2">Platform Access Plans</h2>
+        <p class="mt-4 text-sm text-[#141714]/70">Strictly designed for individual smallholders, cooperatives, and commercial estates.</p>
+      </div>
+
+      <div class="grid grid-cols-1 items-center gap-8 md:grid-cols-3">
+        <!-- Tier 1 -->
+        <div class="rounded-[2.5rem] border border-[#141714]/10 bg-white p-8 shadow-sm">
+          <h3 class="font-heading text-xl font-bold tracking-tight text-[#141714]">Smallholder</h3>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="font-heading text-4xl font-bold text-[#141714]">Free</span>
+            <span class="text-xs text-[#141714]/50">/ forever</span>
+          </div>
+          <ul class="mt-8 flex flex-col gap-4 text-sm text-[#141714]/70">
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Standard NPK & Crop Recommendation AI</li>
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Mandi Market Prices Feed</li>
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Community Farmer Hub Access</li>
+          </ul>
+          <a href="crop-prediction.html" class="magnetic mt-10 block text-center rounded-full border border-[#141714]/10 px-6 py-3 text-sm font-medium text-[#141714] transition-colors hover:bg-[#141714]/5">Start Free Access</a>
+        </div>
+
+        <!-- Tier 2 (Highlighted) -->
+        <div class="relative rounded-[2.5rem] bg-[#1E3A2B] p-8 shadow-2xl md:scale-105">
+          <div class="absolute -top-4 right-8 rounded-full bg-[#CC5833] px-3 py-1 text-xs font-medium text-[#F4F2EC]">Recommended</div>
+          <h3 class="font-heading text-xl font-bold tracking-tight text-[#F4F2EC]">Pro Grower & FPO</h3>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="font-heading text-4xl font-bold text-[#F4F2EC]">₹1,499</span>
+            <span class="text-xs text-[#F4F2EC]/50">/ season</span>
+          </div>
+          <ul class="mt-8 flex flex-col gap-4 text-sm text-[#F4F2EC]/80">
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Unlimited Leaf Pathology Scans</li>
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Real-Time APMC Mandi Price Alerts</li>
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Dedicated Agronomist AI Interface</li>
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Seasonal Fertilizer Schedule Downloads</li>
+          </ul>
+          <a href="dashboard.html" class="magnetic group relative mt-10 block text-center overflow-hidden rounded-full bg-[#CC5833] px-6 py-3 text-sm font-medium text-[#F4F2EC]">
+            <span class="relative z-10">Upgrade to Pro</span>
+            <span class="absolute inset-0 z-0 h-full w-full translate-y-full bg-[#141714] transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:translate-y-0"></span>
+          </a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="rounded-[2.5rem] border border-[#141714]/10 bg-white p-8 shadow-sm">
+          <h3 class="font-heading text-xl font-bold tracking-tight text-[#141714]">Agritech Enterprise</h3>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="font-heading text-4xl font-bold text-[#141714]">Custom</span>
+          </div>
+          <ul class="mt-8 flex flex-col gap-4 text-sm text-[#141714]/70">
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> On-Premise IoT Sensor Integration</li>
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Custom Neural Network Training</li>
+            <li class="flex items-center gap-3"><iconify-icon icon="solar:check-circle-linear" class="text-[#CC5833]"></iconify-icon> Satellite Telemetry Stream API</li>
+          </ul>
+          <a href="farmer-hub.html" class="magnetic mt-10 block text-center rounded-full border border-[#141714]/10 px-6 py-3 text-sm font-medium text-[#141714] transition-colors hover:bg-[#141714]/5">Contact Enterprise</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- I. FOOTER -->
+  <footer class="mt-12 rounded-t-[4rem] bg-[#141714] px-6 pb-12 pt-24 text-[#F4F2EC] md:px-16 lg:px-24">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-24">
+        <div class="md:col-span-2">
+          <div class="font-heading text-2xl font-bold tracking-tighter uppercase flex items-center gap-1">
+            Agri<span class="text-[#CC5833]">Nex</span><sup class="text-[10px] bg-[#CC5833]/20 text-[#CC5833] px-1.5 py-0.5 rounded font-mono">AI</sup>
+          </div>
+          <p class="mt-4 max-w-xs text-sm text-[#F4F4EC]/60">Precision agricultural intelligence powered by soil chemistry ML & biological telemetry.</p>
+          
+          <div class="mt-8 flex items-center gap-3 rounded-full border border-[#F4F2EC]/10 bg-[#F4F2EC]/5 px-4 py-2 w-fit">
+            <span class="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+            <span class="font-data text-xs text-[#F4F2EC]/80">3 ML Models Operational</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-heading text-xs text-[#F4F2EC]/40 tracking-widest uppercase font-semibold">AI Ecosystem</h4>
+          <ul class="mt-6 flex flex-col gap-3 text-sm">
+            <li><a href="crop-prediction.html" class="hover:text-[#CC5833] transition-colors">Crop Recommender</a></li>
+            <li><a href="fertilizer.html" class="hover:text-[#CC5833] transition-colors">Fertilizer AI</a></li>
+            <li><a href="disease-detection.html" class="hover:text-[#CC5833] transition-colors">Plant Disease Vision</a></li>
+            <li><a href="mandi-schemes.html" class="hover:text-[#CC5833] transition-colors">Mandi & Schemes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading text-xs text-[#F4F2EC]/40 tracking-widest uppercase font-semibold">Platform & Legal</h4>
+          <ul class="mt-6 flex flex-col gap-3 text-sm">
+            <li><a href="dashboard.html" class="hover:text-[#CC5833] transition-colors">Farmer Dashboard</a></li>
+            <li><a href="farmer-hub.html" class="hover:text-[#CC5833] transition-colors">Community Hub</a></li>
+            <li><a href="#" class="hover:text-[#CC5833] transition-colors">Privacy Protocol</a></li>
+            <li><a href="#" class="hover:text-[#CC5833] transition-colors">Data Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-20 border-t border-[#F4F2EC]/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#F4F2EC]/40">
+        <p>© 2026 AgriNex AI Inc. All rights reserved. Lalganj Varanasi UP India.</p>
+        <p class="mt-2 md:mt-0 font-data">v.3.2.0. agrinex-biological-interface</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTION LOGIC & GSAP SCRIPTS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 1. Navbar Morphing Logic
+      ScrollTrigger.create({
+        trigger: "#hero",
+        start: "bottom 90%",
+        onEnter: () => {
+          gsap.to("#navbar", { 
+            backgroundColor: "rgba(244, 242, 236, 0.88)", 
+            backdropFilter: "blur(16px)",
+            color: "#141714", 
+            border: "1px solid rgba(20, 23, 20, 0.12)",
+            duration: 0.4 
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to("#navbar", { 
+            backgroundColor: "transparent", 
+            backdropFilter: "blur(0px)",
+            color: "#F4F2EC", 
+            border: "1px solid transparent",
+            duration: 0.4 
+          });
+        }
+      });
+
+      // 2. Hero Initial Animation
+      const heroTl = gsap.timeline();
+      heroTl.from(".hero-el", {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power3.out",
+        delay: 0.2
+      });
+
+      // 3. Magnetic Button Micro-interactions
+      document.querySelectorAll('.magnetic').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          gsap.to(btn, { x: x * 0.15, y: y * 0.15, duration: 0.4, ease: "power2.out" });
+        });
+        btn.addEventListener('mouseleave', () => {
+          gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" });
+        });
+      });
+
+      // 4. Soil Biomarker Rotation Shuffler Card
+      const shufflerData = [
+        { label: "NPK Ratio (N:P:K)", val: "50:25:25 Balanced" },
+        { label: "Soil pH Level", val: "6.8 pH - Optimal" },
+        { label: "Leaf Pathology", val: "Scanned - Healthy" }
+      ];
+      const shufflerContainer = document.getElementById('shuffler-container');
+      
+      if (shufflerContainer) {
+        shufflerData.forEach((item, i) => {
+          const el = document.createElement('div');
+          el.className = 'absolute inset-x-0 top-0 rounded-xl bg-[#F4F2EC] p-4 border border-[#141714]/10 shadow-sm flex justify-between items-center shuffler-card';
+          el.innerHTML = `<span class="text-xs font-semibold text-[#141714]">${item.label}</span><span class="font-data text-xs text-[#CC5833] font-semibold">${item.val}</span>`;
+          shufflerContainer.appendChild(el);
+        });
+
+        let cards = Array.from(document.querySelectorAll('.shuffler-card'));
+        
+        function updateShuffler(init = false) {
+          cards.forEach((card, i) => {
+            gsap.to(card, {
+              y: i * 14,
+              scale: 1 - i * 0.05,
+              opacity: i === 2 ? 0 : (1 - i * 0.3),
+              zIndex: 30 - i * 10,
+              duration: init ? 0 : 0.7,
+              ease: "power3.inOut"
+            });
+          });
+        }
+        updateShuffler(true);
+        setInterval(() => {
+          cards.unshift(cards.pop());
+          updateShuffler();
+        }, 3000);
+      }
+
+      // 5. Agronomic Telemetry Typewriter Card
+      const typeText = document.getElementById('typewriter-text');
+      if (typeText) {
+        const msgs = [
+          "Sequencing NPK soil nitrogen variance...",
+          "Analyzing rainfall & humidity forecasts...",
+          "Synthesizing precision fertilizer dosage...",
+          "Checking regional APMC Mandi rate surge..."
+        ];
+        let msgIdx = 0, charIdx = 0, isDeleting = false;
+        
+        function type() {
+          const currentMsg = msgs[msgIdx];
+          if (isDeleting) {
+            typeText.innerText = currentMsg.substring(0, charIdx - 1);
+            charIdx--;
+          } else {
+            typeText.innerText = currentMsg.substring(0, charIdx + 1);
+            charIdx++;
+          }
+          
+          let speed = isDeleting ? 20 : 50;
+          if (!isDeleting && charIdx === currentMsg.length) {
+            speed = 2200; 
+            isDeleting = true;
+          } else if (isDeleting && charIdx === 0) {
+            isDeleting = false; 
+            msgIdx = (msgIdx + 1) % msgs.length; 
+            speed = 400;
+          }
+          setTimeout(type, speed);
+        }
+        setTimeout(type, 800);
+      }
+
+      // 6. Cursor Protocol Scheduler
+      const cursor = document.getElementById('scheduler-cursor');
+      const dayCell = document.getElementById('day-cell');
+      if (cursor && dayCell) {
+        const cursorTl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+        
+        cursorTl.set(cursor, { x: 10, y: -20, opacity: 0 })
+          .to(cursor, { opacity: 1, duration: 0.3 })
+          .to(cursor, { x: 95, y: 15, duration: 1, ease: "power2.inOut" }) 
+          .to(cursor, { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 }) 
+          .to(dayCell, { backgroundColor: "#CC5833", color: "#F4F2EC", duration: 0.2 }, "-=0.1") 
+          .to(cursor, { x: 150, y: 50, duration: 1, ease: "power2.inOut", delay: 0.5 }) 
+          .to(cursor, { opacity: 0, duration: 0.3 })
+          .set(dayCell, { backgroundColor: "transparent", color: "inherit", delay: 0.2 });
+      }
+
+      // 7. Philosophy Reveal
+      gsap.utils.toArray('.reveal-text').forEach(text => {
+        gsap.from(text, {
+          scrollTrigger: {
+            trigger: text,
+            start: "top 85%"
+          },
+          y: 40,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power3.out"
+        });
+      });
+
+      // 8. Protocol Stacking Parallax (Scale & Fade Previous)
+      const panels = gsap.utils.toArray('.protocol-panel');
+      panels.forEach((panel, i) => {
+        if (i === 0) return;
+        gsap.to(panels[i - 1], {
+          scale: 0.92,
+          opacity: 0.3,
+          filter: "blur(10px)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: panel,
+            start: "top 80%",
+            end: "top 20%",
+            scrub: true
+          }
+        });
+      });
+
+      // 9. EKG / Wave Animation
+      const ekgPath = document.getElementById('ekg-path');
+      if (ekgPath) {
+        const length = ekgPath.getTotalLength();
+        ekgPath.style.strokeDasharray = length;
+        ekgPath.style.strokeDashoffset = length;
+        
+        gsap.to(ekgPath, {
+          strokeDashoffset: 0,
+          duration: 2,
+          repeat: -1,
+          ease: "linear",
+          repeatDelay: 0.5
+        });
+      }
+    });
+
+    // Quick NPK Calculator function
+    function calcNPK() {
+      const crop = document.getElementById("quick-crop").value;
+      const acres = parseFloat(document.getElementById("quick-acres").value) || 1;
+
+      let bN = 45, bP = 20, bK = 20;
+      if (crop === "rice") { bN = 50; bP = 25; bK = 25; }
+      else if (crop === "wheat") { bN = 60; bP = 30; bK = 20; }
+      else if (crop === "maize") { bN = 55; bP = 25; bK = 30; }
+      else if (crop === "cotton") { bN = 40; bP = 20; bK = 20; }
+      else if (crop === "sugarcane") { bN = 75; bP = 35; bK = 40; }
+
+      document.getElementById("q-n").innerText = (bN * acres).toFixed(0) + " kg";
+      document.getElementById("q-p").innerText = (bP * acres).toFixed(0) + " kg";
+      document.getElementById("q-k").innerText = (bK * acres).toFixed(0) + " kg";
+
+      document.getElementById("quick-res").classList.remove("hidden");
+    }
+  </script>
+</body>
 </html>
