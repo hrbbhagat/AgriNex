@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fertilizer AI Guide | AgriNex AI</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
   <link rel="stylesheet" href="styles.css">
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
@@ -22,136 +18,130 @@
     }
   </script>
 </head>
-<body class="antialiased selection:bg-[#C9E265] selection:text-[#1A261D]">
-  <div class="bg-noise"></div>
+<body>
 
-  <!-- Navigation -->
-  <nav class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4">
-    <div class="bg-[#F2EFE9]/95 backdrop-blur-md hard-shadow rounded-full px-3 py-2 flex items-center gap-3 max-w-5xl w-full justify-between transition-all">
-      <a href="index.html" class="flex items-center gap-2 bg-[#1A261D] text-[#F2EFE9] px-5 py-2 rounded-full hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors group">
-        <span class="font-sans font-bold tracking-tighter text-base uppercase">AgriNex<sup>AI</sup></span>
-      </a>
-
-      <div class="hidden lg:flex gap-2 items-center" id="nav-links">
-        <a href="index.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Home</a>
-        <a href="dashboard.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Dashboard</a>
-        <a href="crop-prediction.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Crop AI</a>
-        <a href="fertilizer.html" class="px-4 py-2 rounded-full text-sm font-semibold bg-[#FF6B4A] text-[#1A261D]">Fertilizer AI</a>
-        <a href="disease-detection.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Disease ID</a>
-        <a href="mandi-schemes.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Mandi & Schemes</a>
-        <a href="farmer-hub.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Farmer Hub</a>
-      </div>
-
-      <div class="flex items-center gap-2">
-        <button class="bg-[#9D8BB5] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D]" id="btn-voice">
-          🎤 Voice Search
-        </button>
-
-        <div class="relative apps-menu">
-          <button class="bg-[#C9E265] hover:bg-[#b5d145] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D] shadow-[2px_2px_0px_0px_#1A261D]" id="apps-toggle-btn">
-            Live AI apps ▾
-          </button>
-          <div class="apps-dropdown" id="apps-dropdown">
+  <!-- Fixed Navigation -->
+  <header class="hero-nav-wrap clip-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Agri<span>Nex</span><sup>AI</sup></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crop-prediction.html">Crop AI</a>
+        <a class="active" href="fertilizer.html">Fertilizer AI</a>
+        <a href="disease-detection.html">Disease ID</a>
+        <a href="mandi-schemes.html">Mandi & Schemes</a>
+        <a href="farmer-hub.html">Farmer Hub</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="hc-button secondary clip-button" id="btn-voice" style="padding:8px 16px;font-size:13px">🎤 Voice Search</button>
+        <div class="apps-menu">
+          <button class="hc-button clip-button" id="apps-toggle-btn" style="padding:8px 16px;font-size:13px">Live AI apps ▾</button>
+          <div class="apps-dropdown clip-card" id="apps-dropdown">
             <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">🌾</span>
+              <span class="apps-icon clip-media">🌾</span>
               <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
             </a>
             <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">⚗</span>
+              <span class="apps-icon clip-media">⚗</span>
               <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
             </a>
             <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">🔬</span>
+              <span class="apps-icon clip-media">🔬</span>
               <span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span>
             </a>
           </div>
         </div>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-block bg-[#FF6B4A] text-[#1A261D] font-bold text-xs px-3 py-1 rounded-full border border-[#1A261D] mb-4">
-        NPK Fertilizer Advisor
-      </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#1A261D] mb-6">
-        Balanced <span class="font-serif italic text-[#3D6B4F]">Soil Nutrition</span>
-      </h1>
-      <p class="text-base text-[#1A261D]/80 font-sans">
-        Calculate exact NPK nutrient deficiencies and receive tailored fertilizer directions (Urea, DAP, NPK 10-26-26, SSP) for your soil.
-      </p>
-      <div class="mt-8">
-        <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="bg-[#1A261D] text-[#F2EFE9] px-8 py-3.5 rounded-full font-bold hard-shadow hard-shadow-hover text-base inline-block">
-          Open Deployed Streamlit Fertilizer App ↗
+  <main style="padding-top:130px;padding-bottom:90px">
+    <div style="max-width:1440px;margin:0 auto;padding:0 30px">
+      <div style="text-align:center;max-width:700px;margin:0 auto 60px" class="service-catalog-reveal" style="transition-delay: 0.08s">
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
+          NPK Soil Nutrition Advisor
+        </span>
+        <h1 style="font-size:52px;margin:14px 0">
+          Fertilizer AI <span class="hero-font-serif">Prediction</span>
+        </h1>
+        <p style="color:var(--hc-text-muted);font-size:18px">
+          Calculate NPK nutrient deficiencies and receive exact dosage directions (Urea, DAP, NPK 10-26-26, SSP) for your soil.
+        </p>
+        <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="margin-top:24px">
+          Open Deployed Streamlit App ↗
         </a>
       </div>
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="md:col-span-2 bg-white p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
-        <h3 class="text-2xl font-bold mb-6 text-[#1A261D]">Interactive NPK Deficiency Calculator</h3>
-        
-        <form data-fert-form class="space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Crop Type</label>
-              <select name="crop" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
-                <option>Rice</option><option>Maize</option><option>Wheat</option><option>Cotton</option><option>Groundnut</option><option>Sugarcane</option>
-              </select>
+      <div style="display:grid;grid-template-columns:1.3fr 0.7fr;gap:40px">
+        <div class="service-card outer clip-card service-catalog-reveal" style="transition-delay: 0.14s">
+          <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin-bottom:20px">Interactive NPK Calculator</h3>
+          
+          <form data-fert-form style="display:grid;gap:18px">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+              <div>
+                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Crop Type</label>
+                <select name="crop" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
+                  <option>Rice</option><option>Maize</option><option>Wheat</option><option>Cotton</option><option>Groundnut</option><option>Sugarcane</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Soil Type</label>
+                <select name="soil" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
+                  <option>Loamy</option><option>Black</option><option>Red</option><option>Sandy</option><option>Clayey</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Moisture %</label>
+                <input name="moisture" type="number" value="38" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
+              </div>
             </div>
-            <div>
-              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Soil Type</label>
-              <select name="soil" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
-                <option>Loamy</option><option>Black</option><option>Red</option><option>Sandy</option><option>Clayey</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Moisture %</label>
-              <input name="moisture" type="number" value="38" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
-            </div>
-          </div>
 
-          <div class="grid grid-cols-3 gap-4">
-            <div>
-              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Nitrogen (N ppm)</label>
-              <input name="n" type="number" value="20" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+              <div>
+                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Nitrogen (N ppm)</label>
+                <input name="n" type="number" value="20" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
+              </div>
+              <div>
+                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Phosphorus (P ppm)</label>
+                <input name="p" type="number" value="15" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
+              </div>
+              <div>
+                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Potassium (K ppm)</label>
+                <input name="k" type="number" value="10" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
+              </div>
             </div>
-            <div>
-              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Phosphorus (P ppm)</label>
-              <input name="p" type="number" value="15" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
-            </div>
-            <div>
-              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Potassium (K ppm)</label>
-              <input name="k" type="number" value="10" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
-            </div>
-          </div>
 
-          <button type="submit" class="w-full bg-[#C9E265] text-[#1A261D] py-4 rounded-xl font-bold border-2 border-[#1A261D] hard-shadow hard-shadow-hover mt-4">
-            Calculate NPK Fertilizer Direction
-          </button>
-        </form>
+            <button type="submit" class="hc-button clip-button" style="width:100%;margin-top:10px">
+              Calculate Fertilizer Direction
+            </button>
+          </form>
 
-        <div data-fert-result class="hidden mt-6 p-6 bg-[#C9E265] border-2 border-[#1A261D] rounded-xl text-[#1A261D]"></div>
-      </div>
-
-      <div class="bg-[#9D8BB5] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-[#1A261D] text-[#9D8BB5] rounded-xl flex items-center justify-center text-2xl font-bold mb-6">⚗</div>
-          <h3 class="text-2xl font-bold mb-3 text-[#1A261D]">Full Streamlit App</h3>
-          <p class="text-sm font-sans text-[#1A261D]/90 mb-6">
-            The full Random Forest model is deployed live on Streamlit Cloud for instant calculations.
-          </p>
+          <div data-fert-result style="display:none;margin-top:24px;padding:24px;background:var(--hc-accent-light);border:1px solid var(--hc-accent)"></div>
         </div>
-        <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="w-full bg-[#1A261D] text-[#F2EFE9] py-4 rounded-full font-bold border-2 border-[#1A261D] text-center hover:bg-[#FF6B4A] transition-colors">
-          Open Deployed App ↗
-        </a>
+
+        <div class="service-card middle clip-card service-catalog-reveal" style="transition-delay: 0.20s;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold)">STREAMLIT CLOUD LIVE</span>
+            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:12px 0 16px;color:#fff">
+              Random Forest <span class="hero-font-serif" style="color:var(--hc-gold)">Classifier</span>
+            </h3>
+            <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:24px">
+              Access the complete fertilizer recommendation algorithm live in your browser.
+            </p>
+          </div>
+          <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="width:100%;background:var(--hc-gold);color:var(--hc-text);border:0">
+            Launch Streamlit App ↗
+          </a>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer class="bg-[#1A261D] text-[#F2EFE9] py-10 px-6 font-sans text-center text-xs border-t-2 border-[#1A261D]">
-    © 2026 AgriNex AI Platform • Fertilizer Recommendation Advisor
+  <footer class="hc-footer">
+    <div style="max-width:1440px;margin:0 auto;padding:0 30px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)">
+      © 2026 AgriNex AI • Fertilizer Recommendation Engine
+    </div>
   </footer>
 
   <script src="script.js"></script>

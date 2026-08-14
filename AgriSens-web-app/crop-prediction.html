@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crop AI Recommendation | AgriNex AI</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
   <link rel="stylesheet" href="styles.css">
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
@@ -22,108 +18,103 @@
     }
   </script>
 </head>
-<body class="antialiased selection:bg-[#C9E265] selection:text-[#1A261D]">
-  <div class="bg-noise"></div>
+<body>
 
-  <!-- Floating Neobrutalist Navigation -->
-  <nav class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4">
-    <div class="bg-[#F2EFE9]/95 backdrop-blur-md hard-shadow rounded-full px-3 py-2 flex items-center gap-3 max-w-5xl w-full justify-between transition-all">
-      <a href="index.html" class="flex items-center gap-2 bg-[#1A261D] text-[#F2EFE9] px-5 py-2 rounded-full hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors group">
-        <span class="font-sans font-bold tracking-tighter text-base uppercase">AgriNex<sup>AI</sup></span>
-      </a>
-
-      <div class="hidden lg:flex gap-2 items-center" id="nav-links">
-        <a href="index.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Home</a>
-        <a href="dashboard.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Dashboard</a>
-        <a href="crop-prediction.html" class="px-4 py-2 rounded-full text-sm font-semibold bg-[#C9E265] text-[#1A261D]">Crop AI</a>
-        <a href="fertilizer.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Fertilizer AI</a>
-        <a href="disease-detection.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Disease ID</a>
-        <a href="mandi-schemes.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Mandi & Schemes</a>
-        <a href="farmer-hub.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Farmer Hub</a>
-      </div>
-
-      <div class="flex items-center gap-2">
-        <button class="bg-[#9D8BB5] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D]" id="btn-voice">
-          🎤 Voice Search
-        </button>
-
-        <div class="relative apps-menu">
-          <button class="bg-[#C9E265] hover:bg-[#b5d145] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D] shadow-[2px_2px_0px_0px_#1A261D]" id="apps-toggle-btn">
-            Live AI apps ▾
-          </button>
-          <div class="apps-dropdown" id="apps-dropdown">
+  <!-- Fixed Navigation -->
+  <header class="hero-nav-wrap clip-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Agri<span>Nex</span><sup>AI</sup></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a class="active" href="crop-prediction.html">Crop AI</a>
+        <a href="fertilizer.html">Fertilizer AI</a>
+        <a href="disease-detection.html">Disease ID</a>
+        <a href="mandi-schemes.html">Mandi & Schemes</a>
+        <a href="farmer-hub.html">Farmer Hub</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="hc-button secondary clip-button" id="btn-voice" style="padding:8px 16px;font-size:13px">🎤 Voice Search</button>
+        <div class="apps-menu">
+          <button class="hc-button clip-button" id="apps-toggle-btn" style="padding:8px 16px;font-size:13px">Live AI apps ▾</button>
+          <div class="apps-dropdown clip-card" id="apps-dropdown">
             <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">🌾</span>
+              <span class="apps-icon clip-media">🌾</span>
               <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
             </a>
             <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">⚗</span>
+              <span class="apps-icon clip-media">⚗</span>
               <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
             </a>
             <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">🔬</span>
+              <span class="apps-icon clip-media">🔬</span>
               <span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span>
             </a>
           </div>
         </div>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-block bg-[#C9E265] text-[#1A261D] font-bold text-xs px-3 py-1 rounded-full border border-[#1A261D] mb-4">
-        AI Crop Recommender Engine
-      </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#1A261D] mb-6">
-        Select Crops with <span class="font-serif italic text-[#3D6B4F]">Data Precision</span>
-      </h1>
-      <p class="text-base text-[#1A261D]/80 font-sans">
-        Enter soil NPK ratios, pH level, rainfall, and temperature values to find the ideal crop for your land.
-      </p>
-      <div class="mt-8 flex justify-center gap-4">
-        <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="bg-[#FF6B4A] text-[#1A261D] px-8 py-3.5 rounded-full font-bold hard-shadow hard-shadow-hover text-base">
-          Launch Live Streamlit App ↗
-        </a>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-      <div class="bg-white p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
-        <h3 class="text-2xl font-bold mb-4 text-[#1A261D]">How the ML Model Works</h3>
-        <p class="text-sm font-sans text-[#1A261D]/80 leading-relaxed mb-6">
-          The crop recommendation engine runs on trained Random Forest classifiers. It compares your soil profile against optimal growth parameters for 22+ Indian crops (Rice, Maize, Chickpea, Kidney Beans, Cotton, Jute, Coffee, etc.).
+  <main style="padding-top:130px;padding-bottom:90px">
+    <div style="max-width:1440px;margin:0 auto;padding:0 30px">
+      <div style="text-align:center;max-width:700px;margin:0 auto 60px" class="service-catalog-reveal" style="transition-delay: 0.08s">
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
+          Machine Learning Model
+        </span>
+        <h1 style="font-size:52px;margin:14px 0">
+          Crop AI <span class="hero-font-serif">Recommender</span>
+        </h1>
+        <p style="color:var(--hc-text-muted);font-size:18px">
+          Select crops based on soil NPK ratios, pH level, temperature, and local rainfall figures.
         </p>
-        <div class="space-y-3 font-sans text-sm">
-          <div class="p-3 bg-[#F2EFE9] border border-[#1A261D] rounded-xl flex items-center gap-3">
-            <span class="text-xl">🧪</span> <b>NPK Soil Ratios (N, P, K ppm)</b>
-          </div>
-          <div class="p-3 bg-[#F2EFE9] border border-[#1A261D] rounded-xl flex items-center gap-3">
-            <span class="text-xl">🌡️</span> <b>Temperature (°C) & Humidity (%)</b>
-          </div>
-          <div class="p-3 bg-[#F2EFE9] border border-[#1A261D] rounded-xl flex items-center gap-3">
-            <span class="text-xl">🌧️</span> <b>Annual Rainfall (mm) & Soil pH</b>
-          </div>
-        </div>
+        <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="margin-top:24px">
+          Open Deployed Streamlit App ↗
+        </a>
       </div>
 
-      <div class="bg-[#C9E265] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 bg-[#1A261D] text-[#C9E265] rounded-xl flex items-center justify-center text-2xl font-bold mb-6">🌾</div>
-          <h3 class="text-2xl font-bold mb-3 text-[#1A261D]">Streamlit Cloud Live Instance</h3>
-          <p class="text-sm font-sans text-[#1A261D]/90 mb-6">
-            Access the full interactive machine learning interface live on Streamlit Cloud with zero installation.
+      <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px">
+        <div class="service-card outer clip-card service-catalog-reveal" style="transition-delay: 0.14s">
+          <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin-bottom:16px">How the Model Operates</h3>
+          <p style="color:var(--hc-text-muted);font-size:16px;line-height:1.7;margin-bottom:24px">
+            The Crop AI Recommender uses Random Forest Decision Trees trained on Indian agricultural datasets to evaluate soil and climate variables across 22 crop classes.
           </p>
+
+          <div style="display:grid;gap:14px">
+            <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1)" class="clip-card">
+              <b>🧪 NPK Soil Ratios (N, P, K ppm)</b>
+            </div>
+            <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1)" class="clip-card">
+              <b>🌡️ Temperature (°C) & Humidity (%)</b>
+            </div>
+            <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1)" class="clip-card">
+              <b>🌧️ Annual Rainfall (mm) & Soil pH Level</b>
+            </div>
+          </div>
         </div>
-        <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="w-full bg-[#1A261D] text-[#F2EFE9] py-4 rounded-full font-bold border-2 border-[#1A261D] text-center hover:bg-[#3D6B4F] transition-colors">
-          Open Deployed Crop App ↗
-        </a>
+
+        <div class="service-card middle clip-card service-catalog-reveal" style="transition-delay: 0.20s;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold)">LIVE STREAMLIT CLOUD</span>
+            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:12px 0 16px;color:#fff">
+              Smart Crop <span class="hero-font-serif" style="color:var(--hc-gold)">Recommender</span>
+            </h3>
+            <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:24px">
+              Access the complete interactive machine-learning interface live in your browser.
+            </p>
+          </div>
+          <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="width:100%;background:var(--hc-gold);color:var(--hc-text);border:0">
+            Launch Streamlit App ↗
+          </a>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer class="bg-[#1A261D] text-[#F2EFE9] py-10 px-6 font-sans text-center text-xs border-t-2 border-[#1A261D]">
-    © 2026 AgriNex AI Platform • Crop Recommendation Engine
+  <footer class="hc-footer">
+    <div style="max-width:1440px;margin:0 auto;padding:0 30px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)">
+      © 2026 AgriNex AI • Crop Recommendation Engine
+    </div>
   </footer>
 
   <script src="script.js"></script>

@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farmer Hub & Advisory | AgriNex AI</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
   <link rel="stylesheet" href="styles.css">
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
@@ -22,119 +18,120 @@
     }
   </script>
 </head>
-<body class="antialiased selection:bg-[#C9E265] selection:text-[#1A261D]">
-  <div class="bg-noise"></div>
+<body>
 
-  <!-- Navigation -->
-  <nav class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4">
-    <div class="bg-[#F2EFE9]/95 backdrop-blur-md hard-shadow rounded-full px-3 py-2 flex items-center gap-3 max-w-5xl w-full justify-between transition-all">
-      <a href="index.html" class="flex items-center gap-2 bg-[#1A261D] text-[#F2EFE9] px-5 py-2 rounded-full hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors group">
-        <span class="font-sans font-bold tracking-tighter text-base uppercase">AgriNex<sup>AI</sup></span>
-      </a>
-
-      <div class="hidden lg:flex gap-2 items-center" id="nav-links">
-        <a href="index.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Home</a>
-        <a href="dashboard.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Dashboard</a>
-        <a href="crop-prediction.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Crop AI</a>
-        <a href="fertilizer.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Fertilizer AI</a>
-        <a href="disease-detection.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Disease ID</a>
-        <a href="mandi-schemes.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Mandi & Schemes</a>
-        <a href="farmer-hub.html" class="px-4 py-2 rounded-full text-sm font-semibold bg-[#FF6B4A] text-[#1A261D]">Farmer Hub</a>
-      </div>
-
-      <div class="flex items-center gap-2">
-        <button class="bg-[#9D8BB5] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D]" id="btn-voice">
-          🎤 Voice Search
-        </button>
-
-        <div class="relative apps-menu">
-          <button class="bg-[#C9E265] hover:bg-[#b5d145] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D] shadow-[2px_2px_0px_0px_#1A261D]" id="apps-toggle-btn">
-            Live AI apps ▾
-          </button>
-          <div class="apps-dropdown" id="apps-dropdown">
+  <!-- Fixed Navigation -->
+  <header class="hero-nav-wrap clip-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Agri<span>Nex</span><sup>AI</sup></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crop-prediction.html">Crop AI</a>
+        <a href="fertilizer.html">Fertilizer AI</a>
+        <a href="disease-detection.html">Disease ID</a>
+        <a href="mandi-schemes.html">Mandi & Schemes</a>
+        <a class="active" href="farmer-hub.html">Farmer Hub</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="hc-button secondary clip-button" id="btn-voice" style="padding:8px 16px;font-size:13px">🎤 Voice Search</button>
+        <div class="apps-menu">
+          <button class="hc-button clip-button" id="apps-toggle-btn" style="padding:8px 16px;font-size:13px">Live AI apps ▾</button>
+          <div class="apps-dropdown clip-card" id="apps-dropdown">
             <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">🌾</span>
+              <span class="apps-icon clip-media">🌾</span>
               <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
             </a>
             <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">⚗</span>
+              <span class="apps-icon clip-media">⚗</span>
               <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
             </a>
             <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon">🔬</span>
+              <span class="apps-icon clip-media">🔬</span>
               <span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span>
             </a>
           </div>
         </div>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-block bg-[#FF6B4A] text-[#1A261D] font-bold text-xs px-3 py-1 rounded-full border border-[#1A261D] mb-4">
-        Practical Field Routines
-      </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#1A261D] mb-6">
-        Farmer Hub & <span class="font-serif italic text-[#3D6B4F]">Seasonal Calendar</span>
-      </h1>
-      <p class="text-base text-[#1A261D]/80 font-sans">
-        Practical seasonal checklists, field record keeping, and voice-assisted advisory routines.
-      </p>
-    </div>
-
-    <!-- Seasonal Milestones -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-      <div class="bg-[#C9E265] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
-        <span class="text-xs font-bold uppercase tracking-wider text-[#1A261D]">Current Phase • Vegetative</span>
-        <h3 class="text-2xl font-bold mt-2 mb-3 text-[#1A261D]">Growth Observation</h3>
-        <p class="text-xs font-sans text-[#1A261D]/90 mb-6">Inspect leaf color, record rainfall, and clear weed growth around young crops.</p>
-        <a href="dashboard.html" class="bg-[#1A261D] text-[#F2EFE9] px-6 py-2.5 rounded-full font-bold text-xs inline-block">Review Tasks ↗</a>
-      </div>
-
-      <div class="bg-white p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
-        <span class="text-xs font-bold uppercase tracking-wider text-[#3D6B4F]">Next Phase • Flowering</span>
-        <h3 class="text-2xl font-bold mt-2 mb-3 text-[#1A261D]">Protect Yield Potential</h3>
-        <p class="text-xs font-sans text-[#1A261D]/80 mb-6">Monitor soil moisture, check for aphid/pest buildup, and avoid plant stress.</p>
-        <a href="disease-detection.html" class="bg-[#FF6B4A] text-[#1A261D] px-6 py-2.5 rounded-full font-bold text-xs inline-block">Scan Leaf Health ↗</a>
-      </div>
-
-      <div class="bg-[#1A261D] text-[#F2EFE9] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
-        <span class="text-xs font-bold uppercase tracking-wider text-[#C9E265]">Upcoming • Harvest</span>
-        <h3 class="text-2xl font-bold mt-2 mb-3 text-[#C9E265]">Market & Tonnage Prep</h3>
-        <p class="text-xs font-sans text-[#F2EFE9]/80 mb-6">Estimate yield tonnage, review local Mandi rates, and organize transport.</p>
-        <a href="mandi-schemes.html" class="bg-[#C9E265] text-[#1A261D] px-6 py-2.5 rounded-full font-bold text-xs inline-block">Check Mandi Rates ↗</a>
-      </div>
-    </div>
-
-    <!-- Field Records Card -->
-    <div class="bg-white p-10 rounded-3xl border-2 border-[#1A261D] hard-shadow grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h2 class="text-3xl font-bold text-[#1A261D] mb-4">Small Notes Build Big Yields</h2>
-        <p class="text-sm font-sans text-[#1A261D]/80 leading-relaxed">
-          Log rainfall, nutrient applications, and plant observations after each field walk to make future AI crop and fertilizer predictions sharper.
+  <main style="padding-top:130px;padding-bottom:90px">
+    <div style="max-width:1440px;margin:0 auto;padding:0 30px">
+      <div style="text-align:center;max-width:700px;margin:0 auto 60px" class="service-catalog-reveal" style="transition-delay: 0.08s">
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
+          Seasonal Advisory & Checklists
+        </span>
+        <h1 style="font-size:52px;margin:14px 0">
+          Farmer Hub & <span class="hero-font-serif">Calendar</span>
+        </h1>
+        <p style="color:var(--hc-text-muted);font-size:18px">
+          Practical seasonal routines, field record keeping, and voice-assisted advisory guidelines.
         </p>
       </div>
 
-      <div class="space-y-3 font-sans text-xs font-bold">
-        <div class="p-4 bg-[#F2EFE9] border border-[#1A261D] rounded-xl flex items-center gap-3">
-          <span class="w-6 h-6 rounded-full bg-[#C9E265] border border-[#1A261D] flex items-center justify-center">✓</span>
-          <span>Rainfall & Irrigation Logged</span>
+      <!-- Seasonal Milestones Grid -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-bottom:60px">
+        <div class="service-card outer clip-card">
+          <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-accent-dark)">CURRENT PHASE • VEGETATIVE</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:10px 0">Growth Observation</h3>
+          <p style="font-size:14px;color:var(--hc-text-muted);margin-bottom:20px">Inspect leaf color, record rainfall, and clear weed growth around young crops.</p>
+          <a href="dashboard.html" class="hc-button clip-button" style="width:100%">Review Field Tasks ↗</a>
         </div>
-        <div class="p-4 bg-[#F2EFE9] border border-[#1A261D] rounded-xl flex items-center gap-3">
-          <span class="w-6 h-6 rounded-full bg-[#C9E265] border border-[#1A261D] flex items-center justify-center">✓</span>
-          <span>Nutrient & Fertilizer Quantities Recorded</span>
+
+        <div class="service-card outer clip-card">
+          <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-accent-dark)">NEXT PHASE • FLOWERING</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:10px 0">Protect Yield Potential</h3>
+          <p style="font-size:14px;color:var(--hc-text-muted);margin-bottom:20px">Monitor soil moisture, check for aphid/pest buildup, and avoid plant stress.</p>
+          <a href="disease-detection.html" class="hc-button secondary clip-button" style="width:100%">Scan Leaf Health ↗</a>
         </div>
-        <div class="p-4 bg-[#F2EFE9] border border-[#1A261D] rounded-xl flex items-center gap-3">
-          <span class="w-6 h-6 rounded-full bg-[#C9E265] border border-[#1A261D] flex items-center justify-center">✓</span>
-          <span>Pest & Leaf Health Spotting Completed</span>
+
+        <div class="service-card middle clip-card">
+          <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold)">UPCOMING • HARVEST</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:10px 0;color:#fff">
+            Market <span class="hero-font-serif" style="color:var(--hc-gold)">Preparation</span>
+          </h3>
+          <p style="font-size:14px;color:rgba(255,255,255,0.8);margin-bottom:20px">Estimate yield tonnage, review local APMC Mandi rates, and organize transport.</p>
+          <a href="mandi-schemes.html" class="hc-button clip-button" style="width:100%;background:var(--hc-gold);color:var(--hc-text);border:0">Check Mandi Rates ↗</a>
+        </div>
+      </div>
+
+      <!-- Field Records Split Section -->
+      <div class="service-card outer clip-card" style="padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+        <div>
+          <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
+            Record Keeping
+          </span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:38px;margin:12px 0 16px">
+            Small Notes Build <span class="hero-font-serif">Big Yields</span>
+          </h2>
+          <p style="color:var(--hc-text-muted);font-size:16px;line-height:1.7">
+            Log rainfall, nutrient applications, and plant observations after each field walk to refine future AI predictions.
+          </p>
+        </div>
+
+        <div style="display:grid;gap:14px">
+          <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1);display:flex;align-items:center;gap:12px" class="clip-card">
+            <span style="font-size:18px">✓</span>
+            <b style="font-size:14px">Rainfall & Irrigation Logged</b>
+          </div>
+          <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1);display:flex;align-items:center;gap:12px" class="clip-card">
+            <span style="font-size:18px">✓</span>
+            <b style="font-size:14px">Nutrient & Fertilizer Quantities Recorded</b>
+          </div>
+          <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1);display:flex;align-items:center;gap:12px" class="clip-card">
+            <span style="font-size:18px">✓</span>
+            <b style="font-size:14px">Pest & Leaf Health Observations Completed</b>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="bg-[#1A261D] text-[#F2EFE9] py-10 px-6 font-sans text-center text-xs border-t-2 border-[#1A261D]">
-    © 2026 AgriNex AI Platform • Farmer Advisory & Calendar
+  <footer class="hc-footer">
+    <div style="max-width:1440px;margin:0 auto;padding:0 30px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)">
+      © 2026 AgriNex AI • Farmer Advisory & Calendar
+    </div>
   </footer>
 
   <script src="script.js"></script>
