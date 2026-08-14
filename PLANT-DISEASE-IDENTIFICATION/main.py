@@ -38,17 +38,32 @@ def model_prediction(test_image):
 
 def render_prediction_ui(section_title):
     st.header(section_title)
-    test_image = st.file_uploader("Choose an Image:", type=["jpg", "jpeg", "png"])
+    input_method = st.radio(
+        "Select image source:",
+        ["Upload", "Camera"],
+        horizontal=True,
+        key=f"source_{section_title}"
+    )
+
+    uploaded_image = None
+    camera_image = None
+
+    if input_method == "Upload":
+        uploaded_image = st.file_uploader("Choose an Image:", type=["jpg", "jpeg", "png"], key=f"upload_{section_title}")
+    else:
+        camera_image = st.camera_input("Take a picture", key=f"camera_{section_title}")
+
+    test_image = uploaded_image if input_method == "Upload" else camera_image
 
     if(st.button("Show Image", key=f"show_{section_title}")):
         if test_image is None:
-            st.warning("Please upload an image first.")
+            st.warning("Please provide an image first.")
         else:
-            st.image(test_image, caption="Uploaded image", width=320)
+            st.image(test_image, caption="Selected image", width=320)
 
     if(st.button("Predict", key=f"predict_{section_title}")):
         if test_image is None:
-            st.warning("Please upload an image before prediction.")
+            st.warning("Please provide an image before prediction.")
             return
         st.snow()
         st.write("Our Prediction")
