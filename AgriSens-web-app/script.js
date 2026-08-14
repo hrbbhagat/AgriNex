@@ -1,0 +1,13 @@
+document.querySelector('[data-nav-toggle]')?.addEventListener('click',()=>document.querySelector('.links')?.classList.toggle('open'));
+const chat=document.querySelector('.chat'),toggle=document.querySelector('.chat-toggle');toggle?.addEventListener('click',()=>chat?.classList.toggle('open'));
+document.querySelector('[data-chat-close]')?.addEventListener('click',()=>chat?.classList.remove('open'));
+document.querySelector('[data-chat-form]')?.addEventListener('submit',e=>{e.preventDefault();const input=e.currentTarget.querySelector('input'),q=input.value.trim();if(!q)return;const reply=/fertili|npk|soil/i.test(q)?'Open the Fertilizer Guide or launch the live Fertilizer Prediction app to get AI-powered NPK recommendations.':/disease|leaf|plant health|sick/i.test(q)?'Use the Plant Disease Identifier app — upload a leaf photo and get an AI diagnosis instantly.':/crop|plant|sow/i.test(q)?'The live Crop Recommender is ready now. Open the "Live AI apps" menu in the navigation bar.':'I can help you choose a tool, understand NPK values, or plan your next field activity.';document.querySelector('[data-chat-messages]').insertAdjacentHTML('beforeend',`<div class="bubble" style="margin:10px 0 0 auto;background:#bde548">${q.replace(/[&<>]/g,'')}</div><div class="bubble" style="margin-top:10px">${reply}</div>`);input.value='';});
+document.querySelector('[data-fert-form]')?.addEventListener('submit',e=>{e.preventDefault();const v=Object.fromEntries(new FormData(e.currentTarget));const product=+v.n<25?'Urea + SSP':+v.p<20?'DAP (18-46-0)':'NPK 10-26-26';const result=document.querySelector('[data-fert-result]');result.innerHTML=`<b>Recommended direction: ${product}</b><p style="margin:7px 0 0">Use this as a planning suggestion. Confirm the dosage with a local agricultural extension officer before applying.</p><a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-weight:800;color:#1c5938;text-decoration:none">Get a full AI prediction ↗</a>`;result.classList.add('show');});
+
+// Apps dropdown toggle
+const appsBtn=document.getElementById('apps-toggle-btn'),appsDropdown=document.getElementById('apps-dropdown');
+if(appsBtn&&appsDropdown){
+  appsBtn.addEventListener('click',e=>{e.stopPropagation();const open=appsDropdown.classList.toggle('open');appsBtn.setAttribute('aria-expanded',open);appsBtn.textContent=open?'Live AI apps ✕':'Live AI apps ▾';});
+  document.addEventListener('click',()=>{appsDropdown.classList.remove('open');appsBtn?.setAttribute('aria-expanded','false');appsBtn.textContent='Live AI apps ▾';});
+  appsDropdown.addEventListener('click',e=>e.stopPropagation());
+}
