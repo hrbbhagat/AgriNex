@@ -17,3 +17,7 @@ graphify-out/graph.json
 graphify-out/manifest.json
 graphify-out/.graphify_*
 graphify-out/GRAPH_*
+
+# Keep required assets for the Streamlit plant disease app
+!PLANT-DISEASE-IDENTIFICATION/trained_plant_disease_model.keras
+!PLANT-DISEASE-IDENTIFICATION/Diseases.png

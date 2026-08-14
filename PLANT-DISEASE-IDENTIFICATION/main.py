@@ -8,6 +8,8 @@ MODEL_PATH = BASE_DIR / "trained_plant_disease_model.keras"
 DISEASES_IMAGE_PATH = BASE_DIR / "Diseases.png"
 
 def model_prediction(test_image):
+    if not MODEL_PATH.exists():
+        raise FileNotFoundError(f"Model file not found: {MODEL_PATH}")
     model = tf.keras.models.load_model(str(MODEL_PATH))
     image = tf.keras.preprocessing.image.load_img(test_image,target_size=(128,128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
@@ -38,12 +40,22 @@ elif(app_mode=="DISEASE RECOGNITION"):
     st.header("DISEASE RECOGNITION")
     test_image = st.file_uploader("Choose an Image:")
     if(st.button("Show Image")):
-        st.image(test_image,width=4,use_column_width=True)
+        if test_image is None:
+            st.warning("Please upload an image first.")
+        else:
+            st.image(test_image,width=4,use_column_width=True)
     #Predict button
     if(st.button("Predict")):
+        if test_image is None:
+            st.warning("Please upload an image before prediction.")
+            st.stop()
         st.snow()
         st.write("Our Prediction")
-        result_index = model_prediction(test_image)
+        try:
+            result_index = model_prediction(test_image)
+        except Exception as e:
+            st.error(f"Failed to load model or run prediction: {e}")
+            st.stop()
         #Reading Labels
         class_name = ['Apple___Apple_scab', 'Apple___Black_rot', 'Apple___Cedar_apple_rust', 'Apple___healthy',
                     'Blueberry___healthy', 'Cherry_(including_sour)___Powdery_mildew', 
