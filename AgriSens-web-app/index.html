@@ -1,465 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriNex AI | Calm, Organic Agricultural Intelligence</title>
-  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'hi,mr,bn,ta,te,gu,pa,kn,ml,or,as,en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGRO SPACE - Plant. Nourish. Grow.</title>
+    <link
+      rel="shortcut icon"
+      href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="LOGO.jpg"
+      type="image/icon type"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'hi,mr,bn,ta,te,gu,pa,kn,ml,or,as,en',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+  </head>
 
-  <!-- Fixed Navigation (.hero-nav-wrap, z-index 9999, clip-path cut) -->
-  <header class="hero-nav-wrap clip-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-brand">
-        Agri<span>Nex</span><sup>AI</sup>
-      </a>
-
-      <nav class="nav-links">
-        <a class="active" href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="crop-prediction.html">Crop AI</a>
-        <a href="fertilizer.html">Fertilizer AI</a>
-        <a href="disease-detection.html">Disease ID</a>
-        <a href="mandi-schemes.html">Mandi & Schemes</a>
-        <a href="farmer-hub.html">Farmer Hub</a>
-      </nav>
-
-      <div style="display:flex;align-items:center;gap:12px">
-        <button class="hc-button secondary clip-button" id="btn-voice" style="padding:8px 16px;font-size:13px">
-          🎤 Voice Search
-        </button>
-
-        <div class="apps-menu">
-          <button class="hc-button clip-button" id="apps-toggle-btn" style="padding:8px 16px;font-size:13px">
-            Live AI apps ▾
-          </button>
-          <div class="apps-dropdown clip-card" id="apps-dropdown">
-            <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon clip-media">🌾</span>
-              <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
-            </a>
-            <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon clip-media">⚗</span>
-              <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
-            </a>
-            <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon clip-media">🔬</span>
-              <span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span>
-            </a>
-          </div>
-        </div>
+  <body>
+    <div id="nav">
+      <div class="nav-brand-box">
+        <img src="LOGO.jpg" alt="AGRO SPACE Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <span class="logo-fallback" style="display:none; font-weight: 900; color: #95c11e; font-size: 24px; letter-spacing: 1px;">AGRO SPACE</span>
+      </div>
+      <div class="nav-links-wrap">
+        <a href="#page1"><h4>HOME</h4></a>
+        <a href="#about-us"><h4>ABOUT</h4></a>
+        <a href="#cards-container"><h4>SERVICES</h4></a>
+        <a href="#page4"><h4>FACILITIES</h4></a>
+        <a href="#footer"><h4>CONTACT US</h4></a>
+      </div>
+      <div class="ai-tools-nav">
+        <a href="crop-prediction.html" class="nav-tool-btn">Crop AI</a>
+        <a href="fertilizer.html" class="nav-tool-btn">Fertilizer AI</a>
+        <a href="disease-detection.html" class="nav-tool-btn">Disease ID</a>
+        <a href="mandi-schemes.html" class="nav-tool-btn">Mandi & Schemes</a>
+        <div id="google_translate_element"></div>
       </div>
     </div>
-  </header>
 
-  <!-- Multi-Language Toolbar -->
-  <div style="position:relative;z-index:10;max-width:1440px;margin:0 auto;padding:100px 30px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px">
-    <div style="display:flex;align-items:center;gap:8px;color:var(--hc-accent-dark);font-weight:700">
-      <iconify-icon icon="solar:global-linear" width="18"></iconify-icon>
-      <span>Multi-Language Translation:</span>
-      <div id="google_translate_element"></div>
-    </div>
-    <span class="hc-button clip-button" style="background:var(--hc-accent-light);color:var(--hc-text);padding:4px 14px;font-size:12px">
-      3 Deployed AI Models Live ⚡
-    </span>
-  </div>
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
 
-  <main>
-    <!-- SECTION 1: HERO (.hero-bg, .hero-grid-lines, .hero-shell) -->
-    <section class="hero-section">
-      <div class="hero-bg"></div>
-      <div class="hero-grid-lines"></div>
+    <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80">
+      <source src="farm.mp4" type="video/mp4" />
+    </video>
 
-      <div class="hero-shell">
-        <div class="hero-content">
-          <div class="hero-copy service-catalog-reveal" style="transition-delay: 0.08s">
-            <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-              Calm Agricultural Intelligence
-            </span>
-            
-            <h1>
-              Cultivate Clarity. <br>
-              Grow with <span class="hero-font-serif">AI Precision.</span>
-            </h1>
+    <div id="main">
+      <div id="page1">
+        <h1>PLANT. NOURISH. GROW.</h1>
+        <h2>WELCOME TO AGRO SPACE</h2>
+        <p>
+          "From Soil to Success—Nourishing Crops, Enriching Lives. Grow with Us"
+        </p>
+        <a href="#page2" id="arrow">
+          <i class="ri-arrow-down-line"></i>
+        </a>
+      </div>
 
+      <div id="page2">
+        <div id="scroller">
+          <div id="scroller-in">
+            <h4>Cultivating</h4>
+            <h4>Growth,</h4>
+            <h4>Harvesting</h4>
+            <h4>Success</h4>
+          </div>
+          <div id="scroller-in">
+            <h4>Cultivating</h4>
+            <h4>Growth,</h4>
+            <h4>Harvesting</h4>
+            <h4>Success</h4>
+          </div>
+        </div>
+
+        <div id="about-us">
+          <img src="img1.jpg" alt="Agro Space Cultivation" onerror="this.src='https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80';" />
+          <div id="about-us-in">
+            <h3>ABOUT US</h3>
             <p>
-              AgriNex brings data-backed crop recommendations, NPK soil fertilizer optimization, leaf disease scanning, and real-time Mandi market rates into a calm space crafted for farmers.
+              At Agro Space, we empower farmers with innovative tools and
+              resources to enhance their farming practices. Our platform
+              supports every step from planting to harvest, helping you thrive
+              and succeed in today’s agricultural landscape. Join us in
+              cultivating a brighter, more sustainable future.
             </p>
-
-            <div style="display:flex;gap:16px;margin-top:32px;flex-wrap:wrap">
-              <a href="dashboard.html" class="hc-button clip-button">
-                Open Farm Dashboard
-              </a>
-              <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button secondary clip-button">
-                Try Live Crop Recommender ↗
-              </a>
-            </div>
-
-            <div class="hero-trust-stack">
-              <div class="trust-dots">
-                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f0084eec-5f7f-4a16-91cc-f32c1151c832_320w.jpg" alt="Agronomist">
-                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f0084eec-5f7f-4a16-91cc-f32c1151c832_320w.jpg" alt="Farmer">
-              </div>
-              <span style="font-size:14px;font-weight:700;color:var(--hc-text-muted)">
-                Trusted by <b>10,000+</b> farmers & agronomists across India
-              </span>
-            </div>
           </div>
-
-          <!-- Hero Floating Card (.hero-floating-card, 7s float) -->
-          <div class="hero-visual service-catalog-reveal" style="transition-delay: 0.14s">
-            <div class="hero-floating-card clip-card">
-              <span style="font-size:12px;font-weight:800;color:var(--hc-accent-dark);text-transform:uppercase;letter-spacing:1px">
-                Live Field Snapshot • Kharif Season
-              </span>
-              <h2 style="font-family:'Playfair Display',serif;font-size:30px;margin:12px 0 20px;color:var(--hc-text)">
-                North Field <span class="hero-font-serif">Soil Health</span>
-              </h2>
-
-              <div class="media-wrap clip-media" style="aspect-ratio:16/9;overflow:hidden;margin-bottom:20px">
-                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f0c742dd-ae46-47c8-a64d-0cc8538061a3_1600w.png" alt="Organic Farm Field" style="width:100%;height:100%;object-fit:cover">
-              </div>
-
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center">
-                <div style="background:var(--hc-bg);padding:12px;border:1px solid rgba(47,49,45,0.08)">
-                  <strong style="display:block;font-size:22px;color:var(--hc-accent-dark)">34%</strong>
-                  <small style="font-size:12px;color:var(--hc-text-muted)">Season Progress</small>
-                </div>
-                <div style="background:var(--hc-bg);padding:12px;border:1px solid rgba(47,49,45,0.08)">
-                  <strong style="display:block;font-size:22px;color:var(--hc-accent-dark)">28°C</strong>
-                  <small style="font-size:12px;color:var(--hc-text-muted)">Field Temp</small>
-                </div>
-                <div style="background:var(--hc-bg);padding:12px;border:1px solid rgba(47,49,45,0.08)">
-                  <strong style="display:block;font-size:22px;color:var(--hc-accent-dark)">Good</strong>
-                  <small style="font-size:12px;color:var(--hc-text-muted)">Soil Health</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: SERVICES CATALOG (3-Column Grid, Outer vs Middle Gradient) -->
-    <section class="services-section">
-      <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-        <div style="text-align:center;max-width:700px;margin:0 auto" class="service-catalog-reveal" style="transition-delay: 0.08s">
-          <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-            Deployable AI Infrastructure
-          </span>
-          <h2 style="font-size:46px;margin:14px 0">
-            Three High-Performance <span class="hero-font-serif">AI Services</span>
-          </h2>
-          <p style="color:var(--hc-text-muted);font-size:18px">
-            Hosted live on Streamlit Cloud, accessible instantly to evaluate soil nutrition, crop choice, and leaf disease.
-          </p>
+          <img src="img2.jpg" alt="Modern Smart Farming" onerror="this.src='https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80';" />
         </div>
 
-        <div class="services-grid">
-          <!-- Column 1 (Outer) -->
-          <div class="service-card outer clip-card service-catalog-reveal" style="transition-delay: 0.14s">
-            <div class="media-wrap clip-media">
-              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f0c742dd-ae46-47c8-a64d-0cc8538061a3_1600w.png" alt="Crop Recommendation">
-            </div>
-            <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-accent-dark)">MACHINE LEARNING MODEL</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:10px 0">
-              Crop AI <span class="hero-font-serif">Recommender</span>
-            </h3>
-            <p style="color:var(--hc-text-muted);font-size:15px;margin-bottom:24px">
-              Evaluates soil Nitrogen, Phosphorus, Potassium, pH, temperature, and rainfall to select optimal crops for maximum yield.
-            </p>
-            <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="width:100%">
-              Launch Streamlit App ↗
-            </a>
-          </div>
-
-          <!-- Column 2 (Middle - Dark Accent) -->
-          <div class="service-card middle clip-card service-catalog-reveal" style="transition-delay: 0.20s">
-            <div class="media-wrap clip-media">
-              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0b9f293f-1d43-45a5-8afa-a26a8259ca55_1600w.png" alt="Fertilizer Prediction">
-            </div>
-            <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold)">RANDOM FOREST MODEL</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:10px 0;color:#fff">
-              Fertilizer <span class="hero-font-serif" style="color:var(--hc-gold)">Prediction</span>
-            </h3>
-            <p style="font-size:15px;margin-bottom:24px">
-              Calculates precise NPK deficiency ratios and recommends Urea, DAP, NPK 10-26-26, or SSP formulations tailored to your land.
-            </p>
-            <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button secondary clip-button" style="width:100%;background:var(--hc-gold);color:var(--hc-text);border:0">
-              Launch Streamlit App ↗
-            </a>
-          </div>
-
-          <!-- Column 3 (Outer) -->
-          <div class="service-card outer clip-card service-catalog-reveal" style="transition-delay: 0.26s">
-            <div class="media-wrap clip-media">
-              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f0c742dd-ae46-47c8-a64d-0cc8538061a3_1600w.png" alt="Plant Disease ID">
-            </div>
-            <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-accent-dark)">TENSORFLOW CNN CLASSIFIER</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:10px 0">
-              Plant Disease <span class="hero-font-serif">Identifier</span>
-            </h3>
-            <p style="color:var(--hc-text-muted);font-size:15px;margin-bottom:24px">
-              Upload leaf images to diagnose crop diseases across 38 classes with high confidence scoring and treatment remedies.
-            </p>
-            <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="width:100%">
-              Launch Streamlit App ↗
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: PROCESS PLANES STACK (.process-plane-back, .process-plane-mid, .process-plane-front) -->
-    <section class="process-section">
-      <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-        <div style="text-align:center;max-width:700px;margin:0 auto 60px" class="service-catalog-reveal" style="transition-delay: 0.08s">
-          <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-            Simple Farmer Workflow
-          </span>
-          <h2 style="font-size:46px;margin:14px 0">
-            3 Steps to <span class="hero-font-serif">Harvest Success</span>
-          </h2>
-          <p style="color:var(--hc-text-muted);font-size:18px">
-            Our stacked intelligence process turns raw soil metrics into actionable field decisions.
-          </p>
-        </div>
-
-        <div class="process-planes-wrapper service-catalog-reveal" style="transition-delay: 0.14s">
-          <!-- Back Plane (-10deg) -->
-          <div class="process-plane process-plane-back clip-card">
-            <span style="font-size:12px;font-weight:800;color:var(--hc-accent-dark)">STEP 01</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:10px 0">Collect Soil & Climate Data</h3>
-            <p style="font-size:14px;color:var(--hc-text-muted)">Gather NPK values, pH level, temperature, and local rainfall figures.</p>
-          </div>
-
-          <!-- Mid Plane (-6deg) -->
-          <div class="process-plane process-plane-mid clip-card">
-            <span style="font-size:12px;font-weight:800;color:var(--hc-accent-dark)">STEP 02</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:10px 0">Run AI Prediction Models</h3>
-            <p style="font-size:14px;color:var(--hc-text-muted)">Run Crop AI, Fertilizer Prediction, or Leaf Disease ID for instant recommendations.</p>
-          </div>
-
-          <!-- Front Plane (-2deg) -->
-          <div class="process-plane process-plane-front clip-card">
-            <span style="font-size:12px;font-weight:800;color:var(--hc-accent-dark)">STEP 03</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:10px 0">Execute & Track Mandi Rates</h3>
-            <p style="font-size:14px;color:var(--hc-text-muted)">Apply dosage in the field and track APMC Mandi commodity rates for maximum profit.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5: AGRONOMIST / FOUNDER STORY -->
-    <section style="padding:100px 0;background:var(--hc-bg)">
-      <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-        <div style="display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;align-items:center">
-          <div class="clip-card" style="overflow:hidden;border:1px solid rgba(47,49,45,0.12)">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f0084eec-5f7f-4a16-91cc-f32c1151c832_320w.jpg" alt="Agronomist Founder" style="width:100%;height:auto;display:block">
-          </div>
-          <div>
-            <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-              Our Founding Philosophy
-            </span>
-            <h2 style="font-size:44px;margin:14px 0">
-              "Farming Should Be <span class="hero-font-serif">Rooted in Data</span>, Not Guesswork."
-            </h2>
-            <p style="color:var(--hc-text-muted);font-size:17px;line-height:1.7">
-              AgriNex AI was created to provide Indian farmers with transparent, calm, and highly accessible machine-learning tools. Whether calculating NPK ratios or diagnosing leaf blight, we believe every acre deserves precision care.
-            </p>
-            <div style="margin-top:24px;font-weight:700;font-size:16px">
-              — Dr. Rajesh Varma, Lead Agricultural Scientist & Founder
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 6: TESTIMONIALS CAROUSEL (.testimonials-carousel-track, 5200ms autoplay) -->
-    <section class="testimonials-section">
-      <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-        <div style="display:flex;justify-space-between;align-items:flex-end">
-          <div>
-            <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-              Community Feedback
-            </span>
-            <h2 style="font-size:44px;margin:10px 0">
-              Trusted by Farmers Across <span class="hero-font-serif">India</span>
-            </h2>
-          </div>
-        </div>
-
-        <div class="testimonials-carousel-wrap">
-          <div class="testimonials-carousel-track" id="testimonials-track">
-            <!-- Card 1 -->
-            <div class="testimonial-card clip-card">
-              <p style="font-size:16px;color:var(--hc-text);margin-bottom:20px;font-style:italic">
-                "Checking fertilizer NPK requirements on AgriNex helped us reduce excessive urea usage by 30% without affecting crop yield!"
+        <div id="cards-container">
+          <div class="card" id="card1">
+            <div class="overlay">
+              <h4>Fertilizer</h4>
+              <p>
+                Enhance your soil with our premium fertilizers, designed to
+                boost crop growth and yield. Perfect for various types of crops
+                and soil conditions.
               </p>
-              <div style="font-weight:700;font-size:15px">Ramesh Patel</div>
-              <div style="font-size:13px;color:var(--hc-text-muted)">Gujarat • Cotton Farmer</div>
+              <a href="fertilizer.html" class="card-btn">Explore Fertilizer AI &rarr;</a>
             </div>
-
-            <!-- Card 2 -->
-            <div class="testimonial-card clip-card">
-              <p style="font-size:16px;color:var(--hc-text);margin-bottom:20px;font-style:italic">
-                "The leaf disease ID scanner caught early blight on our tomato leaves before it spread. Saved our entire harvest."
+          </div>
+          <div class="card" id="card2">
+            <div class="overlay">
+              <h4>Tools</h4>
+              <p>
+                Explore our range of high-quality farming tools designed to make
+                your work more efficient. From plows to irrigation systems, we
+                have what you need.
               </p>
-              <div style="font-weight:700;font-size:15px">Gurpreet Singh</div>
-              <div style="font-size:13px;color:var(--hc-text-muted)">Punjab • Wheat & Vegetable Grower</div>
+              <a href="crop-prediction.html" class="card-btn">Crop Prediction Tool &rarr;</a>
             </div>
-
-            <!-- Card 3 -->
-            <div class="testimonial-card clip-card">
-              <p style="font-size:16px;color:var(--hc-text);margin-bottom:20px;font-style:italic">
-                "Daily Mandi price updates help us negotiate far better prices with local traders before taking produce to the market."
+          </div>
+          <div class="card" id="card3">
+            <div class="overlay">
+              <h4>Soil Quality</h4>
+              <p>
+                Assess the quality of your soil with our comprehensive soil test
+                kits. Ensure your soil has the right nutrients and pH levels for
+                optimal crop growth.
               </p>
-              <div style="font-weight:700;font-size:15px">Anil Deshmukh</div>
-              <div style="font-size:13px;color:var(--hc-text-muted)">Maharashtra • Soybean Farmer</div>
+              <a href="disease-detection.html" class="card-btn">Soil & Health Diagnostics &rarr;</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- SECTION 7: FINAL CONVERSION & FAQ (<details> / <summary>) -->
-    <section class="final-conversion-section">
-      <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-        <div class="conversion-split">
-          <!-- Left Side (#f4efe8 gradient) -->
-          <div class="conversion-left clip-card">
-            <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-              Ready to Grow Smarter?
-            </span>
-            <h2 style="font-size:42px;margin:16px 0">
-              Start Using AgriNex <span class="hero-font-serif">Today</span>
-            </h2>
-            <p style="color:var(--hc-text-muted);font-size:16px;margin-bottom:30px">
-              Access all 3 deployed Streamlit AI applications, real-time APMC Mandi rates, and government welfare scheme portals for free.
-            </p>
-            <a href="dashboard.html" class="hc-button clip-button">
-              Open Farm Dashboard Now
-            </a>
-          </div>
-
-          <!-- Right Side (#fcfaf7 gradient) FAQ <details> -->
-          <div class="conversion-right clip-card">
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin-bottom:24px">
-              Frequently Asked <span class="hero-font-serif">Questions</span>
-            </h3>
-
-            <div class="faq-list">
-              <details>
-                <summary>
-                  <span>Are the 3 Streamlit AI tools free to use?</span>
-                  <span class="faq-icon">▾</span>
-                </summary>
-                <div class="faq-content">
-                  Yes! All 3 AI models (Crop Recommendation, Fertilizer Prediction, and Plant Disease ID) are fully deployed on Streamlit Cloud and available 24/7.
-                </div>
-              </details>
-
-              <details>
-                <summary>
-                  <span>How does the Voice Search Assistant work?</span>
-                  <span class="faq-icon">▾</span>
-                </summary>
-                <div class="faq-content">
-                  Click the Voice Search button and speak your query in Hindi or English. Speech recognition converts your input to text and directs you to the appropriate tool.
-                </div>
-              </details>
-
-              <details>
-                <summary>
-                  <span>Can I switch the website language?</span>
-                  <span class="faq-icon">▾</span>
-                </summary>
-                <div class="faq-content">
-                  Yes! Use the language dropdown toolbar at the top to view the platform in Hindi, Marathi, Punjabi, Gujarati, Tamil, Telugu, Bengali, or Kannada.
-                </div>
-              </details>
-            </div>
-          </div>
+        <div id="green-div">
+          <img
+            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+            alt="Decor dots"
+          />
+          <h4>
+            Sign Up for Agro Space Updates and Exclusive Offers Delivered
+            Directly to Your Inbox!
+          </h4>
+          <img
+            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+            alt="Decor dots"
+          />
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="hc-footer">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-      <div class="footer-grid">
-        <div>
-          <a href="index.html" class="nav-brand" style="color:#fff">Agri<span>Nex</span><sup>AI</sup></a>
-          <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:16px;max-width:320px">
-            Calm, organic, data-driven agricultural intelligence for modern Indian farming.
-          </p>
+      <div id="page3">
+        <p>
+          "Enjoy a productive few hours with our top-notch resources and
+          support. Our team is friendly, knowledgeable, and always ready to
+          assist. Take advantage of our on-site café for refreshments and find
+          everything you need to keep your farming operation thriving. A visit
+          here is truly worthwhile."
+        </p>
+        <img
+          id="colon1"
+          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
+          alt="Quote Left"
+        />
+        <img
+          id="colon2"
+          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
+          alt="Quote Right"
+        />
+      </div>
+
+      <div id="page4">
+        <h1>WHAT ARE YOU WAITING FOR?</h1>
+        <div class="elem">
+          <h2>Weather Forecast</h2>
+          <img src="img6.jpg" alt="Weather Forecast" onerror="this.src='https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=600&q=80';" />
         </div>
-        <div>
-          <b style="color:#fff;display:block;margin-bottom:16px">AI Tools</b>
-          <a href="crop-prediction.html">Crop AI Recommender</a>
-          <a href="fertilizer.html">Fertilizer AI Guide</a>
-          <a href="disease-detection.html">Plant Disease Identifier</a>
+        <div class="elem">
+          <h2>Cost Analysis Tools</h2>
+          <img src="img7.jpeg" alt="Cost Analysis Tools" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80';" />
         </div>
-        <div>
-          <b style="color:#fff;display:block;margin-bottom:16px">Market & Schemes</b>
-          <a href="mandi-schemes.html">APMC Mandi Commodity Rates</a>
-          <a href="mandi-schemes.html#schemes">Government Schemes (PM-KISAN)</a>
-          <a href="farmer-hub.html">Farmer Advisory Hub</a>
-        </div>
-        <div>
-          <b style="color:#fff;display:block;margin-bottom:16px">Streamlit Apps</b>
-          <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Crop Recommender ↗</a>
-          <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Fertilizer Predictor ↗</a>
-          <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Plant Disease ID ↗</a>
+        <div class="elem">
+          <h2>Farmhand</h2>
+          <img src="img8.jpg" alt="Farmhand Assistance" onerror="this.src='https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=600&q=80';" />
         </div>
       </div>
-      <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:50px;padding-top:24px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)">
-        © 2026 AgriNex AI • Cleanecs Koh Samui Inspired Calm Organic Architecture
+
+      <div id="footer">
+        <img
+          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg"
+          alt="Footer background dots"
+        />
+        <div id="f1">
+          <img src="LOGO.jpg" alt="Agro Space Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <span class="logo-fallback" style="display:none; font-weight: 900; color: #fff; font-size: 28px;">AGRO SPACE</span>
+        </div>
+        <div class="center">
+          Copyright &copy; www.AGROSPACE.com. All rights reserved!
+        </div>
+
+        <div id="f4">
+          <h4>
+            A-20 VASANT NAGAR <br />
+            LALGANJ VARANASI <br />
+            UTTAR PRADESH <br />
+            INDIA 603203 <br />
+            MOB: 696969 <br />
+            AAYUSH KUMAR <br />
+          </h4>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <!-- Voice Assistant Modal -->
-  <div class="voice-modal" id="voice-modal">
-    <div class="voice-card clip-card">
-      <div class="mic-pulse">🎤</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:0 0 10px">Voice Search Assistant</h3>
-      <p id="voice-status" style="font-size:14px;color:var(--hc-accent-dark);font-weight:600">Initializing speech recognition...</p>
-      <button class="hc-button secondary clip-button" id="voice-modal-close" style="margin-top:20px;font-size:13px;padding:8px 20px">Close</button>
-    </div>
-  </div>
-
-  <!-- Floating Chat Assistant -->
-  <button class="chat-toggle clip-button">◯ Farm AI Assistant</button>
-  <aside class="chat-box clip-card">
-    <div class="chat-head">
-      <span>AgriNex Assistant</span>
-      <button data-chat-close style="background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer">×</button>
-    </div>
-    <div class="chat-body">
-      <div data-chat-messages>
-        <div class="bubble">Namaste! Ask me about crop choices, NPK fertilizer dosages, Mandi rates, or plant diseases.</div>
-      </div>
-      <form class="chat-form" data-chat-form style="display:flex;gap:8px;margin-top:14px">
-        <input placeholder="Ask a question..." style="flex:1;padding:10px;border:1px solid rgba(47,49,45,0.15)">
-        <button type="submit" class="hc-button clip-button" style="padding:10px 16px;font-size:13px">Send</button>
-      </form>
-    </div>
-  </aside>
-
-  <script src="script.js"></script>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+      integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
+      integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
 </html>

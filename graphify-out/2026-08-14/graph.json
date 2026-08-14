@@ -1,0 +1,1550 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "manifest.json",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_public_public_url_manifest",
+      "community": 2,
+      "norm_label": "manifest.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_public_public_url_manifest_name",
+      "community": 2,
+      "norm_label": "name"
+    },
+    {
+      "label": "short_name",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_public_public_url_manifest_short_name",
+      "community": 2,
+      "norm_label": "short_name"
+    },
+    {
+      "label": "start_url",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_public_public_url_manifest_start_url",
+      "community": 2,
+      "norm_label": "start_url"
+    },
+    {
+      "label": "display",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_public_public_url_manifest_display",
+      "community": 2,
+      "norm_label": "display"
+    },
+    {
+      "label": "background_color",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_public_public_url_manifest_background_color",
+      "community": 2,
+      "norm_label": "background_color"
+    },
+    {
+      "label": "theme_color",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_public_public_url_manifest_theme_color",
+      "community": 2,
+      "norm_label": "theme_color"
+    },
+    {
+      "label": "icons",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_public_public_url_manifest_icons",
+      "community": 2,
+      "norm_label": "icons"
+    },
+    {
+      "label": "App.js",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/App.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_app",
+      "community": 1,
+      "norm_label": "app.js"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/App.js",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_app_app",
+      "community": 1,
+      "norm_label": "app()"
+    },
+    {
+      "label": "App.test.js",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/App.test.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_app_test",
+      "community": 1,
+      "norm_label": "app.test.js"
+    },
+    {
+      "label": "home.js",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/home.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_home",
+      "community": 1,
+      "norm_label": "home.js"
+    },
+    {
+      "label": "ColorButton",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/home.js",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_home_colorbutton",
+      "community": 1,
+      "norm_label": "colorbutton"
+    },
+    {
+      "label": "useStyles",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/home.js",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_home_usestyles",
+      "community": 1,
+      "norm_label": "usestyles"
+    },
+    {
+      "label": "ImageUpload()",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/home.js",
+      "source_location": "L146",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_home_imageupload",
+      "community": 1,
+      "norm_label": "imageupload()"
+    },
+    {
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/index.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_index",
+      "community": 1,
+      "norm_label": "index.js"
+    },
+    {
+      "label": "reportWebVitals.js",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/reportWebVitals.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_reportwebvitals",
+      "community": 1,
+      "norm_label": "reportwebvitals.js"
+    },
+    {
+      "label": "reportWebVitals()",
+      "file_type": "code",
+      "source_file": "CROP PREDICT/frontend/src/reportWebVitals.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "crop_predict_frontend_src_reportwebvitals_reportwebvitals",
+      "community": 1,
+      "norm_label": "reportwebvitals()"
+    },
+    {
+      "label": "webapp.py",
+      "file_type": "code",
+      "source_file": "CROP-RECOMMENDATION/webapp.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "crop_recommendation_webapp",
+      "community": 6,
+      "norm_label": "webapp.py"
+    },
+    {
+      "label": "show_crop_image()",
+      "file_type": "code",
+      "source_file": "CROP-RECOMMENDATION/webapp.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "crop_recommendation_webapp_show_crop_image",
+      "community": 6,
+      "norm_label": "show_crop_image()"
+    },
+    {
+      "label": "predict_crop()",
+      "file_type": "code",
+      "source_file": "CROP-RECOMMENDATION/webapp.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "crop_recommendation_webapp_predict_crop",
+      "community": 6,
+      "norm_label": "predict_crop()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "CROP-RECOMMENDATION/webapp.py",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "crop_recommendation_webapp_main",
+      "community": 6,
+      "norm_label": "main()"
+    },
+    {
+      "label": "main.py",
+      "file_type": "code",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "plant_disease_identification_main",
+      "community": 13,
+      "norm_label": "main.py"
+    },
+    {
+      "label": "model_prediction()",
+      "file_type": "code",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "plant_disease_identification_main_model_prediction",
+      "community": 13,
+      "norm_label": "model_prediction()"
+    },
+    {
+      "label": "fert.py",
+      "file_type": "code",
+      "source_file": "fertilizer_prediction/fertilizer_prediction/fert.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "fertilizer_prediction_fertilizer_prediction_fert",
+      "community": 14,
+      "norm_label": "fert.py"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_rules_graphify",
+      "community": 11,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_rules_graphify_graphify",
+      "community": 11,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_workflows_graphify",
+      "community": 12,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "Workflow: graphify",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_workflows_graphify_workflow_graphify",
+      "community": 12,
+      "norm_label": "workflow: graphify"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "Datasets/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "datasets_readme",
+      "community": 4,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Smart Farming Assistant",
+      "file_type": "document",
+      "source_file": "Datasets/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "datasets_readme_smart_farming_assistant",
+      "community": 4,
+      "norm_label": "smart farming assistant"
+    },
+    {
+      "label": "Datasets",
+      "file_type": "document",
+      "source_file": "Datasets/README.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "datasets_readme_datasets",
+      "community": 4,
+      "norm_label": "datasets"
+    },
+    {
+      "label": "1. **Crop Recommendation Dataset**",
+      "file_type": "document",
+      "source_file": "Datasets/README.md",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "datasets_readme_1_crop_recommendation_dataset",
+      "community": 4,
+      "norm_label": "1. **crop recommendation dataset**"
+    },
+    {
+      "label": "2. **Plant Disease Identification Dataset**",
+      "file_type": "document",
+      "source_file": "Datasets/README.md",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "datasets_readme_2_plant_disease_identification_dataset",
+      "community": 4,
+      "norm_label": "2. **plant disease identification dataset**"
+    },
+    {
+      "label": "3. **Fertilizer Recommendation Dataset**",
+      "file_type": "document",
+      "source_file": "Datasets/README.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "datasets_readme_3_fertilizer_recommendation_dataset",
+      "community": 4,
+      "norm_label": "3. **fertilizer recommendation dataset**"
+    },
+    {
+      "label": "How to Use the Datasets",
+      "file_type": "document",
+      "source_file": "Datasets/README.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "datasets_readme_how_to_use_the_datasets",
+      "community": 4,
+      "norm_label": "how to use the datasets"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 0,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "AgriNex - Smart Agricultural Intelligence System",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_agrinex_smart_agricultural_intelligence_system",
+      "community": 0,
+      "norm_label": "agrinex - smart agricultural intelligence system"
+    },
+    {
+      "label": "\ud83c\udf3e Overview",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "readme_overview",
+      "community": 0,
+      "norm_label": "\ud83c\udf3e overview"
+    },
+    {
+      "label": "\u2728 Features",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "readme_features",
+      "community": 0,
+      "norm_label": "\u2728 features"
+    },
+    {
+      "label": "\ud83d\udee0\ufe0f Tech Stack",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "readme_tech_stack",
+      "community": 5,
+      "norm_label": "\ud83d\udee0\ufe0f tech stack"
+    },
+    {
+      "label": "Frontend",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "readme_frontend",
+      "community": 5,
+      "norm_label": "frontend"
+    },
+    {
+      "label": "Backend & ML Services",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "readme_backend_ml_services",
+      "community": 5,
+      "norm_label": "backend & ml services"
+    },
+    {
+      "label": "Machine Learning & AI",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "readme_machine_learning_ai",
+      "community": 5,
+      "norm_label": "machine learning & ai"
+    },
+    {
+      "label": "Data Processing & Visualization",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "readme_data_processing_visualization",
+      "community": 5,
+      "norm_label": "data processing & visualization"
+    },
+    {
+      "label": "Datasets",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "readme_datasets",
+      "community": 5,
+      "norm_label": "datasets"
+    },
+    {
+      "label": "\ud83d\udcc1 Project Structure",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "readme_project_structure",
+      "community": 0,
+      "norm_label": "\ud83d\udcc1 project structure"
+    },
+    {
+      "label": "\ud83d\ude80 Getting Started",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L104",
+      "_origin": "ast",
+      "id": "readme_getting_started",
+      "community": 3,
+      "norm_label": "\ud83d\ude80 getting started"
+    },
+    {
+      "label": "Prerequisites",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "readme_prerequisites",
+      "community": 3,
+      "norm_label": "prerequisites"
+    },
+    {
+      "label": "Installation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "readme_installation",
+      "community": 3,
+      "norm_label": "installation"
+    },
+    {
+      "label": "1. Clone the Repository",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "readme_1_clone_the_repository",
+      "community": 3,
+      "norm_label": "1. clone the repository"
+    },
+    {
+      "label": "2. Setup Crop Recommendation Service",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "readme_2_setup_crop_recommendation_service",
+      "community": 3,
+      "norm_label": "2. setup crop recommendation service"
+    },
+    {
+      "label": "3. Setup Plant Disease Identification Service",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "readme_3_setup_plant_disease_identification_service",
+      "community": 3,
+      "norm_label": "3. setup plant disease identification service"
+    },
+    {
+      "label": "4. Setup Fertilizer Prediction Service",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "readme_4_setup_fertilizer_prediction_service",
+      "community": 3,
+      "norm_label": "4. setup fertilizer prediction service"
+    },
+    {
+      "label": "5. Setup React Frontend (Optional)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "readme_5_setup_react_frontend_optional",
+      "community": 3,
+      "norm_label": "5. setup react frontend (optional)"
+    },
+    {
+      "label": "\ud83d\udcca Model Details",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "readme_model_details",
+      "community": 8,
+      "norm_label": "\ud83d\udcca model details"
+    },
+    {
+      "label": "Crop Recommendation Model",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L153",
+      "_origin": "ast",
+      "id": "readme_crop_recommendation_model",
+      "community": 8,
+      "norm_label": "crop recommendation model"
+    },
+    {
+      "label": "Plant Disease Detection Model",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L160",
+      "_origin": "ast",
+      "id": "readme_plant_disease_detection_model",
+      "community": 8,
+      "norm_label": "plant disease detection model"
+    },
+    {
+      "label": "Fertilizer Prediction Model",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L167",
+      "_origin": "ast",
+      "id": "readme_fertilizer_prediction_model",
+      "community": 8,
+      "norm_label": "fertilizer prediction model"
+    },
+    {
+      "label": "\ud83d\udcbb Usage Examples",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "readme_usage_examples",
+      "community": 7,
+      "norm_label": "\ud83d\udcbb usage examples"
+    },
+    {
+      "label": "Crop Recommendation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L175",
+      "_origin": "ast",
+      "id": "readme_crop_recommendation",
+      "community": 7,
+      "norm_label": "crop recommendation"
+    },
+    {
+      "label": "Disease Detection",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L181",
+      "_origin": "ast",
+      "id": "readme_disease_detection",
+      "community": 7,
+      "norm_label": "disease detection"
+    },
+    {
+      "label": "Fertilizer Recommendation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L188",
+      "_origin": "ast",
+      "id": "readme_fertilizer_recommendation",
+      "community": 7,
+      "norm_label": "fertilizer recommendation"
+    },
+    {
+      "label": "\ud83d\udcc8 Dataset Information",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "readme_dataset_information",
+      "community": 0,
+      "norm_label": "\ud83d\udcc8 dataset information"
+    },
+    {
+      "label": "\ud83e\udd1d Contributing",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L200",
+      "_origin": "ast",
+      "id": "readme_contributing",
+      "community": 0,
+      "norm_label": "\ud83e\udd1d contributing"
+    },
+    {
+      "label": "\ud83d\udcdd Model Training & Evaluation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L210",
+      "_origin": "ast",
+      "id": "readme_model_training_evaluation",
+      "community": 10,
+      "norm_label": "\ud83d\udcdd model training & evaluation"
+    },
+    {
+      "label": "Crop Prediction",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L214",
+      "_origin": "ast",
+      "id": "readme_crop_prediction",
+      "community": 10,
+      "norm_label": "crop prediction"
+    },
+    {
+      "label": "Plant Disease Detection",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L220",
+      "_origin": "ast",
+      "id": "readme_plant_disease_detection",
+      "community": 10,
+      "norm_label": "plant disease detection"
+    },
+    {
+      "label": "\ud83d\udd27 Configuration",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L226",
+      "_origin": "ast",
+      "id": "readme_configuration",
+      "community": 0,
+      "norm_label": "\ud83d\udd27 configuration"
+    },
+    {
+      "label": "\ud83d\udce6 Dependencies",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L234",
+      "_origin": "ast",
+      "id": "readme_dependencies",
+      "community": 0,
+      "norm_label": "\ud83d\udce6 dependencies"
+    },
+    {
+      "label": "\ud83d\udc1b Troubleshooting",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L243",
+      "_origin": "ast",
+      "id": "readme_troubleshooting",
+      "community": 9,
+      "norm_label": "\ud83d\udc1b troubleshooting"
+    },
+    {
+      "label": "Model Loading Issues",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L245",
+      "_origin": "ast",
+      "id": "readme_model_loading_issues",
+      "community": 9,
+      "norm_label": "model loading issues"
+    },
+    {
+      "label": "Streamlit Port Already in Use",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L249",
+      "_origin": "ast",
+      "id": "readme_streamlit_port_already_in_use",
+      "community": 9,
+      "norm_label": "streamlit port already in use"
+    },
+    {
+      "label": "Missing Dependencies",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L254",
+      "_origin": "ast",
+      "id": "readme_missing_dependencies",
+      "community": 9,
+      "norm_label": "missing dependencies"
+    },
+    {
+      "label": "\ud83d\udcc4 License",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L259",
+      "_origin": "ast",
+      "id": "readme_license",
+      "community": 0,
+      "norm_label": "\ud83d\udcc4 license"
+    },
+    {
+      "label": "\ud83d\udc65 Team & Credits",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L263",
+      "_origin": "ast",
+      "id": "readme_team_credits",
+      "community": 0,
+      "norm_label": "\ud83d\udc65 team & credits"
+    },
+    {
+      "label": "\ud83d\udcde Support",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L270",
+      "_origin": "ast",
+      "id": "readme_support",
+      "community": 0,
+      "norm_label": "\ud83d\udcde support"
+    },
+    {
+      "label": "\ud83c\udf31 Future Enhancements",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L277",
+      "_origin": "ast",
+      "id": "readme_future_enhancements",
+      "community": 0,
+      "norm_label": "\ud83c\udf31 future enhancements"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_public_public_url_manifest",
+      "target": "crop_predict_frontend_public_public_url_manifest_background_color",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_public_public_url_manifest",
+      "target": "crop_predict_frontend_public_public_url_manifest_display",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_public_public_url_manifest",
+      "target": "crop_predict_frontend_public_public_url_manifest_icons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_public_public_url_manifest",
+      "target": "crop_predict_frontend_public_public_url_manifest_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_public_public_url_manifest",
+      "target": "crop_predict_frontend_public_public_url_manifest_short_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_public_public_url_manifest",
+      "target": "crop_predict_frontend_public_public_url_manifest_start_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_public_public_url_manifest",
+      "target": "crop_predict_frontend_public_public_url_manifest_theme_color",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/App.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_app",
+      "target": "crop_predict_frontend_src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/App.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_app",
+      "target": "crop_predict_frontend_src_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/App.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_app",
+      "target": "crop_predict_frontend_src_home_imageupload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/App.test.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_app_test",
+      "target": "crop_predict_frontend_src_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/index.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_index",
+      "target": "crop_predict_frontend_src_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/App.test.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_app_test",
+      "target": "crop_predict_frontend_src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/index.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_index",
+      "target": "crop_predict_frontend_src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/home.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_home",
+      "target": "crop_predict_frontend_src_home_colorbutton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/home.js",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_home",
+      "target": "crop_predict_frontend_src_home_imageupload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/home.js",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_home",
+      "target": "crop_predict_frontend_src_home_usestyles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/home.js",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_home_imageupload",
+      "target": "crop_predict_frontend_src_home_usestyles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/index.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_index",
+      "target": "crop_predict_frontend_src_reportwebvitals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/index.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_index",
+      "target": "crop_predict_frontend_src_reportwebvitals_reportwebvitals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP PREDICT/frontend/src/reportWebVitals.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "crop_predict_frontend_src_reportwebvitals",
+      "target": "crop_predict_frontend_src_reportwebvitals_reportwebvitals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP-RECOMMENDATION/webapp.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "crop_recommendation_webapp",
+      "target": "crop_recommendation_webapp_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP-RECOMMENDATION/webapp.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "crop_recommendation_webapp",
+      "target": "crop_recommendation_webapp_predict_crop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP-RECOMMENDATION/webapp.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "crop_recommendation_webapp",
+      "target": "crop_recommendation_webapp_show_crop_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "CROP-RECOMMENDATION/webapp.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "crop_recommendation_webapp_main",
+      "target": "crop_recommendation_webapp_predict_crop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "plant_disease_identification_main",
+      "target": "plant_disease_identification_main_model_prediction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_rules_graphify",
+      "target": "agents_rules_graphify_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_workflows_graphify",
+      "target": "agents_workflows_graphify_workflow_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Datasets/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "datasets_readme",
+      "target": "datasets_readme_smart_farming_assistant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Datasets/README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "datasets_readme_smart_farming_assistant",
+      "target": "datasets_readme_datasets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Datasets/README.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "datasets_readme_smart_farming_assistant",
+      "target": "datasets_readme_how_to_use_the_datasets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Datasets/README.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "datasets_readme_datasets",
+      "target": "datasets_readme_1_crop_recommendation_dataset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Datasets/README.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "datasets_readme_datasets",
+      "target": "datasets_readme_2_plant_disease_identification_dataset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Datasets/README.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "datasets_readme_datasets",
+      "target": "datasets_readme_3_fertilizer_recommendation_dataset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_agrinex_smart_agricultural_intelligence_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L226",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_configuration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L200",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_contributing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_dataset_information",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L234",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_features",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L277",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_future_enhancements",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_getting_started",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L259",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_license",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_model_details",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_model_training_evaluation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_overview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_project_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L270",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_support",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L263",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_team_credits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_tech_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_troubleshooting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "readme_agrinex_smart_agricultural_intelligence_system",
+      "target": "readme_usage_examples",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "readme_tech_stack",
+      "target": "readme_backend_ml_services",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "readme_tech_stack",
+      "target": "readme_data_processing_visualization",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "readme_tech_stack",
+      "target": "readme_datasets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "readme_tech_stack",
+      "target": "readme_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "readme_tech_stack",
+      "target": "readme_machine_learning_ai",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "readme_getting_started",
+      "target": "readme_installation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "readme_getting_started",
+      "target": "readme_prerequisites",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "readme_installation",
+      "target": "readme_1_clone_the_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "readme_installation",
+      "target": "readme_2_setup_crop_recommendation_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "readme_installation",
+      "target": "readme_3_setup_plant_disease_identification_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "readme_installation",
+      "target": "readme_4_setup_fertilizer_prediction_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "readme_installation",
+      "target": "readme_5_setup_react_frontend_optional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "readme_model_details",
+      "target": "readme_crop_recommendation_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "readme_model_details",
+      "target": "readme_fertilizer_prediction_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "readme_model_details",
+      "target": "readme_plant_disease_detection_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "readme_usage_examples",
+      "target": "readme_crop_recommendation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "readme_usage_examples",
+      "target": "readme_disease_detection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "readme_usage_examples",
+      "target": "readme_fertilizer_recommendation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "readme_model_training_evaluation",
+      "target": "readme_crop_prediction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "readme_model_training_evaluation",
+      "target": "readme_plant_disease_detection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "readme_troubleshooting",
+      "target": "readme_missing_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "readme_troubleshooting",
+      "target": "readme_model_loading_issues",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "readme_troubleshooting",
+      "target": "readme_streamlit_port_already_in_use",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}
