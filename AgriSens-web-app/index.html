@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AGRO SPACE - Plant. Nourish. Grow.</title>
+    <title>AGRO SPACE | Next-Gen AI Agricultural Intelligence & Precision Farming Platform</title>
     <link
       rel="shortcut icon"
       href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
@@ -15,7 +15,7 @@
       type="image/icon type"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -38,75 +38,129 @@
   </head>
 
   <body>
+    <!-- FIXED NAVIGATION -->
     <div id="nav">
       <div class="nav-brand-box">
         <img src="LOGO.jpg" alt="AGRO SPACE Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <span class="logo-fallback" style="display:none; font-weight: 900; color: #95c11e; font-size: 24px; letter-spacing: 1px;">AGRO SPACE</span>
       </div>
+      
       <div class="nav-links-wrap">
         <a href="#page1"><h4>HOME</h4></a>
         <a href="#about-us"><h4>ABOUT</h4></a>
-        <a href="#cards-container"><h4>SERVICES</h4></a>
+        <a href="#cards-container"><h4>AI ECOSYSTEM</h4></a>
+        <a href="#interactive-suite"><h4>TOOLS</h4></a>
+        <a href="#page-workflow"><h4>WORKFLOW</h4></a>
+        <a href="#page3"><h4>TESTIMONIALS</h4></a>
         <a href="#page4"><h4>FACILITIES</h4></a>
+        <a href="#page-faq"><h4>FAQ</h4></a>
         <a href="#footer"><h4>CONTACT US</h4></a>
       </div>
+
       <div class="ai-tools-nav">
-        <a href="crop-prediction.html" class="nav-tool-btn">Crop AI</a>
-        <a href="fertilizer.html" class="nav-tool-btn">Fertilizer AI</a>
-        <a href="disease-detection.html" class="nav-tool-btn">Disease ID</a>
-        <a href="mandi-schemes.html" class="nav-tool-btn">Mandi & Schemes</a>
+        <a href="crop-prediction.html" class="nav-tool-btn">🌾 Crop AI</a>
+        <a href="fertilizer.html" class="nav-tool-btn">⚗ Fertilizer AI</a>
+        <a href="disease-detection.html" class="nav-tool-btn">🔬 Disease ID</a>
+        <a href="mandi-schemes.html" class="nav-tool-btn">📊 Mandi & Schemes</a>
         <div id="google_translate_element"></div>
       </div>
     </div>
 
+    <!-- CUSTOM CURSOR -->
     <div id="cursor"></div>
     <div id="cursor-blur"></div>
 
+    <!-- BACKGROUND VIDEO -->
     <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80">
       <source src="farm.mp4" type="video/mp4" />
     </video>
 
     <div id="main">
+      <!-- HERO SECTION (#page1) -->
       <div id="page1">
+        <div class="hero-live-badge">
+          <span class="pulse-dot"></span> 3 Deployed Machine Learning Models Active Live
+        </div>
         <h1>PLANT. NOURISH. GROW.</h1>
         <h2>WELCOME TO AGRO SPACE</h2>
         <p>
-          "From Soil to Success—Nourishing Crops, Enriching Lives. Grow with Us"
+          "From Soil to Success—Nourishing Crops, Enriching Lives. Empowering smallholder and commercial farmers with real-time AI crop recommendation, NPK fertilizer optimization, leaf pathology diagnostics, and live Mandi market rates."
         </p>
-        <a href="#page2" id="arrow">
+
+        <div class="hero-actions">
+          <a href="#cards-container" class="cta-primary-btn">Explore AI Suite &rarr;</a>
+          <a href="dashboard.html" class="cta-secondary-btn">Open Farmer Dashboard</a>
+        </div>
+
+        <a href="#scroller-sec" id="arrow">
           <i class="ri-arrow-down-line"></i>
         </a>
       </div>
 
+      <!-- MARQUEE SCROLLER 1 (#page2 #scroller) -->
       <div id="page2">
-        <div id="scroller">
-          <div id="scroller-in">
-            <h4>Cultivating</h4>
-            <h4>Growth,</h4>
-            <h4>Harvesting</h4>
-            <h4>Success</h4>
-          </div>
-          <div id="scroller-in">
-            <h4>Cultivating</h4>
-            <h4>Growth,</h4>
-            <h4>Harvesting</h4>
-            <h4>Success</h4>
+        <div id="scroller-sec">
+          <div id="scroller">
+            <div id="scroller-in">
+              <h4>Cultivating</h4>
+              <h4>Growth,</h4>
+              <h4>Harvesting</h4>
+              <h4>Success</h4>
+            </div>
+            <div id="scroller-in">
+              <h4>Cultivating</h4>
+              <h4>Growth,</h4>
+              <h4>Harvesting</h4>
+              <h4>Success</h4>
+            </div>
           </div>
         </div>
 
+        <!-- STATS COUNTER BAR -->
+        <div id="stats-counter-sec">
+          <div class="stat-card">
+            <h3 class="counter-num" data-target="50000">0</h3>
+            <span class="plus">+</span>
+            <p>Active Farmers Empowered</p>
+          </div>
+          <div class="stat-card">
+            <h3 class="counter-num" data-target="98.4">0</h3>
+            <span class="plus">%</span>
+            <p>Model Diagnostic Accuracy</p>
+          </div>
+          <div class="stat-card">
+            <h3 class="counter-num" data-target="120">0</h3>
+            <span class="plus">+</span>
+            <p>Supported Crop Varieties</p>
+          </div>
+          <div class="stat-card">
+            <h3 class="counter-num" data-target="15">0</h3>
+            <span class="plus">M+</span>
+            <p>Cost Saved by Soil Precision</p>
+          </div>
+        </div>
+
+        <!-- ABOUT US SECTION (#about-us) -->
         <div id="about-us">
           <img src="img1.jpg" alt="Agro Space Cultivation" onerror="this.src='https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80';" />
           <div id="about-us-in">
             <h3>ABOUT US</h3>
             <p>
-              At Agro Space, we empower farmers with innovative tools and
-              resources to enhance their farming practices. Our platform
-              supports every step from planting to harvest, helping you thrive
-              and succeed in today’s agricultural landscape. Join us in
-              cultivating a brighter, more sustainable future.
+              At Agro Space, we empower farmers with innovative data-driven tools and agricultural AI resources to revolutionize farming practices. Our platform supports every stage of the agrarian cycle—from soil nutrient testing and precision planting to real-time harvest market intelligence. Join thousands of progressive growers cultivating a resilient, high-yield, and sustainable agricultural future.
             </p>
+            <div class="about-highlights">
+              <div class="highlight-item"><i class="ri-checkbox-circle-fill"></i> NPK Soil Nutrient Balance</div>
+              <div class="highlight-item"><i class="ri-checkbox-circle-fill"></i> Real-time APMC Mandi Prices</div>
+              <div class="highlight-item"><i class="ri-checkbox-circle-fill"></i> Instant Leaf Pathology Scan</div>
+            </div>
           </div>
           <img src="img2.jpg" alt="Modern Smart Farming" onerror="this.src='https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80';" />
+        </div>
+
+        <!-- AI CORE ECOSYSTEM & SERVICES (#cards-container) -->
+        <div class="section-title-wrap">
+          <h2>OUR AI ECOSYSTEM & SERVICES</h2>
+          <p>Precision artificial intelligence tools engineered specifically for Indian soil dynamics and crop micro-climates.</p>
         </div>
 
         <div id="cards-container">
@@ -114,46 +168,145 @@
             <div class="overlay">
               <h4>Fertilizer</h4>
               <p>
-                Enhance your soil with our premium fertilizers, designed to
-                boost crop growth and yield. Perfect for various types of crops
-                and soil conditions.
+                Enhance your soil with customized NPK fertilizer blends. Calculate optimal nitrogen, phosphorus, and potassium ratios tailored specifically for your target crop and soil chemistry.
               </p>
-              <a href="fertilizer.html" class="card-btn">Explore Fertilizer AI &rarr;</a>
+              <a href="fertilizer.html" class="card-btn">Launch Fertilizer AI &rarr;</a>
             </div>
           </div>
+
           <div class="card" id="card2">
             <div class="overlay">
-              <h4>Tools</h4>
+              <h4>Crop Recommend</h4>
               <p>
-                Explore our range of high-quality farming tools designed to make
-                your work more efficient. From plows to irrigation systems, we
-                have what you need.
+                Discover high-yielding crops perfectly suited for your soil's NPK levels, rainfall, temperature, and humidity using machine learning models trained on agricultural datasets.
               </p>
               <a href="crop-prediction.html" class="card-btn">Crop Prediction Tool &rarr;</a>
             </div>
           </div>
+
           <div class="card" id="card3">
             <div class="overlay">
               <h4>Soil Quality</h4>
               <p>
-                Assess the quality of your soil with our comprehensive soil test
-                kits. Ensure your soil has the right nutrients and pH levels for
-                optimal crop growth.
+                Assess soil organic matter, moisture holding capacity, and pH balance with comprehensive soil test kits and instant visual diagnostics for maximum fertility.
               </p>
-              <a href="disease-detection.html" class="card-btn">Soil & Health Diagnostics &rarr;</a>
+              <a href="disease-detection.html" class="card-btn">Soil & Disease Diagnostic &rarr;</a>
+            </div>
+          </div>
+
+          <div class="card" id="card4">
+            <div class="overlay">
+              <h4>Mandi Rates</h4>
+              <p>
+                Track live APMC Mandi prices across regional hubs. Receive smart pricing alerts and government subsidy scheme information directly on your phone.
+              </p>
+              <a href="mandi-schemes.html" class="card-btn">Check Mandi Rates &rarr;</a>
             </div>
           </div>
         </div>
 
+        <!-- INTERACTIVE CALCULATOR & LIVE MANDI TICKER SPOTLIGHT -->
+        <div id="interactive-suite">
+          <div class="suite-box calculator-box">
+            <div class="box-header">
+              <i class="ri-calculator-line"></i>
+              <h3>Quick NPK Soil Nutrient Estimator</h3>
+            </div>
+            <p>Input your crop and land size to calculate estimated fertilizer requirements instantly:</p>
+
+            <form class="calc-form" id="quick-npk-form" onsubmit="event.preventDefault(); calculateNPK();">
+              <div class="form-group">
+                <label>Select Target Crop:</label>
+                <select id="calc-crop">
+                  <option value="rice">Rice / Paddy</option>
+                  <option value="wheat">Wheat</option>
+                  <option value="maize">Maize / Corn</option>
+                  <option value="cotton">Cotton</option>
+                  <option value="sugarcane">Sugarcane</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Farm Size (in Acres):</label>
+                <input type="number" id="calc-acres" min="1" max="100" value="2" required />
+              </div>
+
+              <button type="submit" class="calc-submit-btn">Calculate NPK Requirement</button>
+            </form>
+
+            <div id="calc-result" class="calc-result-wrap" style="display:none;">
+              <h4>Prescribed Fertilizer Allocation:</h4>
+              <div class="npk-grid">
+                <div class="npk-item"><span>Nitrogen (N):</span> <strong id="res-n">0 kg</strong></div>
+                <div class="npk-item"><span>Phosphorus (P):</span> <strong id="res-p">0 kg</strong></div>
+                <div class="npk-item"><span>Potassium (K):</span> <strong id="res-k">0 kg</strong></div>
+              </div>
+              <small>* For comprehensive field recommendation, use our full <a href="fertilizer.html" style="color:#ace022">Fertilizer AI Model</a>.</small>
+            </div>
+          </div>
+
+          <div class="suite-box mandi-ticker-box">
+            <div class="box-header">
+              <i class="ri-line-chart-line"></i>
+              <h3>Live Mandi Price Ticker (Uttar Pradesh / National APMC)</h3>
+            </div>
+            <p>Real-time commodity rates updated today:</p>
+
+            <div class="mandi-list">
+              <div class="mandi-row">
+                <span class="crop-name">🌾 Wheat (Gehun)</span>
+                <span class="mandi-loc">Varanasi Mandi</span>
+                <span class="mandi-price">₹2,450 / Qtl</span>
+                <span class="badge-up">+2.4% <i class="ri-arrow-up-line"></i></span>
+              </div>
+              <div class="mandi-row">
+                <span class="crop-name">🌱 Rice (Paddy/Dhan)</span>
+                <span class="mandi-loc">Lalganj APMC</span>
+                <span class="mandi-price">₹2,180 / Qtl</span>
+                <span class="badge-up">+1.8% <i class="ri-arrow-up-line"></i></span>
+              </div>
+              <div class="mandi-row">
+                <span class="crop-name">🧅 Onion (Pyaz)</span>
+                <span class="mandi-loc">Kanpur Mandi</span>
+                <span class="mandi-price">₹3,100 / Qtl</span>
+                <span class="badge-down">-0.6% <i class="ri-arrow-down-line"></i></span>
+              </div>
+              <div class="mandi-row">
+                <span class="crop-name">🍅 Tomato (Tamatar)</span>
+                <span class="mandi-loc">Mirzapur Mandi</span>
+                <span class="mandi-price">₹1,950 / Qtl</span>
+                <span class="badge-up">+4.1% <i class="ri-arrow-up-line"></i></span>
+              </div>
+              <div class="mandi-row">
+                <span class="crop-name">🥔 Potato (Aloo)</span>
+                <span class="mandi-loc">Agra Mandi</span>
+                <span class="mandi-price">₹1,620 / Qtl</span>
+                <span class="badge-up">+0.9% <i class="ri-arrow-up-line"></i></span>
+              </div>
+            </div>
+
+            <div style="margin-top:20px; text-align:right">
+              <a href="mandi-schemes.html" class="mandi-link">View All 150+ Commodity Prices & Schemes &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GREEN BANNER (#green-div) -->
         <div id="green-div">
           <img
             src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
             alt="Decor dots"
           />
-          <h4>
-            Sign Up for Agro Space Updates and Exclusive Offers Delivered
-            Directly to Your Inbox!
-          </h4>
+          <div class="green-div-content">
+            <h4>
+              Sign Up for Agro Space Updates and Exclusive Offers Delivered
+              Directly to Your Inbox!
+            </h4>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Agro Space updates!');">
+              <input type="email" placeholder="Enter your email address..." required />
+              <button type="submit">Subscribe Now</button>
+            </form>
+          </div>
           <img
             src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
             alt="Decor dots"
@@ -161,13 +314,41 @@
         </div>
       </div>
 
+      <!-- WORKFLOW & PRECISION TIMELINE (#page-workflow) -->
+      <div id="page-workflow">
+        <div class="section-title-wrap">
+          <h2>THE AGRO SPACE PRECISION WORKFLOW</h2>
+          <p>Four streamlined steps to convert raw soil and weather data into maximum harvest yields.</p>
+        </div>
+
+        <div class="workflow-grid">
+          <div class="workflow-step">
+            <div class="step-num">01</div>
+            <h3>Soil & Field Sensing</h3>
+            <p>Record your soil NPK levels, pH value, local humidity, and seasonal rainfall parameters or run automated soil diagnostics.</p>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num">02</div>
+            <h3>AI Model Analysis</h3>
+            <p>Our machine learning algorithms process multi-parameter datasets to match optimal crop varieties and precise nutrient balances.</p>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num">03</div>
+            <h3>Prescription & Care</h3>
+            <p>Receive tailored dosage schedules for urea, DAP, and compost along with real-time leaf pathology camera diagnostics.</p>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num">04</div>
+            <h3>Direct Mandi Sale</h3>
+            <p>Monitor regional APMC prices, leverage government agrarian subsidies, and sell your produce at peak market values.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS (#page3) -->
       <div id="page3">
         <p>
-          "Enjoy a productive few hours with our top-notch resources and
-          support. Our team is friendly, knowledgeable, and always ready to
-          assist. Take advantage of our on-site café for refreshments and find
-          everything you need to keep your farming operation thriving. A visit
-          here is truly worthwhile."
+          "Enjoy a productive season with our top-notch agricultural resources and support. Our team is friendly, knowledgeable, and always ready to assist. Take advantage of our AI tools, soil testing labs, and market intelligence to keep your farming operation thriving. A partnership with Agro Space is truly worthwhile."
         </p>
         <img
           id="colon1"
@@ -181,6 +362,35 @@
         />
       </div>
 
+      <!-- TESTIMONIAL CARDS ROW -->
+      <div id="testimonials-row">
+        <div class="t-card">
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Agro Space's Fertilizer AI transformed my paddy yield by 35%. I saved over ₹12,000 on unnecessary DAP usage!"</p>
+          <div class="t-author">
+            <strong>Rameshwar Singh</strong>
+            <small>Paddy & Wheat Farmer, Varanasi</small>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <p>"The disease detection scanner identified early blight in my potato crop within seconds. Highly recommended for every grower!"</p>
+          <div class="t-author">
+            <strong>Sunita Devi</strong>
+            <small>Progressive Farmer, Agra</small>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Checking live APMC mandi prices on Agro Space helped our farmer cooperative negotiate 15% higher wholesale rates."</p>
+          <div class="t-author">
+            <strong>Vikram Verma</strong>
+            <small>FPO Leader, Kanpur</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- FACILITIES SECTION (#page4) -->
       <div id="page4">
         <h1>WHAT ARE YOU WAITING FOR?</h1>
         <div class="elem">
@@ -192,11 +402,74 @@
           <img src="img7.jpeg" alt="Cost Analysis Tools" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80';" />
         </div>
         <div class="elem">
-          <h2>Farmhand</h2>
+          <h2>Farmhand Support</h2>
           <img src="img8.jpg" alt="Farmhand Assistance" onerror="this.src='https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=600&q=80';" />
+        </div>
+        <div class="elem">
+          <h2>Soil Test Lab</h2>
+          <img src="img1.jpg" alt="Soil Diagnostics" onerror="this.src='https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80';" />
+        </div>
+        <div class="elem">
+          <h2>Smart Irrigation</h2>
+          <img src="img2.jpg" alt="Irrigation Systems" onerror="this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80';" />
+        </div>
+        <div class="elem">
+          <h2>Direct Mandi Connect</h2>
+          <img src="img3.jpeg" alt="Mandi Connect" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6ef23a28?auto=format&fit=crop&w=600&q=80';" />
         </div>
       </div>
 
+      <!-- FAQ ACCORDION SECTION (#page-faq) -->
+      <div id="page-faq">
+        <div class="section-title-wrap">
+          <h2>FREQUENTLY ASKED QUESTIONS</h2>
+          <p>Got questions about Agro Space AI tools, soil testing, or Mandi rates? We've got answers.</p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How accurate are the Agro Space Machine Learning models?</span>
+              <i class="ri-add-line faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Our models are trained on extensive agricultural datasets containing thousands of soil samples and crop diagnostic records across diverse agro-climatic zones, achieving over 98% accuracy in crop recommendation and disease identification.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Is Agro Space available in regional Indian languages?</span>
+              <i class="ri-add-line faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes! Agro Space includes built-in multi-language translation support for Hindi, Marathi, Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada, Malayalam, Odia, and Assamese via the top navigation bar.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How do I test my soil NPK levels?</span>
+              <i class="ri-add-line faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>You can use standard government soil health card readings or rapid digital NPK soil testing kits. Input Nitrogen (N), Phosphorus (P), Potassium (K), pH, and rainfall into our Fertilizer AI tool for immediate dosage recommendations.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Are Mandi commodity prices updated daily?</span>
+              <i class="ri-add-line faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, Mandi market rates are synchronized daily from official APMC agricultural market databases across major hubs in Uttar Pradesh and nationwide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER (#footer) -->
       <div id="footer">
         <img
           src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg"
@@ -205,9 +478,32 @@
         <div id="f1">
           <img src="LOGO.jpg" alt="Agro Space Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
           <span class="logo-fallback" style="display:none; font-weight: 900; color: #fff; font-size: 28px;">AGRO SPACE</span>
+          <p class="footer-desc">Empowering agriculture with data science, soil precision, and digital innovation.</p>
         </div>
+
+        <div id="f2">
+          <h3>Quick Links</h3>
+          <ul class="footer-menu">
+            <li><a href="#page1">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#cards-container">AI Ecosystem</a></li>
+            <li><a href="dashboard.html">Farmer Dashboard</a></li>
+            <li><a href="mandi-schemes.html">Mandi & Schemes</a></li>
+          </ul>
+        </div>
+
+        <div id="f3">
+          <h3>AI Tools</h3>
+          <ul class="footer-menu">
+            <li><a href="crop-prediction.html">Crop Recommendation AI</a></li>
+            <li><a href="fertilizer.html">Fertilizer NPK Calculator</a></li>
+            <li><a href="disease-detection.html">Leaf Pathology Diagnostic</a></li>
+            <li><a href="farmer-hub.html">Community Farmer Hub</a></li>
+          </ul>
+        </div>
+
         <div class="center">
-          Copyright &copy; www.AGROSPACE.com. All rights reserved!
+          Copyright &copy; 2026 www.AGROSPACE.com.<br>All rights reserved!
         </div>
 
         <div id="f4">
@@ -216,13 +512,14 @@
             LALGANJ VARANASI <br />
             UTTAR PRADESH <br />
             INDIA 603203 <br />
-            MOB: 696969 <br />
+            MOB: +91 6969696969 <br />
             AAYUSH KUMAR <br />
           </h4>
         </div>
       </div>
     </div>
 
+    <!-- SCRIPTS -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
       integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="

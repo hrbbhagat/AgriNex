@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "PLANT-DISEASE-IDENTIFICATION/main.py": {
-    "mtime": 1745845796.0834599,
-    "ast_hash": "7edfa7010fa1bc91f2878634745d11bf",
+    "mtime": 1786680549.6562662,
+    "ast_hash": "87c449cc89c0983cac3c74b67ae5f1d5",
     "semantic_hash": ""
   },
   "PLANT-DISEASE-IDENTIFICATION/settings.json": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "fertilizer_prediction/fertilizer_prediction/fert.py": {
-    "mtime": 1746419894.030653,
-    "ast_hash": "802dbc406a47a056200ec8f6f7cd39d3",
+    "mtime": 1786682394.6316884,
+    "ast_hash": "e8ad7069d921c4654fb87f831f87bb5c",
     "semantic_hash": ""
   },
   ".agents/rules/graphify.md": {
@@ -85,13 +85,73 @@
     "semantic_hash": ""
   },
   "PLANT-DISEASE-IDENTIFICATION/requirements.txt": {
-    "mtime": 1745649983.694209,
-    "ast_hash": "f018f87624885dae71a671a375f3d945",
+    "mtime": 1786678894.1354492,
+    "ast_hash": "bfd53f9e6c53e37596f33a8f0a14a1cb",
     "semantic_hash": ""
   },
   "README.md": {
     "mtime": 1782564492.7957175,
     "ast_hash": "05c9844388416aeb4f44be200c61e6c1",
+    "semantic_hash": ""
+  },
+  "AgriSens-web-app/script.js": {
+    "mtime": 1786686194.476646,
+    "ast_hash": "d62ef0aed7af73ae18d67d8f31981a61",
+    "semantic_hash": ""
+  },
+  "fertilizer_prediction/fertilizer_prediction/train_fertilizer_model.py": {
+    "mtime": 1786516993.3593035,
+    "ast_hash": "2746204b5a4c33c20527b816906b8a8c",
+    "semantic_hash": ""
+  },
+  "fertilizer_prediction/fertilizer_prediction/train_model.py": {
+    "mtime": 1786516833.3929186,
+    "ast_hash": "0212e2b7b3f034adb214d2d6a6af3a70",
+    "semantic_hash": ""
+  },
+  "AgriSens-web-app/crop-prediction.html": {
+    "mtime": 1786684780.598383,
+    "ast_hash": "71f4f311d8e4dccbc8e64ea83e41fe3b",
+    "semantic_hash": ""
+  },
+  "AgriSens-web-app/dashboard.html": {
+    "mtime": 1786684812.1771083,
+    "ast_hash": "f83ff0bd8c0f549b1e59e47d521eb2fa",
+    "semantic_hash": ""
+  },
+  "AgriSens-web-app/disease-detection.html": {
+    "mtime": 1786684795.704345,
+    "ast_hash": "5545eb8c7babeac09d331124d951766f",
+    "semantic_hash": ""
+  },
+  "AgriSens-web-app/farmer-hub.html": {
+    "mtime": 1786684819.8920114,
+    "ast_hash": "8b204b6eea9f5be8bf0638947af35ba0",
+    "semantic_hash": ""
+  },
+  "AgriSens-web-app/fertilizer.html": {
+    "mtime": 1786684788.801355,
+    "ast_hash": "b207fff76ccb37af2e306c0497d2762b",
+    "semantic_hash": ""
+  },
+  "AgriSens-web-app/index.html": {
+    "mtime": 1786686173.8838344,
+    "ast_hash": "088f354bd5382d2d886a18c888d891fd",
+    "semantic_hash": ""
+  },
+  "AgriSens-web-app/mandi-schemes.html": {
+    "mtime": 1786684804.0409596,
+    "ast_hash": "029d41ddeb4e3cd3d79e3702d9386e56",
+    "semantic_hash": ""
+  },
+  "fertilizer_prediction/fertilizer_prediction/requirements.txt": {
+    "mtime": 1786682068.1592052,
+    "ast_hash": "a6ad09a008c7bcf43f1d36929d2ec3b0",
+    "semantic_hash": ""
+  },
+  "PLANT-DISEASE-IDENTIFICATION/Diseases.png": {
+    "mtime": 1745649983.6586857,
+    "ast_hash": "845189da29e6ee340bd5fad63aaa3638",
     "semantic_hash": ""
   }
 }

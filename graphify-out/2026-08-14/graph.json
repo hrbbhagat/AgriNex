@@ -4,6 +4,16 @@
   "graph": {},
   "nodes": [
     {
+      "label": "script.js",
+      "file_type": "code",
+      "source_file": "AgriSens-web-app/script.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agrisens_web_app_script",
+      "community": 10,
+      "norm_label": "script.js"
+    },
+    {
       "label": "manifest.json",
       "file_type": "code",
       "source_file": "CROP PREDICT/frontend/public/%PUBLIC_URL%/manifest.json",
@@ -234,14 +244,34 @@
       "norm_label": "main.py"
     },
     {
+      "label": "load_disease_model()",
+      "file_type": "code",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "plant_disease_identification_main_load_disease_model",
+      "community": 13,
+      "norm_label": "load_disease_model()"
+    },
+    {
       "label": "model_prediction()",
       "file_type": "code",
       "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
-      "source_location": "L4",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "plant_disease_identification_main_model_prediction",
       "community": 13,
       "norm_label": "model_prediction()"
+    },
+    {
+      "label": "render_prediction_ui()",
+      "file_type": "code",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "plant_disease_identification_main_render_prediction_ui",
+      "community": 13,
+      "norm_label": "render_prediction_ui()"
     },
     {
       "label": "fert.py",
@@ -252,6 +282,46 @@
       "id": "fertilizer_prediction_fertilizer_prediction_fert",
       "community": 14,
       "norm_label": "fert.py"
+    },
+    {
+      "label": "load_or_train_model()",
+      "file_type": "code",
+      "source_file": "fertilizer_prediction/fertilizer_prediction/fert.py",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "fertilizer_prediction_fertilizer_prediction_fert_load_or_train_model",
+      "community": 14,
+      "norm_label": "load_or_train_model()"
+    },
+    {
+      "label": "Load pre-trained model if available and compatible, otherwise train fresh     fr",
+      "file_type": "rationale",
+      "source_file": "fertilizer_prediction/fertilizer_prediction/fert.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "fertilizer_prediction_fertilizer_prediction_fert_rationale_17",
+      "community": 14,
+      "norm_label": "load pre-trained model if available and compatible, otherwise train fresh     fr"
+    },
+    {
+      "label": "train_fertilizer_model.py",
+      "file_type": "code",
+      "source_file": "fertilizer_prediction/fertilizer_prediction/train_fertilizer_model.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "fertilizer_prediction_fertilizer_prediction_train_fertilizer_model",
+      "community": 15,
+      "norm_label": "train_fertilizer_model.py"
+    },
+    {
+      "label": "train_model.py",
+      "file_type": "code",
+      "source_file": "fertilizer_prediction/fertilizer_prediction/train_model.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "fertilizer_prediction_fertilizer_prediction_train_model",
+      "community": 16,
+      "norm_label": "train_model.py"
     },
     {
       "label": "graphify.md",
@@ -660,7 +730,7 @@
       "source_location": "L210",
       "_origin": "ast",
       "id": "readme_model_training_evaluation",
-      "community": 10,
+      "community": 0,
       "norm_label": "\ud83d\udcdd model training & evaluation"
     },
     {
@@ -670,7 +740,7 @@
       "source_location": "L214",
       "_origin": "ast",
       "id": "readme_crop_prediction",
-      "community": 10,
+      "community": 0,
       "norm_label": "crop prediction"
     },
     {
@@ -680,7 +750,7 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "readme_plant_disease_detection",
-      "community": 10,
+      "community": 0,
       "norm_label": "plant disease detection"
     },
     {
@@ -1049,10 +1119,72 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
-      "source_location": "L4",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "plant_disease_identification_main",
+      "target": "plant_disease_identification_main_load_disease_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L32",
       "weight": 1.0,
       "source": "plant_disease_identification_main",
       "target": "plant_disease_identification_main_model_prediction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "plant_disease_identification_main",
+      "target": "plant_disease_identification_main_render_prediction_ui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "plant_disease_identification_main_model_prediction",
+      "target": "plant_disease_identification_main_load_disease_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "PLANT-DISEASE-IDENTIFICATION/main.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "plant_disease_identification_main_render_prediction_ui",
+      "target": "plant_disease_identification_main_model_prediction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fertilizer_prediction/fertilizer_prediction/fert.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "fertilizer_prediction_fertilizer_prediction_fert",
+      "target": "fertilizer_prediction_fertilizer_prediction_fert_load_or_train_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "fertilizer_prediction/fertilizer_prediction/fert.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "fertilizer_prediction_fertilizer_prediction_fert_rationale_17",
+      "target": "fertilizer_prediction_fertilizer_prediction_fert_load_or_train_model",
       "confidence_score": 1.0
     },
     {
@@ -1546,5 +1678,6 @@
       "confidence_score": 1.0
     }
   ],
-  "hyperedges": []
+  "hyperedges": [],
+  "built_at_commit": "77541c2225ceb1303968d246d3c51a13c49b5a3f"
 }

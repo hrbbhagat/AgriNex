@@ -13,5 +13,7 @@
   "11": "graphify.md",
   "12": "graphify.md",
   "13": "main.py",
-  "14": "fert.py"
+  "14": "fert.py",
+  "15": "train_fertilizer_model.py",
+  "16": "train_model.py"
 }

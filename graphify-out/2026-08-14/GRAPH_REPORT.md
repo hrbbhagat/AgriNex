@@ -1,13 +1,18 @@
-# Graph Report - AgriNex  (2026-08-10)
+# Graph Report - AgriNex  (2026-08-14)
 
 ## Corpus Check
-- 15 files · ~4,079 words
+- 18 files · ~27,161 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 78 nodes · 75 edges · 15 communities (12 shown, 3 thin omitted)
+- 85 nodes · 81 edges · 17 communities (13 shown, 4 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `77541c22`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_AgriNex - Smart Agricultural Intelligence System|AgriNex - Smart Agricultural Intelligence System]]
@@ -20,9 +25,10 @@
 - [[_COMMUNITY_💻 Usage Examples|💻 Usage Examples]]
 - [[_COMMUNITY_📊 Model Details|📊 Model Details]]
 - [[_COMMUNITY_🐛 Troubleshooting|🐛 Troubleshooting]]
-- [[_COMMUNITY_📝 Model Training & Evaluation|📝 Model Training & Evaluation]]
 - [[_COMMUNITY_graphify|graphify.md]]
 - [[_COMMUNITY_graphify|graphify.md]]
+- [[_COMMUNITY_main.py|main.py]]
+- [[_COMMUNITY_fert.py|fert.py]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `AgriNex - Smart Agricultural Intelligence System` - 18 edges
@@ -34,7 +40,7 @@
 7. `🐛 Troubleshooting` - 4 edges
 8. `App()` - 3 edges
 9. `ImageUpload()` - 3 edges
-10. `Smart Farming Assistant` - 3 edges
+10. `model_prediction()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -42,11 +48,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (15 total, 3 thin omitted)
+## Communities (17 total, 4 thin omitted)
 
 ### Community 0 - "AgriNex - Smart Agricultural Intelligence System"
-Cohesion: 0.15
-Nodes (12): AgriNex - Smart Agricultural Intelligence System, 🔧 Configuration, 🤝 Contributing, 📈 Dataset Information, 📦 Dependencies, ✨ Features, 🌱 Future Enhancements, 📄 License (+4 more)
+Cohesion: 0.12
+Nodes (15): AgriNex - Smart Agricultural Intelligence System, 🔧 Configuration, 🤝 Contributing, Crop Prediction, 📈 Dataset Information, 📦 Dependencies, ✨ Features, 🌱 Future Enhancements (+7 more)
 
 ### Community 1 - "App.js"
 Cohesion: 0.31
@@ -80,23 +86,25 @@ Nodes (4): Crop Recommendation Model, Fertilizer Prediction Model, 📊 Model De
 Cohesion: 0.50
 Nodes (4): Missing Dependencies, Model Loading Issues, Streamlit Port Already in Use, 🐛 Troubleshooting
 
-### Community 10 - "📝 Model Training & Evaluation"
-Cohesion: 0.67
-Nodes (3): Crop Prediction, 📝 Model Training & Evaluation, Plant Disease Detection
+### Community 13 - "main.py"
+Cohesion: 0.83
+Nodes (3): load_disease_model(), model_prediction(), render_prediction_ui()
 
 ## Knowledge Gaps
 - **47 isolated node(s):** `name`, `short_name`, `start_url`, `display`, `background_color` (+42 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `AgriNex - Smart Agricultural Intelligence System` connect `AgriNex - Smart Agricultural Intelligence System` to `Installation`, `🛠️ Tech Stack`, `💻 Usage Examples`, `📊 Model Details`, `🐛 Troubleshooting`, `📝 Model Training & Evaluation`?**
-  _High betweenness centrality (0.258) - this node is a cross-community bridge._
+- **Why does `AgriNex - Smart Agricultural Intelligence System` connect `AgriNex - Smart Agricultural Intelligence System` to `Installation`, `🛠️ Tech Stack`, `💻 Usage Examples`, `📊 Model Details`, `🐛 Troubleshooting`?**
+  _High betweenness centrality (0.217) - this node is a cross-community bridge._
 - **Why does `🚀 Getting Started` connect `Installation` to `AgriNex - Smart Agricultural Intelligence System`?**
-  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
 - **Why does `🛠️ Tech Stack` connect `🛠️ Tech Stack` to `AgriNex - Smart Agricultural Intelligence System`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+  _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **What connects `name`, `short_name`, `start_url` to the rest of the system?**
-  _47 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _48 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `AgriNex - Smart Agricultural Intelligence System` be split into smaller, more focused modules?**
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
