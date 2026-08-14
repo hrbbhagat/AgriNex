@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from pathlib import Path
+from PIL import Image
 
 BASE_DIR = Path(__file__).resolve().parent
 MODEL_PATH = BASE_DIR / "trained_plant_disease_model.keras"
@@ -29,12 +30,27 @@ def load_disease_model():
     return tf.keras.models.load_model(str(MODEL_PATH))
 
 def model_prediction(test_image):
+    # Reset stream position so repeated preview/predict actions read the full image.
+    if hasattr(test_image, "seek"):
+        test_image.seek(0)
+
     model = load_disease_model()
-    image = tf.keras.preprocessing.image.load_img(test_image,target_size=(128,128))
-    input_arr = tf.keras.preprocessing.image.img_to_array(image)
-    input_arr = np.array([input_arr]) #convert single image to batch
-    predictions = model.predict(input_arr)
-    return np.argmax(predictions) #return index of max element
+    image = Image.open(test_image).convert("RGB")
+    image_arr = np.array(image)
+
+    # Simple leaf-presence heuristic based on green pixel dominance.
+    r = image_arr[:, :, 0].astype(np.float32)
+    g = image_arr[:, :, 1].astype(np.float32)
+    b = image_arr[:, :, 2].astype(np.float32)
+    green_mask = (g > (r * 1.05)) & (g > (b * 1.05)) & (g > 40)
+    leaf_ratio = float(np.mean(green_mask))
+
+    resized = tf.image.resize(image_arr, [128, 128]).numpy().astype(np.float32) / 255.0
+    input_arr = np.expand_dims(resized, axis=0)
+    predictions = model.predict(input_arr, verbose=0)[0]
+    result_index = int(np.argmax(predictions))
+    confidence = float(np.max(predictions))
+    return result_index, confidence, leaf_ratio
 
 def render_prediction_ui(section_title):
     st.header(section_title)
@@ -59,6 +75,8 @@ def render_prediction_ui(section_title):
         if test_image is None:
             st.warning("Please provide an image first.")
         else:
+            if hasattr(test_image, "seek"):
+                test_image.seek(0)
             st.image(test_image, caption="Selected image", width=320)
 
     if(st.button("Predict", key=f"predict_{section_title}")):
@@ -68,11 +86,21 @@ def render_prediction_ui(section_title):
         st.snow()
         st.write("Our Prediction")
         try:
-            result_index = model_prediction(test_image)
+            result_index, confidence, leaf_ratio = model_prediction(test_image)
         except Exception as e:
             st.error(f"Failed to load model or run prediction: {e}")
             return
-        st.success("Model is Predicting it's a {}".format(CLASS_NAMES[result_index]))
+
+        if leaf_ratio < 0.02:
+            st.warning("No clear leaf found. Please capture a closer image of a single leaf in good light.")
+            return
+
+        if confidence < 0.45:
+            st.warning("Low confidence prediction. Please retake the photo with clearer focus and less background.")
+            st.info("Best guess: {} (confidence: {:.1f}%)".format(CLASS_NAMES[result_index], confidence * 100))
+            return
+
+        st.success("Model is Predicting it's a {} (confidence: {:.1f}%)".format(CLASS_NAMES[result_index], confidence * 100))
 
 #Sidebar
 st.sidebar.title("AgriSens")
