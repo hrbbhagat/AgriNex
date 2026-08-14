@@ -1,10 +1,14 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plant Disease ID | AgriNex AI</title>
-  <meta name="description" content="Identify crop diseases instantly using AI computer vision models. Upload leaf photos for instant diagnosis and treatment advice.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
@@ -18,39 +22,35 @@
     }
   </script>
 </head>
-<body>
-
-  <!-- Top Announcement Bar -->
-  <div class="top-bar">
-    <div class="wrap top-bar-inner">
-      <div class="top-bar-notice">
-        <span class="badge">Live AI</span>
-        <span>Plant Disease CNN Classifier powered by TensorFlow / Keras</span>
-      </div>
-      <div class="lang-selector">
-        <span style="color:#a3b899;font-size:12px">🌐 Language:</span>
-        <div id="google_translate_element"></div>
-      </div>
-    </div>
-  </div>
+<body class="antialiased selection:bg-[#C9E265] selection:text-[#1A261D]">
+  <div class="bg-noise"></div>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="index.html">Agri<span>Nex</span><sup>AI</sup></a>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="crop-prediction.html">Crop AI</a>
-        <a href="fertilizer.html">Fertilizer AI</a>
-        <a class="active" href="disease-detection.html">Disease ID</a>
-        <a href="mandi-schemes.html">Mandi & Schemes</a>
-        <a href="farmer-hub.html">Farmer Hub</a>
+  <nav class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4">
+    <div class="bg-[#F2EFE9]/95 backdrop-blur-md hard-shadow rounded-full px-3 py-2 flex items-center gap-3 max-w-5xl w-full justify-between transition-all">
+      <a href="index.html" class="flex items-center gap-2 bg-[#1A261D] text-[#F2EFE9] px-5 py-2 rounded-full hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors group">
+        <span class="font-sans font-bold tracking-tighter text-base uppercase">AgriNex<sup>AI</sup></span>
+      </a>
+
+      <div class="hidden lg:flex gap-2 items-center" id="nav-links">
+        <a href="index.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Home</a>
+        <a href="dashboard.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Dashboard</a>
+        <a href="crop-prediction.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Crop AI</a>
+        <a href="fertilizer.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Fertilizer AI</a>
+        <a href="disease-detection.html" class="px-4 py-2 rounded-full text-sm font-semibold bg-[#9D8BB5] text-[#1A261D]">Disease ID</a>
+        <a href="mandi-schemes.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Mandi & Schemes</a>
+        <a href="farmer-hub.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Farmer Hub</a>
       </div>
-      <div class="nav-actions">
-        <button class="btn-voice" id="btn-voice">🎤 Voice Search</button>
-        <div class="apps-menu">
-          <button class="button apps-toggle" id="apps-toggle-btn">Live AI apps ▾</button>
+
+      <div class="flex items-center gap-2">
+        <button class="bg-[#9D8BB5] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D]" id="btn-voice">
+          🎤 Voice Search
+        </button>
+
+        <div class="relative apps-menu">
+          <button class="bg-[#C9E265] hover:bg-[#b5d145] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D] shadow-[2px_2px_0px_0px_#1A261D]" id="apps-toggle-btn">
+            Live AI apps ▾
+          </button>
           <div class="apps-dropdown" id="apps-dropdown">
             <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
               <span class="apps-icon">🌾</span>
@@ -67,74 +67,58 @@
           </div>
         </div>
       </div>
-      <button class="menu" data-nav-toggle>☰</button>
     </div>
   </nav>
 
-  <main>
-    <section class="hero" style="padding:70px 0 50px">
-      <div class="wrap">
-        <p class="breadcrumb" style="color:var(--lime-accent);font-weight:700;font-size:13px">HOME / PLANT DISEASE IDENTIFICATION</p>
-        <h1 class="serif" style="margin-top:10px">Detect Crop Diseases Before Spreading</h1>
-        <p style="max-width:680px">Upload a photo of any affected plant leaf to receive an instant AI diagnosis, confidence score, and recommended treatment options.</p>
-        <div class="hero-actions" style="margin-top:24px">
-          <a class="button" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Open Deployed Streamlit Disease App ↗</a>
-        </div>
+  <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-block bg-[#9D8BB5] text-[#1A261D] font-bold text-xs px-3 py-1 rounded-full border border-[#1A261D] mb-4">
+        Computer Vision Plant Classifier
       </div>
-    </section>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#1A261D] mb-6">
+        Detect Crop Diseases <span class="font-serif italic text-[#3D6B4F]">Instantly</span>
+      </h1>
+      <p class="text-base text-[#1A261D]/80 font-sans">
+        Upload a photo of an infected leaf to run our TensorFlow CNN model for instant diagnosis and treatment advice.
+      </p>
+      <div class="mt-8">
+        <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="bg-[#FF6B4A] text-[#1A261D] px-8 py-3.5 rounded-full font-bold hard-shadow hard-shadow-hover text-base inline-block">
+          Launch Live Streamlit Classifier App ↗
+        </a>
+      </div>
+    </div>
 
-    <section>
-      <div class="wrap grid-2">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="md:col-span-2 bg-white p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+        <h3 class="text-2xl font-bold mb-4 text-[#1A261D]">Leaf Diagnostic Upload Scanner</h3>
+        
+        <label class="block border-2 border-dashed border-[#1A261D] rounded-2xl p-10 text-center bg-[#F2EFE9] cursor-pointer hover:bg-[#C9E265]/20 transition-colors">
+          <div class="text-5xl mb-3">📷</div>
+          <h4 class="font-bold text-lg text-[#1A261D]">Click to Upload Leaf Photo</h4>
+          <p class="text-xs text-[#1A261D]/70 mt-1">Supports JPG, PNG images (Max 10MB)</p>
+          <input type="file" id="disease-file" accept="image/*" class="hidden">
+        </label>
+
+        <div id="disease-result" class="hidden mt-6 p-6 bg-[#C9E265] border-2 border-[#1A261D] rounded-xl text-[#1A261D]"></div>
+      </div>
+
+      <div class="bg-[#3D6B4F] text-[#F2EFE9] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow flex flex-col justify-between">
         <div>
-          <div class="section-head">
-            <p class="eyebrow">Leaf Scanner Tool</p>
-            <h2 class="serif">Upload Plant Leaf Image</h2>
-            <p>Select a clear photo of the infected leaf area for AI classification.</p>
-          </div>
-          
-          <label class="scanner-area">
-            <div style="font-size:48px;margin-bottom:12px">📷</div>
-            <h3 style="margin:0;color:var(--lime-accent);font-size:20px">Click to Select or Drop Leaf Photo</h3>
-            <p style="margin:8px 0 0;font-size:14px;color:var(--text-muted-light)">Supports JPG, PNG images • Max size 10MB</p>
-            <input type="file" id="disease-file" accept="image/*">
-          </label>
-
-          <div class="result" id="disease-result"></div>
+          <div class="w-12 h-12 bg-[#C9E265] text-[#1A261D] rounded-xl flex items-center justify-center text-2xl font-bold mb-6">🔬</div>
+          <h3 class="text-2xl font-bold mb-3 text-[#F2EFE9]">Full Streamlit Classifier</h3>
+          <p class="text-sm font-sans text-[#F2EFE9]/80 mb-6">
+            The full deep-learning classifier evaluates 38 plant disease classes live on Streamlit Cloud.
+          </p>
         </div>
-
-        <aside>
-          <article class="card lime">
-            <p class="eyebrow">How AI Diagnostic Works</p>
-            <h3 style="color:var(--text-dark)">3 Steps to Healthy Crops</h3>
-            <div class="task">
-              <span class="number">1</span>
-              <span><b>Capture clear leaf image</b><br><small>Focus on spotted or discolored leaf surfaces.</small></span>
-            </div>
-            <div class="task">
-              <span class="number">2</span>
-              <span><b>Run CNN Model</b><br><small>The model compares features across 38 plant disease classes.</small></span>
-            </div>
-            <div class="task">
-              <span class="number">3</span>
-              <span><b>Apply targeted remedies</b><br><small>Get organic & chemical treatment options.</small></span>
-            </div>
-          </article>
-
-          <article class="card dark" style="margin-top:24px">
-            <p class="eyebrow" style="color:var(--lime-accent)">Live Deployed Application</p>
-            <h3>Full Streamlit Classifier</h3>
-            <p>The complete deep-learning plant disease application is deployed live on Streamlit Cloud.</p>
-            <a class="button secondary" style="margin-top:16px;border-color:var(--lime-accent);color:var(--lime-accent)" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Launch Streamlit App ↗</a>
-          </article>
-        </aside>
+        <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="w-full bg-[#C9E265] text-[#1A261D] py-4 rounded-full font-bold border-2 border-[#1A261D] text-center hover:bg-[#FF6B4A] transition-colors">
+          Open Deployed App ↗
+        </a>
       </div>
-    </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="wrap bottom" style="margin-top:0">
-      © 2026 AgriNex AI • Plant Disease Diagnostic Tool
-    </div>
+  <footer class="bg-[#1A261D] text-[#F2EFE9] py-10 px-6 font-sans text-center text-xs border-t-2 border-[#1A261D]">
+    © 2026 AgriNex AI Platform • Plant Disease Classifier
   </footer>
 
   <script src="script.js"></script>

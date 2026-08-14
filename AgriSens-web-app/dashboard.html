@@ -1,10 +1,14 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farm Analytics Dashboard | AgriNex AI</title>
-  <meta name="description" content="Personalized farm analytics dashboard: field performance, weather forecast, NPK soil health, and priority field tasks.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
@@ -18,39 +22,35 @@
     }
   </script>
 </head>
-<body>
-
-  <!-- Top Announcement Bar -->
-  <div class="top-bar">
-    <div class="wrap top-bar-inner">
-      <div class="top-bar-notice">
-        <span class="badge">Live Analytics</span>
-        <span>North Field Kharif Season Monitoring Active</span>
-      </div>
-      <div class="lang-selector">
-        <span style="color:#a3b899;font-size:12px">🌐 Language:</span>
-        <div id="google_translate_element"></div>
-      </div>
-    </div>
-  </div>
+<body class="antialiased selection:bg-[#C9E265] selection:text-[#1A261D]">
+  <div class="bg-noise"></div>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="index.html">Agri<span>Nex</span><sup>AI</sup></a>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a class="active" href="dashboard.html">Dashboard</a>
-        <a href="crop-prediction.html">Crop AI</a>
-        <a href="fertilizer.html">Fertilizer AI</a>
-        <a href="disease-detection.html">Disease ID</a>
-        <a href="mandi-schemes.html">Mandi & Schemes</a>
-        <a href="farmer-hub.html">Farmer Hub</a>
+  <nav class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4">
+    <div class="bg-[#F2EFE9]/95 backdrop-blur-md hard-shadow rounded-full px-3 py-2 flex items-center gap-3 max-w-5xl w-full justify-between transition-all">
+      <a href="index.html" class="flex items-center gap-2 bg-[#1A261D] text-[#F2EFE9] px-5 py-2 rounded-full hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors group">
+        <span class="font-sans font-bold tracking-tighter text-base uppercase">AgriNex<sup>AI</sup></span>
+      </a>
+
+      <div class="hidden lg:flex gap-2 items-center" id="nav-links">
+        <a href="index.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Home</a>
+        <a href="dashboard.html" class="px-4 py-2 rounded-full text-sm font-semibold bg-[#9D8BB5] text-[#1A261D]">Dashboard</a>
+        <a href="crop-prediction.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Crop AI</a>
+        <a href="fertilizer.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Fertilizer AI</a>
+        <a href="disease-detection.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Disease ID</a>
+        <a href="mandi-schemes.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Mandi & Schemes</a>
+        <a href="farmer-hub.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Farmer Hub</a>
       </div>
-      <div class="nav-actions">
-        <button class="btn-voice" id="btn-voice">🎤 Voice Search</button>
-        <div class="apps-menu">
-          <button class="button apps-toggle" id="apps-toggle-btn">Live AI apps ▾</button>
+
+      <div class="flex items-center gap-2">
+        <button class="bg-[#9D8BB5] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D]" id="btn-voice">
+          🎤 Voice Search
+        </button>
+
+        <div class="relative apps-menu">
+          <button class="bg-[#C9E265] hover:bg-[#b5d145] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D] shadow-[2px_2px_0px_0px_#1A261D]" id="apps-toggle-btn">
+            Live AI apps ▾
+          </button>
           <div class="apps-dropdown" id="apps-dropdown">
             <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
               <span class="apps-icon">🌾</span>
@@ -67,126 +67,141 @@
           </div>
         </div>
       </div>
-      <button class="menu" data-nav-toggle>☰</button>
     </div>
   </nav>
 
-  <main>
-    <section class="hero" style="padding:60px 0 40px">
-      <div class="wrap">
-        <p class="breadcrumb" style="color:var(--lime-accent);font-weight:700;font-size:13px">HOME / FARM DASHBOARD</p>
-        <h1 class="serif" style="margin-top:10px">North Field Intelligence</h1>
-        <p style="max-width:680px">Real-time performance tracking, weather outlook, NPK soil balance snapshot, and priority agricultural tasks.</p>
+  <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-block bg-[#9D8BB5] text-[#1A261D] font-bold text-xs px-3 py-1 rounded-full border border-[#1A261D] mb-4">
+        North Field Analytics Studio
       </div>
-    </section>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#1A261D] mb-6">
+        Your Field, <span class="font-serif italic text-[#3D6B4F]">In Focus</span>
+      </h1>
+      <p class="text-base text-[#1A261D]/80 font-sans">
+        Real-time metrics for North Field Kharif season: weather outlook, NPK soil health meters, and priority field tasks.
+      </p>
+    </div>
 
-    <section style="background:var(--bg-dark);padding:0 0 80px">
-      <div class="wrap">
-        <div class="stats">
-          <div class="stat">
-            <small>Field Weather</small>
-            <strong>28°C</strong>
-            <span style="color:var(--lime-accent);font-weight:600">Ideal Growing Temp</span>
+    <!-- Quick Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+      <div class="bg-white p-6 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+        <small class="text-xs text-[#1A261D]/70 font-semibold block">Field Weather</small>
+        <strong class="text-3xl text-[#3D6B4F] block mt-1">28°C</strong>
+        <span class="text-xs font-bold text-[#FF6B4A]">Ideal Growing Day</span>
+      </div>
+      <div class="bg-white p-6 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+        <small class="text-xs text-[#1A261D]/70 font-semibold block">Season Progress</small>
+        <strong class="text-3xl text-[#3D6B4F] block mt-1">34%</strong>
+        <span class="text-xs font-bold text-[#3D6B4F]">Vegetative Stage</span>
+      </div>
+      <div class="bg-white p-6 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+        <small class="text-xs text-[#1A261D]/70 font-semibold block">Soil Moisture</small>
+        <strong class="text-3xl text-[#3D6B4F] block mt-1">38%</strong>
+        <span class="text-xs font-bold text-[#3D6B4F]">Stable Drainage</span>
+      </div>
+      <div class="bg-white p-6 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+        <small class="text-xs text-[#1A261D]/70 font-semibold block">Priority Tasks</small>
+        <strong class="text-3xl text-[#FF6B4A] block mt-1">2 Due</strong>
+        <span class="text-xs font-bold text-[#FF6B4A]">This Week</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 space-y-8">
+        <div class="bg-white p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+          <h3 class="text-2xl font-bold text-[#1A261D] mb-2">North Field Performance</h3>
+          <p class="text-xs font-sans text-[#1A261D]/70 mb-6">2.4 Hectares • Loamy Soil • Kharif 2026</p>
+          
+          <div class="grid grid-cols-3 gap-4 mb-6 text-center">
+            <div class="p-3 bg-[#F2EFE9] border border-[#1A261D] rounded-xl">
+              <b class="block text-xs text-[#1A261D]/70">Crop Stage</b>
+              <span class="font-bold text-sm text-[#3D6B4F]">Day 34 Growth</span>
+            </div>
+            <div class="p-3 bg-[#F2EFE9] border border-[#1A261D] rounded-xl">
+              <b class="block text-xs text-[#1A261D]/70">Yield Outlook</b>
+              <span class="font-bold text-sm text-[#3D6B4F]">High Estimate</span>
+            </div>
+            <div class="p-3 bg-[#F2EFE9] border border-[#1A261D] rounded-xl">
+              <b class="block text-xs text-[#1A261D]/70">Soil Health</b>
+              <span class="font-bold text-sm text-[#3D6B4F]">Good Balance</span>
+            </div>
           </div>
-          <div class="stat">
-            <small>Season Progress</small>
-            <strong>34%</strong>
-            <span style="color:var(--lime-accent);font-weight:600">Vegetative Stage</span>
-          </div>
-          <div class="stat">
-            <small>Soil Health</small>
-            <strong>Good</strong>
-            <span style="color:var(--lime-accent);font-weight:600">38% Moisture</span>
-          </div>
-          <div class="stat">
-            <small>Priority Tasks</small>
-            <strong>2 Due</strong>
-            <span style="color:var(--lime-accent);font-weight:600">This Week</span>
+
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-bold">
+              <span>Season Timeline Progress</span>
+              <span class="text-[#3D6B4F]">34%</span>
+            </div>
+            <div class="h-3 bg-[#F2EFE9] border border-[#1A261D] rounded-full overflow-hidden">
+              <div class="h-full bg-[#C9E265]" style="width:34%"></div>
+            </div>
           </div>
         </div>
 
-        <div class="dashboard-grid">
-          <div>
-            <article class="card">
-              <p class="eyebrow">Field Performance Overview</p>
-              <h3>North Field • Kharif 2026</h3>
-              <p>2.4 Hectares • Loamy Soil • Last soil review today</p>
-              
-              <div class="grid-3" style="margin-top:20px">
-                <div class="status">
-                  <b>Crop Stage</b><br>
-                  <small style="color:var(--lime-accent)">Day 34 Vegetative</small>
-                </div>
-                <div class="status">
-                  <b>Yield Outlook</b><br>
-                  <small style="color:var(--lime-accent)">High Estimate</small>
-                </div>
-                <div class="status">
-                  <b>Soil Moisture</b><br>
-                  <small style="color:var(--lime-accent)">38% Stable</small>
-                </div>
-              </div>
-
-              <div style="margin-top:24px">
-                <div style="display:flex;justify-content:space-between;font-weight:800;color:#fff">
-                  <span>Season Timeline</span>
-                  <span style="color:var(--lime-accent)">34%</span>
-                </div>
-                <div class="progress" style="margin-top:8px">
-                  <i style="width:34%"></i>
-                </div>
-              </div>
-            </article>
-
-            <article class="card dark" style="margin-top:24px">
-              <p class="eyebrow" style="color:var(--lime-accent)">7-Day Weather Outlook</p>
-              <h3>Plan Around Rain Cycles</h3>
-              <div class="forecast" style="margin-top:16px">
-                <div class="day">Mon<b>☀</b>29°</div>
-                <div class="day">Tue<b>⛅</b>28°</div>
-                <div class="day" style="background:var(--lime-accent);color:var(--text-dark)"><b style="color:var(--text-dark)">☂</b>26°</div>
-                <div class="day">Thu<b>☂</b>25°</div>
-                <div class="day">Fri<b>☁</b>27°</div>
-                <div class="day">Sat<b>☀</b>30°</div>
-                <div class="day">Sun<b>☀</b>31°</div>
-              </div>
-              <p style="margin-top:18px">Field Note: Rainfall expected mid-week. Complete top-dress fertilizer before Wednesday or wait until rain subsides.</p>
-            </article>
+        <div class="bg-[#1A261D] text-[#F2EFE9] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+          <h3 class="text-2xl font-bold text-[#C9E265] mb-4">7-Day Weather Outlook</h3>
+          <div class="grid grid-cols-7 gap-2 text-center text-xs font-semibold">
+            <div class="bg-white/10 p-3 rounded-lg border border-white/20">Mon<b>☀</b>29°</div>
+            <div class="bg-white/10 p-3 rounded-lg border border-white/20">Tue<b>⛅</b>28°</div>
+            <div class="bg-[#C9E265] text-[#1A261D] p-3 rounded-lg border border-[#1A261D] font-bold">Wed<b>☂</b>26°</div>
+            <div class="bg-white/10 p-3 rounded-lg border border-white/20">Thu<b>☂</b>25°</div>
+            <div class="bg-white/10 p-3 rounded-lg border border-white/20">Fri<b>☁</b>27°</div>
+            <div class="bg-white/10 p-3 rounded-lg border border-white/20">Sat<b>☀</b>30°</div>
+            <div class="bg-white/10 p-3 rounded-lg border border-white/20">Sun<b>☀</b>31°</div>
           </div>
-
-          <aside>
-            <article class="card lime">
-              <p class="eyebrow" style="color:var(--text-dark)">Soil Health Snapshot</p>
-              <h3 style="color:var(--text-dark)">NPK Balance</h3>
-              
-              <p style="margin:12px 0 4px;color:var(--text-dark)"><b>Nitrogen • 68% Optimal</b></p>
-              <div class="progress" style="background:rgba(0,0,0,0.15)"><i style="width:68%;background:var(--text-dark)"></i></div>
-
-              <p style="margin:16px 0 4px;color:var(--text-dark)"><b>Phosphorus • 42% Moderate</b></p>
-              <div class="progress" style="background:rgba(0,0,0,0.15)"><i style="width:42%;background:#854d0e"></i></div>
-
-              <p style="margin:16px 0 4px;color:var(--text-dark)"><b>Potassium • 76% High</b></p>
-              <div class="progress" style="background:rgba(0,0,0,0.15)"><i style="width:76%;background:var(--text-dark)"></i></div>
-
-              <a class="button" style="margin-top:24px;width:100%;background:var(--text-dark);color:var(--lime-accent);border-color:var(--text-dark)" href="fertilizer.html">Calculate NPK Top-Up ↗</a>
-            </article>
-
-            <article class="card" style="margin-top:24px">
-              <p class="eyebrow">Instant AI Diagnostics</p>
-              <h3>Crop Health Scan</h3>
-              <p>Noticed spots or yellowing on leaves? Upload a leaf image to diagnose diseases instantly.</p>
-              <a class="button secondary" style="margin-top:16px;width:100%" href="disease-detection.html">Open Disease Scanner ↗</a>
-            </article>
-          </aside>
+          <p class="text-xs text-[#F2EFE9]/80 mt-4">Field Note: Rain expected Wednesday. Apply fertilizer before rain or wait for soil to drain.</p>
         </div>
       </div>
-    </section>
+
+      <div class="space-y-8">
+        <div class="bg-[#C9E265] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow text-[#1A261D]">
+          <h3 class="text-2xl font-bold mb-4">Soil NPK Meters</h3>
+          
+          <div class="space-y-4 font-sans text-xs font-bold">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Nitrogen (N)</span>
+                <span>68% (Good)</span>
+              </div>
+              <div class="h-3 bg-white border border-[#1A261D] rounded-full overflow-hidden"><div class="h-full bg-[#1A261D]" style="width:68%"></div></div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Phosphorus (P)</span>
+                <span>42% (Moderate)</span>
+              </div>
+              <div class="h-3 bg-white border border-[#1A261D] rounded-full overflow-hidden"><div class="h-full bg-[#FF6B4A]" style="width:42%"></div></div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Potassium (K)</span>
+                <span>76% (Optimal)</span>
+              </div>
+              <div class="h-3 bg-white border border-[#1A261D] rounded-full overflow-hidden"><div class="h-full bg-[#3D6B4F]" style="width:76%"></div></div>
+            </div>
+          </div>
+
+          <a href="fertilizer.html" class="w-full bg-[#1A261D] text-[#F2EFE9] py-3 rounded-full font-bold border-2 border-[#1A261D] text-center block mt-6 text-xs">
+            Calculate NPK Top-Up ↗
+          </a>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+          <h3 class="text-xl font-bold text-[#1A261D] mb-3">Instant Disease Check</h3>
+          <p class="text-xs font-sans text-[#1A261D]/80 mb-4">Noticed discolored leaves? Scan leaf images to diagnose pests or fungus instantly.</p>
+          <a href="disease-detection.html" class="w-full bg-[#FF6B4A] text-[#1A261D] py-3 rounded-full font-bold border-2 border-[#1A261D] text-center block text-xs">
+            Open Leaf Scanner ↗
+          </a>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="wrap bottom" style="margin-top:0">
-      © 2026 AgriNex AI • Farm Analytics & Monitoring Dashboard
-    </div>
+  <footer class="bg-[#1A261D] text-[#F2EFE9] py-10 px-6 font-sans text-center text-xs border-t-2 border-[#1A261D]">
+    © 2026 AgriNex AI Platform • Farm Analytics Studio
   </footer>
 
   <script src="script.js"></script>

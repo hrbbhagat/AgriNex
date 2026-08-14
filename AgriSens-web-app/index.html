@@ -1,10 +1,14 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriNex | AI-Powered Smart Agriculture Platform</title>
-  <meta name="description" content="AgriNex brings AI crop recommendation, fertilizer prediction, plant disease identification, Mandi prices, and government schemes into one modern platform for farmers.">
+  <title>AgriNex AI | Your Unique Field Intelligence, Clipped On</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
@@ -18,40 +22,48 @@
     }
   </script>
 </head>
-<body>
+<body class="antialiased selection:bg-[#C9E265] selection:text-[#1A261D]">
 
-  <!-- Top Announcement & Multi-Language Bar -->
-  <div class="top-bar">
-    <div class="wrap top-bar-inner">
-      <div class="top-bar-notice">
-        <span class="badge">Live AI</span>
-        <span>AgriNex Platform updated with 3 Live Streamlit AI Models & Mandi Price Tracker</span>
-      </div>
-      <div class="lang-selector">
-        <span style="color:#a3b899;font-size:12px">🌐 Language:</span>
-        <div id="google_translate_element"></div>
-      </div>
+  <!-- Noise Overlay -->
+  <div class="bg-noise"></div>
+
+  <!-- Decorative Background Icons -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute top-[10%] left-[5%] text-[#FF6B4A] animate-spin-slow opacity-60">
+      <iconify-icon icon="solar:star-fall-linear" width="80"></iconify-icon>
+    </div>
+    <div class="absolute top-[70%] right-[8%] text-[#C9E265] animate-float opacity-60 rotate-12">
+      <iconify-icon icon="solar:leaf-linear" width="100"></iconify-icon>
     </div>
   </div>
 
-  <!-- Glass Navigation -->
-  <nav class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="index.html">Agri<span>Nex</span><sup>AI</sup></a>
-      <div class="links">
-        <a class="active" href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="crop-prediction.html">Crop AI</a>
-        <a href="fertilizer.html">Fertilizer AI</a>
-        <a href="disease-detection.html">Disease ID</a>
-        <a href="mandi-schemes.html">Mandi & Schemes</a>
-        <a href="farmer-hub.html">Farmer Hub</a>
+  <!-- Floating Neobrutalist Navigation -->
+  <nav class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4">
+    <div class="bg-[#F2EFE9]/95 backdrop-blur-md hard-shadow rounded-full px-3 py-2 flex items-center gap-3 max-w-5xl w-full justify-between transition-all">
+      <a href="index.html" class="flex items-center gap-2 bg-[#1A261D] text-[#F2EFE9] px-5 py-2 rounded-full hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors group">
+        <span class="font-sans font-bold tracking-tighter text-base uppercase">AgriNex<sup>AI</sup></span>
+      </a>
+
+      <div class="hidden lg:flex gap-2 items-center" id="nav-links">
+        <a href="index.html" class="px-4 py-2 rounded-full text-sm font-semibold bg-[#C9E265] text-[#1A261D]">Home</a>
+        <a href="dashboard.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Dashboard</a>
+        <a href="crop-prediction.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Crop AI</a>
+        <a href="fertilizer.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Fertilizer AI</a>
+        <a href="disease-detection.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Disease ID</a>
+        <a href="mandi-schemes.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Mandi & Schemes</a>
+        <a href="farmer-hub.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Farmer Hub</a>
       </div>
-      <div class="nav-actions">
-        <button class="btn-voice" id="btn-voice">🎤 Voice Search</button>
-        <div class="apps-menu">
-          <button class="button apps-toggle" id="apps-toggle-btn" aria-expanded="false" aria-haspopup="true">Live AI apps ▾</button>
-          <div class="apps-dropdown" id="apps-dropdown" role="menu">
+
+      <div class="flex items-center gap-2">
+        <button class="bg-[#9D8BB5] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D] flex items-center gap-1" id="btn-voice">
+          🎤 Voice Search
+        </button>
+
+        <div class="relative apps-menu">
+          <button class="bg-[#C9E265] hover:bg-[#b5d145] text-[#1A261D] px-4 py-2 rounded-full text-xs md:text-sm font-bold border-2 border-[#1A261D] shadow-[2px_2px_0px_0px_#1A261D] flex items-center gap-1" id="apps-toggle-btn">
+            Live AI apps ▾
+          </button>
+          <div class="apps-dropdown" id="apps-dropdown">
             <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
               <span class="apps-icon">🌾</span>
               <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
@@ -67,176 +79,389 @@
           </div>
         </div>
       </div>
-      <button class="menu" data-nav-toggle>☰</button>
     </div>
   </nav>
 
-  <main>
-    <!-- Hero Section (Vesteira Dark Organic Aesthetic) -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Intelligence for Every Acre</p>
-          <h1 class="serif">Cultivate Clarity. Grow with AI Precision.</h1>
-          <p>AgriNex unifies machine-learning crop selection, NPK fertilizer optimization, instant leaf disease scanning, and real-time Mandi market intelligence for farmers across India.</p>
-          <div class="hero-actions">
-            <a class="button" href="dashboard.html">Open Farm Dashboard</a>
-            <a class="button secondary" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Try Live Crop Recommender ↗</a>
-          </div>
-          <div class="metric-row">
-            <div class="metric">
-              <strong>3 Live</strong>
-              <small>AI Streamlit Models</small>
-            </div>
-            <div class="metric">
-              <strong>12+</strong>
-              <small>Languages Supported</small>
-            </div>
-            <div class="metric">
-              <strong>24/7</strong>
-              <small>Voice & Mandi Intelligence</small>
-            </div>
-          </div>
-        </div>
-        <div class="hero-card">
-          <p class="eyebrow" style="color:var(--lime-accent)">Live Field Overview • Kharif Season</p>
-          <h2 class="serif" style="font-size:32px;margin:10px 0 18px;color:#fff">North Field Crop Intelligence</h2>
-          <div class="field-map"></div>
-          <div class="metric-row">
-            <div class="metric">
-              <strong>34%</strong>
-              <small>Season Progress</small>
-            </div>
-            <div class="metric">
-              <strong>28°C</strong>
-              <small>Field Weather</small>
-            </div>
-            <div class="metric">
-              <strong>Optimal</strong>
-              <small>Soil Health</small>
-            </div>
-          </div>
+  <!-- Multi-Language Translator Toolbar Bar -->
+  <div class="pt-28 pb-2 px-6 max-w-5xl mx-auto flex justify-between items-center text-xs font-semibold">
+    <div class="flex items-center gap-2 text-[#3D6B4F]">
+      <iconify-icon icon="solar:global-linear" class="text-base"></iconify-icon>
+      <span>Multi-Language Translation:</span>
+      <div id="google_translate_element"></div>
+    </div>
+    <div class="bg-[#FF6B4A] text-[#1A261D] px-3 py-1 rounded-full border border-[#1A261D] font-bold">
+      3 Deployed AI Models Live ⚡
+    </div>
+  </div>
+
+  <!-- [Header / Hero] -->
+  <header class="relative min-h-[85vh] flex flex-col items-center justify-center pt-8 pb-16 overflow-hidden">
+    <div class="relative z-10 text-center max-w-5xl mx-auto px-6 flex flex-col items-center">
+      
+      <div class="animate-float mb-6">
+        <div class="bg-[#1A261D] text-[#F2EFE9] px-5 py-2 rounded-full border-2 border-[#1A261D] shadow-[4px_4px_0px_0px_#9D8BB5] font-medium text-xs md:text-sm transform rotate-1 inline-flex items-center gap-3 max-w-lg text-center">
+          <iconify-icon icon="solar:bell-bing-linear" class="text-[#FF6B4A] text-lg flex-shrink-0"></iconify-icon>
+          Tired of guessing soil nutrients and crop choices? Farm with AI precision.
         </div>
       </div>
-    </section>
+      
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#1A261D] leading-[0.95] mb-6 relative z-10">
+        Your Field Intelligence,
+        <br>
+        <span class="font-serif italic text-[#3D6B4F] relative inline-block pr-8 mt-2">
+          Clipped On.
+          <iconify-icon icon="solar:magic-stick-3-linear" class="absolute -top-4 -right-4 text-[#FF6B4A] text-5xl md:text-6xl -z-10 rotate-12"></iconify-icon>
+        </span>
+      </h1>
 
-    <!-- Ticker -->
-    <div class="ticker">
-      <span>SMART SOIL • AI CROP RECOMMENDATIONS • LIVE MANDI PRICES • PLANT DISEASE SCANNER • GOVT SCHEMES • SMART SOIL • AI CROP RECOMMENDATIONS • LIVE MANDI PRICES • </span>
+      <p class="text-lg md:text-xl font-normal tracking-tight text-[#1A261D]/80 max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
+        AgriNex unifies machine-learning crop selection, NPK fertilizer optimization, leaf disease scanning, and live Mandi market rates into one platform.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-5 justify-center items-center w-full sm:w-auto">
+        <a href="dashboard.html" class="w-full sm:w-auto bg-[#FF6B4A] text-[#1A261D] px-8 py-4 rounded-full text-base md:text-lg font-semibold hard-shadow hard-shadow-hover transition-all flex items-center justify-center gap-3 group">
+          Open Farm Dashboard
+          <span class="text-xs bg-[#F2EFE9] px-2 py-1 rounded border border-[#1A261D] font-medium">Free Access</span>
+        </a>
+        <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="w-full sm:w-auto bg-[#F2EFE9] text-[#1A261D] px-8 py-4 rounded-full text-base md:text-lg font-semibold hard-shadow hard-shadow-hover transition-all flex items-center justify-center gap-3">
+          Try Live Crop Recommender <iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+        </a>
+      </div>
     </div>
 
-    <!-- Live AI Apps Grid -->
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Deployable AI Infrastructure</p>
-          <h2 class="serif">Three High-Performance AI Models</h2>
-          <p>Trained on agricultural datasets, hosted on Streamlit Cloud, and seamlessly accessible directly from AgriNex.</p>
+    <!-- Floating Polaroids / Badges -->
+    <div class="absolute bottom-10 left-4 md:left-16 animate-float hidden lg:block z-0">
+      <div class="bg-white p-3 pb-6 rounded-lg hard-shadow-sm rotate-[-4deg] w-52">
+        <div class="bg-[#C9E265] h-36 rounded mb-2 overflow-hidden border border-[#1A261D] flex items-center justify-center font-bold text-4xl">
+          🌾 98%
         </div>
-        <div class="grid-3">
-          <article class="card">
-            <div class="icon">🌾</div>
-            <h3>Crop Recommender</h3>
-            <p>Calculates optimal crop choices by evaluating soil Nitrogen, Phosphorus, Potassium, pH, rainfall, and temperature.</p>
-            <a class="button secondary" style="margin-top:20px" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Launch Streamlit App ↗</a>
-          </article>
-          <article class="card lime">
-            <div class="icon">⚗</div>
-            <h3>Fertilizer Prediction</h3>
-            <p>Provides exact NPK fertilizer deficiency ratios and dosage suggestions tailored to your soil type and crop selection.</p>
-            <a class="button" style="margin-top:20px" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Launch Streamlit App ↗</a>
-          </article>
-          <article class="card dark">
-            <div class="icon" style="background:var(--green-primary);color:#fff">🔬</div>
-            <h3>Plant Disease ID</h3>
-            <p>Upload a leaf image to diagnose crop diseases using computer vision CNN models with confidence scoring.</p>
-            <a class="button secondary" style="margin-top:20px;border-color:var(--lime-accent);color:var(--lime-accent)" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Launch Streamlit App ↗</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mandi & Govt Schemes Preview -->
-    <section class="band">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Real-Time Market & Farmer Welfare</p>
-          <h2 class="serif">Mandi Prices & Government Subsidies</h2>
-          <p>Stay informed on current agricultural commodity rates and national farming assistance schemes.</p>
-        </div>
-        <div class="grid-2">
-          <div class="card">
-            <span class="scheme-badge">Market Intelligence</span>
-            <h3 style="margin-top:8px">Daily Mandi Commodity Tracker</h3>
-            <p>Track live rates for Wheat, Paddy, Cotton, Mustard, Maize, and Pulses across major APMC Mandis in India.</p>
-            <a class="text-link" href="mandi-schemes.html">Explore Mandi Prices →</a>
-          </div>
-          <div class="card dark">
-            <span class="scheme-badge">Government Welfare</span>
-            <h3 style="margin-top:8px">PM-KISAN & Soil Health Card</h3>
-            <p>Access direct support guidelines, eligibility criteria, and application portals for PM-KISAN, PMFBY, and Soil Health Card.</p>
-            <a class="text-link" href="mandi-schemes.html#schemes">View Government Schemes →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <a class="brand" href="index.html" style="color:white">Agri<span>Nex</span><sup>AI</sup></a>
-        <p>Practical farm intelligence, AI crop selection, NPK planning, and market insights for modern agriculture.</p>
-      </div>
-      <div>
-        <b>Platform Tools</b>
-        <a href="dashboard.html">Farm Dashboard</a>
-        <a href="crop-prediction.html">Crop Recommendation</a>
-        <a href="fertilizer.html">Fertilizer Guide</a>
-        <a href="disease-detection.html">Disease Diagnostic</a>
-      </div>
-      <div>
-        <b>Live Streamlit AI Apps</b>
-        <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">Crop Recommender ↗</a>
-        <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Fertilizer Prediction ↗</a>
-        <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">Plant Disease ID ↗</a>
-      </div>
-      <div>
-        <b>Farmer Support</b>
-        <a href="mandi-schemes.html">Mandi Rates</a>
-        <a href="mandi-schemes.html#schemes">Government Schemes</a>
-        <a href="farmer-hub.html">Farmer Hub</a>
+        <div class="font-serif italic text-center text-xs font-semibold">AI Crop Accuracy</div>
       </div>
     </div>
-    <div class="wrap bottom">
-      © 2026 AgriNex AI Platform • Inspired by Vesteira Organic Agriculture Aesthetic & Fasal Saathi Intelligence.
+    <div class="absolute top-36 right-4 md:right-16 animate-float-delayed hidden lg:block z-0">
+      <div class="bg-white p-3 pb-6 rounded-lg hard-shadow-sm rotate-[8deg] w-48">
+        <div class="bg-[#9D8BB5] h-32 rounded mb-2 overflow-hidden border border-[#1A261D] flex items-center justify-center font-bold text-4xl">
+          ⚗ NPK
+        </div>
+        <div class="font-serif italic text-center text-xs font-semibold">Fertilizer Precision</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Marquee Banner -->
+  <div class="relative py-7 bg-[#3D6B4F] -rotate-1 scale-105 border-y-2 border-[#1A261D] z-20 overflow-hidden shadow-lg">
+    <div class="flex animate-marquee whitespace-nowrap">
+      <span class="text-2xl md:text-3xl font-semibold tracking-tight text-[#F2EFE9] px-6 uppercase flex items-center gap-6">
+        AI Crop Recommendation <iconify-icon icon="solar:star-linear" class="text-[#C9E265]"></iconify-icon> 
+        Live APMC Mandi Rates <iconify-icon icon="solar:star-linear" class="text-[#FF6B4A]"></iconify-icon>
+        Leaf Disease Scanner <iconify-icon icon="solar:star-linear" class="text-[#9D8BB5]"></iconify-icon>
+        NPK Fertilizer Advisor <iconify-icon icon="solar:star-linear" class="text-[#C9E265]"></iconify-icon>
+      </span>
+      <span class="text-2xl md:text-3xl font-semibold tracking-tight text-[#F2EFE9] px-6 uppercase flex items-center gap-6">
+        AI Crop Recommendation <iconify-icon icon="solar:star-linear" class="text-[#C9E265]"></iconify-icon> 
+        Live APMC Mandi Rates <iconify-icon icon="solar:star-linear" class="text-[#FF6B4A]"></iconify-icon>
+        Leaf Disease Scanner <iconify-icon icon="solar:star-linear" class="text-[#9D8BB5]"></iconify-icon>
+        NPK Fertilizer Advisor <iconify-icon icon="solar:star-linear" class="text-[#C9E265]"></iconify-icon>
+      </span>
+    </div>
+  </div>
+
+  <!-- [Section 2 & 3] Problem & Experience Grid -->
+  <section class="py-24 px-6 relative max-w-7xl mx-auto">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-[#1A261D] mb-6 leading-tight">
+        Ever wondered if your soil is <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B4A] to-[#9D8BB5] italic font-serif pr-2">reaching its potential?</span>
+      </h2>
+      <p class="text-lg text-[#1A261D]/70 font-sans">
+        The smartest way to customize field nutrition and crop decisions—your personal digital farming studio.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-[#F2EFE9] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow relative group hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-12 h-12 bg-[#C9E265] rounded-full border border-[#1A261D] flex items-center justify-center mb-6 text-xl text-[#1A261D]">
+          <iconify-icon icon="solar:leaf-linear"></iconify-icon>
+        </div>
+        <h3 class="font-semibold text-xl tracking-tight mb-3">The Crop Dilemma</h3>
+        <p class="text-sm font-sans text-[#1A261D]/80 mb-4 italic">"Which crop will yield maximum return on my land this season?"</p>
+        <p class="text-sm font-sans text-[#1A261D]">Compare soil Nitrogen, Phosphorus, Potassium, rainfall, and temperature using trained ML models for accurate crop advice.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-[#F2EFE9] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow relative group hover:-translate-y-2 transition-transform duration-300 transform md:translate-y-4">
+        <div class="w-12 h-12 bg-[#FF6B4A] rounded-full border border-[#1A261D] flex items-center justify-center mb-6 text-xl text-[#1A261D]">
+          <iconify-icon icon="solar:test-tube-linear"></iconify-icon>
+        </div>
+        <h3 class="font-semibold text-xl tracking-tight mb-3">Fertilizer Precision</h3>
+        <p class="text-sm font-sans text-[#1A261D]/80 mb-4 italic">"Am I overusing Urea or underapplying DAP?"</p>
+        <p class="text-sm font-sans text-[#1A261D]">Calculate exact NPK deficiency ratios to prevent soil degradation and reduce input costs dramatically.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-[#F2EFE9] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow relative group hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-12 h-12 bg-[#9D8BB5] rounded-full border border-[#1A261D] flex items-center justify-center mb-6 text-xl text-[#1A261D]">
+          <iconify-icon icon="solar:eye-linear"></iconify-icon>
+        </div>
+        <h3 class="font-semibold text-xl tracking-tight mb-3">Plant Health Watch</h3>
+        <p class="text-sm font-sans text-[#1A261D]/80 mb-4 italic">"How do I spot leaf blight before it damages my harvest?"</p>
+        <p class="text-sm font-sans text-[#1A261D]">Upload leaf photos to run CNN disease identification models with 94%+ confidence scores and remedy recommendations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- [Section 4] Live Deployed Streamlit AI Apps Showcase -->
+  <section class="py-24 bg-[#1A261D] text-[#F2EFE9] border-y-2 border-[#F2EFE9]">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#F2EFE9]/30 bg-[#F2EFE9]/10 text-xs font-medium mb-6 uppercase tracking-widest text-[#C9E265]">
+          Deployed AI Models
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Three Live Streamlit Applications</h2>
+        <p class="text-base text-[#F2EFE9]/70 max-w-2xl mx-auto">Hosted live on Streamlit Cloud, available 24/7 for farmers everywhere.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- App 1 -->
+        <div class="bg-[#F2EFE9] text-[#1A261D] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow relative flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 bg-[#C9E265] rounded-xl border border-[#1A261D] flex items-center justify-center text-3xl mb-6">🌾</div>
+            <h3 class="text-2xl font-bold tracking-tight mb-3">Crop Recommender</h3>
+            <p class="text-sm font-sans text-[#1A261D]/80 mb-6">Evaluates soil NPK, pH, temperature, and rainfall metrics to recommend ideal crops.</p>
+          </div>
+          <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="w-full bg-[#1A261D] text-[#F2EFE9] py-3 rounded-full font-semibold border-2 border-[#1A261D] text-center hover:bg-[#3D6B4F] transition-colors">
+            Launch Streamlit App ↗
+          </a>
+        </div>
+
+        <!-- App 2 -->
+        <div class="bg-[#C9E265] text-[#1A261D] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow relative flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 bg-[#1A261D] text-[#C9E265] rounded-xl border border-[#1A261D] flex items-center justify-center text-3xl mb-6">⚗</div>
+            <h3 class="text-2xl font-bold tracking-tight mb-3">Fertilizer Prediction</h3>
+            <p class="text-sm font-sans text-[#1A261D]/90 mb-6">Predicts precise NPK fertilizer requirements tailored to crop selection and soil type.</p>
+          </div>
+          <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="w-full bg-[#1A261D] text-[#F2EFE9] py-3 rounded-full font-semibold border-2 border-[#1A261D] text-center hover:bg-[#FF6B4A] transition-colors">
+            Launch Streamlit App ↗
+          </a>
+        </div>
+
+        <!-- App 3 -->
+        <div class="bg-[#9D8BB5] text-[#1A261D] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow relative flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 bg-[#F2EFE9] text-[#1A261D] rounded-xl border border-[#1A261D] flex items-center justify-center text-3xl mb-6">🔬</div>
+            <h3 class="text-2xl font-bold tracking-tight mb-3">Plant Disease ID</h3>
+            <p class="text-sm font-sans text-[#1A261D]/90 mb-6">Upload leaf photos to diagnose diseases across 38 crop classes with computer vision.</p>
+          </div>
+          <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="w-full bg-[#1A261D] text-[#F2EFE9] py-3 rounded-full font-semibold border-2 border-[#1A261D] text-center hover:bg-[#3D6B4F] transition-colors">
+            Launch Streamlit App ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [Section 8] Mandi Prices & Government Schemes Highlight -->
+  <section class="py-24 px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-block bg-[#FF6B4A] text-[#1A261D] font-bold text-xs px-3 py-1 rounded-full mb-6 border border-[#1A261D]">
+          Mandi & Schemes
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-[#1A261D] mb-6">Daily Commodity Rates & Government Aid</h2>
+        <p class="text-base text-[#1A261D]/80 font-sans leading-relaxed mb-6">
+          Track APMC Mandi prices for Wheat, Paddy, Cotton, Mustard, and Groundnut across India. Access direct application portals for **PM-KISAN**, **PMFBY Insurance**, and **Soil Health Card**.
+        </p>
+        <a href="mandi-schemes.html" class="inline-flex items-center gap-2 bg-[#3D6B4F] text-[#F2EFE9] px-6 py-3 rounded-full font-semibold border-2 border-[#1A261D] hard-shadow hard-shadow-hover">
+          Explore Mandi & Schemes →
+        </a>
+      </div>
+
+      <div class="bg-[#F2EFE9] p-6 rounded-2xl border-2 border-[#1A261D] hard-shadow space-y-4">
+        <div class="bg-white p-4 rounded-xl border border-[#1A261D] flex justify-between items-center">
+          <div>
+            <b class="text-[#3D6B4F]">🌾 Wheat (Gehun)</b>
+            <p class="text-xs text-[#1A261D]/70">Khanna Mandi, Punjab</p>
+          </div>
+          <span class="font-bold text-lg text-[#1A261D]">₹2,275 <small class="text-xs font-normal">/ Qtl</small></span>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-[#1A261D] flex justify-between items-center">
+          <div>
+            <b class="text-[#3D6B4F]">🍚 Paddy (Dhan - Grade A)</b>
+            <p class="text-xs text-[#1A261D]/70">Karnal Mandi, Haryana</p>
+          </div>
+          <span class="font-bold text-lg text-[#1A261D]">₹2,183 <small class="text-xs font-normal">/ Qtl</small></span>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-[#1A261D] flex justify-between items-center">
+          <div>
+            <b class="text-[#3D6B4F]">🟡 Mustard (Sarson)</b>
+            <p class="text-xs text-[#1A261D]/70">Bharatpur Mandi, Rajasthan</p>
+          </div>
+          <span class="font-bold text-lg text-[#1A261D]">₹5,650 <small class="text-xs font-normal">/ Qtl</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [Section 9] Testimonials (Scrapbook Gallery Style) -->
+  <section class="py-20 bg-[#1A261D] overflow-hidden relative border-y-2 border-[#F2EFE9]">
+    <div class="flex justify-between items-end px-6 md:px-12 max-w-7xl mx-auto mb-12">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#F2EFE9]">How Farming Decisions Change</h2>
+        <p class="text-[#C9E265] mt-2 font-serif italic text-lg">Heard from our community of farmers</p>
+      </div>
+    </div>
+
+    <div class="flex overflow-x-auto gap-6 px-6 md:px-12 pb-12 snap-x no-scrollbar">
+      <!-- Review 1 -->
+      <div class="flex-shrink-0 snap-center relative group">
+        <div class="w-[310px] bg-[#F2EFE9] p-6 rounded-xl border-2 border-[#1A261D] rotate-2 hard-shadow transition-transform duration-300 hover:rotate-0">
+          <div class="flex text-[#FF6B4A] mb-4">
+            <iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
+          </div>
+          <p class="font-sans text-sm text-[#1A261D] leading-relaxed mb-6">"Checking fertilizer NPK requirements on AgriNex helped us reduce excessive urea usage by 30% without affecting crop yield!"</p>
+          <div class="flex items-center gap-3 border-t border-[#1A261D]/20 pt-4">
+            <div class="w-8 h-8 rounded-full bg-[#C9E265] border border-[#1A261D]"></div>
+            <span class="font-semibold text-xs tracking-tight">Ramesh Patel, Gujarat</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="flex-shrink-0 snap-center relative group mt-6">
+        <div class="w-[310px] bg-[#C9E265] p-6 rounded-xl border-2 border-[#1A261D] -rotate-2 hard-shadow transition-transform duration-300 hover:rotate-0">
+          <div class="flex text-[#1A261D] mb-4">
+            <iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
+          </div>
+          <p class="font-sans text-sm text-[#1A261D] leading-relaxed mb-6">"The leaf disease ID scanner caught early blight on our tomato leaves before it spread. Saved our entire harvest."</p>
+          <div class="flex items-center gap-3 border-t border-[#1A261D]/20 pt-4">
+            <div class="w-8 h-8 rounded-full bg-[#FF6B4A] border border-[#1A261D]"></div>
+            <span class="font-semibold text-xs tracking-tight">Gurpreet Singh, Punjab</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="flex-shrink-0 snap-center relative group">
+        <div class="w-[310px] bg-[#9D8BB5] p-6 rounded-xl border-2 border-[#1A261D] rotate-1 hard-shadow transition-transform duration-300 hover:rotate-0">
+          <div class="flex text-[#1A261D] mb-4">
+            <iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
+          </div>
+          <p class="font-sans text-sm text-[#1A261D] leading-relaxed mb-6">"Daily Mandi price updates help us negotiate far better prices with local traders before taking produce to the market."</p>
+          <div class="flex items-center gap-3 border-t border-[#1A261D]/20 pt-4">
+            <div class="w-8 h-8 rounded-full bg-[#F2EFE9] border border-[#1A261D]"></div>
+            <span class="font-semibold text-xs tracking-tight">Anil Deshmukh, Maharashtra</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [Section 10] FAQ Accordion -->
+  <section class="py-20 px-6 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold tracking-tight text-center mb-10">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      <div class="bg-white border-2 border-[#1A261D] rounded-xl p-6 hard-shadow-sm">
+        <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+          <iconify-icon icon="solar:question-circle-linear" class="text-[#9D8BB5]"></iconify-icon>
+          Are the 3 Streamlit AI tools free to use?
+        </h4>
+        <p class="font-sans text-sm text-[#1A261D]/70">Yes! All 3 AI models (Crop Recommendation, Fertilizer Prediction, and Plant Disease ID) are fully deployed on Streamlit Cloud and free to use 24/7.</p>
+      </div>
+      <div class="bg-white border-2 border-[#1A261D] rounded-xl p-6 hard-shadow-sm">
+        <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+          <iconify-icon icon="solar:question-circle-linear" class="text-[#9D8BB5]"></iconify-icon>
+          How does the Voice Search Assistant work?
+        </h4>
+        <p class="font-sans text-sm text-[#1A261D]/70">Click the Voice Search button and speak your query in Hindi or English. The assistant uses Web Speech API to convert your voice to text and navigate to the right tool.</p>
+      </div>
+      <div class="bg-white border-2 border-[#1A261D] rounded-xl p-6 hard-shadow-sm">
+        <h4 class="font-semibold text-base mb-2 flex items-center gap-2">
+          <iconify-icon icon="solar:question-circle-linear" class="text-[#9D8BB5]"></iconify-icon>
+          Can I change the website language?
+        </h4>
+        <p class="font-sans text-sm text-[#1A261D]/70">Yes! Use the language switcher at the top to view the entire platform in Hindi, Marathi, Punjabi, Gujarati, Tamil, Telugu, Bengali, Kannada, or Malayalam.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- [Section 11] Closing CTA -->
+  <section class="py-24 px-6 relative overflow-hidden bg-[#3D6B4F] border-t-2 border-[#1A261D]">
+    <div class="max-w-4xl mx-auto text-center relative z-10 rounded-3xl border-2 border-[#1A261D] p-8 md:p-16 bg-[#F2EFE9] hard-shadow shadow-[12px_12px_0px_0px_#1A261D]">
+      <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-[#1A261D] mb-6 leading-tight">
+        Redefining How You <br>
+        <span class="text-[#FF6B4A] font-serif italic pr-2">Nurture Your Land.</span>
+      </h2>
+      <p class="text-base text-[#1A261D]/80 mb-10 font-sans max-w-2xl mx-auto">
+        At AgriNex AI, we believe farmers shouldn't have to guess soil nutrients or pest risks. We built this studio to bring practical intelligence to every field.
+      </p>
+      <a href="dashboard.html" class="bg-[#1A261D] text-[#F2EFE9] px-8 py-4 rounded-full text-base font-semibold hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors shadow-[4px_4px_0px_0px_#9D8BB5] inline-block">
+        Open Farm Analytics Studio
+      </a>
+    </div>
+  </section>
+
+  <!-- [Section 12] Footer -->
+  <footer class="bg-[#1A261D] text-[#F2EFE9] pt-20 pb-10 px-6 font-sans border-t-2 border-[#1A261D]">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="col-span-1 md:col-span-2">
+        <a href="index.html" class="text-2xl font-bold tracking-tighter text-[#F2EFE9] flex items-center gap-2 mb-4 uppercase w-fit">
+          AgriNex AI Studio
+        </a>
+        <p class="text-[#9D8BB5] max-w-sm text-sm font-normal leading-relaxed mb-6">
+          Redefining intelligent agriculture for the modern farmer.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-[#FF6B4A] font-semibold mb-4 uppercase tracking-wider text-xs">AI Tools</h4>
+        <ul class="space-y-3 text-[#F2EFE9]/70 text-sm">
+          <li><a href="crop-prediction.html" class="hover:text-[#C9E265]">Crop AI Recommender</a></li>
+          <li><a href="fertilizer.html" class="hover:text-[#C9E265]">Fertilizer AI Guide</a></li>
+          <li><a href="disease-detection.html" class="hover:text-[#C9E265]">Plant Disease ID Scanner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-[#FF6B4A] font-semibold mb-4 uppercase tracking-wider text-xs">Market & Support</h4>
+        <ul class="space-y-3 text-[#F2EFE9]/70 text-sm">
+          <li><a href="mandi-schemes.html" class="hover:text-[#C9E265]">APMC Mandi Rates</a></li>
+          <li><a href="mandi-schemes.html#schemes" class="hover:text-[#C9E265]">Government Schemes</a></li>
+          <li><a href="farmer-hub.html" class="hover:text-[#C9E265]">Farmer Advisory Hub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto pt-8 border-t border-[#F2EFE9]/10 text-center md:text-left flex flex-col md:flex-row justify-between text-[#9D8BB5] text-xs font-medium">
+      <p>© 2026 AgriNex AI Platform. All rights reserved.</p>
+      <p class="flex items-center gap-1 justify-center md:justify-end mt-4 md:mt-0">
+        Designed with <iconify-icon icon="solar:heart-angle-linear" class="text-[#FF6B4A]"></iconify-icon> for Indian Agriculture
+      </p>
     </div>
   </footer>
 
   <!-- Voice Assistant Modal -->
   <div class="voice-modal" id="voice-modal">
-    <div class="voice-modal-card">
+    <div class="voice-card">
       <div class="mic-pulse">🎤</div>
-      <h3 style="color:#fff;margin:0 0 10px;font-family:'Playfair Display',serif;font-size:26px">Voice Search Assistant</h3>
-      <p id="voice-status" style="color:var(--lime-accent);font-weight:600">Initializing speech recognition...</p>
-      <button class="button secondary" id="voice-modal-close" style="margin-top:20px">Cancel</button>
+      <h3 class="text-2xl font-bold text-[#1A261D] mb-2 font-serif">Voice Search Assistant</h3>
+      <p id="voice-status" class="text-sm font-semibold text-[#3D6B4F]">Initializing speech recognition...</p>
+      <button class="mt-6 bg-[#1A261D] text-[#F2EFE9] px-6 py-2 rounded-full font-semibold text-xs border border-[#1A261D]" id="voice-modal-close">Close</button>
     </div>
   </div>
 
   <!-- Floating Chat Assistant -->
   <button class="chat-toggle">◯ Farm AI Assistant</button>
-  <aside class="chat">
+  <aside class="chat-box">
     <div class="chat-head">
-      <b>AgriNex AI Assistant</b>
+      <span>AgriNex Assistant</span>
       <button data-chat-close style="background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer">×</button>
     </div>
     <div class="chat-body">
       <div data-chat-messages>
-        <div class="bubble">Namaste! Ask me about crop choices, fertilizer NPK blends, plant diseases, or Mandi rates.</div>
+        <div class="bubble">Namaste! Ask me about crop recommendations, NPK fertilizer dosages, Mandi prices, or leaf diseases.</div>
       </div>
-      <form class="chat-form" data-chat-form>
-        <input placeholder="Ask about your crops or soil...">
-        <button type="submit">Send</button>
+      <form class="chat-form flex gap-2 mt-4" data-chat-form>
+        <input placeholder="Ask a question..." class="w-full p-2 text-sm border-2 border-[#1A261D] rounded-lg">
+        <button type="submit" class="bg-[#C9E265] text-[#1A261D] px-4 py-2 rounded-lg font-bold border-2 border-[#1A261D]">Send</button>
       </form>
     </div>
   </aside>

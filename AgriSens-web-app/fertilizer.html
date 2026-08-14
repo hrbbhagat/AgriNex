@@ -1,10 +1,14 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fertilizer AI Guide | AgriNex AI</title>
-  <meta name="description" content="AI fertilizer prediction tool. Calculate NPK nutrient deficiencies and optimal fertilizer formulations for your soil.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
@@ -18,39 +22,35 @@
     }
   </script>
 </head>
-<body>
-
-  <!-- Top Announcement Bar -->
-  <div class="top-bar">
-    <div class="wrap top-bar-inner">
-      <div class="top-bar-notice">
-        <span class="badge">Live AI</span>
-        <span>Fertilizer Recommendation Random Forest Classifier Deployed</span>
-      </div>
-      <div class="lang-selector">
-        <span style="color:#a3b899;font-size:12px">🌐 Language:</span>
-        <div id="google_translate_element"></div>
-      </div>
-    </div>
-  </div>
+<body class="antialiased selection:bg-[#C9E265] selection:text-[#1A261D]">
+  <div class="bg-noise"></div>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="index.html">Agri<span>Nex</span><sup>AI</sup></a>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="crop-prediction.html">Crop AI</a>
-        <a class="active" href="fertilizer.html">Fertilizer AI</a>
-        <a href="disease-detection.html">Disease ID</a>
-        <a href="mandi-schemes.html">Mandi & Schemes</a>
-        <a href="farmer-hub.html">Farmer Hub</a>
+  <nav class="fixed top-5 left-0 right-0 z-50 flex justify-center px-4">
+    <div class="bg-[#F2EFE9]/95 backdrop-blur-md hard-shadow rounded-full px-3 py-2 flex items-center gap-3 max-w-5xl w-full justify-between transition-all">
+      <a href="index.html" class="flex items-center gap-2 bg-[#1A261D] text-[#F2EFE9] px-5 py-2 rounded-full hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors group">
+        <span class="font-sans font-bold tracking-tighter text-base uppercase">AgriNex<sup>AI</sup></span>
+      </a>
+
+      <div class="hidden lg:flex gap-2 items-center" id="nav-links">
+        <a href="index.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Home</a>
+        <a href="dashboard.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Dashboard</a>
+        <a href="crop-prediction.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Crop AI</a>
+        <a href="fertilizer.html" class="px-4 py-2 rounded-full text-sm font-semibold bg-[#FF6B4A] text-[#1A261D]">Fertilizer AI</a>
+        <a href="disease-detection.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#9D8BB5] hover:text-[#1A261D] transition-colors">Disease ID</a>
+        <a href="mandi-schemes.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#C9E265] hover:text-[#1A261D] transition-colors">Mandi & Schemes</a>
+        <a href="farmer-hub.html" class="px-4 py-2 rounded-full text-sm font-medium hover:bg-[#FF6B4A] hover:text-[#1A261D] transition-colors">Farmer Hub</a>
       </div>
-      <div class="nav-actions">
-        <button class="btn-voice" id="btn-voice">🎤 Voice Search</button>
-        <div class="apps-menu">
-          <button class="button apps-toggle" id="apps-toggle-btn">Live AI apps ▾</button>
+
+      <div class="flex items-center gap-2">
+        <button class="bg-[#9D8BB5] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D]" id="btn-voice">
+          🎤 Voice Search
+        </button>
+
+        <div class="relative apps-menu">
+          <button class="bg-[#C9E265] hover:bg-[#b5d145] text-[#1A261D] px-4 py-2 rounded-full text-xs font-bold border-2 border-[#1A261D] shadow-[2px_2px_0px_0px_#1A261D]" id="apps-toggle-btn">
+            Live AI apps ▾
+          </button>
           <div class="apps-dropdown" id="apps-dropdown">
             <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
               <span class="apps-icon">🌾</span>
@@ -67,108 +67,91 @@
           </div>
         </div>
       </div>
-      <button class="menu" data-nav-toggle>☰</button>
     </div>
   </nav>
 
-  <main>
-    <section class="hero" style="padding:70px 0 50px">
-      <div class="wrap">
-        <p class="breadcrumb" style="color:var(--lime-accent);font-weight:700;font-size:13px">HOME / FERTILIZER AI GUIDE</p>
-        <h1 class="serif" style="margin-top:10px">Balanced Soil Nutrition Planning</h1>
-        <p style="max-width:680px">Calculate NPK deficiency and receive precise fertilizer recommendations (Urea, DAP, NPK 10-26-26, SSP) for your crops.</p>
-        <div class="hero-actions" style="margin-top:24px">
-          <a class="button" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Open Live Fertilizer Streamlit App ↗</a>
-        </div>
+  <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-block bg-[#FF6B4A] text-[#1A261D] font-bold text-xs px-3 py-1 rounded-full border border-[#1A261D] mb-4">
+        NPK Fertilizer Advisor
       </div>
-    </section>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#1A261D] mb-6">
+        Balanced <span class="font-serif italic text-[#3D6B4F]">Soil Nutrition</span>
+      </h1>
+      <p class="text-base text-[#1A261D]/80 font-sans">
+        Calculate exact NPK nutrient deficiencies and receive tailored fertilizer directions (Urea, DAP, NPK 10-26-26, SSP) for your soil.
+      </p>
+      <div class="mt-8">
+        <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="bg-[#1A261D] text-[#F2EFE9] px-8 py-3.5 rounded-full font-bold hard-shadow hard-shadow-hover text-base inline-block">
+          Open Deployed Streamlit Fertilizer App ↗
+        </a>
+      </div>
+    </div>
 
-    <section>
-      <div class="wrap grid-2">
-        <div>
-          <div class="section-head">
-            <p class="eyebrow">Quick Nutrient Calculator</p>
-            <h2 class="serif">Enter Soil & NPK Parameters</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="md:col-span-2 bg-white p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow">
+        <h3 class="text-2xl font-bold mb-6 text-[#1A261D]">Interactive NPK Deficiency Calculator</h3>
+        
+        <form data-fert-form class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Crop Type</label>
+              <select name="crop" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
+                <option>Rice</option><option>Maize</option><option>Wheat</option><option>Cotton</option><option>Groundnut</option><option>Sugarcane</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Soil Type</label>
+              <select name="soil" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
+                <option>Loamy</option><option>Black</option><option>Red</option><option>Sandy</option><option>Clayey</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Moisture %</label>
+              <input name="moisture" type="number" value="38" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
+            </div>
           </div>
-          
-          <form class="card" data-fert-form>
-            <div class="form-grid">
-              <div class="field">
-                <label>Crop Type</label>
-                <select name="crop">
-                  <option>Rice</option>
-                  <option>Maize</option>
-                  <option>Wheat</option>
-                  <option>Cotton</option>
-                  <option>Groundnut</option>
-                  <option>Sugarcane</option>
-                </select>
-              </div>
-              <div class="field">
-                <label>Soil Type</label>
-                <select name="soil">
-                  <option>Loamy</option>
-                  <option>Black</option>
-                  <option>Red</option>
-                  <option>Sandy</option>
-                  <option>Clayey</option>
-                </select>
-              </div>
-              <div class="field">
-                <label>Soil Moisture %</label>
-                <input name="moisture" type="number" value="38">
-              </div>
-              <div class="field">
-                <label>Nitrogen (N ppm)</label>
-                <input name="n" type="number" value="20">
-              </div>
-              <div class="field">
-                <label>Phosphorus (P ppm)</label>
-                <input name="p" type="number" value="15">
-              </div>
-              <div class="field">
-                <label>Potassium (K ppm)</label>
-                <input name="k" type="number" value="10">
-              </div>
-            </div>
-            <button class="button" style="margin-top:24px;width:100%" type="submit">Calculate Fertilizer Direction</button>
-            <div class="result" data-fert-result></div>
-          </form>
-        </div>
 
-        <aside>
-          <article class="card lime">
-            <p class="eyebrow" style="color:var(--text-dark)">Best Fertilizer Practices</p>
-            <h3 style="color:var(--text-dark)">3 Essential Habits</h3>
-            <div class="task">
-              <span class="number">1</span>
-              <span><b>Soil Test Verification</b><br><small>Test NPK levels every 2 seasons using Soil Health Card.</small></span>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Nitrogen (N ppm)</label>
+              <input name="n" type="number" value="20" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
             </div>
-            <div class="task">
-              <span class="number">2</span>
-              <span><b>Rainfall Timing</b><br><small>Avoid applying top-dress urea right before heavy rainfall.</small></span>
+            <div>
+              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Phosphorus (P ppm)</label>
+              <input name="p" type="number" value="15" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
             </div>
-            <div class="task">
-              <span class="number">3</span>
-              <span><b>Split Dosing</b><br><small>Apply Nitrogen in split doses to improve crop uptake.</small></span>
+            <div>
+              <label class="block text-xs font-bold mb-1 text-[#1A261D]">Potassium (K ppm)</label>
+              <input name="k" type="number" value="10" class="w-full p-3 bg-[#F2EFE9] border-2 border-[#1A261D] rounded-xl text-sm font-semibold">
             </div>
-          </article>
+          </div>
 
-          <article class="card dark" style="margin-top:24px">
-            <p class="eyebrow" style="color:var(--lime-accent)">Live Deployed Predictor</p>
-            <h3>Full Streamlit Classifier</h3>
-            <p>Our complete Random Forest classifier is deployed live on Streamlit Cloud.</p>
-            <a class="button secondary" style="margin-top:16px;border-color:var(--lime-accent);color:var(--lime-accent)" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">Launch Streamlit App ↗</a>
-          </article>
-        </aside>
+          <button type="submit" class="w-full bg-[#C9E265] text-[#1A261D] py-4 rounded-xl font-bold border-2 border-[#1A261D] hard-shadow hard-shadow-hover mt-4">
+            Calculate NPK Fertilizer Direction
+          </button>
+        </form>
+
+        <div data-fert-result class="hidden mt-6 p-6 bg-[#C9E265] border-2 border-[#1A261D] rounded-xl text-[#1A261D]"></div>
       </div>
-    </section>
+
+      <div class="bg-[#9D8BB5] p-8 rounded-2xl border-2 border-[#1A261D] hard-shadow flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-[#1A261D] text-[#9D8BB5] rounded-xl flex items-center justify-center text-2xl font-bold mb-6">⚗</div>
+          <h3 class="text-2xl font-bold mb-3 text-[#1A261D]">Full Streamlit App</h3>
+          <p class="text-sm font-sans text-[#1A261D]/90 mb-6">
+            The full Random Forest model is deployed live on Streamlit Cloud for instant calculations.
+          </p>
+        </div>
+        <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="w-full bg-[#1A261D] text-[#F2EFE9] py-4 rounded-full font-bold border-2 border-[#1A261D] text-center hover:bg-[#FF6B4A] transition-colors">
+          Open Deployed App ↗
+        </a>
+      </div>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="wrap bottom" style="margin-top:0">
-      © 2026 AgriNex AI • Fertilizer Recommendation Engine
-    </div>
+  <footer class="bg-[#1A261D] text-[#F2EFE9] py-10 px-6 font-sans text-center text-xs border-t-2 border-[#1A261D]">
+    © 2026 AgriNex AI Platform • Fertilizer Recommendation Advisor
   </footer>
 
   <script src="script.js"></script>
