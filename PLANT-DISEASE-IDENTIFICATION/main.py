@@ -91,14 +91,18 @@ def render_prediction_ui(section_title):
             st.error(f"Failed to load model or run prediction: {e}")
             return
 
-        if leaf_ratio < 0.02:
-            st.warning("No clear leaf found. Please capture a closer image of a single leaf in good light.")
-            return
+        if input_method == "Camera":
+            if leaf_ratio < 0.02 or confidence < 0.45:
+                st.warning("No leaf detected. Please capture a clear close-up image of a leaf.")
+                return
+        else:
+            if leaf_ratio < 0.02:
+                st.warning("No clear leaf found. Please capture a closer image of a single leaf in good light.")
+                return
 
-        if confidence < 0.45:
-            st.warning("Low confidence prediction. Please retake the photo with clearer focus and less background.")
-            st.info("Best guess: {} (confidence: {:.1f}%)".format(CLASS_NAMES[result_index], confidence * 100))
-            return
+            if confidence < 0.45:
+                st.warning("Low confidence prediction. Please retake the photo with clearer focus and less background.")
+                return
 
         st.success("Model is Predicting it's a {} (confidence: {:.1f}%)".format(CLASS_NAMES[result_index], confidence * 100))
 
