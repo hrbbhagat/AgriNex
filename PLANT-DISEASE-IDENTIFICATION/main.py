@@ -7,15 +7,57 @@ BASE_DIR = Path(__file__).resolve().parent
 MODEL_PATH = BASE_DIR / "trained_plant_disease_model.keras"
 DISEASES_IMAGE_PATH = BASE_DIR / "Diseases.png"
 
-def model_prediction(test_image):
+CLASS_NAMES = ['Apple___Apple_scab', 'Apple___Black_rot', 'Apple___Cedar_apple_rust', 'Apple___healthy',
+            'Blueberry___healthy', 'Cherry_(including_sour)___Powdery_mildew', 
+            'Cherry_(including_sour)___healthy', 'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot', 
+            'Corn_(maize)___Common_rust_', 'Corn_(maize)___Northern_Leaf_Blight', 'Corn_(maize)___healthy', 
+            'Grape___Black_rot', 'Grape___Esca_(Black_Measles)', 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)', 
+            'Grape___healthy', 'Orange___Haunglongbing_(Citrus_greening)', 'Peach___Bacterial_spot',
+            'Peach___healthy', 'Pepper,_bell___Bacterial_spot', 'Pepper,_bell___healthy', 
+            'Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy', 
+            'Raspberry___healthy', 'Soybean___healthy', 'Squash___Powdery_mildew', 
+            'Strawberry___Leaf_scorch', 'Strawberry___healthy', 'Tomato___Bacterial_spot', 
+            'Tomato___Early_blight', 'Tomato___Late_blight', 'Tomato___Leaf_Mold', 
+            'Tomato___Septoria_leaf_spot', 'Tomato___Spider_mites Two-spotted_spider_mite', 
+            'Tomato___Target_Spot', 'Tomato___Tomato_Yellow_Leaf_Curl_Virus', 'Tomato___Tomato_mosaic_virus',
+              'Tomato___healthy']
+
+@st.cache_resource
+def load_disease_model():
     if not MODEL_PATH.exists():
         raise FileNotFoundError(f"Model file not found: {MODEL_PATH}")
-    model = tf.keras.models.load_model(str(MODEL_PATH))
+    return tf.keras.models.load_model(str(MODEL_PATH))
+
+def model_prediction(test_image):
+    model = load_disease_model()
     image = tf.keras.preprocessing.image.load_img(test_image,target_size=(128,128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr]) #convert single image to batch
     predictions = model.predict(input_arr)
     return np.argmax(predictions) #return index of max element
+
+def render_prediction_ui(section_title):
+    st.header(section_title)
+    test_image = st.file_uploader("Choose an Image:", type=["jpg", "jpeg", "png"])
+
+    if(st.button("Show Image", key=f"show_{section_title}")):
+        if test_image is None:
+            st.warning("Please upload an image first.")
+        else:
+            st.image(test_image, caption="Uploaded image", width=320)
+
+    if(st.button("Predict", key=f"predict_{section_title}")):
+        if test_image is None:
+            st.warning("Please upload an image before prediction.")
+            return
+        st.snow()
+        st.write("Our Prediction")
+        try:
+            result_index = model_prediction(test_image)
+        except Exception as e:
+            st.error(f"Failed to load model or run prediction: {e}")
+            return
+        st.success("Model is Predicting it's a {}".format(CLASS_NAMES[result_index]))
 
 #Sidebar
 st.sidebar.title("AgriSens")
@@ -34,41 +76,8 @@ else:
 #Main Page
 if(app_mode=="HOME"):
     st.markdown("<h1 style='text-align: center;'>SMART DISEASE DETECTION", unsafe_allow_html=True)
+    render_prediction_ui("DISEASE RECOGNITION")
     
 #Prediction Page
 elif(app_mode=="DISEASE RECOGNITION"):
-    st.header("DISEASE RECOGNITION")
-    test_image = st.file_uploader("Choose an Image:")
-    if(st.button("Show Image")):
-        if test_image is None:
-            st.warning("Please upload an image first.")
-        else:
-            st.image(test_image,width=4,use_column_width=True)
-    #Predict button
-    if(st.button("Predict")):
-        if test_image is None:
-            st.warning("Please upload an image before prediction.")
-            st.stop()
-        st.snow()
-        st.write("Our Prediction")
-        try:
-            result_index = model_prediction(test_image)
-        except Exception as e:
-            st.error(f"Failed to load model or run prediction: {e}")
-            st.stop()
-        #Reading Labels
-        class_name = ['Apple___Apple_scab', 'Apple___Black_rot', 'Apple___Cedar_apple_rust', 'Apple___healthy',
-                    'Blueberry___healthy', 'Cherry_(including_sour)___Powdery_mildew', 
-                    'Cherry_(including_sour)___healthy', 'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot', 
-                    'Corn_(maize)___Common_rust_', 'Corn_(maize)___Northern_Leaf_Blight', 'Corn_(maize)___healthy', 
-                    'Grape___Black_rot', 'Grape___Esca_(Black_Measles)', 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)', 
-                    'Grape___healthy', 'Orange___Haunglongbing_(Citrus_greening)', 'Peach___Bacterial_spot',
-                    'Peach___healthy', 'Pepper,_bell___Bacterial_spot', 'Pepper,_bell___healthy', 
-                    'Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy', 
-                    'Raspberry___healthy', 'Soybean___healthy', 'Squash___Powdery_mildew', 
-                    'Strawberry___Leaf_scorch', 'Strawberry___healthy', 'Tomato___Bacterial_spot', 
-                    'Tomato___Early_blight', 'Tomato___Late_blight', 'Tomato___Leaf_Mold', 
-                    'Tomato___Septoria_leaf_spot', 'Tomato___Spider_mites Two-spotted_spider_mite', 
-                    'Tomato___Target_Spot', 'Tomato___Tomato_Yellow_Leaf_Curl_Virus', 'Tomato___Tomato_mosaic_virus',
-                      'Tomato___healthy']
-        st.success("Model is Predicting it's a {}".format(class_name[result_index]))
+    render_prediction_ui("DISEASE RECOGNITION")
