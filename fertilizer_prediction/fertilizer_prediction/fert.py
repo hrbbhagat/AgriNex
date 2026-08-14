@@ -1,10 +1,11 @@
+import os
 import streamlit as st
 import pandas as pd
 import joblib
 
-
-model = joblib.load('fertilizer_model.pkl')
-preprocessor = joblib.load('preprocessor.pkl')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model = joblib.load(os.path.join(BASE_DIR, 'fertilizer_model.pkl'))
+preprocessor = joblib.load(os.path.join(BASE_DIR, 'preprocessor.pkl'))
 
 st.title("🌱 Crop Fertilizer Recommender")
 st.markdown("Enter soil, crop, and environmental conditions to get fertilizer recommendations.")
