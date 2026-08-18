@@ -70,32 +70,97 @@ def predict_crop(nitrogen, phosphorus, potassium, temperature, humidity, ph, rai
 
 ## Streamlit code for the web app interface
 def main():  
-    # # Setting the title of the web app
-    st.markdown("<h1 style='text-align: center;'>SMART CROP RECOMMENDATIONS", unsafe_allow_html=True)
+    st.set_page_config(
+        page_title="AgriNex AI - Smart Crop Recommendation",
+        page_icon="🌾",
+        layout="wide"
+    )
+
+    st.markdown("""
+    <style>
+      .stApp { background-color: #FAF9F5; font-family: 'Inter', sans-serif; }
+      .header-card {
+          background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+          color: white;
+          padding: 2.2rem;
+          border-radius: 20px;
+          text-align: center;
+          margin-bottom: 2rem;
+          box-shadow: 0 10px 30px rgba(27, 67, 50, 0.15);
+      }
+      .header-card h1 { color: #FFFFFF !important; font-size: 2.2rem !important; font-weight: 800 !important; }
+      .header-card p { color: rgba(255,255,255,0.85) !important; font-size: 1rem !important; }
+      .stButton > button {
+          background: #1B4332 !important;
+          color: white !important;
+          font-weight: 700 !important;
+          border-radius: 9999px !important;
+          padding: 0.6rem 2rem !important;
+          border: none !important;
+          width: 100% !important;
+      }
+      .crop-res-card {
+          background: linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);
+          color: white;
+          padding: 2rem;
+          border-radius: 20px;
+          text-align: center;
+          margin-top: 1rem;
+      }
+      .crop-res-card h2 { color: #D97706 !important; font-size: 2.5rem !important; text-transform: capitalize; }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="header-card">
+        <h1>🌾 Smart Crop Recommendation Engine</h1>
+        <p>AI Decision System based on NPK soil chemistry, pH level & local meteorological figures</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    st.sidebar.title("AgriSens")
-    # # Input fields for the user to enter the environmental factors
-    st.sidebar.header("Enter Crop Details")
-    nitrogen = st.sidebar.number_input("Nitrogen", min_value=0.0, max_value=140.0, value=0.0, step=0.1)
-    phosphorus = st.sidebar.number_input("Phosphorus", min_value=0.0, max_value=145.0, value=0.0, step=0.1)
-    potassium = st.sidebar.number_input("Potassium", min_value=0.0, max_value=205.0, value=0.0, step=0.1)
-    temperature = st.sidebar.number_input("Temperature (°C)", min_value=0.0, max_value=51.0, value=0.0, step=0.1)
-    humidity = st.sidebar.number_input("Humidity (%)", min_value=0.0, max_value=100.0, value=0.0, step=0.1)
-    ph = st.sidebar.number_input("pH Level", min_value=0.0, max_value=14.0, value=0.0, step=0.1)
-    rainfall = st.sidebar.number_input("Rainfall (mm)", min_value=0.0, max_value=500.0, value=0.0, step=0.1)
-    inputs=[[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]]                                               
-   
-    # # Validate inputs and make prediction
-    inputs = np.array([[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]])
-    if st.sidebar.button("Predict"):
-        if not inputs.any() or np.isnan(inputs).any() or (inputs == 0).all():
-            st.error("Please fill in all input fields with valid values before predicting.")
-        else:
-            prediction = predict_crop(nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall)
-            st.success(f"The recommended crop is: {prediction[0]}")
+    st.sidebar.title("🌿 AgriNex AI")
+    st.sidebar.header("Enter Farm Soil & Climate Parameters")
+    
+    nitrogen = st.sidebar.number_input("Nitrogen (N ppm)", min_value=0.0, max_value=140.0, value=90.0, step=1.0)
+    phosphorus = st.sidebar.number_input("Phosphorus (P ppm)", min_value=0.0, max_value=145.0, value=42.0, step=1.0)
+    potassium = st.sidebar.number_input("Potassium (K ppm)", min_value=0.0, max_value=205.0, value=43.0, step=1.0)
+    temperature = st.sidebar.number_input("Temperature (°C)", min_value=0.0, max_value=51.0, value=25.0, step=0.5)
+    humidity = st.sidebar.number_input("Humidity (%)", min_value=0.0, max_value=100.0, value=80.0, step=1.0)
+    ph = st.sidebar.number_input("Soil pH Level", min_value=0.0, max_value=14.0, value=6.5, step=0.1)
+    rainfall = st.sidebar.number_input("Annual Rainfall (mm)", min_value=0.0, max_value=500.0, value=200.0, step=5.0)
+
+    col1, col2 = st.columns([1.2, 0.8])
+    with col1:
+        st.subheader("🌾 Optimal Crop Suitability Prediction")
+        st.write("Click **Run AI Prediction** in the sidebar to process parameters through the trained Random Forest Classifier model.")
+        
+        inputs = np.array([[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]])
+        if st.sidebar.button("Run AI Prediction"):
+            if not inputs.any() or np.isnan(inputs).any():
+                st.error("Please provide valid parameter values before running prediction.")
+            else:
+                prediction = predict_crop(nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall)
+                recommended_crop = str(prediction[0]).title()
+                st.markdown(f"""
+                <div class="crop-res-card">
+                    <span style="font-size:0.85rem;letter-spacing:1px;font-weight:700;color:#D97706;">RECOMMENDED OPTIMAL CROP</span>
+                    <h2>🌾 {recommended_crop}</h2>
+                    <p style="margin-top:0.5rem;font-size:0.95rem;color:rgba(255,255,255,0.85);">
+                        Exhibits highest yield compatibility under Nitrogen ({nitrogen}ppm), Temp ({temperature}°C), and Rainfall ({rainfall}mm).
+                    </p>
+                </div>
+                """, unsafe_allow_html=True)
+                st.balloons()
+
+    with col2:
+        st.subheader("📊 Input Parameter Overview")
+        st.metric("Soil N-P-K", f"{nitrogen:.0f} - {phosphorus:.0f} - {potassium:.0f}")
+        st.metric("Climate Temp / Humidity", f"{temperature}°C / {humidity}%")
+        st.metric("Soil pH & Rainfall", f"{ph} pH / {rainfall} mm")
 
 
 ## Running the main function
 if __name__ == '__main__':
     main()
+
 
