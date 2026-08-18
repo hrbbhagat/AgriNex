@@ -237,20 +237,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const state = btn.getAttribute('data-state');
-      document.querySelectorAll('.mandi-card').forEach(card => {
-        if (state === 'all' || card.getAttribute('data-state') === state) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+  // 8. Mobile Drawer Menu Toggle
+  const mobileBtn = document.getElementById('mobile-menu-toggle');
+  if (mobileBtn) {
+    let mobileDrawer = document.getElementById('mobile-drawer');
+    if (!mobileDrawer) {
+      mobileDrawer = document.createElement('div');
+      mobileDrawer.id = 'mobile-drawer';
+      mobileDrawer.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.9);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;opacity:0;pointer-events:none;transition:opacity 0.3s ease;';
+      mobileDrawer.innerHTML = `
+        <button id="mobile-drawer-close" style="position:absolute;top:20px;right:20px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;">✕</button>
+        <a href="index.html" style="color:#fff;font-size:20px;font-weight:800;text-decoration:none">Home</a>
+        <a href="dashboard.html" style="color:#fff;font-size:20px;font-weight:800;text-decoration:none">Dashboard</a>
+        <a href="crop-prediction.html" style="color:#fff;font-size:20px;font-weight:800;text-decoration:none">Crop AI</a>
+        <a href="fertilizer.html" style="color:#fff;font-size:20px;font-weight:800;text-decoration:none">Fertilizer AI</a>
+        <a href="disease-detection.html" style="color:#fff;font-size:20px;font-weight:800;text-decoration:none">Disease ID</a>
+        <a href="mandi-schemes.html" style="color:#fff;font-size:20px;font-weight:800;text-decoration:none">Mandi & Schemes</a>
+        <a href="farmer-hub.html" style="color:#fff;font-size:20px;font-weight:800;text-decoration:none">Farmer Hub</a>
+      `;
+      document.body.appendChild(mobileDrawer);
+      document.getElementById('mobile-drawer-close').addEventListener('click', () => {
+        mobileDrawer.style.opacity = '0';
+        mobileDrawer.style.pointerEvents = 'none';
       });
+    }
+
+    mobileBtn.addEventListener('click', () => {
+      mobileDrawer.style.opacity = '1';
+      mobileDrawer.style.pointerEvents = 'all';
     });
-  });
+  }
 
 });
 
