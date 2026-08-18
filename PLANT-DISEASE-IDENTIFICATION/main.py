@@ -52,11 +52,59 @@ def model_prediction(test_image):
     confidence = float(np.max(predictions))
     return result_index, confidence, leaf_ratio
 
+# Page Config
+st.set_page_config(
+    page_title="AgriNex AI - Plant Disease Scanner",
+    page_icon="🔬",
+    layout="centered"
+)
+
+# Custom Styling
+st.markdown("""
+<style>
+  .stApp { background-color: #FAF9F5; font-family: 'Inter', sans-serif; }
+  .header-card-dis {
+      background: linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);
+      color: white;
+      padding: 2.2rem;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(27, 67, 50, 0.15);
+  }
+  .header-card-dis h1 { color: #FFFFFF !important; font-size: 2.2rem !important; font-weight: 800 !important; }
+  .header-card-dis p { color: rgba(255,255,255,0.85) !important; font-size: 1rem !important; }
+  .stButton > button {
+      background: #1B4332 !important;
+      color: white !important;
+      font-weight: 700 !important;
+      border-radius: 9999px !important;
+      padding: 0.6rem 2rem !important;
+      border: none !important;
+      width: 100% !important;
+  }
+  .dis-res-card {
+      background: linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      margin-top: 1.5rem;
+  }
+  .dis-res-card h2 { color: #D97706 !important; font-size: 2.2rem !important; margin: 0.5rem 0 !important; }
+</style>
+""", unsafe_allow_html=True)
+
 def render_prediction_ui(section_title):
-    st.header(section_title)
+    st.markdown("""
+    <div class="header-card-dis">
+        <h1>🔬 Plant Disease Vision Diagnostic</h1>
+        <p>Deep Learning CNN Computer Vision • 38 Disease Categories & Healthy Leaf Analysis</p>
+    </div>
+    """, unsafe_allow_html=True)
+
     input_method = st.radio(
         "Select image source:",
-        ["Upload", "Camera"],
+        ["Upload Photo", "Camera Capture"],
         horizontal=True,
         key=f"source_{section_title}"
     )
@@ -64,67 +112,56 @@ def render_prediction_ui(section_title):
     uploaded_image = None
     camera_image = None
 
-    if input_method == "Upload":
-        uploaded_image = st.file_uploader("Choose an Image:", type=["jpg", "jpeg", "png"], key=f"upload_{section_title}")
+    if input_method == "Upload Photo":
+        uploaded_image = st.file_uploader("Choose a Leaf Image:", type=["jpg", "jpeg", "png"], key=f"upload_{section_title}")
     else:
-        camera_image = st.camera_input("Take a picture", key=f"camera_{section_title}")
+        camera_image = st.camera_input("Take a leaf picture", key=f"camera_{section_title}")
 
-    test_image = uploaded_image if input_method == "Upload" else camera_image
+    test_image = uploaded_image if input_method == "Upload Photo" else camera_image
 
-    if(st.button("Show Image", key=f"show_{section_title}")):
+    if test_image is not None:
+        st.image(test_image, caption="Selected Leaf Image", width=360)
+
+    if(st.button("🔬 Run AI Disease Diagnosis", key=f"predict_{section_title}")):
         if test_image is None:
-            st.warning("Please provide an image first.")
-        else:
-            if hasattr(test_image, "seek"):
-                test_image.seek(0)
-            st.image(test_image, caption="Selected image", width=320)
-
-    if(st.button("Predict", key=f"predict_{section_title}")):
-        if test_image is None:
-            st.warning("Please provide an image before prediction.")
+            st.warning("Please provide a leaf image before prediction.")
             return
         st.snow()
-        st.write("Our Prediction")
         try:
             result_index, confidence, leaf_ratio = model_prediction(test_image)
         except Exception as e:
             st.error(f"Failed to load model or run prediction: {e}")
             return
 
-        if input_method == "Camera":
+        if input_method == "Camera Capture":
             if leaf_ratio < 0.02 or confidence < 0.45:
-                st.warning("No leaf detected. Please capture a clear close-up image of a leaf.")
+                st.warning("No clear leaf detected. Please capture a close-up image of a single leaf.")
                 return
         else:
             if leaf_ratio < 0.02:
-                st.warning("No clear leaf found. Please capture a closer image of a single leaf in good light.")
+                st.warning("No clear leaf found. Please capture a closer image of a single leaf in good lighting.")
                 return
 
             if confidence < 0.45:
-                st.warning("Low confidence prediction. Please retake the photo with clearer focus and less background.")
+                st.warning("Low confidence prediction. Please retake the photo with clearer focus.")
                 return
 
-        st.success("Model is Predicting it's a {} (confidence: {:.1f}%)".format(CLASS_NAMES[result_index], confidence * 100))
+        disease_name = CLASS_NAMES[result_index].replace("___", " - ").replace("_", " ")
+        st.markdown(f"""
+        <div class="dis-res-card">
+            <span style="font-size:0.85rem;letter-spacing:1px;font-weight:700;color:#D97706;">AI DIAGNOSTIC REPORT</span>
+            <h2>🌿 {disease_name}</h2>
+            <p style="font-size:1.1rem;font-weight:700;color:#74C69D;">AI Confidence Score: {confidence * 100:.1f}%</p>
+            <p style="margin-top:0.8rem;font-size:0.95rem;color:rgba(255,255,255,0.85);">
+                Identified using TensorFlow Deep Learning CNN model trained on plant pathology datasets.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
-#Sidebar
-st.sidebar.title("AgriSens")
-app_mode = st.sidebar.selectbox("Select Page",["HOME","DISEASE RECOGNITION"])
+# Sidebar
+st.sidebar.title("🌿 AgriNex AI")
+app_mode = st.sidebar.selectbox("Select Mode", ["DISEASE RECOGNITION", "HOME"])
 
-
-# import Image from pillow to open images
-from PIL import Image
-if DISEASES_IMAGE_PATH.exists():
-    img = Image.open(DISEASES_IMAGE_PATH)
-    # width is used to set the width of an image
-    st.image(img)
-else:
-    st.warning("Banner image not found: Diseases.png")
-
-#Main Page
-if(app_mode=="HOME"):
-    st.markdown("<h1 style='text-align: center;'>SMART DISEASE DETECTION", unsafe_allow_html=True)
-    render_prediction_ui("DISEASE RECOGNITION")
-    
-#Prediction Page
-elif(app_mode=="DISEASE RECOGNITION"):
-    render_prediction_ui("DISEASE RECOGNITION")
+# Main Execution
+if(app_mode=="HOME" or app_mode=="DISEASE RECOGNITION"):
+    render_prediction_ui("DISEASE RECOGNITION")
