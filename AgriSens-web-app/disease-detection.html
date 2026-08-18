@@ -68,58 +68,91 @@
     </div>
   </header>
 
-  <main style="padding-top:130px;padding-bottom:90px">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-      <div style="text-align:center;max-width:700px;margin:0 auto 60px" class="service-catalog-reveal" style="transition-delay: 0.08s">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-          Computer Vision CNN Classifier
+  <main style="padding-top:120px;padding-bottom:90px">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px">
+      
+      <!-- Page Header -->
+      <div style="text-align:center;max-width:760px;margin:0 auto 48px" class="service-catalog-reveal">
+        <span class="badge-red mb-3">
+          <iconify-icon icon="solar:scanner-bold"></iconify-icon>
+          TensorFlow CNN Computer Vision • 38 Disease Classes
         </span>
-        <h1 style="font-size:52px;margin:14px 0">
-          Plant Disease <span class="hero-font-serif">Identifier</span>
+        <h1 style="font-size:44px;margin:16px 0;letter-spacing:-0.5px">
+          Plant Disease <span class="hero-font-serif">Scanner</span>
         </h1>
-        <p style="color:var(--hc-text-muted);font-size:18px">
-          Upload a photo of an infected plant leaf to get an instant AI diagnosis and targeted treatment remedies.
+        <p style="color:var(--hc-text-muted);font-size:17px;line-height:1.6">
+          Upload or select a leaf photo to diagnose fungal, bacterial, or viral infections with AI confidence scoring and targeted bio-pesticide remedies.
         </p>
-        <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="margin-top:24px">
-          Open Deployed Streamlit Classifier ↗
-        </a>
       </div>
 
-      <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px">
-        <div class="service-card outer clip-card service-catalog-reveal" style="transition-delay: 0.14s">
-          <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin-bottom:20px">Leaf Diagnostic Upload Scanner</h3>
-          
-          <label style="display:block;border:2px dashed rgba(47,49,45,0.2);padding:40px;text-align:center;background:var(--hc-white);cursor:pointer" class="clip-card">
-            <div style="font-size:44px;margin-bottom:12px">📷</div>
-            <h4 style="font-size:18px;margin:0">Click to Select or Drop Leaf Photo</h4>
-            <p style="font-size:13px;color:var(--hc-text-muted);margin-top:6px">Supports JPG, PNG images (Max 10MB)</p>
+      <!-- Main Layout -->
+      <div style="display:grid;grid-template-columns:1fr;gap:36px">
+        
+        <!-- Dropzone & Diagnosis Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px">
+            <div>
+              <span class="badge-green">Live Scanner</span>
+              <h3 style="font-size:24px;margin-top:6px">Leaf Diagnostic Upload</h3>
+            </div>
+            <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="hc-button secondary clip-button" style="font-size:12px">
+              Launch Full Streamlit App ↗
+            </a>
+          </div>
+
+          <!-- Sample Quick Test Buttons -->
+          <div style="margin-bottom:24px">
+            <span style="font-size:12px;font-weight:700;color:var(--hc-text-muted);display:block;margin-bottom:10px">OR QUICK TEST WITH SAMPLE LEAVES:</span>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+              <button class="hc-button secondary clip-button sample-leaf-btn" data-sample="tomato" style="font-size:12px;padding:8px 14px">
+                🍅 Tomato Early Blight
+              </button>
+              <button class="hc-button secondary clip-button sample-leaf-btn" data-sample="apple" style="font-size:12px;padding:8px 14px">
+                🍎 Apple Scab
+              </button>
+              <button class="hc-button secondary clip-button sample-leaf-btn" data-sample="corn" style="font-size:12px;padding:8px 14px">
+                🌽 Corn Common Rust
+              </button>
+              <button class="hc-button secondary clip-button sample-leaf-btn" data-sample="healthy" style="font-size:12px;padding:8px 14px">
+                🌿 Healthy Leaf
+              </button>
+            </div>
+          </div>
+
+          <!-- Upload Dropzone -->
+          <label style="display:block;border:2px dashed var(--hc-accent);padding:44px 24px;text-align:center;background:#F8FAFC;cursor:pointer;border-radius:20px;transition:background 0.2s ease">
+            <div style="font-size:48px;margin-bottom:12px;color:var(--hc-accent)">
+              <iconify-icon icon="solar:camera-add-bold"></iconify-icon>
+            </div>
+            <h4 style="font-size:18px;margin:0;color:var(--hc-text)">Click to Select or Drop Crop Leaf Photo</h4>
+            <p style="font-size:13px;color:var(--hc-text-muted);margin-top:6px">Supports JPEG, PNG images up to 10MB</p>
             <input type="file" id="disease-file" accept="image/*" style="display:none">
           </label>
 
-          <div id="disease-result" style="display:none;margin-top:24px;padding:24px;background:var(--hc-accent-light);border:1px solid var(--hc-accent)"></div>
+          <!-- Result Diagnostic Display -->
+          <div id="disease-result" style="display:none;margin-top:32px;padding:28px;background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;border-radius:20px">
+            <!-- Dynamic Result populated by JS -->
+          </div>
+
         </div>
 
-        <div class="service-card middle clip-card service-catalog-reveal" style="transition-delay: 0.20s;display:flex;flex-direction:column;justify-content:space-between">
-          <div>
-            <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold)">TENSORFLOW CNN MODEL</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:12px 0 16px;color:#fff">
-              Deep Learning <span class="hero-font-serif" style="color:var(--hc-gold)">Classifier</span>
-            </h3>
-            <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:24px">
-              Evaluates 38 plant disease categories live on Streamlit Cloud with high confidence scoring.
-            </p>
-          </div>
-          <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="width:100%;background:var(--hc-gold);color:var(--hc-text);border:0">
-            Launch Streamlit App ↗
-          </a>
-        </div>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="hc-footer">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)">
-      © 2026 AgriNex AI • Plant Disease Classifier
+    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <iconify-icon icon="solar:leaf-bold" class="text-2xl text-[#74C69D]"></iconify-icon>
+        <span style="font-weight:800;font-size:16px">AgriNex AI</span>
+      </div>
+      <p style="font-size:13px;color:#94A3B8">© 2026 AgriNex AI • Plant Disease Vision Diagnosis</p>
+      <div style="display:flex;gap:16px;font-size:13px">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crop-prediction.html">Crop AI</a>
+      </div>
     </div>
   </footer>
 
