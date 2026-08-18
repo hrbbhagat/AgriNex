@@ -68,64 +68,145 @@
     </div>
   </header>
 
-  <main style="padding-top:130px;padding-bottom:90px">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-      <div style="text-align:center;max-width:700px;margin:0 auto 60px" class="service-catalog-reveal" style="transition-delay: 0.08s">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-          Machine Learning Model
+  <main style="padding-top:120px;padding-bottom:90px">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px">
+      
+      <!-- Hero Title -->
+      <div style="text-align:center;max-width:760px;margin:0 auto 48px" class="service-catalog-reveal">
+        <span class="badge-green mb-3">
+          <iconify-icon icon="solar:cpu-bold"></iconify-icon>
+          AI Machine Learning Model • 22 Crop Classes
         </span>
-        <h1 style="font-size:52px;margin:14px 0">
+        <h1 style="font-size:44px;margin:16px 0;letter-spacing:-0.5px">
           Crop AI <span class="hero-font-serif">Recommender</span>
         </h1>
-        <p style="color:var(--hc-text-muted);font-size:18px">
-          Select crops based on soil NPK ratios, pH level, temperature, and local rainfall figures.
+        <p style="color:var(--hc-text-muted);font-size:17px;line-height:1.6">
+          Input your farm's soil NPK levels, pH score, temperature, and local rainfall to receive instant AI crop suitability recommendations trained on Indian agricultural data.
         </p>
-        <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="margin-top:24px">
-          Open Deployed Streamlit App ↗
-        </a>
       </div>
 
-      <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px">
-        <div class="service-card outer clip-card service-catalog-reveal" style="transition-delay: 0.14s">
-          <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin-bottom:16px">How the Model Operates</h3>
-          <p style="color:var(--hc-text-muted);font-size:16px;line-height:1.7;margin-bottom:24px">
-            The Crop AI Recommender uses Random Forest Decision Trees trained on Indian agricultural datasets to evaluate soil and climate variables across 22 crop classes.
-          </p>
+      <!-- Main Grid: Simulator + Streamlit App Banner -->
+      <div style="display:grid;grid-template-columns: 1fr; gap:36px">
+        
+        <!-- Interactive Simulator Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px">
+            <div>
+              <span class="badge-amber">Interactive Simulator</span>
+              <h3 style="font-size:24px;margin-top:6px">Soil & Climate Parameters</h3>
+            </div>
+            <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button secondary clip-button" style="font-size:12px">
+              Open Full Streamlit App ↗
+            </a>
+          </div>
 
-          <div style="display:grid;gap:14px">
-            <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1)" class="clip-card">
-              <b>🧪 NPK Soil Ratios (N, P, K ppm)</b>
+          <form id="crop-sim-form" style="display:grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));gap:24px">
+            
+            <!-- Nitrogen Slider -->
+            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">🌱 Nitrogen (N)</label>
+                <span id="val-n" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">90 ppm</span>
+              </div>
+              <input type="range" id="sim-n" min="0" max="140" value="90" style="width:100%" oninput="document.getElementById('val-n').innerText = this.value + ' ppm'">
+              <small style="color:var(--hc-text-muted);font-size:11px">Leaf growth & chlorophyll support</small>
             </div>
-            <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1)" class="clip-card">
-              <b>🌡️ Temperature (°C) & Humidity (%)</b>
+
+            <!-- Phosphorus Slider -->
+            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">🧪 Phosphorus (P)</label>
+                <span id="val-p" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">42 ppm</span>
+              </div>
+              <input type="range" id="sim-p" min="0" max="145" value="42" style="width:100%" oninput="document.getElementById('val-p').innerText = this.value + ' ppm'">
+              <small style="color:var(--hc-text-muted);font-size:11px">Root development & seed formation</small>
             </div>
-            <div style="background:var(--hc-white);padding:16px;border:1px solid rgba(47,49,45,0.1)" class="clip-card">
-              <b>🌧️ Annual Rainfall (mm) & Soil pH Level</b>
+
+            <!-- Potassium Slider -->
+            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">⚡ Potassium (K)</label>
+                <span id="val-k" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">43 ppm</span>
+              </div>
+              <input type="range" id="sim-k" min="0" max="205" value="43" style="width:100%" oninput="document.getElementById('val-k').innerText = this.value + ' ppm'">
+              <small style="color:var(--hc-text-muted);font-size:11px">Drought tolerance & disease defense</small>
+            </div>
+
+            <!-- Temperature Slider -->
+            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">🌡️ Temperature (°C)</label>
+                <span id="val-temp" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">25 °C</span>
+              </div>
+              <input type="range" id="sim-temp" min="10" max="50" value="25" style="width:100%" oninput="document.getElementById('val-temp').innerText = this.value + ' °C'">
+              <small style="color:var(--hc-text-muted);font-size:11px">Average ambient farm temperature</small>
+            </div>
+
+            <!-- Humidity Slider -->
+            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">💧 Relative Humidity (%)</label>
+                <span id="val-hum" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">80 %</span>
+              </div>
+              <input type="range" id="sim-hum" min="10" max="100" value="80" style="width:100%" oninput="document.getElementById('val-hum').innerText = this.value + ' %'">
+              <small style="color:var(--hc-text-muted);font-size:11px">Air moisture concentration</small>
+            </div>
+
+            <!-- Soil pH Slider -->
+            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">⚖️ Soil pH Level</label>
+                <span id="val-ph" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">6.5 pH</span>
+              </div>
+              <input type="range" id="sim-ph" min="3.5" max="9.5" step="0.1" value="6.5" style="width:100%" oninput="document.getElementById('val-ph').innerText = this.value + ' pH'">
+              <small style="color:var(--hc-text-muted);font-size:11px">Soil acidity/alkalinity scale</small>
+            </div>
+
+            <!-- Rainfall Slider -->
+            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0;grid-column: 1 / -1">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">🌧️ Annual Rainfall (mm)</label>
+                <span id="val-rain" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">200 mm</span>
+              </div>
+              <input type="range" id="sim-rain" min="20" max="300" value="200" style="width:100%" oninput="document.getElementById('val-rain').innerText = this.value + ' mm'">
+              <small style="color:var(--hc-text-muted);font-size:11px">Expected annual rainfall intake</small>
+            </div>
+
+          </form>
+
+          <!-- Result Container -->
+          <div id="sim-result-box" style="margin-top:32px;background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;padding:28px;border-radius:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+            <div>
+              <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold);text-transform:uppercase">AI RECOMMENDATION MATCH</span>
+              <h2 id="res-crop-title" style="font-size:36px;margin:8px 0;color:#fff;font-family:'Playfair Display',serif">🌾 Rice (Paddy)</h2>
+              <p id="res-crop-desc" style="color:rgba(255,255,255,0.85);font-size:14px">Ideal for warm climate (25°C), high humidity (80%), and heavy rainfall conditions.</p>
+            </div>
+            <div style="text-align:right">
+              <span style="display:block;font-size:12px;color:rgba(255,255,255,0.7)">Suitability Confidence</span>
+              <strong id="res-crop-conf" style="font-size:38px;color:var(--hc-gold);font-weight:900">96.8%</strong>
             </div>
           </div>
+
         </div>
 
-        <div class="service-card middle clip-card service-catalog-reveal" style="transition-delay: 0.20s;display:flex;flex-direction:column;justify-content:space-between">
-          <div>
-            <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold)">LIVE STREAMLIT CLOUD</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:12px 0 16px;color:#fff">
-              Smart Crop <span class="hero-font-serif" style="color:var(--hc-gold)">Recommender</span>
-            </h3>
-            <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:24px">
-              Access the complete interactive machine-learning interface live in your browser.
-            </p>
-          </div>
-          <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="width:100%;background:var(--hc-gold);color:var(--hc-text);border:0">
-            Launch Streamlit App ↗
-          </a>
-        </div>
       </div>
+
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="hc-footer">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)">
-      © 2026 AgriNex AI • Crop Recommendation Engine
+    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <iconify-icon icon="solar:leaf-bold" class="text-2xl text-[#74C69D]"></iconify-icon>
+        <span style="font-weight:800;font-size:16px">AgriNex AI</span>
+      </div>
+      <p style="font-size:13px;color:#94A3B8">© 2026 AgriNex AI • Smart Agricultural Decision System for Indian Farmers</p>
+      <div style="display:flex;gap:16px;font-size:13px">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="mandi-schemes.html">Mandi Rates</a>
+      </div>
     </div>
   </footer>
 
