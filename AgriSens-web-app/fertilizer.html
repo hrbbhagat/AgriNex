@@ -68,91 +68,125 @@
     </div>
   </header>
 
-  <main style="padding-top:130px;padding-bottom:90px">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-      <div style="text-align:center;max-width:700px;margin:0 auto 60px" class="service-catalog-reveal" style="transition-delay: 0.08s">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-          NPK Soil Nutrition Advisor
+  <main style="padding-top:120px;padding-bottom:90px">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px">
+      
+      <!-- Page Header -->
+      <div style="text-align:center;max-width:760px;margin:0 auto 48px" class="service-catalog-reveal">
+        <span class="badge-amber mb-3">
+          <iconify-icon icon="solar:test-tube-bold"></iconify-icon>
+          Soil NPK Nutrition & Bag Dosage Calculator
         </span>
-        <h1 style="font-size:52px;margin:14px 0">
-          Fertilizer AI <span class="hero-font-serif">Prediction</span>
+        <h1 style="font-size:44px;margin:16px 0;letter-spacing:-0.5px">
+          Fertilizer AI <span class="hero-font-serif">Advisor</span>
         </h1>
-        <p style="color:var(--hc-text-muted);font-size:18px">
-          Calculate NPK nutrient deficiencies and receive exact dosage directions (Urea, DAP, NPK 10-26-26, SSP) for your soil.
+        <p style="color:var(--hc-text-muted);font-size:17px;line-height:1.6">
+          Analyze NPK nutrient deficiencies and calculate exact 50kg bag requirements (Urea, DAP, MOP, SSP) for your target crop and farm area.
         </p>
-        <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="margin-top:24px">
-          Open Deployed Streamlit App ↗
-        </a>
       </div>
 
-      <div style="display:grid;grid-template-columns:1.3fr 0.7fr;gap:40px">
-        <div class="service-card outer clip-card service-catalog-reveal" style="transition-delay: 0.14s">
-          <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin-bottom:20px">Interactive NPK Calculator</h3>
+      <!-- Main Layout -->
+      <div style="display:grid;grid-template-columns:1fr;gap:36px">
+        
+        <!-- Calculator Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px">
+            <div>
+              <span class="badge-green">AgriNex AI Algorithm</span>
+              <h3 style="font-size:24px;margin-top:6px">NPK & Farm Area Calculator</h3>
+            </div>
+            <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button secondary clip-button" style="font-size:12px">
+              Launch Streamlit App ↗
+            </a>
+          </div>
           
-          <form data-fert-form style="display:grid;gap:18px">
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+          <form data-fert-form style="display:grid;gap:24px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px">
+              
               <div>
-                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Crop Type</label>
-                <select name="crop" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
-                  <option>Rice</option><option>Maize</option><option>Wheat</option><option>Cotton</option><option>Groundnut</option><option>Sugarcane</option>
+                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:8px">🌾 Target Crop</label>
+                <select name="crop" style="width:100%;padding:12px 16px;background:var(--hc-white);border:1px solid var(--hc-border);border-radius:12px">
+                  <option value="Paddy (Rice)">Paddy (Rice)</option>
+                  <option value="Wheat">Wheat</option>
+                  <option value="Maize (Corn)">Maize (Corn)</option>
+                  <option value="Cotton">Cotton</option>
+                  <option value="Sugarcane">Sugarcane</option>
+                  <option value="Groundnut">Groundnut</option>
+                  <option value="Pulses">Pulses</option>
                 </select>
               </div>
+
               <div>
-                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Soil Type</label>
-                <select name="soil" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
-                  <option>Loamy</option><option>Black</option><option>Red</option><option>Sandy</option><option>Clayey</option>
+                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:8px">🏞️ Soil Texture</label>
+                <select name="soil" style="width:100%;padding:12px 16px;background:var(--hc-white);border:1px solid var(--hc-border);border-radius:12px">
+                  <option value="Loamy">Loamy (Balanced)</option>
+                  <option value="Black">Black (Clay-rich)</option>
+                  <option value="Red">Red Soil</option>
+                  <option value="Sandy">Sandy (High Leaching)</option>
+                  <option value="Clayey">Clayey Soil</option>
                 </select>
               </div>
+
               <div>
-                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Moisture %</label>
-                <input name="moisture" type="number" value="38" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
+                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:8px">📐 Farm Size & Unit</label>
+                <div style="display:flex;gap:8px">
+                  <input name="area" type="number" value="2" min="0.1" step="0.1" style="width:60%;padding:12px 16px;border:1px solid var(--hc-border);border-radius:12px">
+                  <select name="unit" style="width:40%;padding:12px 8px;border:1px solid var(--hc-border);border-radius:12px">
+                    <option value="Acre">Acres</option>
+                    <option value="Bigha">Bigha</option>
+                    <option value="Hectare">Hectare</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- NPK Inputs -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px;background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div>
+                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">🌱 Soil Nitrogen (N ppm)</label>
+                <input name="n" type="number" value="20" min="0" max="140" style="width:100%;padding:12px 16px;border:1px solid var(--hc-border);border-radius:12px">
+              </div>
+              <div>
+                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">🧪 Soil Phosphorus (P ppm)</label>
+                <input name="p" type="number" value="15" min="0" max="145" style="width:100%;padding:12px 16px;border:1px solid var(--hc-border);border-radius:12px">
+              </div>
+              <div>
+                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">⚡ Soil Potassium (K ppm)</label>
+                <input name="k" type="number" value="10" min="0" max="205" style="width:100%;padding:12px 16px;border:1px solid var(--hc-border);border-radius:12px">
               </div>
             </div>
 
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-              <div>
-                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Nitrogen (N ppm)</label>
-                <input name="n" type="number" value="20" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
-              </div>
-              <div>
-                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Phosphorus (P ppm)</label>
-                <input name="p" type="number" value="15" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
-              </div>
-              <div>
-                <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Potassium (K ppm)</label>
-                <input name="k" type="number" value="10" style="width:100%;padding:12px;background:var(--hc-white);border:1px solid rgba(47,49,45,0.15)">
-              </div>
-            </div>
-
-            <button type="submit" class="hc-button clip-button" style="width:100%;margin-top:10px">
-              Calculate Fertilizer Direction
+            <button type="submit" class="hc-button clip-button" style="width:100%;padding:14px;font-size:15px">
+              <iconify-icon icon="solar:calculator-bold" style="font-size:20px"></iconify-icon>
+              <span>Calculate Fertilizer Bags & Schedule</span>
             </button>
           </form>
 
-          <div data-fert-result style="display:none;margin-top:24px;padding:24px;background:var(--hc-accent-light);border:1px solid var(--hc-accent)"></div>
+          <!-- Result Card -->
+          <div data-fert-result style="display:none;margin-top:32px;padding:28px;background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;border-radius:20px">
+            <!-- Dynamic Result populated by JS -->
+          </div>
+
         </div>
 
-        <div class="service-card middle clip-card service-catalog-reveal" style="transition-delay: 0.20s;display:flex;flex-direction:column;justify-content:space-between">
-          <div>
-            <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold)">STREAMLIT CLOUD LIVE</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:12px 0 16px;color:#fff">
-              Random Forest <span class="hero-font-serif" style="color:var(--hc-gold)">Classifier</span>
-            </h3>
-            <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:24px">
-              Access the complete fertilizer recommendation algorithm live in your browser.
-            </p>
-          </div>
-          <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="width:100%;background:var(--hc-gold);color:var(--hc-text);border:0">
-            Launch Streamlit App ↗
-          </a>
-        </div>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="hc-footer">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)">
-      © 2026 AgriNex AI • Fertilizer Recommendation Engine
+    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <iconify-icon icon="solar:leaf-bold" class="text-2xl text-[#74C69D]"></iconify-icon>
+        <span style="font-weight:800;font-size:16px">AgriNex AI</span>
+      </div>
+      <p style="font-size:13px;color:#94A3B8">© 2026 AgriNex AI • Precision Fertilizer & NPK Advisory</p>
+      <div style="display:flex;gap:16px;font-size:13px">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crop-prediction.html">Crop AI</a>
+      </div>
     </div>
   </footer>
 
