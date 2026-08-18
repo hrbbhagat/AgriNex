@@ -21,9 +21,12 @@
 <body>
 
   <!-- Fixed Navigation -->
-  <header class="hero-nav-wrap clip-nav">
+  <header class="hero-nav-wrap glass-pill-nav">
     <div class="nav-container">
-      <a href="index.html" class="nav-brand">Agri<span>Nex</span><sup>AI</sup></a>
+      <a href="index.html" class="nav-brand">
+        <iconify-icon icon="solar:leaf-bold" class="text-2xl text-[#2D6A4F]"></iconify-icon>
+        <span>Agri<span>Nex</span><sup>AI</sup></span>
+      </a>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="dashboard.html">Dashboard</a>
@@ -34,16 +37,22 @@
         <a href="farmer-hub.html">Farmer Hub</a>
       </nav>
       <div style="display:flex;align-items:center;gap:12px">
-        <button class="hc-button secondary clip-button" id="btn-voice" style="padding:8px 16px;font-size:13px">🎤 Voice Search</button>
+        <button class="hc-button secondary clip-button" id="btn-voice">
+          <iconify-icon icon="solar:microphone-bold" style="font-size:16px"></iconify-icon>
+          <span>Voice Search</span>
+        </button>
         <div class="apps-menu">
-          <button class="hc-button clip-button" id="apps-toggle-btn" style="padding:8px 16px;font-size:13px">Live AI apps ▾</button>
+          <button class="hc-button clip-button" id="apps-toggle-btn">
+            <span>Live AI Apps</span>
+            <iconify-icon icon="solar:alt-arrow-down-bold"></iconify-icon>
+          </button>
           <div class="apps-dropdown clip-card" id="apps-dropdown">
             <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
               <span class="apps-icon clip-media">🌾</span>
               <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
             </a>
             <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon clip-media">⚗</span>
+              <span class="apps-icon clip-media">🧪</span>
               <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
             </a>
             <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
@@ -52,6 +61,9 @@
             </a>
           </div>
         </div>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <iconify-icon icon="solar:hamburger-menu-bold"></iconify-icon>
+        </button>
       </div>
     </div>
   </header>
