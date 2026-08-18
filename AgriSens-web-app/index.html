@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgriNex AI | Smart Farming, Crop Advisory, Soil Care & Mandi Rates</title>
+  <title>AgriNex AI | Smart Agriculture, Crop Care & Mandi Intelligence</title>
   
-  <!-- Fonts -->
+  <!-- Premium Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   
   <!-- CDNs -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,17 +18,22 @@
 
   <style>
     :root {
-      --agri-dark: #111A13;
-      --agri-green: #2E5A36;
-      --agri-bright: #95C11E;
-      --agri-clay: #D96B27;
-      --agri-bg: #F5F3EC;
+      --bg-light: #FAF9F5;
+      --card-white: #FFFFFF;
+      --green-deep: #1B4332;
+      --green-mid: #2D6A4F;
+      --green-accent: #40916C;
+      --green-light: #74C69D;
+      --ochre-accent: #D97706;
+      --text-dark: #0F172A;
+      --text-muted: #475569;
+      --border-subtle: #E2E8F0;
     }
     
     body {
-      background-color: var(--agri-bg);
-      color: #1A1D1A;
-      font-family: 'Outfit', 'Montserrat', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -36,21 +41,25 @@
     ::-webkit-scrollbar { display: none; }
     * { -ms-overflow-style: none; scrollbar-width: none; }
     
-    .font-heading { font-family: 'Plus Jakarta Sans', 'Montserrat', sans-serif; }
-    .font-data { font-family: 'Montserrat', monospace; }
+    .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-accent { font-family: 'Playfair Display', serif; }
     
     .noise-layer {
       position: fixed;
       inset: 0;
       z-index: 9999;
       pointer-events: none;
-      opacity: 0.035;
+      opacity: 0.025;
       mix-blend-mode: multiply;
+    }
+
+    .light-card-shadow {
+      box-shadow: 0 10px 30px rgba(27, 67, 50, 0.05);
     }
   </style>
 </head>
 
-<body class="relative selection:bg-[#95C11E] selection:text-[#111A13]">
+<body class="relative selection:bg-[#2D6A4F] selection:text-white">
 
   <!-- Noise Texture -->
   <svg class="noise-layer">
@@ -61,204 +70,262 @@
   </svg>
 
   <!-- A. NAVBAR -->
-  <nav id="navbar" class="fixed top-5 left-1/2 z-50 flex w-[94%] max-w-6xl -translate-x-1/2 items-center justify-between rounded-full px-6 py-3.5 text-[#F5F3EC] transition-all duration-500 md:gap-6 bg-[#111A13]/85 backdrop-blur-md border border-white/10">
-    <a href="index.html" class="font-heading text-xl font-extrabold tracking-tight uppercase text-inherit flex items-center gap-1.5">
-      <span class="text-[#95C11E]">🌾 Agri</span>Nex<sup class="text-[10px] bg-[#95C11E] text-[#111A13] px-1.5 py-0.5 rounded-full font-bold">FARM AI</sup>
+  <nav id="navbar" class="fixed top-4 left-1/2 z-50 flex w-[94%] max-w-6xl -translate-x-1/2 items-center justify-between rounded-full px-6 py-3.5 text-[#0F172A] transition-all duration-500 bg-white/92 backdrop-blur-md border border-slate-200/80 shadow-md">
+    <a href="index.html" class="font-heading text-xl font-extrabold tracking-tight uppercase text-inherit flex items-center gap-2">
+      <iconify-icon icon="solar:leaf-bold" class="text-2xl text-[#2D6A4F]"></iconify-icon>
+      <span>Agri<span class="text-[#2D6A4F]">Nex</span><sup>AI</sup></span>
     </a>
 
-    <div class="hidden items-center gap-6 text-sm font-semibold tracking-wide md:flex">
-      <a href="#about" class="hover:text-[#95C11E] transition-colors">About Us</a>
-      <a href="#tools" class="hover:text-[#95C11E] transition-colors">Farmer AI Tools</a>
-      <a href="#calc" class="hover:text-[#95C11E] transition-colors">Fertilizer Calculator</a>
-      <a href="#mandi" class="hover:text-[#95C11E] transition-colors">Mandi Rates</a>
-      <a href="#workflow" class="hover:text-[#95C11E] transition-colors">Crop Guide</a>
-      <a href="#faq" class="hover:text-[#95C11E] transition-colors">Farmer FAQ</a>
+    <div class="hidden items-center gap-5 text-xs font-bold tracking-wide md:flex text-slate-700">
+      <a href="index.html" class="text-[#1B4332] font-extrabold">Home</a>
+      <a href="dashboard.html" class="hover:text-[#2D6A4F] transition-colors">Dashboard</a>
+      <a href="crop-prediction.html" class="hover:text-[#2D6A4F] transition-colors">Crop AI</a>
+      <a href="fertilizer.html" class="hover:text-[#2D6A4F] transition-colors">Fertilizer AI</a>
+      <a href="disease-detection.html" class="hover:text-[#2D6A4F] transition-colors">Disease ID</a>
+      <a href="mandi-schemes.html" class="hover:text-[#2D6A4F] transition-colors">Mandi & Schemes</a>
+      <a href="farmer-hub.html" class="hover:text-[#2D6A4F] transition-colors">Farmer Hub</a>
     </div>
 
     <div class="flex items-center gap-3">
-      <a href="dashboard.html" class="magnetic group relative overflow-hidden rounded-full bg-[#95C11E] px-5 py-2 text-xs md:text-sm font-extrabold text-[#111A13] shadow-md transition-transform hover:scale-105">
-        <span class="relative z-10 block">Farmer Portal &rarr;</span>
+      <a href="dashboard.html" class="magnetic group relative overflow-hidden rounded-full bg-[#1B4332] px-5 py-2 text-xs font-bold text-white shadow-md transition-all hover:bg-[#2D6A4F]">
+        <span class="relative z-10 flex items-center gap-1.5">
+          <iconify-icon icon="solar:widget-bold" class="text-base"></iconify-icon>
+          Live Dashboard
+        </span>
       </a>
+      <button class="mobile-menu-btn md:hidden" id="mobile-menu-toggle" aria-label="Toggle Menu">
+        <iconify-icon icon="solar:hamburger-menu-bold" class="text-2xl text-slate-800"></iconify-icon>
+      </button>
     </div>
   </nav>
 
   <!-- B. HERO SECTION -->
-  <section id="hero" class="relative flex min-h-[100dvh] w-full flex-col justify-end bg-cover bg-center bg-no-repeat pb-16 pt-36" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2500&auto=format&fit=crop');">
-    <div class="absolute inset-0 bg-gradient-to-t from-[#111A13] via-[#111A13]/75 to-transparent"></div>
-    <div class="absolute inset-0 bg-[#2E5A36]/30 mix-blend-multiply"></div>
+  <section id="hero" class="relative flex min-h-[92dvh] w-full flex-col justify-center bg-gradient-to-b from-[#F4F1EA] via-[#FAF9F5] to-[#FAF9F5] pt-32 pb-20 px-6 md:px-16">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-7">
+        <div class="inline-flex items-center gap-2 rounded-full border border-[#2D6A4F]/20 bg-[#2D6A4F]/10 px-4 py-1.5 text-xs font-bold text-[#1B4332] mb-6">
+          <iconify-icon icon="solar:verified-check-bold" class="text-base text-[#2D6A4F]"></iconify-icon>
+          <span>Smart Agriculture & Soil Advisory Portal</span>
+        </div>
 
-    <div class="relative z-10 w-full px-6 md:px-16 lg:w-4/5 max-w-7xl mx-auto">
-      <div class="hero-el mb-4 inline-flex items-center gap-2 rounded-full border border-[#95C11E]/40 bg-[#95C11E]/15 px-4 py-1.5 backdrop-blur-md">
-        <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-[#95C11E]"></span>
-        <span class="font-data text-xs font-bold uppercase tracking-wider text-[#95C11E]">Smart Indian Agriculture & Advisory Portal</span>
+        <h1 class="font-heading text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
+          PLANT. NOURISH. GROW. <br />
+          <span class="font-serif-accent italic font-semibold text-[#2D6A4F] text-3xl md:text-5xl block mt-2">
+            Smart Crop & Soil Intelligence
+          </span>
+        </h1>
+
+        <p class="mt-6 text-base md:text-lg text-slate-600 font-medium leading-relaxed max-w-xl">
+          Empowering Indian farmers with data-driven crop recommendations, precise Urea and DAP fertilizer bag calculations per acre, instant leaf disease diagnosis, and live APMC Mandi rates.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="dashboard.html" class="rounded-full bg-[#1B4332] px-8 py-4 text-sm font-bold text-white shadow-lg hover:bg-[#2D6A4F] transition-all flex items-center gap-2">
+            <iconify-icon icon="solar:chart-2-bold" class="text-lg"></iconify-icon>
+            Open Farmer Dashboard
+          </a>
+          <a href="#tools" class="rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-bold text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-2">
+            <iconify-icon icon="solar:test-tube-bold" class="text-lg text-[#2D6A4F]"></iconify-icon>
+            Explore AI Tools
+          </a>
+        </div>
       </div>
 
-      <h1 class="hero-el flex flex-col font-heading">
-        <span class="text-4xl text-[#F5F3EC] tracking-tight md:text-6xl lg:text-7xl font-black">PLANT. NOURISH. GROW.</span>
-        <span class="text-3xl text-[#95C11E] tracking-tight md:text-5xl font-extrabold mt-2">Empowering Farmers with Smart Soil & Mandi Intelligence</span>
-      </h1>
+      <div class="lg:col-span-5 relative">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?q=80&w=800&auto=format&fit=crop" alt="Indian Agricultural Field" class="h-96 w-full object-cover" />
+          <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-100 shadow-lg">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-xl bg-[#2D6A4F]/10 text-[#2D6A4F] flex items-center justify-center text-xl font-bold">
+                  <iconify-icon icon="solar:shield-check-bold"></iconify-icon>
+                </div>
+                <div>
+                  <strong class="block text-xs font-bold text-slate-900">AI Model Status</strong>
+                  <span class="text-[11px] text-slate-500">3 Models Active & Deployed Live</span>
+                </div>
+              </div>
+              <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full">Operational</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p class="hero-el mt-6 max-w-2xl text-base md:text-lg text-[#F5F3EC]/90 font-medium leading-relaxed">
-        From Soil to Success—Nourishing Crops, Enriching Lives. Get instant AI recommendations for optimal crop selection, exact Urea/DAP fertilizer bags needed per acre, plant disease treatment, and daily live APMC Mandi rates.
-      </p>
+    </div>
+  </section>
 
-      <div class="hero-el mt-8 flex flex-wrap items-center gap-4">
-        <a href="#tools" class="magnetic rounded-full bg-[#95C11E] px-8 py-4 text-sm font-extrabold text-[#111A13] shadow-lg hover:bg-white transition-all transform hover:-translate-y-1">
-          Explore Farmer AI Tools &rarr;
-        </a>
-        <a href="crop-prediction.html" class="magnetic rounded-full border border-white/30 bg-white/10 backdrop-blur-md px-7 py-4 text-sm font-bold text-white hover:bg-white/20 transition-all">
-          🌾 Smart Crop Recommendation
-        </a>
-        <a href="fertilizer.html" class="magnetic rounded-full border border-[#95C11E]/40 bg-[#95C11E]/10 backdrop-blur-md px-7 py-4 text-sm font-bold text-[#95C11E] hover:bg-[#95C11E] hover:text-[#111A13] transition-all">
-          ⚗️ Fertilizer NPK Calculator
-        </a>
+  <!-- C. STATS BAR -->
+  <section class="px-6 py-10 bg-white border-y border-slate-200">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="flex items-center gap-4">
+        <div class="h-12 w-12 rounded-2xl bg-[#1B4332]/10 text-[#1B4332] flex items-center justify-center text-2xl">
+          <iconify-icon icon="solar:users-group-two-rounded-bold"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="font-heading text-2xl font-black text-slate-900">50,000+</h3>
+          <p class="text-xs font-semibold text-slate-500">Farmers Empowered</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="h-12 w-12 rounded-2xl bg-[#D97706]/10 text-[#D97706] flex items-center justify-center text-2xl">
+          <iconify-icon icon="solar:wallet-bold"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="font-heading text-2xl font-black text-slate-900">₹15,000+</h3>
+          <p class="text-xs font-semibold text-slate-500">Saved / Acre on Urea</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="h-12 w-12 rounded-2xl bg-[#1B4332]/10 text-[#1B4332] flex items-center justify-center text-2xl">
+          <iconify-icon icon="solar:target-bold"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="font-heading text-2xl font-black text-slate-900">98.4%</h3>
+          <p class="text-xs font-semibold text-slate-500">Model Precision</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="h-12 w-12 rounded-2xl bg-[#D97706]/10 text-[#D97706] flex items-center justify-center text-2xl">
+          <iconify-icon icon="solar:shop-bold"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="font-heading text-2xl font-black text-slate-900">150+</h3>
+          <p class="text-xs font-semibold text-slate-500">APMC Mandis Tracked</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- C. LIVE FARMER STATS BAR -->
-  <section class="relative z-20 -mt-8 rounded-t-[3rem] bg-[#F5F3EC] px-6 pt-16 pb-12 md:px-16">
-    <div class="mx-auto max-w-7xl">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 bg-[#111A13] text-[#F5F3EC] p-8 md:p-12 rounded-[2.5rem] border border-[#95C11E]/30 shadow-2xl">
-        <div class="text-center">
-          <h3 class="font-heading text-4xl md:text-5xl font-black text-[#95C11E]">50,000+</h3>
-          <p class="mt-2 text-xs md:text-sm text-gray-300 font-semibold">Farmers Supported Nationwide</p>
-        </div>
-        <div class="text-center">
-          <h3 class="font-heading text-4xl md:text-5xl font-black text-[#95C11E]">₹15,000+</h3>
-          <p class="mt-2 text-xs md:text-sm text-gray-300 font-semibold">Saved Per Acre on Fertilizers</p>
-        </div>
-        <div class="text-center">
-          <h3 class="font-heading text-4xl md:text-5xl font-black text-[#95C11E]">98.4%</h3>
-          <p class="mt-2 text-xs md:text-sm text-gray-300 font-semibold">Crop AI Advisory Accuracy</p>
-        </div>
-        <div class="text-center">
-          <h3 class="font-heading text-4xl md:text-5xl font-black text-[#95C11E]">150+</h3>
-          <p class="mt-2 text-xs md:text-sm text-gray-300 font-semibold">APMC Mandis Tracked Daily</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- D. ABOUT FARMING & SOIL ADVISORY SECTION -->
-  <section id="about" class="px-6 py-16 md:px-16 lg:px-24 bg-[#F5F3EC]">
-    <div class="mx-auto max-w-7xl">
+  <!-- D. ABOUT SECTION -->
+  <section id="about" class="px-6 py-20 bg-[#FAF9F5]">
+    <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <span class="font-data text-xs uppercase tracking-widest font-extrabold text-[#D96B27]">ABOUT AGRI NEX</span>
-          <h2 class="font-heading text-3xl md:text-5xl font-black text-[#111A13] mt-2 leading-tight">
+          <span class="font-heading text-xs font-bold uppercase tracking-widest text-[#D97706]">ABOUT AGRI NEX</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 leading-tight">
             Cultivating Growth, Harvesting Farmer Success
           </h2>
-          <p class="mt-6 text-base text-gray-700 leading-relaxed font-medium">
-            At AgriNex AI, we empower farmers with easy-to-use, data-driven tools and practical agricultural advice. Our platform supports every step from seed selection and soil testing to harvest protection and selling at peak market rates.
-          </p>
-          <p class="mt-4 text-base text-gray-700 leading-relaxed font-medium">
-            Whether you cultivate Paddy, Wheat, Cotton, Sugarcane, or Vegetables, AgriNex gives you precise Urea, DAP, and NPK dosages to boost soil productivity while reducing farming costs.
+          <p class="mt-6 text-sm md:text-base text-slate-600 leading-relaxed font-medium">
+            AgriNex AI empowers farmers with intelligent tools for every stage of farming—from seed recommendation and soil NPK nutrient analysis to crop leaf disease detection and daily Mandi commodity market prices.
           </p>
           
           <div class="mt-8 grid grid-cols-2 gap-4">
-            <div class="flex items-center gap-3 p-3 bg-white rounded-xl border border-gray-200 shadow-sm">
-              <span class="text-2xl">🌱</span>
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 light-card-shadow flex items-start gap-3">
+              <iconify-icon icon="solar:test-tube-bold" class="text-2xl text-[#2D6A4F] mt-0.5"></iconify-icon>
               <div>
-                <strong class="block text-sm font-bold text-[#111A13]">Soil Health Card</strong>
-                <span class="text-xs text-gray-500">NPK & pH Guidance</span>
+                <strong class="block text-xs font-bold text-slate-900">Soil NPK Analysis</strong>
+                <span class="text-[11px] text-slate-500">Nitrogen, Phosphorus & Potassium</span>
               </div>
             </div>
-            <div class="flex items-center gap-3 p-3 bg-white rounded-xl border border-gray-200 shadow-sm">
-              <span class="text-2xl">📊</span>
+
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 light-card-shadow flex items-start gap-3">
+              <iconify-icon icon="solar:chart-square-bold" class="text-2xl text-[#D97706] mt-0.5"></iconify-icon>
               <div>
-                <strong class="block text-sm font-bold text-[#111A13]">Mandi Rate Sync</strong>
-                <span class="text-xs text-gray-500">Daily APMC Prices</span>
+                <strong class="block text-xs font-bold text-slate-900">Live Mandi Prices</strong>
+                <span class="text-[11px] text-slate-500">APMC Rates Updated Daily</span>
               </div>
             </div>
-            <div class="flex items-center gap-3 p-3 bg-white rounded-xl border border-gray-200 shadow-sm">
-              <span class="text-2xl">🔬</span>
+
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 light-card-shadow flex items-start gap-3">
+              <iconify-icon icon="solar:scanner-bold" class="text-2xl text-[#2D6A4F] mt-0.5"></iconify-icon>
               <div>
-                <strong class="block text-sm font-bold text-[#111A13]">Leaf Disease Scan</strong>
-                <span class="text-xs text-gray-500">Instant Spray Advice</span>
+                <strong class="block text-xs font-bold text-slate-900">Leaf Disease Vision</strong>
+                <span class="text-[11px] text-slate-500">Instant Spray Guidance</span>
               </div>
             </div>
-            <div class="flex items-center gap-3 p-3 bg-white rounded-xl border border-gray-200 shadow-sm">
-              <span class="text-2xl">🇮🇳</span>
+
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 light-card-shadow flex items-start gap-3">
+              <iconify-icon icon="solar:diploma-bold" class="text-2xl text-[#D97706] mt-0.5"></iconify-icon>
               <div>
-                <strong class="block text-sm font-bold text-[#111A13]">Govt Schemes</strong>
-                <span class="text-xs text-gray-500">PM-KISAN & Subsidy</span>
+                <strong class="block text-xs font-bold text-slate-900">Govt Schemes</strong>
+                <span class="text-[11px] text-slate-500">PM-KISAN & Subsidies</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 relative">
-          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?q=80&w=800&auto=format&fit=crop" alt="Indian Farmer in Wheat Field" class="rounded-3xl object-cover h-72 w-full shadow-lg border-2 border-white" />
-          <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=800&auto=format&fit=crop" alt="Smart Farming Soil Care" class="rounded-3xl object-cover h-72 w-full shadow-lg border-2 border-white mt-8" />
+        <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-white">
+          <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=800&auto=format&fit=crop" alt="Smart Agriculture Field" class="h-96 w-full object-cover" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- E. 4 CORE FARMER AI TOOLS SHOWCASE -->
-  <section id="tools" class="px-6 py-20 md:px-16 lg:px-24 bg-[#111A13] text-[#F5F3EC]">
-    <div class="mx-auto max-w-7xl">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="font-data text-xs uppercase tracking-widest font-extrabold text-[#95C11E]">FARMER AI SUITE</span>
-        <h2 class="font-heading text-3xl md:text-5xl font-black text-white mt-2">Smart Tools Built for Every Grower</h2>
-        <p class="mt-4 text-base text-gray-300">Simple, powerful tools designed specifically for Indian crops, soil types, and regional mandis.</p>
+  <!-- E. FARMER AI TOOLS SHOWCASE -->
+  <section id="tools" class="px-6 py-20 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="font-heading text-xs font-bold uppercase tracking-widest text-[#2D6A4F]">FARMER AI SUITE</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-slate-900 mt-1">Smart AI Tools for Every Farm</h2>
+        <p class="mt-3 text-sm text-slate-600 font-medium">Simple, reliable machine learning applications built for Indian crops and soil types.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <!-- Tool 1: Crop Recommender -->
-        <div class="bg-[#1A261D] p-8 rounded-[2rem] border border-[#95C11E]/30 flex flex-col justify-between hover:border-[#95C11E] transition-all group">
+        <!-- Tool 1 -->
+        <div class="bg-[#FAF9F5] p-6 rounded-3xl border border-slate-200 light-card-shadow flex flex-col justify-between hover:border-[#2D6A4F] transition-all">
           <div>
-            <div class="h-14 w-14 rounded-2xl bg-[#95C11E] text-[#111A13] flex items-center justify-center text-3xl mb-6 font-bold shadow-md">🌾</div>
-            <h3 class="font-heading text-2xl font-black text-white">Crop Recommendation AI</h3>
-            <p class="mt-3 text-sm text-gray-300 leading-relaxed font-medium">Input your soil NPK levels, temperature, and rainfall to discover the most profitable crop variety for your land.</p>
+            <div class="h-12 w-12 rounded-2xl bg-[#1B4332] text-white flex items-center justify-center text-2xl mb-5 shadow-sm">
+              <iconify-icon icon="solar:leaf-bold"></iconify-icon>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-slate-900">Crop Recommender AI</h3>
+            <p class="mt-2 text-xs text-slate-600 leading-relaxed font-medium">Predicts the highest-yielding crop variety based on soil NPK, pH, and local rainfall.</p>
           </div>
-          <div class="mt-8">
-            <a href="crop-prediction.html" class="inline-flex items-center gap-2 rounded-full bg-[#95C11E] px-6 py-3 text-xs font-extrabold text-[#111A13] hover:bg-white transition-colors w-full justify-center">
-              Launch Crop AI &rarr;
+          <div class="mt-6">
+            <a href="crop-prediction.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#1B4332] px-5 py-3 text-xs font-bold text-white hover:bg-[#2D6A4F] transition-colors w-full">
+              Launch Crop AI <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
             </a>
           </div>
         </div>
 
-        <!-- Tool 2: Fertilizer AI -->
-        <div class="bg-[#1A261D] p-8 rounded-[2rem] border border-[#95C11E]/30 flex flex-col justify-between hover:border-[#95C11E] transition-all group">
+        <!-- Tool 2 -->
+        <div class="bg-[#FAF9F5] p-6 rounded-3xl border border-slate-200 light-card-shadow flex flex-col justify-between hover:border-[#D97706] transition-all">
           <div>
-            <div class="h-14 w-14 rounded-2xl bg-[#D96B27] text-white flex items-center justify-center text-3xl mb-6 font-bold shadow-md">⚗️</div>
-            <h3 class="font-heading text-2xl font-black text-white">Fertilizer Calculator</h3>
-            <p class="mt-3 text-sm text-gray-300 leading-relaxed font-medium">Calculate exact Urea, DAP, and NPK fertilizer bags needed for your acreage. Prevent soil damage and save money.</p>
+            <div class="h-12 w-12 rounded-2xl bg-[#D97706] text-white flex items-center justify-center text-2xl mb-5 shadow-sm">
+              <iconify-icon icon="solar:test-tube-bold"></iconify-icon>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-slate-900">Fertilizer NPK Calculator</h3>
+            <p class="mt-2 text-xs text-slate-600 leading-relaxed font-medium">Calculates exact Urea, DAP, and Potash bags required per acre to optimize cost and soil health.</p>
           </div>
-          <div class="mt-8">
-            <a href="fertilizer.html" class="inline-flex items-center gap-2 rounded-full bg-[#D96B27] px-6 py-3 text-xs font-extrabold text-white hover:bg-white hover:text-[#111A13] transition-colors w-full justify-center">
-              Launch Fertilizer AI &rarr;
+          <div class="mt-6">
+            <a href="fertilizer.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#D97706] px-5 py-3 text-xs font-bold text-white hover:bg-[#B45309] transition-colors w-full">
+              Launch Fertilizer AI <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
             </a>
           </div>
         </div>
 
-        <!-- Tool 3: Disease Vision ID -->
-        <div class="bg-[#1A261D] p-8 rounded-[2rem] border border-[#95C11E]/30 flex flex-col justify-between hover:border-[#95C11E] transition-all group">
+        <!-- Tool 3 -->
+        <div class="bg-[#FAF9F5] p-6 rounded-3xl border border-slate-200 light-card-shadow flex flex-col justify-between hover:border-[#2D6A4F] transition-all">
           <div>
-            <div class="h-14 w-14 rounded-2xl bg-[#95C11E] text-[#111A13] flex items-center justify-center text-3xl mb-6 font-bold shadow-md">🔬</div>
-            <h3 class="font-heading text-2xl font-black text-white">Plant Disease Scanner</h3>
-            <p class="mt-3 text-sm text-gray-300 leading-relaxed font-medium">Take a photo of crop leaves to detect Blight, Rust, or Mildew instantly and receive remedy & spray advice.</p>
+            <div class="h-12 w-12 rounded-2xl bg-[#1B4332] text-white flex items-center justify-center text-2xl mb-5 shadow-sm">
+              <iconify-icon icon="solar:scanner-bold"></iconify-icon>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-slate-900">Leaf Disease Vision</h3>
+            <p class="mt-2 text-xs text-slate-600 leading-relaxed font-medium">Diagnoses crop leaf diseases instantly from photos and prescribes spray remedies.</p>
           </div>
-          <div class="mt-8">
-            <a href="disease-detection.html" class="inline-flex items-center gap-2 rounded-full bg-[#95C11E] px-6 py-3 text-xs font-extrabold text-[#111A13] hover:bg-white transition-colors w-full justify-center">
-              Scan Leaf Disease &rarr;
+          <div class="mt-6">
+            <a href="disease-detection.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#1B4332] px-5 py-3 text-xs font-bold text-white hover:bg-[#2D6A4F] transition-colors w-full">
+              Scan Plant Disease <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
             </a>
           </div>
         </div>
 
-        <!-- Tool 4: Mandi & Schemes -->
-        <div class="bg-[#1A261D] p-8 rounded-[2rem] border border-[#95C11E]/30 flex flex-col justify-between hover:border-[#95C11E] transition-all group">
+        <!-- Tool 4 -->
+        <div class="bg-[#FAF9F5] p-6 rounded-3xl border border-slate-200 light-card-shadow flex flex-col justify-between hover:border-[#D97706] transition-all">
           <div>
-            <div class="h-14 w-14 rounded-2xl bg-[#D96B27] text-white flex items-center justify-center text-3xl mb-6 font-bold shadow-md">📊</div>
-            <h3 class="font-heading text-2xl font-black text-white">Mandi Rates & Schemes</h3>
-            <p class="mt-3 text-sm text-gray-300 leading-relaxed font-medium">Check daily live wholesale crop prices across 150+ APMC mandis and track agricultural subsidy schemes.</p>
+            <div class="h-12 w-12 rounded-2xl bg-[#D97706] text-white flex items-center justify-center text-2xl mb-5 shadow-sm">
+              <iconify-icon icon="solar:chart-2-bold"></iconify-icon>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-slate-900">Mandi Rates & Schemes</h3>
+            <p class="mt-2 text-xs text-slate-600 leading-relaxed font-medium">Track APMC market commodity rates daily and explore central & state agricultural subsidies.</p>
           </div>
-          <div class="mt-8">
-            <a href="mandi-schemes.html" class="inline-flex items-center gap-2 rounded-full bg-[#D96B27] px-6 py-3 text-xs font-extrabold text-white hover:bg-white hover:text-[#111A13] transition-colors w-full justify-center">
-              Check Mandi Rates &rarr;
+          <div class="mt-6">
+            <a href="mandi-schemes.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#D97706] px-5 py-3 text-xs font-bold text-white hover:bg-[#B45309] transition-colors w-full">
+              View Mandi Rates <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
             </a>
           </div>
         </div>
@@ -267,368 +334,195 @@
     </div>
   </section>
 
-  <!-- F. INTERACTIVE FERTILIZER & UREA/DAP CALCULATOR WIDGET -->
-  <section id="calc" class="px-6 py-20 md:px-16 lg:px-24 bg-[#F5F3EC]">
-    <div class="mx-auto max-w-5xl bg-white p-8 md:p-14 rounded-[3rem] border border-gray-200 shadow-xl">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 border-b border-gray-100 pb-6">
+  <!-- F. FERTILIZER CALCULATOR WIDGET -->
+  <section id="calc" class="px-6 py-20 bg-[#FAF9F5]">
+    <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl border border-slate-200 light-card-shadow">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-100">
         <div>
-          <span class="font-data text-xs font-extrabold uppercase tracking-widest text-[#D96B27]">QUICK FARM CALCULATOR</span>
-          <h2 class="font-heading text-3xl md:text-4xl font-black text-[#111A13] mt-1">Urea, DAP & NPK Requirement Tool</h2>
-          <p class="mt-2 text-sm text-gray-600 font-medium">Select your crop and land acreage to calculate fertilizer bag requirements:</p>
+          <span class="font-heading text-xs font-bold uppercase tracking-widest text-[#D97706]">ON-PAGE CALCULATOR</span>
+          <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Urea & DAP Bag Calculator</h2>
+          <p class="text-xs text-slate-500 font-medium mt-1">Calculate exact fertilizer bags required for your field:</p>
         </div>
-        <a href="fertilizer.html" class="text-xs font-bold text-[#D96B27] underline hover:text-[#111A13]">Open Full AI Model &rarr;</a>
+        <a href="fertilizer.html" class="text-xs font-bold text-[#2D6A4F] hover:underline flex items-center gap-1">
+          Open Advanced Model <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+        </a>
       </div>
 
-      <form onsubmit="event.preventDefault(); calculateBags();" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <form onsubmit="event.preventDefault(); calcBags();" class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
-          <label class="block text-xs font-extrabold text-gray-700 uppercase mb-2">Select Crop</label>
-          <select id="farm-crop" class="w-full rounded-2xl border border-gray-300 bg-gray-50 px-4 py-3.5 text-sm text-[#111A13] font-bold outline-none focus:border-[#95C11E] focus:bg-white">
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Select Crop</label>
+          <select id="quick-crop" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-bold text-slate-800 outline-none focus:border-[#2D6A4F] focus:bg-white">
             <option value="rice">Paddy / Rice (Dhan)</option>
             <option value="wheat">Wheat (Gehun)</option>
-            <option value="maize">Maize / Corn (Makka)</option>
-            <option value="cotton">Cotton (Kapas)</option>
+            <option value="maize">Maize (Makka)</option>
             <option value="sugarcane">Sugarcane (Ganna)</option>
             <option value="mustard">Mustard (Sarson)</option>
           </select>
         </div>
 
         <div>
-          <label class="block text-xs font-extrabold text-gray-700 uppercase mb-2">Farm Size (in Acres)</label>
-          <input type="number" id="farm-acres" value="2" min="1" max="100" class="w-full rounded-2xl border border-gray-300 bg-gray-50 px-4 py-3.5 text-sm text-[#111A13] font-bold outline-none focus:border-[#95C11E] focus:bg-white" />
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Land Size (Acres)</label>
+          <input type="number" id="quick-acres" value="2" min="1" max="100" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-bold text-slate-800 outline-none focus:border-[#2D6A4F] focus:bg-white" />
         </div>
 
         <div class="flex items-end">
-          <button type="submit" class="w-full rounded-2xl bg-[#95C11E] px-6 py-4 text-sm font-black text-[#111A13] hover:bg-[#111A13] hover:text-white transition-colors shadow-md">
-            Calculate Fertilizer Bags
+          <button type="submit" class="w-full rounded-2xl bg-[#1B4332] px-6 py-3.5 text-xs font-bold text-white hover:bg-[#2D6A4F] transition-colors shadow-sm">
+            Calculate Bags
           </button>
         </div>
       </form>
 
-      <div id="bags-result" class="mt-8 hidden rounded-2xl bg-[#111A13] text-[#F5F3EC] p-6 border border-[#95C11E]/40">
-        <h4 class="font-data text-xs font-bold uppercase tracking-widest text-[#95C11E] mb-4">Prescribed Fertilizer Bags Required:</h4>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-          <div class="bg-[#1A261D] p-4 rounded-xl border border-gray-800">
-            <span class="block text-xs font-medium text-gray-400">Urea (45kg Bags)</span>
-            <strong id="res-urea" class="font-heading text-2xl font-black text-[#95C11E]">0 Bags</strong>
+      <div id="quick-res" class="mt-8 hidden rounded-2xl bg-[#1B4332] text-white p-6">
+        <h4 class="text-xs font-bold uppercase tracking-widest text-[#74C69D] mb-4">Required Fertilizer Bags:</h4>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div class="bg-white/10 p-3.5 rounded-xl border border-white/10">
+            <span class="block text-[11px] text-slate-300">Urea (45kg)</span>
+            <strong id="q-urea" class="font-heading text-xl font-bold text-white">0 Bags</strong>
           </div>
-          <div class="bg-[#1A261D] p-4 rounded-xl border border-gray-800">
-            <span class="block text-xs font-medium text-gray-400">DAP (50kg Bags)</span>
-            <strong id="res-dap" class="font-heading text-2xl font-black text-[#95C11E]">0 Bags</strong>
+          <div class="bg-white/10 p-3.5 rounded-xl border border-white/10">
+            <span class="block text-[11px] text-slate-300">DAP (50kg)</span>
+            <strong id="q-dap" class="font-heading text-xl font-bold text-white">0 Bags</strong>
           </div>
-          <div class="bg-[#1A261D] p-4 rounded-xl border border-gray-800">
-            <span class="block text-xs font-medium text-gray-400">MOP / Potash (50kg Bags)</span>
-            <strong id="res-mop" class="font-heading text-2xl font-black text-[#95C11E]">0 Bags</strong>
+          <div class="bg-white/10 p-3.5 rounded-xl border border-white/10">
+            <span class="block text-[11px] text-slate-300">MOP (50kg)</span>
+            <strong id="q-mop" class="font-heading text-xl font-bold text-white">0 Bags</strong>
           </div>
         </div>
-        <p class="mt-4 text-xs text-gray-400 italic text-center">* Fertilizer calculations based on ICAR agronomic recommendations.</p>
       </div>
     </div>
   </section>
 
-  <!-- G. LIVE APMC MANDI PRICE TICKER -->
-  <section id="mandi" class="px-6 py-20 md:px-16 lg:px-24 bg-[#111A13] text-white">
-    <div class="mx-auto max-w-7xl">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+  <!-- G. MANDI RATES TICKER -->
+  <section id="mandi" class="px-6 py-20 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-4">
         <div>
-          <span class="font-data text-xs uppercase tracking-widest font-extrabold text-[#95C11E]">LIVE MARKET RATES</span>
-          <h2 class="font-heading text-3xl md:text-5xl font-black text-white mt-1">APMC Mandi Price Ticker Today</h2>
-          <p class="mt-2 text-sm text-gray-300">Synchronized daily from regional mandis in Uttar Pradesh and APMC market yards.</p>
+          <span class="font-heading text-xs font-bold uppercase tracking-widest text-[#2D6A4F]">DAILY MARKET RATES</span>
+          <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Live APMC Mandi Commodity Ticker</h2>
+          <p class="text-xs text-slate-500 font-medium">Daily wholesale crop rates across regional market yards.</p>
         </div>
-        <a href="mandi-schemes.html" class="rounded-full bg-[#95C11E] px-6 py-3 text-xs font-extrabold text-[#111A13] hover:bg-white transition-colors">
-          View All 150+ Commodity Rates &rarr;
+        <a href="mandi-schemes.html" class="rounded-full bg-[#1B4332] px-6 py-3 text-xs font-bold text-white hover:bg-[#2D6A4F] transition-colors w-fit">
+          View All Mandi Rates &rarr;
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-[#1A261D] p-6 rounded-2xl border border-gray-800 flex justify-between items-center">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200 flex justify-between items-center">
           <div>
-            <strong class="block font-heading text-lg font-bold text-white">🌾 Wheat (Gehun)</strong>
-            <span class="text-xs text-gray-400">Varanasi Mandi, UP</span>
+            <strong class="block text-sm font-bold text-slate-900">Wheat (Gehun)</strong>
+            <span class="text-[11px] text-slate-500">Varanasi Mandi, UP</span>
           </div>
           <div class="text-right">
-            <span class="block font-heading text-xl font-black text-[#95C11E]">₹2,450 / Qtl</span>
-            <span class="text-xs font-bold text-green-400">+₹45 ↑</span>
+            <span class="block font-heading text-base font-bold text-[#1B4332]">₹2,450 / Qtl</span>
+            <span class="text-[11px] font-bold text-emerald-600">+₹45 ↑</span>
           </div>
         </div>
 
-        <div class="bg-[#1A261D] p-6 rounded-2xl border border-gray-800 flex justify-between items-center">
+        <div class="p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200 flex justify-between items-center">
           <div>
-            <strong class="block font-heading text-lg font-bold text-white">🌱 Paddy (Dhan)</strong>
-            <span class="text-xs text-gray-400">Lalganj APMC, UP</span>
+            <strong class="block text-sm font-bold text-slate-900">Paddy (Dhan)</strong>
+            <span class="text-[11px] text-slate-500">Lalganj APMC, UP</span>
           </div>
           <div class="text-right">
-            <span class="block font-heading text-xl font-black text-[#95C11E]">₹2,180 / Qtl</span>
-            <span class="text-xs font-bold text-green-400">+₹30 ↑</span>
+            <span class="block font-heading text-base font-bold text-[#1B4332]">₹2,180 / Qtl</span>
+            <span class="text-[11px] font-bold text-emerald-600">+₹30 ↑</span>
           </div>
         </div>
 
-        <div class="bg-[#1A261D] p-6 rounded-2xl border border-gray-800 flex justify-between items-center">
+        <div class="p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200 flex justify-between items-center">
           <div>
-            <strong class="block font-heading text-lg font-bold text-white">🧅 Onion (Pyaz)</strong>
-            <span class="text-xs text-gray-400">Kanpur Mandi, UP</span>
+            <strong class="block text-sm font-bold text-slate-900">Mustard (Sarson)</strong>
+            <span class="text-[11px] text-slate-500">Bharatpur Mandi</span>
           </div>
           <div class="text-right">
-            <span class="block font-heading text-xl font-black text-[#95C11E]">₹3,100 / Qtl</span>
-            <span class="text-xs font-bold text-red-400">-₹20 ↓</span>
-          </div>
-        </div>
-
-        <div class="bg-[#1A261D] p-6 rounded-2xl border border-gray-800 flex justify-between items-center">
-          <div>
-            <strong class="block font-heading text-lg font-bold text-white">🍅 Tomato (Tamatar)</strong>
-            <span class="text-xs text-gray-400">Mirzapur Mandi, UP</span>
-          </div>
-          <div class="text-right">
-            <span class="block font-heading text-xl font-black text-[#95C11E]">₹1,950 / Qtl</span>
-            <span class="text-xs font-bold text-green-400">+₹80 ↑</span>
-          </div>
-        </div>
-
-        <div class="bg-[#1A261D] p-6 rounded-2xl border border-gray-800 flex justify-between items-center">
-          <div>
-            <strong class="block font-heading text-lg font-bold text-white">🥔 Potato (Aloo)</strong>
-            <span class="text-xs text-gray-400">Agra Mandi, UP</span>
-          </div>
-          <div class="text-right">
-            <span class="block font-heading text-xl font-black text-[#95C11E]">₹1,620 / Qtl</span>
-            <span class="text-xs font-bold text-green-400">+₹15 ↑</span>
-          </div>
-        </div>
-
-        <div class="bg-[#1A261D] p-6 rounded-2xl border border-gray-800 flex justify-between items-center">
-          <div>
-            <strong class="block font-heading text-lg font-bold text-white">🌼 Mustard (Sarson)</strong>
-            <span class="text-xs text-gray-400">Bharatpur Mandi</span>
-          </div>
-          <div class="text-right">
-            <span class="block font-heading text-xl font-black text-[#95C11E]">₹5,400 / Qtl</span>
-            <span class="text-xs font-bold text-green-400">+₹110 ↑</span>
+            <span class="block font-heading text-base font-bold text-[#1B4332]">₹5,400 / Qtl</span>
+            <span class="text-[11px] font-bold text-emerald-600">+₹110 ↑</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- H. STEP-BY-STEP FARMING WORKFLOW GUIDE -->
-  <section id="workflow" class="px-6 py-20 md:px-16 lg:px-24 bg-[#F5F3EC]">
-    <div class="mx-auto max-w-7xl">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="font-data text-xs font-extrabold uppercase tracking-widest text-[#D96B27]">5-STEP FARMING GUIDE</span>
-        <h2 class="font-heading text-3xl md:text-5xl font-black text-[#111A13] mt-1">From Soil Testing to Peak Sale</h2>
-        <p class="mt-3 text-base text-gray-600 font-medium">A practical workflow designed to increase yield and maximize your farming profit.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-        
-        <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm relative">
-          <span class="text-3xl font-black text-[#95C11E] block mb-3">01</span>
-          <h3 class="font-heading text-lg font-bold text-[#111A13]">Soil Testing</h3>
-          <p class="mt-2 text-xs text-gray-600 leading-relaxed font-medium">Check Nitrogen, Phosphorus, Potassium, and pH levels using Soil Health Cards.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm relative">
-          <span class="text-3xl font-black text-[#95C11E] block mb-3">02</span>
-          <h3 class="font-heading text-lg font-bold text-[#111A13]">Crop Selection</h3>
-          <p class="mt-2 text-xs text-gray-600 leading-relaxed font-medium">Use Crop Recommendation AI to pick high-yielding seeds for your climate.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm relative">
-          <span class="text-3xl font-black text-[#95C11E] block mb-3">03</span>
-          <h3 class="font-heading text-lg font-bold text-[#111A13]">Fertilizer Care</h3>
-          <p class="mt-2 text-xs text-gray-600 leading-relaxed font-medium">Calculate exact Urea, DAP, and Organic Compost doses to feed your crop.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm relative">
-          <span class="text-3xl font-black text-[#95C11E] block mb-3">04</span>
-          <h3 class="font-heading text-lg font-bold text-[#111A13]">Disease Control</h3>
-          <p class="mt-2 text-xs text-gray-600 leading-relaxed font-medium">Scan leaves for early Blight or Rust symptoms and apply recommended sprays.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm relative">
-          <span class="text-3xl font-black text-[#95C11E] block mb-3">05</span>
-          <h3 class="font-heading text-lg font-bold text-[#111A13]">Direct Mandi Sale</h3>
-          <p class="mt-2 text-xs text-gray-600 leading-relaxed font-medium">Track APMC wholesale rates and sell your harvest at maximum market price.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- I. FARMER TESTIMONIALS -->
-  <section class="px-6 py-20 md:px-16 lg:px-24 bg-[#111A13] text-white">
-    <div class="mx-auto max-w-7xl">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="font-data text-xs uppercase tracking-widest font-extrabold text-[#95C11E]">FARMER VOICES</span>
-        <h2 class="font-heading text-3xl md:text-5xl font-black text-white mt-1">Real Stories from Progressive Farmers</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-[#1A261D] p-8 rounded-3xl border border-gray-800">
-          <div class="text-[#95C11E] text-sm mb-4">⭐⭐⭐⭐⭐</div>
-          <p class="text-sm text-gray-300 italic leading-relaxed">"Using AgriNex Fertilizer AI, I applied exact DAP and Urea doses for my 5-acre paddy crop. My crop yield increased by 30% and saved me ₹14,000 on excess fertilizer!"</p>
-          <div class="mt-6 border-t border-gray-800 pt-4">
-            <strong class="block font-heading text-base font-bold text-white">Rameshwar Singh</strong>
-            <span class="text-xs text-gray-400">Paddy & Wheat Farmer, Varanasi, UP</span>
-          </div>
-        </div>
-
-        <div class="bg-[#1A261D] p-8 rounded-3xl border border-gray-800">
-          <div class="text-[#95C11E] text-sm mb-4">⭐⭐⭐⭐⭐</div>
-          <p class="text-sm text-gray-300 italic leading-relaxed">"The Leaf Disease Scanner caught early blight in my potato crop. The recommended spray stopped the disease in 2 days and protected my harvest!"</p>
-          <div class="mt-6 border-t border-gray-800 pt-4">
-            <strong class="block font-heading text-base font-bold text-white">Sunita Devi</strong>
-            <span class="text-xs text-gray-400">Potato & Vegetable Grower, Agra, UP</span>
-          </div>
-        </div>
-
-        <div class="bg-[#1A261D] p-8 rounded-3xl border border-gray-800">
-          <div class="text-[#95C11E] text-sm mb-4">⭐⭐⭐⭐⭐</div>
-          <p class="text-sm text-gray-300 italic leading-relaxed">"Daily Mandi price alerts helped our local farmer group sell wheat at ₹2,450 per quintal instead of selling low to local middlemen."</p>
-          <div class="mt-6 border-t border-gray-800 pt-4">
-            <strong class="block font-heading text-base font-bold text-white">Vikram Verma</strong>
-            <span class="text-xs text-gray-400">FPO Lead, Kanpur, UP</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- J. FARMER FAQ ACCORDION -->
-  <section id="faq" class="px-6 py-20 md:px-16 lg:px-24 bg-[#F5F3EC]">
-    <div class="mx-auto max-w-4xl">
-      <div class="text-center mb-14">
-        <span class="font-data text-xs font-extrabold uppercase tracking-widest text-[#D96B27]">FARMER HELP & FAQ</span>
-        <h2 class="font-heading text-3xl md:text-5xl font-black text-[#111A13] mt-1">Frequently Asked Questions</h2>
+  <!-- H. FAQ ACCORDION -->
+  <section id="faq" class="px-6 py-20 bg-[#FAF9F5]">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="font-heading text-xs font-bold uppercase tracking-widest text-[#D97706]">HELP CENTER</span>
+        <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Frequently Asked Questions</h2>
       </div>
 
       <div class="space-y-4">
-        <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-heading text-base font-bold text-[#111A13] flex justify-between items-center">
-            <span>How does the Crop Recommendation AI work for my land?</span>
-            <span class="text-xl text-[#95C11E] font-black">+</span>
-          </button>
-          <div class="px-6 pb-5 hidden text-sm text-gray-600 leading-relaxed font-medium">
-            You enter your soil's Nitrogen (N), Phosphorus (P), Potassium (K), soil pH, and your district's average rainfall. Our machine learning model trained on Indian ICAR agronomic data recommends the best-suited crop for high yield.
-          </div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 light-card-shadow">
+          <h3 class="font-heading text-sm font-bold text-slate-900">How does the Crop Recommendation AI work?</h3>
+          <p class="mt-2 text-xs text-slate-600 leading-relaxed font-medium">Input your soil NPK levels, pH value, and rainfall. Our trained ML models match optimal crop varieties for maximum yield.</p>
         </div>
 
-        <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-heading text-base font-bold text-[#111A13] flex justify-between items-center">
-            <span>How do I calculate exact Urea and DAP bags needed?</span>
-            <span class="text-xl text-[#95C11E] font-black">+</span>
-          </button>
-          <div class="px-6 pb-5 hidden text-sm text-gray-600 leading-relaxed font-medium">
-            Use our on-page Fertilizer Calculator! Enter your target crop (Paddy, Wheat, Sugarcane, etc.) and land acreage. It immediately calculates the required bags of 45kg Urea, 50kg DAP, and MOP.
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-heading text-base font-bold text-[#111A13] flex justify-between items-center">
-            <span>Can I scan my crop leaf to identify diseases?</span>
-            <span class="text-xl text-[#95C11E] font-black">+</span>
-          </button>
-          <div class="px-6 pb-5 hidden text-sm text-gray-600 leading-relaxed font-medium">
-            Yes! Open our Plant Disease Scanner tool, upload a clear photo of an affected leaf, and our computer-vision AI will identify the leaf blight, rust, or mildew with treatment instructions.
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-heading text-base font-bold text-[#111A13] flex justify-between items-center">
-            <span>Are Mandi prices updated daily?</span>
-            <span class="text-xl text-[#95C11E] font-black">+</span>
-          </button>
-          <div class="px-6 pb-5 hidden text-sm text-gray-600 leading-relaxed font-medium">
-            Yes, commodity rates across major APMC wholesale markets in Uttar Pradesh, Punjab, Haryana, Madhya Pradesh, and nationwide are updated daily.
-          </div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 light-card-shadow">
+          <h3 class="font-heading text-sm font-bold text-slate-900">How do I calculate Urea and DAP bags needed?</h3>
+          <p class="mt-2 text-xs text-slate-600 leading-relaxed font-medium">Use our on-page Fertilizer Calculator above or launch the full Fertilizer AI tool to get precise dosage per acre.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- K. FOOTER -->
-  <footer class="bg-[#111A13] text-[#F5F3EC] px-6 pt-20 pb-12 md:px-16 border-t border-gray-800">
-    <div class="mx-auto max-w-7xl">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
-        <div class="md:col-span-2">
-          <a href="index.html" class="font-heading text-2xl font-black uppercase text-white flex items-center gap-2">
-            <span class="text-[#95C11E]">🌾 Agri</span>Nex AI
-          </a>
-          <p class="mt-4 text-sm text-gray-400 max-w-md leading-relaxed font-medium">
-            Empowering Indian farmers with smart soil care, crop selection, leaf disease scanning, and live APMC Mandi rates.
-          </p>
-
-          <div class="mt-6 flex items-center gap-3 bg-[#1A261D] px-4 py-2 rounded-full border border-gray-800 w-fit">
-            <span class="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse"></span>
-            <span class="text-xs text-gray-300 font-bold">Farmer AI Services Active Live</span>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="font-heading text-xs font-extrabold uppercase tracking-widest text-[#95C11E] mb-4">Farmer AI Tools</h4>
-          <ul class="space-y-2.5 text-sm font-medium">
-            <li><a href="crop-prediction.html" class="hover:text-[#95C11E] transition-colors">🌾 Crop Recommendation AI</a></li>
-            <li><a href="fertilizer.html" class="hover:text-[#95C11E] transition-colors">⚗️ Fertilizer NPK Calculator</a></li>
-            <li><a href="disease-detection.html" class="hover:text-[#95C11E] transition-colors">🔬 Leaf Disease Vision ID</a></li>
-            <li><a href="mandi-schemes.html" class="hover:text-[#95C11E] transition-colors">📊 Mandi Rates & Schemes</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-heading text-xs font-extrabold uppercase tracking-widest text-[#95C11E] mb-4">Address & Contact</h4>
-          <p class="text-xs text-gray-300 leading-relaxed font-medium">
-            A-20 VASANT NAGAR<br>
-            LALGANJ VARANASI<br>
-            UTTAR PRADESH 603203<br>
-            MOB: +91 6969696969<br>
-            AAYUSH KUMAR
-          </p>
-        </div>
+  <!-- I. FOOTER -->
+  <footer class="bg-[#0F172A] text-slate-300 px-6 pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="md:col-span-2">
+        <a href="index.html" class="font-heading text-xl font-extrabold uppercase text-white flex items-center gap-2">
+          <iconify-icon icon="solar:leaf-bold" class="text-2xl text-[#74C69D]"></iconify-icon>
+          <span>AgriNex AI</span>
+        </a>
+        <p class="mt-3 text-xs text-slate-400 max-w-sm leading-relaxed">
+          Smart agriculture platform for Indian farmers featuring crop selection, NPK soil care, plant disease vision, and Mandi market rates.
+        </p>
       </div>
 
-      <div class="mt-16 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium">
-        <p>© 2026 AgriNex AI. All rights reserved! Cultivating Growth, Harvesting Success.</p>
-        <p class="mt-2 md:mt-0 font-data text-[#95C11E]">agrinex-farmer-portal v3.5</p>
+      <div>
+        <h4 class="font-heading text-xs font-bold uppercase tracking-widest text-[#74C69D] mb-3">AI Applications</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="crop-prediction.html" class="hover:text-white transition-colors">Crop Recommender AI</a></li>
+          <li><a href="fertilizer.html" class="hover:text-white transition-colors">Fertilizer Calculator AI</a></li>
+          <li><a href="disease-detection.html" class="hover:text-white transition-colors">Plant Disease Vision</a></li>
+          <li><a href="mandi-schemes.html" class="hover:text-white transition-colors">Mandi Market Rates</a></li>
+          <li><a href="dashboard.html" class="hover:text-white transition-colors">Farmer Dashboard</a></li>
+        </ul>
       </div>
+
+      <div>
+        <h4 class="font-heading text-xs font-bold uppercase tracking-widest text-[#74C69D] mb-3">Contact Information</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          A-20 VASANT NAGAR<br>
+          LALGANJ VARANASI<br>
+          UTTAR PRADESH 603203<br>
+          MOB: +91 6969696969<br>
+          AAYUSH KUMAR
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-[11px] text-slate-500 font-medium">
+      <p>© 2026 AgriNex AI. All rights reserved!</p>
+      <p class="mt-2 md:mt-0">agrinex-farm-portal v4.0</p>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
-    // FAQ Accordion Toggle
-    function toggleFaq(btn) {
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector('span:last-child');
-      const isHidden = content.classList.contains('hidden');
-      
-      document.querySelectorAll('#faq .px-6.pb-5').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('#faq button span:last-child').forEach(el => el.textContent = '+');
+    function calcBags() {
+      const crop = document.getElementById("quick-crop").value;
+      const acres = parseFloat(document.getElementById("quick-acres").value) || 1;
+      let u = 2, d = 1, m = 0.5;
+      if (crop === "rice") { u = 2.5; d = 1.2; m = 0.8; }
+      else if (crop === "wheat") { u = 2.8; d = 1.4; m = 0.6; }
+      else if (crop === "maize") { u = 2.4; d = 1.2; m = 0.8; }
+      else if (crop === "sugarcane") { u = 4.5; d = 2.2; m = 1.5; }
+      else if (crop === "mustard") { u = 1.8; d = 1.0; m = 0.5; }
 
-      if (isHidden) {
-        content.classList.remove('hidden');
-        icon.textContent = '-';
-      }
-    }
-
-    // Quick Fertilizer Bag Calculator
-    function calculateBags() {
-      const crop = document.getElementById("farm-crop").value;
-      const acres = parseFloat(document.getElementById("farm-acres").value) || 1;
-
-      let ureaBags = 2, dapBags = 1, mopBags = 0.5;
-
-      if (crop === "rice") { ureaBags = 2.5; dapBags = 1.2; mopBags = 0.8; }
-      else if (crop === "wheat") { ureaBags = 2.8; dapBags = 1.4; mopBags = 0.6; }
-      else if (crop === "maize") { ureaBags = 2.4; dapBags = 1.2; mopBags = 0.8; }
-      else if (crop === "sugarcane") { ureaBags = 4.5; dapBags = 2.2; mopBags = 1.5; }
-      else if (crop === "mustard") { ureaBags = 1.8; dapBags = 1.0; mopBags = 0.5; }
-
-      document.getElementById("res-urea").innerText = (ureaBags * acres).toFixed(1) + " Bags";
-      document.getElementById("res-dap").innerText = (dapBags * acres).toFixed(1) + " Bags";
-      document.getElementById("res-mop").innerText = (mopBags * acres).toFixed(1) + " Bags";
-
-      document.getElementById("bags-result").classList.remove("hidden");
+      document.getElementById("q-urea").innerText = (u * acres).toFixed(1) + " Bags";
+      document.getElementById("q-dap").innerText = (d * acres).toFixed(1) + " Bags";
+      document.getElementById("q-mop").innerText = (m * acres).toFixed(1) + " Bags";
+      document.getElementById("quick-res").classList.remove("hidden");
     }
   </script>
-
 </body>
 </html>
