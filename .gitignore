@@ -27,3 +27,8 @@ graphify-out/GRAPH_*
 !fertilizer_prediction/fertilizer_prediction/preprocessor.pkl
 !fertilizer_prediction/fertilizer_prediction/data_core.csv
 
+__pycache__/
+*.ipynb_checkpoints
+*-checkpoint.ipynb
+
+
