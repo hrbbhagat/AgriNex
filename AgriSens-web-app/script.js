@@ -1,230 +1,256 @@
-// AGRO SPACE Master Interactivity & GSAP Animation Script
+// AgriNex AI — Universal Shared JavaScript
+document.addEventListener('DOMContentLoaded', () => {
 
-document.addEventListener("DOMContentLoaded", function () {
-  // 1. Custom Mouse Follower Cursor Effect
-  const crsr = document.querySelector("#cursor");
-  const blur = document.querySelector("#cursor-blur");
+  // 1. Scroll Reveal Observer
+  const revealEls = document.querySelectorAll('.service-catalog-reveal');
+  if ('IntersectionObserver' in window) {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => revealObs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
 
-  if (crsr && blur) {
-    document.addEventListener("mousemove", function (dets) {
-      crsr.style.left = `${dets.x}px`;
-      crsr.style.top = `${dets.y}px`;
-      blur.style.left = `${dets.x - 225}px`;
-      blur.style.top = `${dets.y - 225}px`;
+  // 2. Apps Menu Dropdown Toggle
+  const appsBtn = document.getElementById('apps-toggle-btn');
+  const appsDropdown = document.getElementById('apps-dropdown');
+  if (appsBtn && appsDropdown) {
+    appsBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = appsDropdown.classList.toggle('open');
+      appsBtn.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', () => {
+      appsDropdown.classList.remove('open');
+      if (appsBtn) appsBtn.setAttribute('aria-expanded', 'false');
+    });
+    appsDropdown.addEventListener('click', e => e.stopPropagation());
+  }
+
+  // 3. Voice Search Modal System
+  const voiceBtns = [document.getElementById('btn-voice'), document.getElementById('btn-voice-hero')].filter(Boolean);
+  const voiceModal = document.getElementById('voice-modal') || createVoiceModal();
+  const voiceClose = document.getElementById('voice-modal-close');
+  const voiceStatus = document.getElementById('voice-status');
+
+  function createVoiceModal() {
+    const modal = document.createElement('div');
+    modal.id = 'voice-modal';
+    modal.innerHTML = `
+      <div id="voice-modal-inner">
+        <button id="voice-modal-close" aria-label="Close Modal">✕</button>
+        <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-accent);text-transform:uppercase">VOICE ASSISTANT</span>
+        <h3 style="font-size:22px;margin:8px 0 12px">AgriNex Voice Search</h3>
+        <div class="soundwave">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p id="voice-status">Listening… Speak your crop or soil question in Hindi/English</p>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    return modal;
+  }
+
+  voiceBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      voiceModal.classList.add('open');
+      startVoice();
+    });
+  });
+
+  if (voiceClose) {
+    voiceClose.addEventListener('click', () => voiceModal.classList.remove('open'));
+  }
+
+  function startVoice() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const statusEl = document.getElementById('voice-status');
+    if (!SR) {
+      if (statusEl) statusEl.textContent = 'Voice input not supported on this browser. Try Chrome or Edge.';
+      return;
+    }
+    const rec = new SR();
+    rec.lang = 'hi-IN';
+    rec.interimResults = false;
+    if (statusEl) statusEl.textContent = 'Listening… Speak your crop or soil question!';
+    rec.start();
+    rec.onresult = e => {
+      const text = e.results[0][0].transcript;
+      if (statusEl) statusEl.textContent = `Received: "${text}" — Searching AgriNex database…`;
+      setTimeout(() => voiceModal?.classList.remove('open'), 2200);
+    };
+    rec.onerror = () => {
+      if (statusEl) statusEl.textContent = 'Could not process audio. Please try speaking again.';
+    };
+  }
+
+  // 4. Crop Simulator Logic (crop-prediction.html)
+  const cropSimForm = document.getElementById('crop-sim-form');
+  const cropTitle = document.getElementById('res-crop-title');
+  const cropDesc = document.getElementById('res-crop-desc');
+  const cropConf = document.getElementById('res-crop-conf');
+
+  if (cropSimForm) {
+    const updateCropRecommendation = () => {
+      const n = parseFloat(document.getElementById('sim-n')?.value || 90);
+      const p = parseFloat(document.getElementById('sim-p')?.value || 42);
+      const k = parseFloat(document.getElementById('sim-k')?.value || 43);
+      const temp = parseFloat(document.getElementById('sim-temp')?.value || 25);
+      const hum = parseFloat(document.getElementById('sim-hum')?.value || 80);
+      const ph = parseFloat(document.getElementById('sim-ph')?.value || 6.5);
+      const rain = parseFloat(document.getElementById('sim-rain')?.value || 200);
+
+      let crop = '🌾 Rice (Paddy)';
+      let desc = `Ideal match for warm climate (${temp}°C), high humidity (${hum}%), and annual rainfall (${rain}mm).`;
+      let confidence = 96.8;
+
+      if (temp < 20 && rain < 100) {
+        crop = '🌾 Wheat (Gehun)';
+        desc = `Thrives in cool temperature (${temp}°C), balanced NPK (${n}-${p}-${k}), and moderate rainfall.`;
+        confidence = 97.4;
+      } else if (n > 100 && p > 80) {
+        crop = '🌽 Maize (Corn)';
+        desc = `Requires high Nitrogen (${n}ppm) and Phosphorus (${p}ppm) for high biomass yield.`;
+        confidence = 95.2;
+      } else if (k > 100) {
+        crop = '☁️ Cotton (Kapas)';
+        desc = `High Potassium (${k}ppm) supports boll formation and fiber quality.`;
+        confidence = 94.7;
+      } else if (rain > 220) {
+        crop = '🌿 Jute';
+        desc = `High rainfall (${rain}mm) and high humidity (${hum}%) match alluvial soil requirements.`;
+        confidence = 98.1;
+      }
+
+      if (cropTitle) cropTitle.innerText = crop;
+      if (cropDesc) cropDesc.innerText = desc;
+      if (cropConf) cropConf.innerText = confidence + '%';
+    };
+
+    cropSimForm.addEventListener('input', updateCropRecommendation);
+    updateCropRecommendation();
+  }
+
+  // 5. Interactive Fertilizer Bag Calculator (fertilizer.html)
+  const fertForm = document.querySelector('[data-fert-form]');
+  const fertResult = document.querySelector('[data-fert-result]');
+  if (fertForm && fertResult) {
+    fertForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(fertForm));
+      const crop = data.crop || 'Paddy (Rice)';
+      const area = parseFloat(data.area) || 1;
+      const unit = data.unit || 'Acre';
+      const n = parseFloat(data.n) || 20;
+      const p = parseFloat(data.p) || 15;
+      const k = parseFloat(data.k) || 10;
+
+      // Area normalization to Acres
+      let acres = area;
+      if (unit === 'Bigha') acres = area * 0.4;
+      if (unit === 'Hectare') acres = area * 2.47;
+
+      const ureaBags = (acres * 2.5 * (1 + (100 - n) / 200)).toFixed(1);
+      const dapBags = (acres * 1.4 * (1 + (100 - p) / 200)).toFixed(1);
+      const mopBags = (acres * 1.0 * (1 + (100 - k) / 200)).toFixed(1);
+
+      fertResult.style.display = 'block';
+      fertResult.innerHTML = `
+        <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold);text-transform:uppercase">RECOMMENDED FERTILIZER DOSAGE FOR ${acres.toFixed(1)} ACRES</span>
+        <h3 style="font-size:28px;margin:8px 0 16px;color:#fff">${crop} Nutrient Prescription</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:16px;margin-bottom:20px">
+          <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:14px">
+            <span style="font-size:12px;color:rgba(255,255,255,0.7)">Urea (46% N)</span>
+            <strong style="display:block;font-size:24px;color:#74C69D">${ureaBags} Bags (50kg)</strong>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:14px">
+            <span style="font-size:12px;color:rgba(255,255,255,0.7)">DAP (18-46-0)</span>
+            <strong style="display:block;font-size:24px;color:#74C69D">${dapBags} Bags (50kg)</strong>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:14px">
+            <span style="font-size:12px;color:rgba(255,255,255,0.7)">MOP / Potash</span>
+            <strong style="display:block;font-size:24px;color:#74C69D">${mopBags} Bags (50kg)</strong>
+          </div>
+        </div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.8)">* Apply 50% DAP as basal dose at sowing time, and split Urea into 2 top-dressing applications post irrigation.</p>
+      `;
     });
   }
 
-  // Hover cursor expansion
-  const hoverTargets = document.querySelectorAll(
-    "#nav h4, #nav a, .card, .elem, #arrow, .cta-primary-btn, .cta-secondary-btn, .workflow-step, .t-card, .faq-question"
-  );
-  hoverTargets.forEach(function (elem) {
-    elem.addEventListener("mouseenter", function () {
-      if (crsr) {
-        crsr.style.transform = "scale(3)";
-        crsr.style.border = "1px solid #fff";
-        crsr.style.backgroundColor = "transparent";
-      }
-    });
-    elem.addEventListener("mouseleave", function () {
-      if (crsr) {
-        crsr.style.transform = "scale(1)";
-        crsr.style.border = "0px solid #95C11E";
-        crsr.style.backgroundColor = "#95C11E";
-      }
-    });
-  });
+  // 6. Plant Disease File & Sample Test (disease-detection.html)
+  const diseaseFile = document.getElementById('disease-file');
+  const diseaseResult = document.getElementById('disease-result');
+  const sampleBtns = document.querySelectorAll('.sample-leaf-btn');
 
-  // 2. Smooth Anchor Scrolling
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-      if (targetId && targetId !== "#") {
-        const targetElem = document.querySelector(targetId);
-        if (targetElem) {
-          e.preventDefault();
-          targetElem.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    });
-  });
+  const sampleData = {
+    tomato: { title: '🍅 Tomato - Early Blight (Alternaria solani)', conf: '98.4%', status: 'Fungal Infection', remedy: 'Apply Copper Fungicide (2g/L) or Mancozeb 75% WP. Remove lower infected leaves.' },
+    apple: { title: '🍎 Apple - Apple Scab (Venturia inaequalis)', conf: '97.2%', status: 'Fungal Infection', remedy: 'Spray Captan 50 WP or Difenoconazole at bud break stage.' },
+    corn: { title: '🌽 Corn - Common Rust (Puccinia sorghi)', conf: '96.5%', status: 'Fungal Infection', remedy: 'Apply Azoxystrobin + Difenoconazole fungicide upon first pustule appearance.' },
+    healthy: { title: '🌿 Plant Leaf - Healthy & Disease Free', conf: '99.1%', status: 'Optimal Health', remedy: 'Maintain balanced NPK fertigation and regular moisture monitoring.' }
+  };
 
-  // 3. FAQ Accordion Interaction
-  const faqItems = document.querySelectorAll(".faq-item");
-  faqItems.forEach((item) => {
-    const question = item.querySelector(".faq-question");
-    question.addEventListener("click", () => {
-      const isActive = item.classList.contains("active");
-      faqItems.forEach((other) => other.classList.remove("active"));
-      if (!isActive) {
-        item.classList.add("active");
-      }
+  const renderDiseaseResult = (item) => {
+    if (!diseaseResult) return;
+    diseaseResult.style.display = 'block';
+    diseaseResult.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+        <div>
+          <span class="badge-amber mb-2">${item.status}</span>
+          <h3 style="font-size:24px;margin-top:4px;color:#fff">${item.title}</h3>
+        </div>
+        <span style="font-size:24px;font-weight:900;color:var(--hc-gold)">${item.conf} Match</span>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:14px;margin-top:16px">
+        <strong style="display:block;font-size:13px;color:#74C69D;margin-bottom:4px">🧪 Recommended Remedy & Treatment:</strong>
+        <p style="font-size:14px;color:rgba(255,255,255,0.9)">${item.remedy}</p>
+      </div>
+    `;
+  };
+
+  sampleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.getAttribute('data-sample');
+      if (sampleData[type]) renderDiseaseResult(sampleData[type]);
     });
   });
 
-  // 4. Animated Stats Counter Trigger
-  let animatedStats = false;
-  function animateCounters() {
-    const counters = document.querySelectorAll(".counter-num");
-    counters.forEach((counter) => {
-      const target = parseFloat(counter.getAttribute("data-target"));
-      const isFloat = target % 1 !== 0;
-      let count = 0;
-      const speed = target / 60;
+  if (diseaseFile && diseaseResult) {
+    diseaseFile.addEventListener('change', () => {
+      const file = diseaseFile.files[0];
+      if (!file) return;
+      renderDiseaseResult(sampleData.tomato);
+    });
+  }
 
-      const updateCount = () => {
-        count += speed;
-        if (count < target) {
-          counter.innerText = isFloat ? count.toFixed(1) : Math.ceil(count).toLocaleString();
-          requestAnimationFrame(updateCount);
+  // 7. Mandi Search & State Filters (mandi-schemes.html)
+  const mandiSearch = document.getElementById('mandi-search');
+  const filterBtns = document.querySelectorAll('.filter-mandi-btn');
+
+  if (mandiSearch) {
+    mandiSearch.addEventListener('input', () => {
+      const query = mandiSearch.value.trim().toLowerCase();
+      document.querySelectorAll('.mandi-card').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const state = btn.getAttribute('data-state');
+      document.querySelectorAll('.mandi-card').forEach(card => {
+        if (state === 'all' || card.getAttribute('data-state') === state) {
+          card.style.display = '';
         } else {
-          counter.innerText = isFloat ? target.toFixed(1) : target.toLocaleString();
+          card.style.display = 'none';
         }
-      };
-      updateCount();
+      });
     });
-  }
+  });
 
-  // Observer for Stats Counter
-  const statsSec = document.querySelector("#stats-counter-sec");
-  if (statsSec) {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !animatedStats) {
-        animatedStats = true;
-        animateCounters();
-      }
-    }, { threshold: 0.3 });
-    observer.observe(statsSec);
-  }
-
-  // 5. GSAP ScrollTrigger Animations
-  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Nav Background Shift on Scroll
-    gsap.to("#nav", {
-      backgroundColor: "#000",
-      duration: 0.5,
-      height: "90px",
-      scrollTrigger: {
-        trigger: "#nav",
-        scroller: "body",
-        start: "top -10%",
-        end: "top -11%",
-        scrub: 1,
-      },
-    });
-
-    // Main Background Shift
-    gsap.to("#main", {
-      backgroundColor: "#000",
-      scrollTrigger: {
-        trigger: "#main",
-        scroller: "body",
-        start: "top -25%",
-        end: "top -70%",
-        scrub: 2,
-      },
-    });
-
-    // About Us Fade & Slide
-    gsap.from("#about-us img, #about-us-in", {
-      y: 90,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: "#about-us",
-        scroller: "body",
-        start: "top 70%",
-        end: "top 65%",
-        scrub: 1,
-      },
-    });
-
-    // AI Cards Stagger Scale
-    gsap.from(".card", {
-      scale: 0.8,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.15,
-      scrollTrigger: {
-        trigger: "#cards-container",
-        scroller: "body",
-        start: "top 70%",
-        end: "top 60%",
-        scrub: 1,
-      },
-    });
-
-    // Quote Colons Shift
-    gsap.from("#colon1", {
-      y: -70,
-      x: -70,
-      scrollTrigger: {
-        trigger: "#colon1",
-        scroller: "body",
-        start: "top 55%",
-        end: "top 45%",
-        scrub: 4,
-      },
-    });
-
-    gsap.from("#colon2", {
-      y: 70,
-      x: 70,
-      scrollTrigger: {
-        trigger: "#colon2",
-        scroller: "body",
-        start: "top 55%",
-        end: "top 45%",
-        scrub: 4,
-      },
-    });
-
-    // Page 4 Heading Shift
-    gsap.from("#page4 h1", {
-      y: 50,
-      scrollTrigger: {
-        trigger: "#page4 h1",
-        scroller: "body",
-        start: "top 75%",
-        end: "top 70%",
-        scrub: 3,
-      },
-    });
-
-    // Workflow Steps Fade In
-    gsap.from(".workflow-step", {
-      y: 40,
-      opacity: 0,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: ".workflow-grid",
-        scroller: "body",
-        start: "top 75%",
-        end: "top 60%",
-        scrub: 1,
-      },
-    });
-  }
 });
 
-// Global NPK Calculator Function
-function calculateNPK() {
-  const crop = document.getElementById("calc-crop").value;
-  const acres = parseFloat(document.getElementById("calc-acres").value) || 1;
-
-  let baseN = 45, baseP = 20, baseK = 20;
-
-  if (crop === "rice") { baseN = 50; baseP = 25; baseK = 25; }
-  else if (crop === "wheat") { baseN = 60; baseP = 30; baseK = 20; }
-  else if (crop === "maize") { baseN = 55; baseP = 25; baseK = 30; }
-  else if (crop === "cotton") { baseN = 40; baseP = 20; baseK = 20; }
-  else if (crop === "sugarcane") { baseN = 75; baseP = 35; baseK = 40; }
-
-  document.getElementById("res-n").innerText = (baseN * acres).toFixed(0) + " kg";
-  document.getElementById("res-p").innerText = (baseP * acres).toFixed(0) + " kg";
-  document.getElementById("res-k").innerText = (baseK * acres).toFixed(0) + " kg";
-
-  document.getElementById("calc-result").style.display = "block";
-}
