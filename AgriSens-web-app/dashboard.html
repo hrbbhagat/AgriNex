@@ -1,199 +1,664 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farm Analytics Dashboard | AgriNex AI</title>
-  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'hi,mr,bn,ta,te,gu,pa,kn,ml,or,as,en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farm Analytics & Management Dashboard | AgriNex AI</title>
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- CDNs -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-  <!-- Fixed Navigation -->
-  <header class="hero-nav-wrap clip-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-brand">Agri<span>Nex</span><sup>AI</sup></a>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a class="active" href="dashboard.html">Dashboard</a>
-        <a href="crop-prediction.html">Crop AI</a>
-        <a href="fertilizer.html">Fertilizer AI</a>
-        <a href="disease-detection.html">Disease ID</a>
-        <a href="mandi-schemes.html">Mandi & Schemes</a>
-        <a href="farmer-hub.html">Farmer Hub</a>
-      </nav>
-      <div style="display:flex;align-items:center;gap:12px">
-        <button class="hc-button secondary clip-button" id="btn-voice" style="padding:8px 16px;font-size:13px">🎤 Voice Search</button>
-        <div class="apps-menu">
-          <button class="hc-button clip-button" id="apps-toggle-btn" style="padding:8px 16px;font-size:13px">Live AI apps ▾</button>
-          <div class="apps-dropdown clip-card" id="apps-dropdown">
-            <a class="apps-item" href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon clip-media">🌾</span>
-              <span><b>Crop Recommender</b><small>smart-crop-recommendations.streamlit.app</small></span>
-            </a>
-            <a class="apps-item" href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon clip-media">⚗</span>
-              <span><b>Fertilizer Prediction</b><small>fertilizer-predictions.streamlit.app</small></span>
-            </a>
-            <a class="apps-item" href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener">
-              <span class="apps-icon clip-media">🔬</span>
-              <span><b>Plant Disease ID</b><small>plant-diseases-identification.streamlit.app</small></span>
-            </a>
-          </div>
+  <style>
+    :root {
+      --bg-light: #FAF9F5;
+      --card-white: #FFFFFF;
+      --green-deep: #1B4332;
+      --green-mid: #2D6A4F;
+      --green-accent: #40916C;
+      --ochre-accent: #D97706;
+      --text-dark: #0F172A;
+      --border-subtle: #E2E8F0;
+    }
+    
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-accent { font-family: 'Playfair Display', serif; }
+    
+    .light-card-shadow {
+      box-shadow: 0 10px 30px rgba(27, 67, 50, 0.05);
+    }
+  </style>
+</head>
+
+<body class="relative bg-[#FAF9F5] text-slate-900">
+
+  <!-- TOP NAVIGATION -->
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-7xl bg-white/92 backdrop-blur-md border border-slate-200/80 rounded-full px-6 py-3 shadow-md">
+    <div class="flex items-center justify-between">
+      <a href="index.html" class="font-heading text-xl font-extrabold tracking-tight uppercase flex items-center gap-2 text-slate-900">
+        <iconify-icon icon="solar:leaf-bold" class="text-2xl text-[#2D6A4F]"></iconify-icon>
+        <span>Agri<span class="text-[#2D6A4F]">Nex</span><sup>AI</sup></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-5 text-xs font-bold text-slate-700 uppercase tracking-wide">
+        <a href="index.html" class="hover:text-[#2D6A4F] transition-colors">Home</a>
+        <a href="dashboard.html" class="text-white bg-[#1B4332] px-4 py-1.5 rounded-full font-extrabold">Dashboard</a>
+        <a href="crop-prediction.html" class="hover:text-[#2D6A4F] transition-colors">Crop AI</a>
+        <a href="fertilizer.html" class="hover:text-[#2D6A4F] transition-colors">Fertilizer AI</a>
+        <a href="disease-detection.html" class="hover:text-[#2D6A4F] transition-colors">Disease ID</a>
+        <a href="mandi-schemes.html" class="hover:text-[#2D6A4F] transition-colors">Mandi Rates</a>
+        <a href="farmer-hub.html" class="hover:text-[#2D6A4F] transition-colors">Farmer Hub</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 bg-[#2D6A4F]/10 px-3 py-1.5 rounded-full text-xs font-bold text-[#1B4332]">
+          <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>North Plot: Telemetry Live</span>
         </div>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main style="padding-top:130px;padding-bottom:90px">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px">
-      <div style="text-align:center;max-width:700px;margin:0 auto 40px" class="service-catalog-reveal" style="transition-delay: 0.08s">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--hc-accent-dark)">
-          North Field Intelligence Studio
-        </span>
-        <h1 style="font-size:52px;margin:14px 0">
-          Your Field, <span class="hero-font-serif">In Focus</span>
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+
+    <!-- 1. DASHBOARD HEADER & PROFILE SUMMARY -->
+    <div class="bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+          <iconify-icon icon="solar:sun-fog-bold" class="text-base text-amber-600"></iconify-icon>
+          <span>Kharif Season 2026 • Active Field Advisory</span>
+        </div>
+        <h1 class="font-heading text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+          North Field Studio <span class="font-serif-accent italic text-[#2D6A4F] text-2xl md:text-3xl font-semibold">Varanasi, UP</span>
         </h1>
-        <p style="color:var(--hc-text-muted);font-size:18px">
-          Real-time performance tracking for North Field Kharif season: weather forecast, NPK soil meters, and priority tasks.
+        <p class="mt-2 text-xs md:text-sm text-slate-500 font-medium">
+          Farmer: Rameshwar Singh • Total Area: 5.5 Acres (Paddy, Wheat & Mustard) • Soil Health Card ID: #UP-VAR-9821
         </p>
       </div>
 
-      <!-- Quick Metrics Grid -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:40px">
-        <div class="service-card outer clip-card">
-          <small style="font-size:12px;color:var(--hc-text-muted)">Field Weather</small>
-          <strong style="display:block;font-size:32px;color:var(--hc-accent-dark);margin:4px 0">28°C</strong>
-          <span style="font-size:12px;font-weight:700">Ideal Growing Temp</span>
+      <div class="flex flex-wrap gap-3">
+        <a href="fertilizer.html" class="rounded-2xl bg-[#1B4332] px-5 py-3 text-xs font-bold text-white hover:bg-[#2D6A4F] transition-all flex items-center gap-2 shadow-sm">
+          <iconify-icon icon="solar:test-tube-bold" class="text-base"></iconify-icon>
+          Calculate NPK Dose
+        </a>
+        <a href="disease-detection.html" class="rounded-2xl border border-slate-300 bg-slate-50 px-5 py-3 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all flex items-center gap-2">
+          <iconify-icon icon="solar:scanner-bold" class="text-base text-[#2D6A4F]"></iconify-icon>
+          Scan Crop Disease
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. QUICK METRIC HIGHLIGHT CARDS (6 METRICS) -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 light-card-shadow">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Weather</span>
+          <iconify-icon icon="solar:sun-bold" class="text-xl text-amber-500"></iconify-icon>
         </div>
-        <div class="service-card outer clip-card">
-          <small style="font-size:12px;color:var(--hc-text-muted)">Season Progress</small>
-          <strong style="display:block;font-size:32px;color:var(--hc-accent-dark);margin:4px 0">34%</strong>
-          <span style="font-size:12px;font-weight:700">Vegetative Stage</span>
+        <strong class="font-heading text-2xl font-black text-slate-900">28°C</strong>
+        <span class="block text-[11px] text-emerald-600 font-semibold mt-1">Optimal Growing</span>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 light-card-shadow">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Soil Moisture</span>
+          <iconify-icon icon="solar:droplet-bold" class="text-xl text-blue-500"></iconify-icon>
         </div>
-        <div class="service-card outer clip-card">
-          <small style="font-size:12px;color:var(--hc-text-muted)">Soil Moisture</small>
-          <strong style="display:block;font-size:32px;color:var(--hc-accent-dark);margin:4px 0">38%</strong>
-          <span style="font-size:12px;font-weight:700">Stable Drainage</span>
+        <strong class="font-heading text-2xl font-black text-slate-900">38%</strong>
+        <span class="block text-[11px] text-emerald-600 font-semibold mt-1">Stable Drainage</span>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 light-card-shadow">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Crop Health</span>
+          <iconify-icon icon="solar:shield-check-bold" class="text-xl text-[#2D6A4F]"></iconify-icon>
         </div>
-        <div class="service-card outer clip-card">
-          <small style="font-size:12px;color:var(--hc-text-muted)">Priority Tasks</small>
-          <strong style="display:block;font-size:32px;color:var(--hc-gold);margin:4px 0">2 Due</strong>
-          <span style="font-size:12px;font-weight:700">This Week</span>
+        <strong class="font-heading text-2xl font-black text-slate-900">94%</strong>
+        <span class="block text-[11px] text-emerald-600 font-semibold mt-1">No Active Pest</span>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 light-card-shadow">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Mandi Rate</span>
+          <iconify-icon icon="solar:chart-2-bold" class="text-xl text-emerald-600"></iconify-icon>
+        </div>
+        <strong class="font-heading text-2xl font-black text-slate-900">₹2,450</strong>
+        <span class="block text-[11px] text-emerald-600 font-semibold mt-1">+₹45 Wheat/Qtl</span>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 light-card-shadow">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Season Progress</span>
+          <iconify-icon icon="solar:hourglass-line-bold" class="text-xl text-indigo-500"></iconify-icon>
+        </div>
+        <strong class="font-heading text-2xl font-black text-slate-900">42%</strong>
+        <span class="block text-[11px] text-indigo-600 font-semibold mt-1">Vegetative Stage</span>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 light-card-shadow">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Pending Tasks</span>
+          <iconify-icon icon="solar:checklist-bold" class="text-xl text-amber-500"></iconify-icon>
+        </div>
+        <strong class="font-heading text-2xl font-black text-amber-600">2 Due</strong>
+        <span class="block text-[11px] text-slate-500 font-semibold mt-1">Urea Dose Today</span>
+      </div>
+
+    </div>
+
+    <!-- 2B. FARMER ACTION HUB -->
+    <section class="bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#2D6A4F]">FARMER PORTAL ACTIONS</span>
+          <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">Open a Service in One Click</h2>
+          <p class="text-xs text-slate-500 font-medium mt-1">Choose crop advice, fertilizer dose, disease scan, mandi price, or planning tools from here.</p>
+        </div>
+        <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full">5 Core Services Active</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <article data-nav-target="crop-prediction.html" tabindex="0" role="button" class="cursor-pointer rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#2D6A4F] transition-all p-4 space-y-3">
+          <div class="h-11 w-11 rounded-xl bg-[#1B4332] text-white flex items-center justify-center text-xl">
+            <iconify-icon icon="solar:leaf-bold"></iconify-icon>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Crop Recommendation</h3>
+            <p class="text-[11px] text-slate-500">Best crop by soil NPK, pH and rainfall.</p>
+          </div>
+          <span class="text-xs font-bold text-[#2D6A4F]">Open Crop AI →</span>
+        </article>
+
+        <article data-nav-target="fertilizer.html" tabindex="0" role="button" class="cursor-pointer rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#2D6A4F] transition-all p-4 space-y-3">
+          <div class="h-11 w-11 rounded-xl bg-[#D97706] text-white flex items-center justify-center text-xl">
+            <iconify-icon icon="solar:test-tube-bold"></iconify-icon>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Fertilizer Guide</h3>
+            <p class="text-[11px] text-slate-500">Urea, DAP, and MOP dose per acre.</p>
+          </div>
+          <span class="text-xs font-bold text-[#2D6A4F]">Open Fertilizer AI →</span>
+        </article>
+
+        <article data-nav-target="disease-detection.html" tabindex="0" role="button" class="cursor-pointer rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#2D6A4F] transition-all p-4 space-y-3">
+          <div class="h-11 w-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl">
+            <iconify-icon icon="solar:scanner-bold"></iconify-icon>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Disease Detection</h3>
+            <p class="text-[11px] text-slate-500">Upload leaf image and get diagnosis.</p>
+          </div>
+          <span class="text-xs font-bold text-[#2D6A4F]">Scan Crop Health →</span>
+        </article>
+
+        <article data-nav-target="mandi-schemes.html" tabindex="0" role="button" class="cursor-pointer rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#2D6A4F] transition-all p-4 space-y-3">
+          <div class="h-11 w-11 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl">
+            <iconify-icon icon="solar:chart-2-bold"></iconify-icon>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Mandi Rate</h3>
+            <p class="text-[11px] text-slate-500">Compare APMC prices before selling.</p>
+          </div>
+          <span class="text-xs font-bold text-[#2D6A4F]">Check Mandi Prices →</span>
+        </article>
+
+        <article data-nav-target="farmer-hub.html" tabindex="0" role="button" class="cursor-pointer rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#2D6A4F] transition-all p-4 space-y-3">
+          <div class="h-11 w-11 rounded-xl bg-violet-600 text-white flex items-center justify-center text-xl">
+            <iconify-icon icon="solar:calendar-bold"></iconify-icon>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Farmer Hub</h3>
+            <p class="text-[11px] text-slate-500">Season tasks, records, and reminders.</p>
+          </div>
+          <span class="text-xs font-bold text-[#2D6A4F]">Open Farmer Hub →</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. SOIL NPK TELEMETRY & MOISTURE GAUGES (MAIN ANALYTICS SECTION) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Left Column: NPK Nutrient Meters -->
+      <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#2D6A4F]">SOIL SENSOR FEED</span>
+            <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">Real-Time Soil NPK Nutrient Levels</h2>
+          </div>
+          <span class="text-xs bg-slate-100 text-slate-700 font-bold px-3 py-1 rounded-full">Last Test: Today 08:30 AM</span>
+        </div>
+
+        <!-- Nitrogen Gauge -->
+        <div class="space-y-2">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="flex items-center gap-2 text-slate-800">
+              <span class="h-3 w-3 rounded-full bg-emerald-500"></span> Nitrogen (N) Level
+            </span>
+            <span class="text-emerald-700">54 mg/kg (Optimal 50-60)</span>
+          </div>
+          <div class="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-full bg-emerald-500 rounded-full" style="width: 85%"></div>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium">Nitrogen is adequate for paddy tillering. Recommended: Apply 1 bag Urea at 45 days.</p>
+        </div>
+
+        <!-- Phosphorus Gauge -->
+        <div class="space-y-2">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="flex items-center gap-2 text-slate-800">
+              <span class="h-3 w-3 rounded-full bg-amber-500"></span> Phosphorus (P) Level
+            </span>
+            <span class="text-amber-700">28 mg/kg (Slightly Low)</span>
+          </div>
+          <div class="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-full bg-amber-500 rounded-full" style="width: 55%"></div>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium">Phosphorus root growth level moderate. Recommended: Add DAP 50kg bag during field prep.</p>
+        </div>
+
+        <!-- Potassium Gauge -->
+        <div class="space-y-2">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="flex items-center gap-2 text-slate-800">
+              <span class="h-3 w-3 rounded-full bg-blue-500"></span> Potassium (K) Level
+            </span>
+            <span class="text-blue-700">32 mg/kg (Good Balance)</span>
+          </div>
+          <div class="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-full bg-blue-500 rounded-full" style="width: 72%"></div>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium">Potassium strengthens stem resistance against lodging and drought stress.</p>
+        </div>
+
+        <!-- Secondary Metrics Grid -->
+        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100">
+          <div class="p-3 bg-slate-50 rounded-xl text-center">
+            <span class="block text-[11px] text-slate-500 font-bold">Soil pH</span>
+            <strong class="text-base font-bold text-slate-900">6.8 pH</strong>
+            <span class="text-[10px] text-emerald-600 block">Neutral Ideal</span>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl text-center">
+            <span class="block text-[11px] text-slate-500 font-bold">Organic Carbon</span>
+            <strong class="text-base font-bold text-slate-900">0.75%</strong>
+            <span class="text-[10px] text-emerald-600 block">Good Fertile</span>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl text-center">
+            <span class="block text-[11px] text-slate-500 font-bold">EC (Conductivity)</span>
+            <strong class="text-base font-bold text-slate-900">0.42 dS/m</strong>
+            <span class="text-[10px] text-emerald-600 block">Non-Saline</span>
+          </div>
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px">
-        <div style="display:grid;gap:30px">
-          <div class="service-card outer clip-card">
-            <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:0 0 4px">North Field Performance</h3>
-            <p style="font-size:13px;color:var(--hc-text-muted);margin:0 0 20px">2.4 Hectares • Loamy Soil • Kharif Season</p>
-
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center;margin-bottom:20px">
-              <div style="background:var(--hc-white);padding:14px" class="clip-card">
-                <b style="font-size:12px;color:var(--hc-text-muted)">Crop Stage</b>
-                <span style="display:block;font-weight:700;color:var(--hc-accent-dark)">Day 34 Growth</span>
-              </div>
-              <div style="background:var(--hc-white);padding:14px" class="clip-card">
-                <b style="font-size:12px;color:var(--hc-text-muted)">Yield Outlook</b>
-                <span style="display:block;font-weight:700;color:var(--hc-accent-dark)">High Estimate</span>
-              </div>
-              <div style="background:var(--hc-white);padding:14px" class="clip-card">
-                <b style="font-size:12px;color:var(--hc-text-muted)">Soil Health</b>
-                <span style="display:block;font-weight:700;color:var(--hc-accent-dark)">Good Balance</span>
-              </div>
-            </div>
+      <!-- Right Column: 7-Day Weather & Spraying Forecast -->
+      <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#D97706]">FIELD WEATHER ADVISORY</span>
+            <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">7-Day Micro-Climate Forecast</h2>
           </div>
-
-          <div class="service-card middle clip-card">
-            <h3 style="font-family:'Playfair Display',serif;font-size:26px;margin:0 0 16px;color:#fff">
-              7-Day Weather <span class="hero-font-serif" style="color:var(--hc-gold)">Outlook</span>
-            </h3>
-
-            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center;font-size:12px">
-              <div style="background:rgba(255,255,255,0.08);padding:10px" class="clip-card">Mon<b style="display:block;font-size:18px">☀</b>29°</div>
-              <div style="background:rgba(255,255,255,0.08);padding:10px" class="clip-card">Tue<b style="display:block;font-size:18px">⛅</b>28°</div>
-              <div style="background:var(--hc-gold);color:var(--hc-text);padding:10px;font-weight:800" class="clip-card">Wed<b style="display:block;font-size:18px">☂</b>26°</div>
-              <div style="background:rgba(255,255,255,0.08);padding:10px" class="clip-card">Thu<b style="display:block;font-size:18px">☂</b>25°</div>
-              <div style="background:rgba(255,255,255,0.08);padding:10px" class="clip-card">Fri<b style="display:block;font-size:18px">☁</b>27°</div>
-              <div style="background:rgba(255,255,255,0.08);padding:10px" class="clip-card">Sat<b style="display:block;font-size:18px">☀</b>30°</div>
-              <div style="background:rgba(255,255,255,0.08);padding:10px" class="clip-card">Sun<b style="display:block;font-size:18px">☀</b>31°</div>
-            </div>
-
-            <p style="font-size:13px;color:rgba(255,255,255,0.8);margin-top:16px">Field Note: Rain expected Wednesday. Apply top-dress fertilizer before rain or wait for soil to drain.</p>
-          </div>
+          <iconify-icon icon="solar:sun-fog-bold" class="text-2xl text-amber-500"></iconify-icon>
         </div>
 
-        <div style="display:grid;gap:30px">
-          <div class="service-card outer clip-card">
-            <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin-bottom:16px">Soil NPK Meters</h3>
-
-            <div style="display:grid;gap:14px;font-size:13px;font-weight:700">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between p-3 bg-amber-50/60 rounded-2xl border border-amber-200">
+            <div class="flex items-center gap-3">
+              <iconify-icon icon="solar:sun-bold" class="text-2xl text-amber-500"></iconify-icon>
               <div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                  <span>Nitrogen (N)</span>
-                  <span>68% Optimal</span>
-                </div>
-                <div style="height:8px;background:rgba(47,49,45,0.1);overflow:hidden" class="clip-card">
-                  <div style="height:100%;width:68%;background:var(--hc-accent-dark)"></div>
-                </div>
-              </div>
-
-              <div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                  <span>Phosphorus (P)</span>
-                  <span>42% Moderate</span>
-                </div>
-                <div style="height:8px;background:rgba(47,49,45,0.1);overflow:hidden" class="clip-card">
-                  <div style="height:100%;width:42%;background:var(--hc-gold)"></div>
-                </div>
-              </div>
-
-              <div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                  <span>Potassium (K)</span>
-                  <span>76% High</span>
-                </div>
-                <div style="height:8px;background:rgba(47,49,45,0.1);overflow:hidden" class="clip-card">
-                  <div style="height:100%;width:76%;background:var(--hc-accent-dark)"></div>
-                </div>
+                <strong class="block text-xs font-bold text-slate-900">Today (Friday)</strong>
+                <span class="text-[11px] text-slate-500">Sunny • Rain: 5%</span>
               </div>
             </div>
-
-            <a href="fertilizer.html" class="hc-button clip-button" style="width:100%;margin-top:24px">
-              Calculate NPK Top-Up ↗
-            </a>
+            <div class="text-right">
+              <span class="font-bold text-sm text-slate-900">28°C / 19°C</span>
+              <span class="block text-[10px] font-bold text-emerald-700">Good for Spraying</span>
+            </div>
           </div>
 
-          <div class="service-card outer clip-card">
-            <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin:0 0 8px">Plant Disease Check</h3>
-            <p style="font-size:14px;color:var(--hc-text-muted);margin-bottom:16px">Upload leaf photos to diagnose diseases with computer vision.</p>
-            <a href="disease-detection.html" class="hc-button secondary clip-button" style="width:100%">
-              Open Leaf Scanner ↗
-            </a>
+          <div class="flex items-center justify-between p-3 bg-slate-50 rounded-2xl border border-slate-200">
+            <div class="flex items-center gap-3">
+              <iconify-icon icon="solar:clouds-bold" class="text-2xl text-slate-400"></iconify-icon>
+              <div>
+                <strong class="block text-xs font-bold text-slate-900">Saturday</strong>
+                <span class="text-[11px] text-slate-500">Partly Cloudy • Rain: 15%</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="font-bold text-sm text-slate-900">29°C / 20°C</span>
+              <span class="block text-[10px] font-bold text-slate-600">Normal Care</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-3 bg-blue-50/60 rounded-2xl border border-blue-200">
+            <div class="flex items-center gap-3">
+              <iconify-icon icon="solar:cloud-water-drop-bold" class="text-2xl text-blue-500"></iconify-icon>
+              <div>
+                <strong class="block text-xs font-bold text-slate-900">Sunday</strong>
+                <span class="text-[11px] text-slate-500">Light Showers • Rain: 65%</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="font-bold text-sm text-slate-900">25°C / 18°C</span>
+              <span class="block text-[10px] font-bold text-red-600">Avoid Fertilizer Today</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-3 bg-slate-50 rounded-2xl border border-slate-200">
+            <div class="flex items-center gap-3">
+              <iconify-icon icon="solar:sun-bold" class="text-2xl text-amber-500"></iconify-icon>
+              <div>
+                <strong class="block text-xs font-bold text-slate-900">Monday</strong>
+                <span class="text-[11px] text-slate-500">Clear Sky • Rain: 10%</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="font-bold text-sm text-slate-900">30°C / 21°C</span>
+              <span class="block text-[10px] font-bold text-emerald-700">Ideal Sowing Day</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 4. LIVE APMC MANDI COMMODITY TRACKER TABLE -->
+    <div class="bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#2D6A4F]">MARKET INTELLIGENCE</span>
+          <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">Live APMC Mandi Commodity Rates (Regional UP)</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="mandi-schemes.html" class="text-xs font-bold text-[#2D6A4F] hover:underline">View All 150+ Mandis &rarr;</a>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-slate-700">
+          <thead class="bg-slate-50 text-slate-500 uppercase font-bold text-[11px] border-b border-slate-200">
+            <tr>
+              <th class="p-3.5">Commodity Name</th>
+              <th class="p-3.5">Mandi Yard Location</th>
+              <th class="p-3.5">Min Price / Qtl</th>
+              <th class="p-3.5">Max Price / Qtl</th>
+              <th class="p-3.5">Modal Price / Qtl</th>
+              <th class="p-3.5">Daily Trend</th>
+              <th class="p-3.5 text-right">Advisory Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 font-medium">
+            <tr class="hover:bg-slate-50/80 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Wheat (Gehun)</td>
+              <td class="p-3.5">Varanasi Mandi, UP</td>
+              <td class="p-3.5">₹2,380</td>
+              <td class="p-3.5">₹2,480</td>
+              <td class="p-3.5 font-bold text-[#1B4332]">₹2,450</td>
+              <td class="p-3.5 font-bold text-emerald-600">+₹45 ↑</td>
+              <td class="p-3.5 text-right"><span class="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full font-bold">Good to Sell</span></td>
+            </tr>
+
+            <tr class="hover:bg-slate-50/80 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Paddy (Dhan - Common)</td>
+              <td class="p-3.5">Lalganj APMC, UP</td>
+              <td class="p-3.5">₹2,100</td>
+              <td class="p-3.5">₹2,220</td>
+              <td class="p-3.5 font-bold text-[#1B4332]">₹2,180</td>
+              <td class="p-3.5 font-bold text-emerald-600">+₹30 ↑</td>
+              <td class="p-3.5 text-right"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">Hold for MSP</span></td>
+            </tr>
+
+            <tr class="hover:bg-slate-50/80 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Onion (Pyaz)</td>
+              <td class="p-3.5">Kanpur Mandi, UP</td>
+              <td class="p-3.5">₹2,950</td>
+              <td class="p-3.5">₹3,200</td>
+              <td class="p-3.5 font-bold text-[#1B4332]">₹3,100</td>
+              <td class="p-3.5 font-bold text-red-600">-₹20 ↓</td>
+              <td class="p-3.5 text-right"><span class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full font-bold">Moderate Price</span></td>
+            </tr>
+
+            <tr class="hover:bg-slate-50/80 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">Mustard (Sarson)</td>
+              <td class="p-3.5">Bharatpur Mandi</td>
+              <td class="p-3.5">₹5,200</td>
+              <td class="p-3.5">₹5,550</td>
+              <td class="p-3.5 font-bold text-[#1B4332]">₹5,400</td>
+              <td class="p-3.5 font-bold text-emerald-600">+₹110 ↑</td>
+              <td class="p-3.5 text-right"><span class="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full font-bold">Peak Demand</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5. ON-DASHBOARD FERTILIZER UREA & DAP BAG CALCULATOR -->
+    <div class="bg-[#1B4332] text-white p-8 md:p-12 rounded-3xl shadow-xl space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#74C69D]">ON-DASHBOARD TOOL</span>
+          <h2 class="font-heading text-2xl md:text-3xl font-extrabold mt-1">Urea & DAP Fertilizer Bag Calculator</h2>
+          <p class="text-xs text-slate-300 font-medium">Calculate exact fertilizer requirements for your acreage right now:</p>
+        </div>
+        <a href="fertilizer.html" class="rounded-full bg-white text-[#1B4332] px-5 py-2.5 text-xs font-bold hover:bg-emerald-100 transition-colors">
+          Open Advanced Fertilizer AI &rarr;
+        </a>
+      </div>
+
+      <form onsubmit="event.preventDefault(); dashCalcBags();" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-200 mb-2">Select Crop</label>
+          <select id="dash-crop" class="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-xs font-bold text-white outline-none focus:bg-white/20">
+            <option value="rice" class="text-slate-900">Paddy / Rice (Dhan)</option>
+            <option value="wheat" class="text-slate-900">Wheat (Gehun)</option>
+            <option value="maize" class="text-slate-900">Maize (Makka)</option>
+            <option value="sugarcane" class="text-slate-900">Sugarcane (Ganna)</option>
+            <option value="mustard" class="text-slate-900">Mustard (Sarson)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-200 mb-2">Farm Size (Acres)</label>
+          <input type="number" id="dash-acres" value="3" min="1" max="100" class="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-xs font-bold text-white outline-none focus:bg-white/20" />
+        </div>
+
+        <div class="flex items-end">
+          <button type="submit" class="w-full rounded-2xl bg-[#74C69D] text-[#1B4332] px-6 py-3.5 text-xs font-extrabold hover:bg-white transition-colors shadow-md">
+            Calculate Fertilizer Bags
+          </button>
+        </div>
+      </form>
+
+      <div id="dash-res" class="hidden rounded-2xl bg-white/10 p-6 border border-white/10">
+        <h4 class="text-xs font-bold uppercase tracking-widest text-[#74C69D] mb-4">Calculated Dosage Requirement:</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+          <div class="bg-black/20 p-4 rounded-xl">
+            <span class="block text-xs text-slate-300">Urea (45kg Bags)</span>
+            <strong id="dash-u" class="font-heading text-2xl font-black text-white">0 Bags</strong>
+          </div>
+          <div class="bg-black/20 p-4 rounded-xl">
+            <span class="block text-xs text-slate-300">DAP (50kg Bags)</span>
+            <strong id="dash-d" class="font-heading text-2xl font-black text-white">0 Bags</strong>
+          </div>
+          <div class="bg-black/20 p-4 rounded-xl">
+            <span class="block text-xs text-slate-300">MOP (50kg Bags)</span>
+            <strong id="dash-m" class="font-heading text-2xl font-black text-white">0 Bags</strong>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 6. LEAF DISEASE DIAGNOSTIC LOG & CROP HEALTH STATUS -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Leaf Disease Scan History -->
+      <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#2D6A4F]">DIAGNOSTIC LOG</span>
+            <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">Crop Leaf Scan History</h2>
+          </div>
+          <a href="disease-detection.html" class="text-xs font-bold text-[#2D6A4F] hover:underline">Scan New Leaf &rarr;</a>
+        </div>
+
+        <div class="space-y-4">
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-xl font-bold">
+                <iconify-icon icon="solar:scanner-bold"></iconify-icon>
+              </div>
+              <div>
+                <strong class="block text-xs font-bold text-slate-900">Paddy Leaf Scan #982</strong>
+                <span class="text-[11px] text-slate-500">Scan Date: 2 Days Ago • North Plot</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Healthy - No Disease</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl font-bold">
+                <iconify-icon icon="solar:danger-circle-bold"></iconify-icon>
+              </div>
+              <div>
+                <strong class="block text-xs font-bold text-slate-900">Potato Leaf Scan #971</strong>
+                <span class="text-[11px] text-slate-500">Scan Date: 5 Days Ago • Early Blight Detected</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-bold text-amber-800 bg-amber-100 px-3 py-1 rounded-full">Treated (Mancozeb Spray)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Government Subsidy Tracker -->
+      <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#D97706]">GOVT SUBSIDY TRACKER</span>
+            <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">PM-KISAN & Scheme Status</h2>
+          </div>
+          <iconify-icon icon="solar:diploma-bold" class="text-2xl text-amber-600"></iconify-icon>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 flex justify-between items-center">
+            <div>
+              <strong class="block text-slate-900 font-bold">PM-KISAN 17th Installment</strong>
+              <span class="text-[11px] text-slate-500">Aadhaar Linked Account</span>
+            </div>
+            <span class="font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">₹2,000 Credited</span>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 flex justify-between items-center">
+            <div>
+              <strong class="block text-slate-900 font-bold">Soil Health Card Renewal</strong>
+              <span class="text-[11px] text-slate-500">Department of Agriculture, UP</span>
+            </div>
+            <span class="font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">Verified</span>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 flex justify-between items-center">
+            <div>
+              <strong class="block text-slate-900 font-bold">PMFBY Crop Insurance</strong>
+              <span class="text-[11px] text-slate-500">Kharif Season Coverage</span>
+            </div>
+            <span class="font-bold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-full">Active Policy</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 7. FARM TASKS & TO-DO CHECKLIST -->
+    <div class="bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#2D6A4F]">FARM ADVISORY TASK LIST</span>
+          <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">Recommended Actions for This Week</h2>
+        </div>
+        <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full">2 Pending</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-medium">
+        <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 flex items-start gap-3">
+          <input type="checkbox" class="mt-1 h-4 w-4 text-[#2D6A4F] rounded border-slate-300" />
+          <div>
+            <strong class="block text-slate-900 font-bold">Apply 2nd Dose Urea (North Plot)</strong>
+            <span class="text-[11px] text-slate-500">Due Today • 1.5 Bags recommended by Soil AI</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+          <input type="checkbox" class="mt-1 h-4 w-4 text-[#2D6A4F] rounded border-slate-300" />
+          <div>
+            <strong class="block text-slate-900 font-bold">Inspect Drip Irrigation Filter</strong>
+            <span class="text-[11px] text-slate-500">Due Saturday • Ensure clean water pressure</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+          <input type="checkbox" checked class="mt-1 h-4 w-4 text-[#2D6A4F] rounded border-slate-300" />
+          <div>
+            <strong class="block text-slate-900 font-bold text-slate-400 line-through">Check Mandi Rates for Wheat</strong>
+            <span class="text-[11px] text-emerald-700 font-bold">Completed • ₹2,450 / Qtl</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <footer class="hc-footer">
-    <div style="max-width:1440px;margin:0 auto;padding:0 30px;text-align:center;font-size:13px;color:rgba(255,255,255,0.5)">
-      © 2026 AgriNex AI • Farm Analytics Studio
+  <!-- FOOTER -->
+  <footer class="bg-[#0F172A] text-slate-300 px-6 pt-12 pb-8 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <iconify-icon icon="solar:leaf-bold" class="text-xl text-[#74C69D]"></iconify-icon>
+        <span class="font-heading font-extrabold uppercase text-white">AgriNex AI Dashboard</span>
+      </div>
+      <p class="text-slate-400 font-medium text-center">
+        Varanasi UP • Farmer Support Hotline: +91 6969696969
+      </p>
+      <p class="text-slate-500">agrinex-dashboard v4.2</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function dashCalcBags() {
+      const crop = document.getElementById("dash-crop").value;
+      const acres = parseFloat(document.getElementById("dash-acres").value) || 1;
+      let u = 2, d = 1, m = 0.5;
+      if (crop === "rice") { u = 2.5; d = 1.2; m = 0.8; }
+      else if (crop === "wheat") { u = 2.8; d = 1.4; m = 0.6; }
+      else if (crop === "maize") { u = 2.4; d = 1.2; m = 0.8; }
+      else if (crop === "sugarcane") { u = 4.5; d = 2.2; m = 1.5; }
+      else if (crop === "mustard") { u = 1.8; d = 1.0; m = 0.5; }
+
+      document.getElementById("dash-u").innerText = (u * acres).toFixed(1) + " Bags";
+      document.getElementById("dash-d").innerText = (d * acres).toFixed(1) + " Bags";
+      document.getElementById("dash-m").innerText = (m * acres).toFixed(1) + " Bags";
+      document.getElementById("dash-res").classList.remove("hidden");
+    }
+  </script>
 </body>
 </html>
