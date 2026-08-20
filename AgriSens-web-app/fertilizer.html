@@ -85,87 +85,89 @@
         </p>
       </div>
 
-      <!-- Main Layout -->
+      <!-- Main Layout: Streamlit Live App + Quick Calculator -->
       <div style="display:grid;grid-template-columns:1fr;gap:36px">
         
-        <!-- Calculator Card -->
-        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
-          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px">
+        <!-- Live Deployed Streamlit App Embed Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff;padding:24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:16px;margin-bottom:20px;flex-wrap:wrap;gap:12px">
             <div>
-              <span class="badge-green">AgriNex AI Algorithm</span>
-              <h3 style="font-size:24px;margin-top:6px">NPK & Farm Area Calculator</h3>
+              <span class="badge-amber mb-1">
+                <span class="status-dot green"></span> Live Deployed & Trained Streamlit App
+              </span>
+              <h3 style="font-size:24px;margin-top:4px">Real Fertilizer Prediction Model</h3>
+              <p style="font-size:12px;color:var(--hc-text-muted)">Hosted live on Streamlit Cloud • Soil NPK & Fertilizer Calculator</p>
             </div>
-            <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button secondary clip-button" style="font-size:12px">
-              Launch Streamlit App ↗
+            <div style="display:flex;gap:10px">
+              <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="font-size:12px">
+                Open App in New Tab ↗
+              </a>
+            </div>
+          </div>
+
+          <div style="position:relative;width:100%;border-radius:16px;overflow:hidden;background:#FAF9F5;border:1px solid var(--hc-border);box-shadow:0 8px 30px rgba(0,0,0,0.06)">
+            <iframe 
+              src="https://fertilizer-predictions.streamlit.app/?embedded=true" 
+              title="Fertilizer Prediction Streamlit App"
+              style="width:100%;height:850px;border:none;display:block;"
+              loading="lazy"
+              allow="camera; microphone; clipboard-read; clipboard-write;"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Fertilizer ML Architecture Breakdown Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+            <div>
+              <span class="badge-amber">NPK Soil Deficit & Fertilizer Recommendation Model</span>
+              <h3 style="font-size:24px;margin-top:6px">How Our Fertilizer ML Model Works</h3>
+            </div>
+            <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="font-size:13px">
+              Launch Full Streamlit App ↗
             </a>
           </div>
-          
-          <form data-fert-form style="display:grid;gap:24px">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px">
-              
-              <div>
-                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:8px">🌾 Target Crop</label>
-                <select name="crop" style="width:100%;padding:12px 16px;background:var(--hc-white);border:1px solid var(--hc-border);border-radius:12px">
-                  <option value="Paddy (Rice)">Paddy (Rice)</option>
-                  <option value="Wheat">Wheat</option>
-                  <option value="Maize (Corn)">Maize (Corn)</option>
-                  <option value="Cotton">Cotton</option>
-                  <option value="Sugarcane">Sugarcane</option>
-                  <option value="Groundnut">Groundnut</option>
-                  <option value="Pulses">Pulses</option>
-                </select>
-              </div>
 
-              <div>
-                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:8px">🏞️ Soil Texture</label>
-                <select name="soil" style="width:100%;padding:12px 16px;background:var(--hc-white);border:1px solid var(--hc-border);border-radius:12px">
-                  <option value="Loamy">Loamy (Balanced)</option>
-                  <option value="Black">Black (Clay-rich)</option>
-                  <option value="Red">Red Soil</option>
-                  <option value="Sandy">Sandy (High Leaching)</option>
-                  <option value="Clayey">Clayey Soil</option>
-                </select>
-              </div>
-
-              <div>
-                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:8px">📐 Farm Size & Unit</label>
-                <div style="display:flex;gap:8px">
-                  <input name="area" type="number" value="2" min="0.1" step="0.1" style="width:60%;padding:12px 16px;border:1px solid var(--hc-border);border-radius:12px">
-                  <select name="unit" style="width:40%;padding:12px 8px;border:1px solid var(--hc-border);border-radius:12px">
-                    <option value="Acre">Acres</option>
-                    <option value="Bigha">Bigha</option>
-                    <option value="Hectare">Hectare</option>
-                  </select>
-                </div>
-              </div>
-
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;margin-bottom:32px">
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">🧪</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">Soil N-P-K Nutrient Deficit</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Measures current Soil Nitrogen (N), Phosphorus (P), and Potassium (K) levels against target crop NPK intake requirements per acre to compute exact missing nutrients.
+              </p>
             </div>
 
-            <!-- NPK Inputs -->
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px;background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
-              <div>
-                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">🌱 Soil Nitrogen (N ppm)</label>
-                <input name="n" type="number" value="20" min="0" max="140" style="width:100%;padding:12px 16px;border:1px solid var(--hc-border);border-radius:12px">
-              </div>
-              <div>
-                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">🧪 Soil Phosphorus (P ppm)</label>
-                <input name="p" type="number" value="15" min="0" max="145" style="width:100%;padding:12px 16px;border:1px solid var(--hc-border);border-radius:12px">
-              </div>
-              <div>
-                <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">⚡ Soil Potassium (K ppm)</label>
-                <input name="k" type="number" value="10" min="0" max="205" style="width:100%;padding:12px 16px;border:1px solid var(--hc-border);border-radius:12px">
-              </div>
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">🏞️</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">Soil Texture & Leaching Index</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Adjusts dosage based on soil type (Loamy, Black, Red, Sandy, Clayey) to account for nutrient retention, water holding capacity, and leaching rates.
+              </p>
             </div>
 
-            <button type="submit" class="hc-button clip-button" style="width:100%;padding:14px;font-size:15px">
-              <iconify-icon icon="solar:calculator-bold" style="font-size:20px"></iconify-icon>
-              <span>Calculate Fertilizer Bags & Schedule</span>
-            </button>
-          </form>
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">📦</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">50kg Bag Prescription & Schedule</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Calculates precise 50kg bags of Urea (46% N), DAP (18-46-0), MOP (Potash), and SSP, along with Basal vs Split Top-Dressing application schedules.
+              </p>
+            </div>
+          </div>
 
-          <!-- Result Card -->
-          <div data-fert-result style="display:none;margin-top:32px;padding:28px;background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;border-radius:20px">
-            <!-- Dynamic Result populated by JS -->
+          <!-- Streamlit App Direct Link Banner -->
+          <div style="background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;padding:32px;border-radius:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+            <div>
+              <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold);text-transform:uppercase">CALCULATE YOUR FIELD'S FERTILIZER DOSE</span>
+              <h3 style="font-size:28px;margin:6px 0;color:#fff;font-family:'Playfair Display',serif">Access Real Deployed Streamlit App</h3>
+              <p style="color:rgba(255,255,255,0.85);font-size:14px;max-width:550px">
+                Compute exact Urea and DAP bags required for your field on our official Streamlit app hosted at <b>fertilizer-predictions.streamlit.app</b>.
+              </p>
+            </div>
+            <div>
+              <a href="https://fertilizer-predictions.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="background:var(--hc-gold);color:#fff;font-size:14px;padding:14px 28px">
+                Open Fertilizer AI App 🚀
+              </a>
+            </div>
           </div>
 
         </div>
