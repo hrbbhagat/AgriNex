@@ -85,105 +85,88 @@
         </p>
       </div>
 
-      <!-- Main Grid: Simulator + Streamlit App Banner -->
+      <!-- Main Grid: Streamlit Live App + Interactive Simulator -->
       <div style="display:grid;grid-template-columns: 1fr; gap:36px">
         
-        <!-- Interactive Simulator Card -->
-        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
-          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px">
+        <!-- Live Deployed Streamlit App Embed Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff;padding:24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:16px;margin-bottom:20px;flex-wrap:wrap;gap:12px">
             <div>
-              <span class="badge-amber">Interactive Simulator</span>
-              <h3 style="font-size:24px;margin-top:6px">Soil & Climate Parameters</h3>
+              <span class="badge-green mb-1">
+                <span class="status-dot green"></span> Live Deployed & Trained Streamlit App
+              </span>
+              <h3 style="font-size:24px;margin-top:4px">Real Crop Recommendation ML Model</h3>
+              <p style="font-size:12px;color:var(--hc-text-muted)">Hosted live on Streamlit Cloud • 22 Agricultural Crop Predictor</p>
             </div>
-            <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button secondary clip-button" style="font-size:12px">
-              Open Full Streamlit App ↗
+            <div style="display:flex;gap:10px">
+              <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="font-size:12px">
+                Open App in New Tab ↗
+              </a>
+            </div>
+          </div>
+
+          <div style="position:relative;width:100%;border-radius:16px;overflow:hidden;background:#FAF9F5;border:1px solid var(--hc-border);box-shadow:0 8px 30px rgba(0,0,0,0.06)">
+            <iframe 
+              src="https://smart-crop-recommendations.streamlit.app/?embedded=true" 
+              title="Crop Recommendation Streamlit App"
+              style="width:100%;height:850px;border:none;display:block;"
+              loading="lazy"
+              allow="camera; microphone; clipboard-read; clipboard-write;"
+            ></iframe>
+          </div>
+        </div>
+        
+        <!-- Machine Learning Architecture Breakdown Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+            <div>
+              <span class="badge-green">Random Forest & Scikit-Learn Model</span>
+              <h3 style="font-size:24px;margin-top:6px">How Our Crop AI Model Works</h3>
+            </div>
+            <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="font-size:13px">
+              Launch Full Streamlit App ↗
             </a>
           </div>
 
-          <form id="crop-sim-form" style="display:grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));gap:24px">
-            
-            <!-- Nitrogen Slider -->
-            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
-              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">🌱 Nitrogen (N)</label>
-                <span id="val-n" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">90 ppm</span>
-              </div>
-              <input type="range" id="sim-n" min="0" max="140" value="90" style="width:100%" oninput="document.getElementById('val-n').innerText = this.value + ' ppm'">
-              <small style="color:var(--hc-text-muted);font-size:11px">Leaf growth & chlorophyll support</small>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;margin-bottom:32px">
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">🧪</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">Soil N-P-K & pH Feature Set</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Evaluates Nitrogen (N), Phosphorus (P), and Potassium (K) concentration in ppm alongside soil pH levels (3.5 to 9.5) to determine soil fertility and chemical compatibility.
+              </p>
             </div>
 
-            <!-- Phosphorus Slider -->
-            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
-              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">🧪 Phosphorus (P)</label>
-                <span id="val-p" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">42 ppm</span>
-              </div>
-              <input type="range" id="sim-p" min="0" max="145" value="42" style="width:100%" oninput="document.getElementById('val-p').innerText = this.value + ' ppm'">
-              <small style="color:var(--hc-text-muted);font-size:11px">Root development & seed formation</small>
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">🌡️</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">Climate & Rain Telemetry</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Processes ambient temperature (°C), relative air humidity (%), and expected annual precipitation (mm) to match the biological growth conditions of Indian crops.
+              </p>
             </div>
 
-            <!-- Potassium Slider -->
-            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
-              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">⚡ Potassium (K)</label>
-                <span id="val-k" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">43 ppm</span>
-              </div>
-              <input type="range" id="sim-k" min="0" max="205" value="43" style="width:100%" oninput="document.getElementById('val-k').innerText = this.value + ' ppm'">
-              <small style="color:var(--hc-text-muted);font-size:11px">Drought tolerance & disease defense</small>
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">🎯</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">22 Crop Classification</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Classifies suitability among 22 major Indian crops including Paddy (Rice), Wheat, Maize, Cotton, Jute, Sugarcane, Chickpea, Kidney Beans, Mango, Banana, and Watermelon.
+              </p>
             </div>
+          </div>
 
-            <!-- Temperature Slider -->
-            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
-              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">🌡️ Temperature (°C)</label>
-                <span id="val-temp" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">25 °C</span>
-              </div>
-              <input type="range" id="sim-temp" min="10" max="50" value="25" style="width:100%" oninput="document.getElementById('val-temp').innerText = this.value + ' °C'">
-              <small style="color:var(--hc-text-muted);font-size:11px">Average ambient farm temperature</small>
-            </div>
-
-            <!-- Humidity Slider -->
-            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
-              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">💧 Relative Humidity (%)</label>
-                <span id="val-hum" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">80 %</span>
-              </div>
-              <input type="range" id="sim-hum" min="10" max="100" value="80" style="width:100%" oninput="document.getElementById('val-hum').innerText = this.value + ' %'">
-              <small style="color:var(--hc-text-muted);font-size:11px">Air moisture concentration</small>
-            </div>
-
-            <!-- Soil pH Slider -->
-            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0">
-              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">⚖️ Soil pH Level</label>
-                <span id="val-ph" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">6.5 pH</span>
-              </div>
-              <input type="range" id="sim-ph" min="3.5" max="9.5" step="0.1" value="6.5" style="width:100%" oninput="document.getElementById('val-ph').innerText = this.value + ' pH'">
-              <small style="color:var(--hc-text-muted);font-size:11px">Soil acidity/alkalinity scale</small>
-            </div>
-
-            <!-- Rainfall Slider -->
-            <div style="background:#F8FAFC;padding:18px;border-radius:16px;border:1px solid #E2E8F0;grid-column: 1 / -1">
-              <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                <label style="font-weight:700;font-size:13px;color:var(--hc-text)">🌧️ Annual Rainfall (mm)</label>
-                <span id="val-rain" style="font-weight:800;color:var(--hc-accent-dark);font-size:14px">200 mm</span>
-              </div>
-              <input type="range" id="sim-rain" min="20" max="300" value="200" style="width:100%" oninput="document.getElementById('val-rain').innerText = this.value + ' mm'">
-              <small style="color:var(--hc-text-muted);font-size:11px">Expected annual rainfall intake</small>
-            </div>
-
-          </form>
-
-          <!-- Result Container -->
-          <div id="sim-result-box" style="margin-top:32px;background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;padding:28px;border-radius:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+          <!-- Streamlit App Direct Link Banner -->
+          <div style="background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;padding:32px;border-radius:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
             <div>
-              <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold);text-transform:uppercase">AI RECOMMENDATION MATCH</span>
-              <h2 id="res-crop-title" style="font-size:36px;margin:8px 0;color:#fff;font-family:'Playfair Display',serif">🌾 Rice (Paddy)</h2>
-              <p id="res-crop-desc" style="color:rgba(255,255,255,0.85);font-size:14px">Ideal for warm climate (25°C), high humidity (80%), and heavy rainfall conditions.</p>
+              <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold);text-transform:uppercase">READY TO PREDICT YOUR CROP?</span>
+              <h3 style="font-size:28px;margin:6px 0;color:#fff;font-family:'Playfair Display',serif">Access Real Deployed Streamlit App</h3>
+              <p style="color:rgba(255,255,255,0.85);font-size:14px;max-width:550px">
+                Run live predictions using your actual soil test values on our official Streamlit app hosted at <b>smart-crop-recommendations.streamlit.app</b>.
+              </p>
             </div>
-            <div style="text-align:right">
-              <span style="display:block;font-size:12px;color:rgba(255,255,255,0.7)">Suitability Confidence</span>
-              <strong id="res-crop-conf" style="font-size:38px;color:var(--hc-gold);font-weight:900">96.8%</strong>
+            <div>
+              <a href="https://smart-crop-recommendations.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="background:var(--hc-gold);color:#fff;font-size:14px;padding:14px 28px">
+                Open Crop AI App Now 🚀
+              </a>
             </div>
           </div>
 
