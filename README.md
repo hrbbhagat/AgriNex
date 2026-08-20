@@ -6,14 +6,23 @@ AgriNex is a comprehensive agricultural intelligence platform that leverages mac
 
 AgriNex combines cutting-edge AI/ML technologies with user-friendly web interfaces to help farmers make data-driven decisions about crop selection, disease management, and fertilizer optimization. The platform integrates multiple machine learning models trained on agricultural datasets to provide accurate and actionable insights.
 
+## 🚀 Deployed Live Streamlit Applications
+
+AgriNex trained machine learning models are deployed live on Streamlit Cloud:
+
+- 🌾 **Crop Recommendation AI**: [smart-crop-recommendations.streamlit.app](https://smart-crop-recommendations.streamlit.app/)
+- 🧪 **Fertilizer Prediction AI**: [fertilizer-predictions.streamlit.app](https://fertilizer-predictions.streamlit.app/)
+- 🔬 **Plant Disease Identification**: [plant-diseases-identification.streamlit.app](https://plant-diseases-identification.streamlit.app/)
+
 ## ✨ Features
 
+- **Embedded Streamlit ML Apps**: Real-time predictions directly integrated into tool pages (`crop-prediction.html`, `fertilizer.html`, `disease-detection.html`)
+- **Universal AI Kisan Chatbot**: Responsive floating AI assistant widget for crop, fertilizer, disease, and Mandi queries
 - **Crop Recommendation**: Intelligent crop suggestion based on soil nutrients (N, P, K), temperature, humidity, pH level, and rainfall
 - **Plant Disease Detection**: AI-powered identification of plant diseases using image recognition (supports 38+ disease classes)
 - **Fertilizer Prediction**: Automated fertilizer recommendations based on soil conditions and environmental factors
-- **Multi-Platform**: Web-based interface for easy accessibility
-- **Real-time Predictions**: Instant predictions using trained ML/DL models
-- **Comprehensive Dataset**: Trained on PlantVillage dataset and agricultural benchmark datasets
+- **Live Mandi Ticker & Govt Schemes**: Real-time wholesale APMC commodity rates and PM-KISAN subsidy guidance
+- **Comprehensive Farm Dashboard**: Telemetry meters, 7-day weather spraying advice, yield revenue calculator, and KVK directory
 
 ## 🛠️ Tech Stack
 
