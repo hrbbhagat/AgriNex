@@ -1,0 +1,42 @@
+{
+  "name": "AgriNex AI - Smart Agriculture Portal",
+  "short_name": "AgriNex AI",
+  "description": "Smart Agriculture, Soil Care, Crop AI, Fertilizer Calculator, and Mandi Intelligence for Indian Farmers.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#FAF9F5",
+  "theme_color": "#1B4332",
+  "icons": [
+    {
+      "src": "https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Crop AI Recommender",
+      "short_name": "Crop AI",
+      "description": "Launch Crop AI Machine Learning Model",
+      "url": "/crop-prediction.html"
+    },
+    {
+      "name": "Fertilizer Calculator AI",
+      "short_name": "Fertilizer AI",
+      "description": "Calculate Urea and DAP bags per acre",
+      "url": "/fertilizer.html"
+    },
+    {
+      "name": "Plant Disease ID Vision",
+      "short_name": "Disease ID",
+      "description": "Diagnose crop leaf diseases instantly",
+      "url": "/disease-detection.html"
+    },
+    {
+      "name": "Daily APMC Mandi Rates",
+      "short_name": "Mandi Rates",
+      "description": "Check wholesale market prices",
+      "url": "/mandi-schemes.html"
+    }
+  ]
+}
