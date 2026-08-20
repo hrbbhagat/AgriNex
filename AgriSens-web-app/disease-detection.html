@@ -85,53 +85,89 @@
         </p>
       </div>
 
-      <!-- Main Layout -->
+      <!-- Main Layout: Streamlit Live App + Sample Scanner -->
       <div style="display:grid;grid-template-columns:1fr;gap:36px">
         
-        <!-- Dropzone & Diagnosis Card -->
-        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
-          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px">
+        <!-- Live Deployed Streamlit App Embed Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff;padding:24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:16px;margin-bottom:20px;flex-wrap:wrap;gap:12px">
             <div>
-              <span class="badge-green">Live Scanner</span>
-              <h3 style="font-size:24px;margin-top:6px">Leaf Diagnostic Upload</h3>
+              <span class="badge-red mb-1">
+                <span class="status-dot green"></span> Live Deployed & Trained Streamlit App
+              </span>
+              <h3 style="font-size:24px;margin-top:4px">Real Plant Disease Vision Model</h3>
+              <p style="font-size:12px;color:var(--hc-text-muted)">Hosted live on Streamlit Cloud • TensorFlow 38 Disease Vision Identifier</p>
             </div>
-            <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="hc-button secondary clip-button" style="font-size:12px">
+            <div style="display:flex;gap:10px">
+              <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="font-size:12px">
+                Open App in New Tab ↗
+              </a>
+            </div>
+          </div>
+
+          <div style="position:relative;width:100%;border-radius:16px;overflow:hidden;background:#FAF9F5;border:1px solid var(--hc-border);box-shadow:0 8px 30px rgba(0,0,0,0.06)">
+            <iframe 
+              src="https://plant-diseases-identification.streamlit.app/?embedded=true" 
+              title="Plant Disease Identification Streamlit App"
+              style="width:100%;height:850px;border:none;display:block;"
+              loading="lazy"
+              allow="camera; microphone; clipboard-read; clipboard-write;"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Plant Disease Computer Vision Model Breakdown Card -->
+        <div class="service-card outer clip-card service-catalog-reveal" style="background:#fff">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hc-border);padding-bottom:20px;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+            <div>
+              <span class="badge-red">TensorFlow & Keras Convolutional Neural Network (CNN)</span>
+              <h3 style="font-size:24px;margin-top:6px">How Our Plant Disease Vision Model Works</h3>
+            </div>
+            <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="font-size:13px">
               Launch Full Streamlit App ↗
             </a>
           </div>
 
-          <!-- Sample Quick Test Buttons -->
-          <div style="margin-bottom:24px">
-            <span style="font-size:12px;font-weight:700;color:var(--hc-text-muted);display:block;margin-bottom:10px">OR QUICK TEST WITH SAMPLE LEAVES:</span>
-            <div style="display:flex;flex-wrap:wrap;gap:10px">
-              <button class="hc-button secondary clip-button sample-leaf-btn" data-sample="tomato" style="font-size:12px;padding:8px 14px">
-                🍅 Tomato Early Blight
-              </button>
-              <button class="hc-button secondary clip-button sample-leaf-btn" data-sample="apple" style="font-size:12px;padding:8px 14px">
-                🍎 Apple Scab
-              </button>
-              <button class="hc-button secondary clip-button sample-leaf-btn" data-sample="corn" style="font-size:12px;padding:8px 14px">
-                🌽 Corn Common Rust
-              </button>
-              <button class="hc-button secondary clip-button sample-leaf-btn" data-sample="healthy" style="font-size:12px;padding:8px 14px">
-                🌿 Healthy Leaf
-              </button>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;margin-bottom:32px">
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">🖼️</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">Leaf Image Feature Extraction</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Deep CNN layers extract spatial leaf features, necrotic lesions, chlorosis spots, fungal rust pustules, and leaf vein discoloration patterns from uploaded crop photos.
+              </p>
+            </div>
+
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">🔬</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">38 Plant Disease Classes</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Trained on 87,000+ high-resolution agricultural leaf images spanning Tomato, Potato, Apple, Corn, Grape, Peach, Pepper, Strawberry, and Soybean crops.
+              </p>
+            </div>
+
+            <div style="background:#F8FAFC;padding:20px;border-radius:16px;border:1px solid #E2E8F0">
+              <div style="font-size:24px;margin-bottom:8px">🩺</div>
+              <h4 style="font-size:16px;font-weight:800;color:var(--hc-text);margin-bottom:6px">Fungicide & Spray Prescriptions</h4>
+              <p style="font-size:13px;color:var(--hc-text-muted);line-height:1.5">
+                Provides instant confidence scores along with target chemical spray remedies (e.g. Mancozeb, Copper Oxychloride, Captan) and bio-pesticide dosage instructions.
+              </p>
             </div>
           </div>
 
-          <!-- Upload Dropzone -->
-          <label style="display:block;border:2px dashed var(--hc-accent);padding:44px 24px;text-align:center;background:#F8FAFC;cursor:pointer;border-radius:20px;transition:background 0.2s ease">
-            <div style="font-size:48px;margin-bottom:12px;color:var(--hc-accent)">
-              <iconify-icon icon="solar:camera-add-bold"></iconify-icon>
+          <!-- Streamlit App Direct Link Banner -->
+          <div style="background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;padding:32px;border-radius:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+            <div>
+              <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold);text-transform:uppercase">DIAGNOSE YOUR PLANT LEAF NOW</span>
+              <h3 style="font-size:28px;margin:6px 0;color:#fff;font-family:'Playfair Display',serif">Access Real Deployed Streamlit Vision App</h3>
+              <p style="color:rgba(255,255,255,0.85);font-size:14px;max-width:550px">
+                Upload your crop leaf photo for real-time AI diagnosis on our official Streamlit app hosted at <b>plant-diseases-identification.streamlit.app</b>.
+              </p>
             </div>
-            <h4 style="font-size:18px;margin:0;color:var(--hc-text)">Click to Select or Drop Crop Leaf Photo</h4>
-            <p style="font-size:13px;color:var(--hc-text-muted);margin-top:6px">Supports JPEG, PNG images up to 10MB</p>
-            <input type="file" id="disease-file" accept="image/*" style="display:none">
-          </label>
-
-          <!-- Result Diagnostic Display -->
-          <div id="disease-result" style="display:none;margin-top:32px;padding:28px;background:linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);color:#fff;border-radius:20px">
-            <!-- Dynamic Result populated by JS -->
+            <div>
+              <a href="https://plant-diseases-identification.streamlit.app/" target="_blank" rel="noopener" class="hc-button clip-button" style="background:var(--hc-gold);color:#fff;font-size:14px;padding:14px 28px">
+                Open Disease Vision App 🚀
+              </a>
+            </div>
           </div>
 
         </div>
