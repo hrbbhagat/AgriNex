@@ -625,6 +625,85 @@
           </div>
         </div>
       </div>
+    <!-- 8. HARVEST YIELD & REVENUE PROJECTION CALCULATOR -->
+    <div class="bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#D97706]">FARM ECONOMICS CALCULATOR</span>
+          <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">Harvest Yield & Expected Income Estimator</h2>
+          <p class="text-xs text-slate-500 font-medium">Estimate crop yield in quintals and gross market revenue based on live Mandi prices.</p>
+        </div>
+        <span class="text-xs bg-amber-100 text-amber-900 font-bold px-3 py-1 rounded-full">Kharif Season Projection</span>
+      </div>
+
+      <form onsubmit="event.preventDefault(); calcYieldRevenue();" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Target Crop</label>
+          <select id="est-crop" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-bold text-slate-800 outline-none">
+            <option value="paddy">Paddy / Rice (Expected ~22 Qtl/Acre)</option>
+            <option value="wheat">Wheat (Expected ~20 Qtl/Acre)</option>
+            <option value="mustard">Mustard (Expected ~8 Qtl/Acre)</option>
+            <option value="maize">Maize (Expected ~25 Qtl/Acre)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Cultivated Area (Acres)</label>
+          <input type="number" id="est-acres" value="4" min="0.5" step="0.5" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-bold text-slate-800 outline-none" />
+        </div>
+
+        <div class="flex items-end">
+          <button type="submit" class="w-full rounded-2xl bg-[#1B4332] px-6 py-3.5 text-xs font-bold text-white hover:bg-[#2D6A4F] transition-colors">
+            Calculate Yield & Revenue
+          </button>
+        </div>
+      </form>
+
+      <div id="est-res-box" class="rounded-2xl bg-[#FAF9F5] p-6 border border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-4 bg-white rounded-xl border border-slate-200 text-center">
+          <span class="text-[11px] text-slate-500 font-bold block uppercase">Est. Total Harvest</span>
+          <strong id="est-harvest" class="font-heading text-2xl font-black text-[#1B4332]">88.0 Quintals</strong>
+        </div>
+        <div class="p-4 bg-white rounded-xl border border-slate-200 text-center">
+          <span class="text-[11px] text-slate-500 font-bold block uppercase">Modal Mandi Rate</span>
+          <strong id="est-rate" class="font-heading text-2xl font-black text-slate-900">₹2,180 / Qtl</strong>
+        </div>
+        <div class="p-4 bg-white rounded-xl border border-slate-200 text-center">
+          <span class="text-[11px] text-slate-500 font-bold block uppercase">Est. Gross Revenue</span>
+          <strong id="est-revenue" class="font-heading text-2xl font-black text-emerald-600">₹1,91,840</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. KRISHI VIGYAN KENDRA (KVK) & HELPLINE DIRECTORY -->
+    <div class="bg-white p-8 rounded-3xl border border-slate-200 light-card-shadow space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#2D6A4F]">EXPERT ADVISORY HELPLINE</span>
+          <h2 class="font-heading text-xl font-extrabold text-slate-900 mt-1">Krishi Vigyan Kendra (KVK) & Emergency Desk</h2>
+        </div>
+        <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full">Toll-Free Support Active</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <strong class="block text-sm font-bold text-slate-900">KVK Scientist Advisory (Varanasi)</strong>
+          <p class="text-slate-500 font-medium">Direct consultation for soil testing, seed treatment, and fertilizer dosage queries.</p>
+          <span class="block font-bold text-[#1B4332] text-sm pt-2">📞 1800-180-1551 (Kisan Call Center)</span>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <strong class="block text-sm font-bold text-slate-900">District Agriculture Office (UP)</strong>
+          <p class="text-slate-500 font-medium">PM-KISAN e-KYC support, Soil Health Card issues, and certified seed distribution desks.</p>
+          <span class="block font-bold text-[#1B4332] text-sm pt-2">🏢 Vikas Bhawan, Cutchessy, Varanasi</span>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <strong class="block text-sm font-bold text-slate-900">AgriNex AI Support Specialist</strong>
+          <p class="text-slate-500 font-medium">Assistance with Streamlit AI apps, model outputs, and daily WhatsApp price alerts.</p>
+          <span class="block font-bold text-[#1B4332] text-sm pt-2">📱 +91 6969696969 (Aayush Kumar)</span>
+        </div>
+      </div>
     </div>
 
   </main>
@@ -658,6 +737,23 @@
       document.getElementById("dash-d").innerText = (d * acres).toFixed(1) + " Bags";
       document.getElementById("dash-m").innerText = (m * acres).toFixed(1) + " Bags";
       document.getElementById("dash-res").classList.remove("hidden");
+    }
+
+    function calcYieldRevenue() {
+      const crop = document.getElementById("est-crop").value;
+      const acres = parseFloat(document.getElementById("est-acres").value) || 1;
+      let yieldPerAcre = 22, rate = 2180;
+
+      if (crop === "wheat") { yieldPerAcre = 20; rate = 2450; }
+      else if (crop === "mustard") { yieldPerAcre = 8; rate = 5400; }
+      else if (crop === "maize") { yieldPerAcre = 25; rate = 2050; }
+
+      const totalHarvest = (yieldPerAcre * acres).toFixed(1);
+      const grossRevenue = Math.round(totalHarvest * rate);
+
+      document.getElementById("est-harvest").innerText = totalHarvest + " Quintals";
+      document.getElementById("est-rate").innerText = "₹" + rate.toLocaleString() + " / Qtl";
+      document.getElementById("est-revenue").innerText = "₹" + grossRevenue.toLocaleString();
     }
   </script>
 </body>
