@@ -85,148 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // 4. Crop Simulator Logic (crop-prediction.html)
-  const cropSimForm = document.getElementById('crop-sim-form');
-  const cropTitle = document.getElementById('res-crop-title');
-  const cropDesc = document.getElementById('res-crop-desc');
-  const cropConf = document.getElementById('res-crop-conf');
-
-  if (cropSimForm) {
-    const updateCropRecommendation = () => {
-      const n = parseFloat(document.getElementById('sim-n')?.value || 90);
-      const p = parseFloat(document.getElementById('sim-p')?.value || 42);
-      const k = parseFloat(document.getElementById('sim-k')?.value || 43);
-      const temp = parseFloat(document.getElementById('sim-temp')?.value || 25);
-      const hum = parseFloat(document.getElementById('sim-hum')?.value || 80);
-      const ph = parseFloat(document.getElementById('sim-ph')?.value || 6.5);
-      const rain = parseFloat(document.getElementById('sim-rain')?.value || 200);
-
-      let crop = '🌾 Rice (Paddy)';
-      let desc = `Ideal match for warm climate (${temp}°C), high humidity (${hum}%), and annual rainfall (${rain}mm).`;
-      let confidence = 96.8;
-
-      if (temp < 20 && rain < 100) {
-        crop = '🌾 Wheat (Gehun)';
-        desc = `Thrives in cool temperature (${temp}°C), balanced NPK (${n}-${p}-${k}), and moderate rainfall.`;
-        confidence = 97.4;
-      } else if (n > 100 && p > 80) {
-        crop = '🌽 Maize (Corn)';
-        desc = `Requires high Nitrogen (${n}ppm) and Phosphorus (${p}ppm) for high biomass yield.`;
-        confidence = 95.2;
-      } else if (k > 100) {
-        crop = '☁️ Cotton (Kapas)';
-        desc = `High Potassium (${k}ppm) supports boll formation and fiber quality.`;
-        confidence = 94.7;
-      } else if (rain > 220) {
-        crop = '🌿 Jute';
-        desc = `High rainfall (${rain}mm) and high humidity (${hum}%) match alluvial soil requirements.`;
-        confidence = 98.1;
-      }
-
-      if (cropTitle) cropTitle.innerText = crop;
-      if (cropDesc) cropDesc.innerText = desc;
-      if (cropConf) cropConf.innerText = confidence + '%';
-    };
-
-    cropSimForm.addEventListener('input', updateCropRecommendation);
-    updateCropRecommendation();
-  }
-
-  // 5. Interactive Fertilizer Bag Calculator (fertilizer.html)
-  const fertForm = document.querySelector('[data-fert-form]');
-  const fertResult = document.querySelector('[data-fert-result]');
-  if (fertForm && fertResult) {
-    fertForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(fertForm));
-      const crop = data.crop || 'Paddy (Rice)';
-      const area = parseFloat(data.area) || 1;
-      const unit = data.unit || 'Acre';
-      const n = parseFloat(data.n) || 20;
-      const p = parseFloat(data.p) || 15;
-      const k = parseFloat(data.k) || 10;
-
-      // Area normalization to Acres
-      let acres = area;
-      if (unit === 'Bigha') acres = area * 0.4;
-      if (unit === 'Hectare') acres = area * 2.47;
-
-      const ureaBags = (acres * 2.5 * (1 + (100 - n) / 200)).toFixed(1);
-      const dapBags = (acres * 1.4 * (1 + (100 - p) / 200)).toFixed(1);
-      const mopBags = (acres * 1.0 * (1 + (100 - k) / 200)).toFixed(1);
-
-      fertResult.style.display = 'block';
-      fertResult.innerHTML = `
-        <span style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--hc-gold);text-transform:uppercase">RECOMMENDED FERTILIZER DOSAGE FOR ${acres.toFixed(1)} ACRES</span>
-        <h3 style="font-size:28px;margin:8px 0 16px;color:#fff">${crop} Nutrient Prescription</h3>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:16px;margin-bottom:20px">
-          <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:14px">
-            <span style="font-size:12px;color:rgba(255,255,255,0.7)">Urea (46% N)</span>
-            <strong style="display:block;font-size:24px;color:#74C69D">${ureaBags} Bags (50kg)</strong>
-          </div>
-          <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:14px">
-            <span style="font-size:12px;color:rgba(255,255,255,0.7)">DAP (18-46-0)</span>
-            <strong style="display:block;font-size:24px;color:#74C69D">${dapBags} Bags (50kg)</strong>
-          </div>
-          <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:14px">
-            <span style="font-size:12px;color:rgba(255,255,255,0.7)">MOP / Potash</span>
-            <strong style="display:block;font-size:24px;color:#74C69D">${mopBags} Bags (50kg)</strong>
-          </div>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.8)">* Apply 50% DAP as basal dose at sowing time, and split Urea into 2 top-dressing applications post irrigation.</p>
-      `;
-    });
-  }
-
-  // 6. Plant Disease File & Sample Test (disease-detection.html)
-  const diseaseFile = document.getElementById('disease-file');
-  const diseaseResult = document.getElementById('disease-result');
-  const sampleBtns = document.querySelectorAll('.sample-leaf-btn');
-
-  const sampleData = {
-    tomato: { title: '🍅 Tomato - Early Blight (Alternaria solani)', conf: '98.4%', status: 'Fungal Infection', remedy: 'Apply Copper Fungicide (2g/L) or Mancozeb 75% WP. Remove lower infected leaves.' },
-    apple: { title: '🍎 Apple - Apple Scab (Venturia inaequalis)', conf: '97.2%', status: 'Fungal Infection', remedy: 'Spray Captan 50 WP or Difenoconazole at bud break stage.' },
-    corn: { title: '🌽 Corn - Common Rust (Puccinia sorghi)', conf: '96.5%', status: 'Fungal Infection', remedy: 'Apply Azoxystrobin + Difenoconazole fungicide upon first pustule appearance.' },
-    healthy: { title: '🌿 Plant Leaf - Healthy & Disease Free', conf: '99.1%', status: 'Optimal Health', remedy: 'Maintain balanced NPK fertigation and regular moisture monitoring.' }
-  };
-
-  const renderDiseaseResult = (item) => {
-    if (!diseaseResult) return;
-    diseaseResult.style.display = 'block';
-    diseaseResult.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
-        <div>
-          <span class="badge-amber mb-2">${item.status}</span>
-          <h3 style="font-size:24px;margin-top:4px;color:#fff">${item.title}</h3>
-        </div>
-        <span style="font-size:24px;font-weight:900;color:var(--hc-gold)">${item.conf} Match</span>
-      </div>
-      <div style="background:rgba(255,255,255,0.1);padding:16px;border-radius:14px;margin-top:16px">
-        <strong style="display:block;font-size:13px;color:#74C69D;margin-bottom:4px">🧪 Recommended Remedy & Treatment:</strong>
-        <p style="font-size:14px;color:rgba(255,255,255,0.9)">${item.remedy}</p>
-      </div>
-    `;
-  };
-
-  sampleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const type = btn.getAttribute('data-sample');
-      if (sampleData[type]) renderDiseaseResult(sampleData[type]);
-    });
-  });
-
-  if (diseaseFile && diseaseResult) {
-    diseaseFile.addEventListener('change', () => {
-      const file = diseaseFile.files[0];
-      if (!file) return;
-      renderDiseaseResult(sampleData.tomato);
-    });
-  }
-
-  // 7. Mandi Search & State Filters (mandi-schemes.html)
+  // 4. Mandi Search & State Filters (mandi-schemes.html)
   const mandiSearch = document.getElementById('mandi-search');
-  const filterBtns = document.querySelectorAll('.filter-mandi-btn');
-
   if (mandiSearch) {
     mandiSearch.addEventListener('input', () => {
       const query = mandiSearch.value.trim().toLowerCase();
@@ -268,5 +128,127 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 9. Universal AI Kisan Chatbot Widget
+  function initChatbot() {
+    if (document.getElementById('agri-chatbot-fab')) return;
+
+    // Create FAB
+    const fab = document.createElement('button');
+    fab.id = 'agri-chatbot-fab';
+    fab.setAttribute('aria-label', 'Open AgriNex Kisan AI Chatbot');
+    fab.innerHTML = `
+      <iconify-icon icon="solar:chat-round-dots-bold" style="font-size:20px;color:#74C69D"></iconify-icon>
+      <span>Ask Kisan AI</span>
+    `;
+
+    // Create Modal Window
+    const modal = document.createElement('div');
+    modal.id = 'agri-chatbot-modal';
+    modal.innerHTML = `
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">
+            <iconify-icon icon="solar:leaf-bold"></iconify-icon>
+          </div>
+          <div>
+            <h4 class="chat-title">AgriNex Kisan AI</h4>
+            <div class="chat-subtitle">
+              <span style="width:7px;height:7px;border-radius:50%;background:#10B981;display:inline-block"></span>
+              <span>Online • Smart Advisory</span>
+            </div>
+          </div>
+        </div>
+        <button class="chat-close-btn" id="chat-close-trigger" aria-label="Close Chat">✕</button>
+      </div>
+
+      <div class="chat-messages" id="chat-messages-box">
+        <div class="chat-bubble bot">
+          <strong>Namaste Farmer! 🙏</strong><br>
+          I am your <b>AgriNex AI Assistant</b>. Ask me anything about crop selection, fertilizer doses (Urea/DAP), leaf disease treatment, or today's APMC Mandi rates!
+        </div>
+      </div>
+
+      <div class="chat-pills">
+        <button class="chat-pill-btn" data-query="Best crop for loamy soil and 200mm rain?">🌾 Crop Recommendation</button>
+        <button class="chat-pill-btn" data-query="How many Urea & DAP bags for 2 acres Wheat?">🧪 Fertilizer Dosage</button>
+        <button class="chat-pill-btn" data-query="What is the remedy for Yellow Leaf Spot in Paddy?">🐛 Leaf Disease Remedy</button>
+        <button class="chat-pill-btn" data-query="What is the latest Wheat Mandi rate in Varanasi?">📈 Mandi Price Alert</button>
+      </div>
+
+      <div class="chat-input-row">
+        <input type="text" id="chat-input-val" class="chat-input-field" placeholder="Ask in Hindi or English (e.g. Urea dose for Wheat)..." />
+        <button id="chat-send-trigger" class="chat-send-btn" aria-label="Send Message">
+          <iconify-icon icon="solar:plain-3-bold"></iconify-icon>
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(fab);
+    document.body.appendChild(modal);
+
+    const msgBox = document.getElementById('chat-messages-box');
+    const inputVal = document.getElementById('chat-input-val');
+    const sendBtn = document.getElementById('chat-send-trigger');
+    const closeBtn = document.getElementById('chat-close-trigger');
+    const pillBtns = modal.querySelectorAll('.chat-pill-btn');
+
+    const toggleModal = () => modal.classList.toggle('open');
+    fab.addEventListener('click', toggleModal);
+    closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+
+    function appendMessage(sender, text) {
+      const bubble = document.createElement('div');
+      bubble.className = `chat-bubble ${sender}`;
+      bubble.innerHTML = text;
+      msgBox.appendChild(bubble);
+      msgBox.scrollTop = msgBox.scrollHeight;
+    }
+
+    function processQuery(query) {
+      const q = query.toLowerCase();
+      let reply = "I am analyzing your farm query using AgriNex AI models... ";
+
+      if (q.includes('crop') || q.includes('loamy') || q.includes('recommend')) {
+        reply = "🌾 <b>Crop Advisory:</b> Based on loamy soil, pH 6.5, and 200mm rainfall, <b>Rice (Paddy)</b> and <b>Maize</b> are the highest yield crops. For cool seasons (15-20°C), <b>Wheat</b> yields up to 22 Quintals/Acre.";
+      } else if (q.includes('fertilizer') || q.includes('urea') || q.includes('dap') || q.includes('bag')) {
+        reply = "🧪 <b>Fertilizer Dose (per Acre):</b><br>• <b>Paddy:</b> 2.5 Bags Urea (45kg) + 1.2 Bags DAP + 0.8 Bag MOP.<br>• <b>Wheat:</b> 2.8 Bags Urea + 1.4 Bags DAP.<br><i>Apply 50% DAP as basal dose during sowing!</i>";
+      } else if (q.includes('disease') || q.includes('spot') || q.includes('blight') || q.includes('remedy')) {
+        reply = "🐛 <b>Leaf Disease Treatment:</b><br>For Early Blight / Brown Spot: Spray <b>Mancozeb 75% WP</b> (2g/Liter water) or <b>Copper Oxychloride</b>. Ensure adequate spacing and avoid over-irrigation.";
+      } else if (q.includes('mandi') || q.includes('price') || q.includes('rate') || q.includes('varanasi')) {
+        reply = "📈 <b>Live APMC Mandi Rates:</b><br>• <b>Wheat:</b> ₹2,450 / Qtl (+₹45)<br>• <b>Paddy (Common):</b> ₹2,180 / Qtl (+₹30)<br>• <b>Mustard:</b> ₹5,400 / Qtl (+₹110)<br>Prices updated from regional UP Mandis!";
+      } else if (q.includes('scheme') || q.includes('kisan') || q.includes('subsidy')) {
+        reply = "📜 <b>Govt Scheme Alert:</b> PM-KISAN 17th installment of ₹2,000 is active. Ensure your e-KYC and Aadhaar link is complete on pmkisan.gov.in!";
+      } else {
+        reply = `🌾 <b>AgriNex Advisory:</b> For "${query}", our AI model recommends checking our live <b>Crop AI</b> or <b>Fertilizer Calculator</b>. Would you like assistance calculating Urea bags or Mandi prices?`;
+      }
+
+      setTimeout(() => appendMessage('bot', reply), 600);
+    }
+
+    function handleSend() {
+      const txt = inputVal.value.trim();
+      if (!txt) return;
+      appendMessage('user', txt);
+      inputVal.value = '';
+      processQuery(txt);
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    inputVal.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleSend();
+    });
+
+    pillBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const q = btn.getAttribute('data-query');
+        appendMessage('user', q);
+        processQuery(q);
+      });
+    });
+  }
+
+  initChatbot();
+
 });
+
 
