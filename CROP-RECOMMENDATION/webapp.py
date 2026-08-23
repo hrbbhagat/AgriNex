@@ -138,9 +138,11 @@ def main():
             st.write("**pH:** Soil acidity — most crops prefer 6.0–7.5.")
             st.write("**Rainfall:** Annual precipitation in millimetres.")
 
+    st.divider()
+    st.caption("🌾 AgriNex AI · Smart Crop Recommendation Engine · Powered by Random Forest Classifier")
+
 
 ## Running the main function
 if __name__ == '__main__':
     main()
-
 
