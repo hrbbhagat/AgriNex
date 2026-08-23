@@ -45,13 +45,16 @@ def load_or_train_model():
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_processed, y)
 
-    return model, preprocessor
+    training_size = len(X)
+    return model, preprocessor, training_size
 
 
-model, preprocessor = load_or_train_model()
+model, preprocessor, training_size = load_or_train_model()
 
 st.title("🧪 AgriNex AI Fertilizer Recommender")
 st.caption("Precision NPK soil nutrient analysis and optimal fertilizer dosage prediction engine")
+st.sidebar.title("🌿 AgriNex AI")
+st.sidebar.metric("Training Samples", f"{training_size:,}")
 
 with st.form("input_form"):
     st.subheader("🌡️ Environmental Conditions")
