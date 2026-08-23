@@ -59,48 +59,9 @@ st.set_page_config(
     layout="centered"
 )
 
-# Custom Styling
-st.markdown("""
-<style>
-  .stApp { background-color: #FAF9F5; font-family: 'Inter', sans-serif; }
-  .header-card-dis {
-      background: linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);
-      color: white;
-      padding: 2.2rem;
-      border-radius: 20px;
-      text-align: center;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 30px rgba(27, 67, 50, 0.15);
-  }
-  .header-card-dis h1 { color: #FFFFFF !important; font-size: 2.2rem !important; font-weight: 800 !important; }
-  .header-card-dis p { color: rgba(255,255,255,0.85) !important; font-size: 1rem !important; }
-  .stButton > button {
-      background: #1B4332 !important;
-      color: white !important;
-      font-weight: 700 !important;
-      border-radius: 9999px !important;
-      padding: 0.6rem 2rem !important;
-      border: none !important;
-      width: 100% !important;
-  }
-  .dis-res-card {
-      background: linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);
-      color: white;
-      padding: 2rem;
-      border-radius: 20px;
-      margin-top: 1.5rem;
-  }
-  .dis-res-card h2 { color: #D97706 !important; font-size: 2.2rem !important; margin: 0.5rem 0 !important; }
-</style>
-""", unsafe_allow_html=True)
-
 def render_prediction_ui(section_title):
-    st.markdown("""
-    <div class="header-card-dis">
-        <h1>🔬 Plant Disease Vision Diagnostic</h1>
-        <p>Deep Learning CNN Computer Vision • 38 Disease Categories & Healthy Leaf Analysis</p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.title("🔬 Plant Disease Vision Diagnostic")
+    st.caption("Deep Learning CNN computer vision with 38 disease categories and healthy leaf analysis")
 
     input_method = st.radio(
         "Select image source:",
@@ -147,16 +108,9 @@ def render_prediction_ui(section_title):
                 return
 
         disease_name = CLASS_NAMES[result_index].replace("___", " - ").replace("_", " ")
-        st.markdown(f"""
-        <div class="dis-res-card">
-            <span style="font-size:0.85rem;letter-spacing:1px;font-weight:700;color:#D97706;">AI DIAGNOSTIC REPORT</span>
-            <h2>🌿 {disease_name}</h2>
-            <p style="font-size:1.1rem;font-weight:700;color:#74C69D;">AI Confidence Score: {confidence * 100:.1f}%</p>
-            <p style="margin-top:0.8rem;font-size:0.95rem;color:rgba(255,255,255,0.85);">
-                Identified using TensorFlow Deep Learning CNN model trained on plant pathology datasets.
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.success(f"AI diagnosis: {disease_name}")
+        st.info(f"AI confidence score: {confidence * 100:.1f}%")
+        st.write("Identified using a TensorFlow CNN model trained on plant pathology datasets.")
 
 # Sidebar
 st.sidebar.title("🌿 AgriNex AI")
@@ -164,4 +118,4 @@ app_mode = st.sidebar.selectbox("Select Mode", ["DISEASE RECOGNITION", "HOME"])
 
 # Main Execution
 if(app_mode=="HOME" or app_mode=="DISEASE RECOGNITION"):
-    render_prediction_ui("DISEASE RECOGNITION")
+    render_prediction_ui("DISEASE RECOGNITION")
