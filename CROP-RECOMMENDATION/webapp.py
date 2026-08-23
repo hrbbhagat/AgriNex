@@ -20,9 +20,6 @@ from sklearn.preprocessing import LabelEncoder
 # import Image from pillow to open images
 from PIL import Image
 img = Image.open("crop.png")
-# display image using streamlit
-# width is used to set the width of an image
-st.image(img)
 
 df= pd.read_csv('Crop_recommendation.csv')
 
@@ -75,48 +72,9 @@ def main():
         page_icon="🌾",
         layout="wide"
     )
-
-    st.markdown("""
-    <style>
-      .stApp { background-color: #FAF9F5; font-family: 'Inter', sans-serif; }
-      .header-card {
-          background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
-          color: white;
-          padding: 2.2rem;
-          border-radius: 20px;
-          text-align: center;
-          margin-bottom: 2rem;
-          box-shadow: 0 10px 30px rgba(27, 67, 50, 0.15);
-      }
-      .header-card h1 { color: #FFFFFF !important; font-size: 2.2rem !important; font-weight: 800 !important; }
-      .header-card p { color: rgba(255,255,255,0.85) !important; font-size: 1rem !important; }
-      .stButton > button {
-          background: #1B4332 !important;
-          color: white !important;
-          font-weight: 700 !important;
-          border-radius: 9999px !important;
-          padding: 0.6rem 2rem !important;
-          border: none !important;
-          width: 100% !important;
-      }
-      .crop-res-card {
-          background: linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);
-          color: white;
-          padding: 2rem;
-          border-radius: 20px;
-          text-align: center;
-          margin-top: 1rem;
-      }
-      .crop-res-card h2 { color: #D97706 !important; font-size: 2.5rem !important; text-transform: capitalize; }
-    </style>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="header-card">
-        <h1>🌾 Smart Crop Recommendation Engine</h1>
-        <p>AI Decision System based on NPK soil chemistry, pH level & local meteorological figures</p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.title("🌾 Smart Crop Recommendation Engine")
+    st.caption("AI decision system based on NPK soil chemistry, pH level, and local meteorological figures")
+    st.image(img)
     
     st.sidebar.title("🌿 AgriNex AI")
     st.sidebar.header("Enter Farm Soil & Climate Parameters")
@@ -141,15 +99,11 @@ def main():
             else:
                 prediction = predict_crop(nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall)
                 recommended_crop = str(prediction[0]).title()
-                st.markdown(f"""
-                <div class="crop-res-card">
-                    <span style="font-size:0.85rem;letter-spacing:1px;font-weight:700;color:#D97706;">RECOMMENDED OPTIMAL CROP</span>
-                    <h2>🌾 {recommended_crop}</h2>
-                    <p style="margin-top:0.5rem;font-size:0.95rem;color:rgba(255,255,255,0.85);">
-                        Exhibits highest yield compatibility under Nitrogen ({nitrogen}ppm), Temp ({temperature}°C), and Rainfall ({rainfall}mm).
-                    </p>
-                </div>
-                """, unsafe_allow_html=True)
+                st.success(f"Recommended optimal crop: {recommended_crop}")
+                st.write(
+                    f"Best compatibility under Nitrogen ({nitrogen} ppm), "
+                    f"Temperature ({temperature} C), and Rainfall ({rainfall} mm)."
+                )
                 st.balloons()
 
     with col2:
