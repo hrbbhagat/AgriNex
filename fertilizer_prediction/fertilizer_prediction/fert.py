@@ -110,3 +110,6 @@ if submitted:
         st.write("Always follow the manufacturer's dosage guidelines and consult your local agronomist before application.")
     st.balloons()
 
+st.divider()
+st.caption("🧪 AgriNex AI · Fertilizer Recommender · Powered by Random Forest Classifier")
+
