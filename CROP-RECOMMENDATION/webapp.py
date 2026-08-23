@@ -96,6 +96,17 @@ def main():
     with col1:
         st.subheader("🌾 Optimal Crop Suitability Prediction")
         st.write("Click **Run AI Prediction** in the sidebar to process parameters through the trained Random Forest Classifier model.")
+
+        # Warn user about unusual input values
+        warnings_list = []
+        if ph < 3.5 or ph > 10.0:
+            warnings_list.append(f"⚠️ Soil pH {ph} is outside the typical agricultural range (3.5–10.0).")
+        if temperature > 45.0:
+            warnings_list.append(f"⚠️ Temperature {temperature}°C is extremely high — verify your input.")
+        if rainfall > 450.0:
+            warnings_list.append(f"⚠️ Rainfall {rainfall} mm seems unusually high — verify your input.")
+        for w in warnings_list:
+            st.warning(w)
         
         inputs = np.array([[nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]])
         if st.sidebar.button("Run AI Prediction"):
