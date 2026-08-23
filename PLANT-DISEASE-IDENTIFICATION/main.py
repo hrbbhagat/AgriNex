@@ -63,6 +63,11 @@ def render_prediction_ui():
     st.title("🔬 Plant Disease Vision Diagnostic")
     st.caption("Deep Learning CNN with 38 disease categories — upload a clear leaf photo for accurate diagnosis")
 
+    with st.expander("🌿 Supported Crops & Diseases (38 categories)"):
+        crops = sorted(set(c.split("___")[0].replace("_", " ") for c in CLASS_NAMES))
+        for crop in crops:
+            st.write(f"• {crop}")
+
     input_method = st.radio(
         "Select image source:",
         ["Upload Photo", "Camera Capture"],
