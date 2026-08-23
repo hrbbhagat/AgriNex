@@ -109,6 +109,10 @@ def render_prediction_ui():
 
         disease_name = CLASS_NAMES[result_index].replace("___", " — ").replace("_", " ")
         st.success(f"**Diagnosis:** {disease_name}")
+        if "healthy" in CLASS_NAMES[result_index].lower():
+            st.success("✅ The plant appears **healthy**. No disease detected.")
+        else:
+            st.error("🚨 Disease detected. Consult an agronomist for treatment advice.")
         st.info(f"**Confidence:** {confidence * 100:.1f}%")
         st.progress(confidence)
         st.write("Identified using a TensorFlow CNN model trained on the PlantVillage dataset.")
