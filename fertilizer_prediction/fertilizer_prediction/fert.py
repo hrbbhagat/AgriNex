@@ -100,10 +100,13 @@ if submitted:
 
     processed_data = preprocessor.transform(input_data)
     prediction = model.predict(processed_data)[0]
-    st.success(f"Recommended fertilizer: {prediction}")
+    st.success(f"Recommended fertilizer: **{prediction}**")
     st.write(
         f"Targeted for {crop_type} on {soil_type} soil under humidity ({humidity}%) "
         f"with the provided NPK values."
     )
+    with st.expander("📘 About this fertilizer"):
+        st.write(f"**{prediction}** is recommended based on your soil and crop profile.")
+        st.write("Always follow the manufacturer's dosage guidelines and consult your local agronomist before application.")
     st.balloons()
 
