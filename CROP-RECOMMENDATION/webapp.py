@@ -131,6 +131,13 @@ def main():
         st.metric("Climate Temp / Humidity", f"{temperature}°C / {humidity}%")
         st.metric("Soil pH & Rainfall", f"{ph} pH / {rainfall} mm")
 
+        with st.expander("ℹ️ What do these parameters mean?"):
+            st.write("**N (Nitrogen):** Promotes leaf and stem growth.")
+            st.write("**P (Phosphorus):** Supports root development and flowering.")
+            st.write("**K (Potassium):** Improves disease resistance and fruit quality.")
+            st.write("**pH:** Soil acidity — most crops prefer 6.0–7.5.")
+            st.write("**Rainfall:** Annual precipitation in millimetres.")
+
 
 ## Running the main function
 if __name__ == '__main__':
