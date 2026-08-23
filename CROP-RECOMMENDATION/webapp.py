@@ -77,6 +77,7 @@ def main():
     st.image(img)
     
     st.sidebar.title("🌿 AgriNex AI")
+    st.sidebar.success(f"✅ Model Accuracy: {round(x * 100, 2)}%")
     st.sidebar.header("Enter Farm Soil & Climate Parameters")
     
     nitrogen = st.sidebar.number_input("Nitrogen (N ppm)", min_value=0.0, max_value=140.0, value=90.0, step=1.0)
