@@ -13,69 +13,6 @@ st.set_page_config(
     layout="centered"
 )
 
-# Custom Styling
-st.markdown("""
-<style>
-  .stApp {
-      background-color: #FAF9F5;
-      font-family: 'Inter', sans-serif;
-  }
-  .main-header {
-      background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
-      color: white;
-      padding: 2.5rem;
-      border-radius: 20px;
-      text-align: center;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 30px rgba(27, 67, 50, 0.15);
-  }
-  .main-header h1 {
-      color: #FFFFFF !important;
-      font-size: 2.4rem !important;
-      font-weight: 800 !important;
-      margin-bottom: 0.5rem !important;
-  }
-  .main-header p {
-      color: rgba(255,255,255,0.85) !important;
-      font-size: 1.05rem !important;
-  }
-  div[data-testid="stForm"] {
-      background: white;
-      border: 1px solid #E2E8F0;
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  }
-  .stButton > button {
-      background: #1B4332 !important;
-      color: white !important;
-      font-weight: 700 !important;
-      border-radius: 9999px !important;
-      padding: 0.6rem 2rem !important;
-      border: none !important;
-      width: 100% !important;
-      transition: all 0.3s ease !important;
-  }
-  .stButton > button:hover {
-      background: #2D6A4F !important;
-      box-shadow: 0 8px 25px rgba(27, 67, 50, 0.25) !important;
-  }
-  .res-card {
-      background: linear-gradient(135deg, #1B4332 0%, #0F2D20 100%);
-      color: white;
-      padding: 2rem;
-      border-radius: 20px;
-      text-align: center;
-      margin-top: 1.5rem;
-  }
-  .res-card h2 {
-      color: #D97706 !important;
-      font-size: 2.2rem !important;
-      margin-top: 0.5rem !important;
-  }
-</style>
-""", unsafe_allow_html=True)
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, 'data_core.csv')
 MODEL_PATH = os.path.join(BASE_DIR, 'fertilizer_model.pkl')
@@ -113,13 +50,8 @@ def load_or_train_model():
 
 model, preprocessor = load_or_train_model()
 
-# Header Container
-st.markdown("""
-<div class="main-header">
-    <h1>🧪 AgriNex AI Fertilizer Recommender</h1>
-    <p>Precision NPK soil nutrient analysis & optimal fertilizer dosage prediction engine</p>
-</div>
-""", unsafe_allow_html=True)
+st.title("🧪 AgriNex AI Fertilizer Recommender")
+st.caption("Precision NPK soil nutrient analysis and optimal fertilizer dosage prediction engine")
 
 with st.form("input_form"):
     st.subheader("🌡️ Environmental Conditions")
@@ -165,15 +97,10 @@ if submitted:
 
     processed_data = preprocessor.transform(input_data)
     prediction = model.predict(processed_data)[0]
-
-    st.markdown(f"""
-    <div class="res-card">
-        <span style="font-size:0.85rem;letter-spacing:1px;font-weight:700;color:#D97706;">OPTIMAL AI RECOMMENDATION</span>
-        <h2>{prediction}</h2>
-        <p style="margin-top:0.5rem;font-size:0.95rem;color:rgba(255,255,255,0.85);">
-            Targeted for {crop_type} on {soil_type} soil under current humidity ({humidity}%) and NPK values.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.success(f"Recommended fertilizer: {prediction}")
+    st.write(
+        f"Targeted for {crop_type} on {soil_type} soil under humidity ({humidity}%) "
+        f"with the provided NPK values."
+    )
     st.balloons()
 
