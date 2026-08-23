@@ -61,9 +61,13 @@ RF_Model_pkl=pickle.load(open('RF.pkl','rb'))
 
 ## Function to make predictions
 def predict_crop(nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall):
-    # # Making predictions using the model
-    prediction = RF_Model_pkl.predict(np.array([nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]).reshape(1, -1))
-    return prediction
+    input_arr = np.array([nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]).reshape(1, -1)
+    prediction = RF_Model_pkl.predict(input_arr)
+    # Top-3 crop probabilities
+    proba = RF_Model_pkl.predict_proba(input_arr)[0]
+    top3_idx = np.argsort(proba)[::-1][:3]
+    top3 = [(RF_Model_pkl.classes_[i], round(proba[i] * 100, 1)) for i in top3_idx]
+    return prediction, top3
 
 ## Streamlit code for the web app interface
 def main():  
@@ -98,13 +102,16 @@ def main():
             if not inputs.any() or np.isnan(inputs).any():
                 st.error("Please provide valid parameter values before running prediction.")
             else:
-                prediction = predict_crop(nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall)
+                prediction, top3 = predict_crop(nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall)
                 recommended_crop = str(prediction[0]).title()
                 st.success(f"Recommended optimal crop: {recommended_crop}")
                 st.write(
                     f"Best compatibility under Nitrogen ({nitrogen} ppm), "
                     f"Temperature ({temperature} C), and Rainfall ({rainfall} mm)."
                 )
+                st.subheader("🌿 Top 3 Crop Suggestions")
+                for rank, (crop, prob) in enumerate(top3, 1):
+                    st.write(f"{rank}. **{crop.title()}** — {prob}% match")
                 st.balloons()
 
     with col2:
