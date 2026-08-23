@@ -105,6 +105,7 @@ def render_prediction_ui():
         disease_name = CLASS_NAMES[result_index].replace("___", " — ").replace("_", " ")
         st.success(f"**Diagnosis:** {disease_name}")
         st.info(f"**Confidence:** {confidence * 100:.1f}%")
+        st.progress(confidence)
         st.write("Identified using a TensorFlow CNN model trained on the PlantVillage dataset.")
         st.balloons()
 
