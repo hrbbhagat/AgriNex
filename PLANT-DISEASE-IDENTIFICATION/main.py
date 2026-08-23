@@ -121,6 +121,7 @@ def render_prediction_ui():
 
 # Sidebar
 st.sidebar.title("🌿 AgriNex AI")
+st.sidebar.info("Upload a clear, well-lit photo of a single leaf for best results.")
 st.sidebar.selectbox("Select Mode", ["DISEASE RECOGNITION", "HOME"])
 
 # Main Execution
