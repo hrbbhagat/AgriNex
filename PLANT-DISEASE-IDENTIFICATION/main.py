@@ -1,3 +1,4 @@
+import io
 import streamlit as st
 import tensorflow as tf
 import numpy as np
@@ -24,7 +25,7 @@ CLASS_NAMES = [
     'Tomato___healthy'
 ]
 
-# Page Config
+# ── Page Config ────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="AgriNex AI - Plant Disease Scanner",
     page_icon="🔬",
@@ -34,26 +35,32 @@ st.set_page_config(
 
 @st.cache_resource
 def load_disease_model():
+    """Load the trained Keras model once and cache it for the session."""
     if not MODEL_PATH.exists():
         raise FileNotFoundError(f"Model file not found: {MODEL_PATH}")
-    return tf.keras.models.load_model(str(MODEL_PATH))
+    model = tf.keras.models.load_model(str(MODEL_PATH))
+    return model
 
 
-def predict_from_upload(uploaded_file):
-    """Run prediction strictly on uploaded images using the trained model."""
-    # Reset stream so repeated calls read the full image
-    if hasattr(uploaded_file, "seek"):
-        uploaded_file.seek(0)
+def predict_disease(image_bytes: bytes):
+    """
+    Run inference on raw image bytes using the saved trained model.
 
+    The bytes are decoded fresh each call via BytesIO, completely
+    avoiding any file-stream cursor / lazy-read issues.
+    """
     model = load_disease_model()
-    image = Image.open(uploaded_file).convert("RGB")
-    image_arr = np.array(image)
 
-    # Resize and normalise for the model
+    # Decode the raw bytes into a PIL image (no seek() workaround needed)
+    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    image_arr = np.array(image, dtype=np.float32)
+
+    # Resize to the input shape the model was trained on (128×128)
     resized = tf.image.resize(image_arr, [128, 128]).numpy().astype(np.float32) / 255.0
-    input_arr = np.expand_dims(resized, axis=0)
+    input_arr = np.expand_dims(resized, axis=0)   # shape: (1, 128, 128, 3)
 
-    predictions = model.predict(input_arr, verbose=0)[0]
+    # Run real model inference — no randomness, no guessing
+    predictions = model.predict(input_arr, verbose=0)[0]   # shape: (38,)
     result_index = int(np.argmax(predictions))
     confidence = float(np.max(predictions))
     return result_index, confidence
@@ -79,10 +86,10 @@ def render_prediction_ui():
     if input_method == "Camera Capture":
         st.camera_input("Take a leaf picture", key="camera_main")
         st.warning(
-            "⚠️ No clear image can be captured via live camera for reliable diagnosis. "
-            "Please switch to **Upload Photo** and upload a high-quality leaf image for an accurate prediction."
+            "⚠️ Camera capture is not supported for reliable diagnosis. "
+            "Please switch to **Upload Photo** and upload a high-quality leaf image."
         )
-        return  # Stop here — no model run for camera
+        return  # No model run for camera
 
     # ── Upload path ──────────────────────────────────────────────────────────
     uploaded_image = st.file_uploader(
@@ -90,16 +97,20 @@ def render_prediction_ui():
     )
 
     if uploaded_image is not None:
-        st.image(uploaded_image, caption="Uploaded Leaf Image", width=360)
+        # Read ALL bytes upfront once — safe to reuse below without stream issues
+        image_bytes = uploaded_image.read()
+        st.image(image_bytes, caption="Uploaded Leaf Image", width=360)
+    else:
+        image_bytes = None
 
     if st.button("🔬 Run AI Disease Diagnosis", key="predict_main"):
-        if uploaded_image is None:
+        if image_bytes is None:
             st.warning("Please upload a leaf image before running the diagnosis.")
             return
 
-        with st.spinner("Analysing leaf image…"):
+        with st.spinner("Analysing leaf image with trained CNN model…"):
             try:
-                result_index, confidence = predict_from_upload(uploaded_image)
+                result_index, confidence = predict_disease(image_bytes)
             except FileNotFoundError as e:
                 st.error(f"Model not found: {e}")
                 return
@@ -109,20 +120,22 @@ def render_prediction_ui():
 
         disease_name = CLASS_NAMES[result_index].replace("___", " — ").replace("_", " ")
         st.success(f"**Diagnosis:** {disease_name}")
+
         if "healthy" in CLASS_NAMES[result_index].lower():
             st.success("✅ The plant appears **healthy**. No disease detected.")
         else:
             st.error("🚨 Disease detected. Consult an agronomist for treatment advice.")
+
         st.info(f"**Confidence:** {confidence * 100:.1f}%")
         st.progress(confidence)
         st.write("Identified using a TensorFlow CNN model trained on the PlantVillage dataset.")
         st.balloons()
 
 
-# Sidebar
+# ── Sidebar ───────────────────────────────────────────────────────────────────
 st.sidebar.title("🌿 AgriNex AI")
 st.sidebar.info("Upload a clear, well-lit photo of a single leaf for best results.")
 st.sidebar.selectbox("Select Mode", ["DISEASE RECOGNITION", "HOME"])
 
-# Main Execution
+# ── Main Execution ────────────────────────────────────────────────────────────
 render_prediction_ui()
