@@ -101,7 +101,21 @@
 
   <!-- B. HERO SECTION -->
   <section id="hero" class="relative flex min-h-[92dvh] w-full flex-col justify-center bg-gradient-to-b from-[#F4F1EA] via-[#FAF9F5] to-[#FAF9F5] pt-32 pb-20 px-6 md:px-16">
-    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+    <!-- Background Video (very light, infinite loop) -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.10;pointer-events:none;z-index:0;"
+    >
+      <source src="bg.mp4" type="video/mp4" />
+    </video>
+    <!-- Gradient overlay to keep text legible -->
+    <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(244,241,234,0.55),rgba(250,249,245,0.75));pointer-events:none;"></div>
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
       
       <div class="lg:col-span-7">
         <div class="inline-flex items-center gap-2 rounded-full border border-[#2D6A4F]/20 bg-[#2D6A4F]/10 px-4 py-1.5 text-xs font-bold text-[#1B4332] mb-6">
