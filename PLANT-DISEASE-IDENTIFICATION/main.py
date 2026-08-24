@@ -55,9 +55,13 @@ def predict_disease(image_bytes: bytes):
     image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     image_arr = np.array(image, dtype=np.float32)
 
-    # Resize to the input shape the model was trained on (128×128)
-    resized = tf.image.resize(image_arr, [128, 128]).numpy().astype(np.float32) / 255.0
-    input_arr = np.expand_dims(resized, axis=0)   # shape: (1, 128, 128, 3)
+    # Resize to the input shape the model was trained on (128×128).
+    # NOTE: Do NOT divide by 255. The model was trained via image_dataset_from_directory
+    # which outputs raw float32 pixels in [0, 255] — no normalization layer is present
+    # in the model. Dividing by 255 would feed [0,1] values to a [0,255]-trained model
+    # and cause completely wrong predictions.
+    resized = tf.image.resize(image_arr, [128, 128]).numpy().astype(np.float32)
+    input_arr = np.expand_dims(resized, axis=0)   # shape: (1, 128, 128, 3) in [0, 255]
 
     # Run real model inference — no randomness, no guessing
     predictions = model.predict(input_arr, verbose=0)[0]   # shape: (38,)
