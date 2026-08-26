@@ -21,6 +21,34 @@ AgriNex trained machine learning models are deployed live on Streamlit Cloud:
 - 🧪 **Fertilizer Prediction AI**: [fertilizer-predictions.streamlit.app](https://fertilizer-predictions.streamlit.app/)
 - 🔬 **Plant Disease Identification**: [plant-diseases-identification.streamlit.app](https://plant-diseases-identification.streamlit.app/)
 
+## 🏗️ System Architecture & Workflow
+
+```mermaid
+graph TD
+    User([Farmer / Agricultural Worker]) --> WebApp[AgriSens Web Application]
+    
+    subgraph Frontend Layer
+        WebApp --> CropPage[Crop Recommendation UI]
+        WebApp --> FertPage[Fertilizer Advisor UI]
+        WebApp --> DiseasePage[Disease Detection UI]
+        WebApp --> Chatbot[AI Kisan Chatbot Widget]
+        WebApp --> Dashboard[Farm Dashboard & Mandi Ticker]
+    end
+    
+    subgraph ML & Intelligence Layer
+        CropPage --> |Soil & Climate Data| CropML[Random Forest Classifier]
+        FertPage --> |Soil Nutrient Analysis| FertML[Fertilizer XGB/RF Classifier]
+        DiseasePage --> |Leaf Image Upload| DiseaseCNN[TensorFlow 38-Class CNN Model]
+        Chatbot --> |Natural Language Query| KisanEngine[Knowledge Engine & Mandi Data API]
+    end
+
+    subgraph External Cloud Deployments
+        CropML --> StreamlitCloud[Streamlit Cloud Services]
+        FertML --> StreamlitCloud
+        DiseaseCNN --> StreamlitCloud
+    end
+```
+
 ## ✨ Features
 
 - **Embedded Streamlit ML Apps**: Real-time predictions directly integrated into tool pages (`crop-prediction.html`, `fertilizer.html`, `disease-detection.html`)
