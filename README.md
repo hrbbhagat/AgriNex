@@ -231,22 +231,33 @@ docker-compose up --build -d
 ### Crop Recommendation Model
 - **Algorithm**: Random Forest Classifier
 - **Features**: N, P, K (soil nutrients), Temperature, Humidity, pH, Rainfall
-- **Output Classes**: 22 different crops
-- **Accuracy**: ~99%
-- **Training Data**: 2,200+ samples
+- **Output Classes**: 22 different crops (Rice, Maize, Chickpea, Kidney Beans, Pigeon Peas, Moth Beans, Mung Bean, Black Gram, Lentil, Pomegranate, Banana, Mango, Grapes, Watermelon, Muskmelon, Apple, Orange, Papaya, Coconut, Cotton, Jute, Coffee)
+- **Accuracy**: ~99% cross-validation accuracy
+- **Training Data**: 2,200+ soil & climate sample observations
+
+#### 🧪 Input Parameter Specifications Table
+
+| Feature Parameter | Symbol | Measurement Unit | Typical Value Range | Description |
+| :--- | :---: | :---: | :---: | :--- |
+| **Nitrogen** | `N` | ratio / mg/kg | 0 - 140 | Soil ratio of Nitrogen content |
+| **Phosphorus** | `P` | ratio / mg/kg | 5 - 145 | Soil ratio of Phosphorus content |
+| **Potassium** | `K` | ratio / mg/kg | 5 - 205 | Soil ratio of Potassium content |
+| **Temperature** | `temp` | °C | 8.8 - 43.7 | Ambient atmospheric temperature |
+| **Humidity** | `humidity` | % | 14.3 - 99.9 | Relative air humidity percentage |
+| **pH Level** | `ph` | pH scale | 3.5 - 9.9 | Acidity / alkalinity index of soil |
+| **Rainfall** | `rainfall` | mm | 20.2 - 298.6 | Cumulative seasonal rainfall |
 
 ### Plant Disease Detection Model
-- **Framework**: TensorFlow/Keras
-- **Architecture**: Convolutional Neural Network (CNN)
-- **Input Size**: 128x128 RGB images
-- **Output Classes**: 38 plant disease classes
+- **Framework**: TensorFlow / Keras 2.x
+- **Architecture**: Convolutional Neural Network (CNN) with Softmax classification layer
+- **Input Dimensions**: 128x128 pixel RGB tensor
+- **Output Classes**: 38 distinct plant pathology classes
 - **Supported Crops**: Apple, Blueberry, Cherry, Corn, Grape, Orange, Peach, Pepper, Potato, Raspberry, Soybean, Squash, Strawberry, Tomato
 
 ### Fertilizer Prediction Model
-- **Algorithm**: Machine Learning Classifier
-- **Features**: Soil nutrients, pH, moisture, temperature
-- **Output**: Recommended fertilizer type and quantity
-- **Training Data**: Agricultural benchmark datasets
+- **Algorithm**: Machine Learning Classifier (Random Forest / XGBoost hybrid)
+- **Features**: Soil NPK baseline, soil type, crop type, humidity, temperature
+- **Output**: Optimized target fertilizer blend (e.g., Urea, DAP, 14-35-14, 28-28, 17-17-17, 20-20, 10-26-26) with calculated application rate
 
 ## 💻 Usage Examples
 
