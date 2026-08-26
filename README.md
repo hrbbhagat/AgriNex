@@ -363,17 +363,19 @@ For issues, questions, or suggestions:
 2. Check existing documentation
 3. Review dataset README files for data-specific questions
 
-## 🌱 Future Enhancements
+## 🌱 Future Enhancements & Strategic Roadmap
 
-- [ ] Weather API integration
-- [ ] Real-time market price prediction
-- [ ] Mobile application
-- [ ] Multi-language support
-- [ ] Cloud deployment
-- [ ] Advanced analytics dashboard
-- [ ] IoT sensor integration
-- [ ] Community feedback system
+- [x] **Multi-modal Web Dashboard Integration**: Unified interface for crop recommendation, disease detection, and fertilizer calculation.
+- [x] **Live Streamlit Cloud Deployment**: Microservices published live for testing and remote inference.
+- [ ] **Hyper-local Weather & Microclimate API**: Integrate OpenWeatherMap API for live rainfall and moisture forecast alerts.
+- [ ] **Real-time Commodity Price Forecasting**: Time-series predictive models for APMC market trends.
+- [ ] **Native Mobile Application (React Native)**: Offline-first mobile app for field operation with localized camera scan.
+- [ ] **Regional Language Localization**: Support for Hindi, Marathi, Punjabi, Tamil, Telugu, and Kannada.
+- [ ] **IoT Sensor Grid Integration**: Direct Bluetooth / LoRaWAN telemetry ingestion from soil NPK hardware probes.
 
 ---
 
-**Made with ❤️ for sustainable agriculture**
+<p align="center">
+  <b>AgriNex</b> • Empowering Sustainable Farming with Artificial Intelligence<br>
+  Developed with ❤️ for farmers, agronomists, and precision agriculture worldwide.
+</p>
