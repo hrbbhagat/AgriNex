@@ -64,15 +64,15 @@ graph TD
     end
 ```
 
-## ✨ Features
+## ✨ Features & Capabilities
 
-- **Embedded Streamlit ML Apps**: Real-time predictions directly integrated into tool pages (`crop-prediction.html`, `fertilizer.html`, `disease-detection.html`)
-- **Universal AI Kisan Chatbot**: Responsive floating AI assistant widget for crop, fertilizer, disease, and Mandi queries
-- **Crop Recommendation**: Intelligent crop suggestion based on soil nutrients (N, P, K), temperature, humidity, pH level, and rainfall
-- **Plant Disease Detection**: AI-powered identification of plant diseases using image recognition (supports 38+ disease classes)
-- **Fertilizer Prediction**: Automated fertilizer recommendations based on soil conditions and environmental factors
-- **Live Mandi Ticker & Govt Schemes**: Real-time wholesale APMC commodity rates and PM-KISAN subsidy guidance
-- **Comprehensive Farm Dashboard**: Telemetry meters, 7-day weather spraying advice, yield revenue calculator, and KVK directory
+- **Embedded Streamlit ML Apps**: Real-time interactive model predictions seamlessly embedded inside responsive web interfaces (`crop-prediction.html`, `fertilizer.html`, `disease-detection.html`).
+- **Universal AI Kisan Chatbot**: Multi-lingual floating conversational assistant tailored for localized agricultural advice, weather alerts, disease remedies, and APMC market prices.
+- **Precision Crop Recommendation Engine**: High-accuracy crop selection powered by Random Forest algorithms analyzing Nitrogen (N), Phosphorus (P), Potassium (K), temperature, relative humidity, pH, and annual rainfall.
+- **Computer Vision Plant Pathology**: Deep convolutional neural network (CNN) capable of identifying 38 distinct crop diseases across 14 plant species with leaf image uploaded via web interface.
+- **Soil-Specific Fertilizer Advisor**: Automated fertilizer dosage calculation matching crop requirements against current NPK depletion metrics to avoid over-fertilization.
+- **Live APMC Mandi Ticker & Government Schemes**: Real-time wholesale commodity price ticker and curated catalog of PM-KISAN, KCC, and state agricultural subsidies.
+- **Farm Management Telemetry Dashboard**: Complete farm monitoring hub with 7-day weather forecasting, spray-window advisory, yield revenue estimate tools, and direct Krishi Vigyan Kendra (KVK) contacts.
 
 ## 🛠️ Tech Stack
 
