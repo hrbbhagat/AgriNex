@@ -164,48 +164,67 @@ AgriNex/
 
 ### Prerequisites
 - Python 3.8+
-- Node.js 12+ (for frontend)
-- pip or conda for package management
+- Node.js 14+ (for frontend web apps)
+- Docker & Docker Compose (optional for containerized setup)
+- `pip` / `venv` or `conda` for environment isolation
 - Git
 
-### Installation
+### Quick Setup with Virtual Environment
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/AgriNex.git
+git clone https://github.com/SQUADRON-LEADER/AgriNex.git
 cd AgriNex
 ```
 
-#### 2. Setup Crop Recommendation Service
+#### 2. Environment Setup (Recommended)
+```bash
+# Create and activate virtual environment
+python -m venv venv
+
+# On Windows
+.\venv\Scripts\activate
+
+# On Linux/macOS
+source venv/bin/activate
+```
+
+#### 3. Setup & Run Crop Recommendation Microservice
 ```bash
 cd CROP-RECOMMENDATION
 pip install -r requirements.txt
 streamlit run webapp.py
 ```
-The app will be available at `http://localhost:8501`
+*Access interface at `http://localhost:8501`*
 
-#### 3. Setup Plant Disease Identification Service
+#### 4. Setup & Run Plant Disease Detection Microservice
 ```bash
 cd ../PLANT-DISEASE-IDENTIFICATION
 pip install -r requirements.txt
-streamlit run main.py
+streamlit run main.py --server.port 8502
 ```
-The app will be available at `http://localhost:8502`
+*Access interface at `http://localhost:8502`*
 
-#### 4. Setup Fertilizer Prediction Service
+#### 5. Setup & Run Fertilizer Advisor Microservice
 ```bash
 cd ../fertilizer_prediction/fertilizer_prediction
 pip install -r requirements.txt
 python fert.py
 ```
 
-#### 5. Setup React Frontend (Optional)
+#### 6. Launch AgriSens Integrated Web Portal
 ```bash
-cd ../CROP\ PREDICT/frontend
-npm install
-npm start
+cd ../AgriSens-web-app
+# Open index.html directly in browser or serve via npx http-server
+npx http-server -p 8080
 ```
-The frontend will be available at `http://localhost:3000`
+
+### 🐳 Containerized Deployment (Docker)
+
+```bash
+# Build and run containers via Docker Compose
+docker-compose up --build -d
+```
 
 ## 📊 Model Details
 
