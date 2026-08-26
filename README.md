@@ -5,13 +5,28 @@
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-F79A3E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg?style=for-the-badge)](https://github.com/)
 
 **AgriNex** is an end-to-end, multi-modal agricultural intelligence platform leveraging machine learning, deep neural networks, and interactive web tools to empower modern precision farming. The system brings predictive analytics directly to farmers and agricultural extension workers through intuitive dashboards and live deployed microservices.
 
 ## 🌾 Overview
 
-
 AgriNex combines cutting-edge AI/ML technologies with user-friendly web interfaces to help farmers make data-driven decisions about crop selection, disease management, and fertilizer optimization. The platform integrates multiple machine learning models trained on agricultural datasets to provide accurate and actionable insights.
+
+## 📌 Table of Contents
+
+- [Overview](#-overview)
+- [Deployed Live Streamlit Applications](#-deployed-live-streamlit-applications)
+- [System Architecture & Workflow](#-system-architecture--workflow)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Model Details](#-model-details)
+- [Usage Examples](#-usage-examples)
+- [Dataset Information](#-dataset-information)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ## 🚀 Deployed Live Streamlit Applications
 
