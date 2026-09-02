@@ -28,6 +28,7 @@ AgriNex combines cutting-edge AI/ML technologies with user-friendly web interfac
 - [Dataset Information](#-dataset-information)
 - [Contributing](#-contributing)
 - [License](#-license)
+  
 
 ## 🚀 Deployed Live Streamlit Applications
 
