@@ -9,6 +9,7 @@
 
 **AgriNex** is an end-to-end, multi-modal agricultural intelligence platform leveraging machine learning, deep neural networks, and interactive web tools to empower modern precision farming. The system brings predictive analytics directly to farmers and agricultural extension workers through intuitive dashboards and live deployed microservices.
 
+
 ## 🌾 Overview
 
 AgriNex combines cutting-edge AI/ML technologies with user-friendly web interfaces to help farmers make data-driven decisions about crop selection, disease management, and fertilizer optimization. The platform integrates multiple machine learning models trained on agricultural datasets to provide accurate and actionable insights.
