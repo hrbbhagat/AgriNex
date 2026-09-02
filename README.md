@@ -35,8 +35,7 @@ AgriNex trained machine learning models are deployed live on Streamlit Cloud:
 - 🧪 **Fertilizer Prediction AI**: [fertilizer-predictions.streamlit.app](https://fertilizer-predictions.streamlit.app/)
 - 🔬 **Plant Disease Identification**: [plant-diseases-identification.streamlit.app](https://plant-diseases-identification.streamlit.app/)
 
-## 🏗️ System Architecture & Workflow
-
+## 🏗️ System Architecture & Workflo
 ```mermaid
 graph TD
     User([Farmer / Agricultural Worker]) --> WebApp[AgriSens Web Application]
